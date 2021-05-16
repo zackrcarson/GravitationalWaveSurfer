@@ -1,0 +1,6 @@
+FederationHacker/Library
+FederationHacker/Temp
+
+*db.lock
+*UnityLockfile
+Build/Build/Build.data
