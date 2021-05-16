@@ -676,6 +676,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{89D0B9FE-49E6-026B-A1D4-A36C558416F5}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
       <Project>{4B211737-DE46-D63A-10DF-976C0467F65C}</Project>
       <Name>Unity.2D.Sprite.Editor</Name>
