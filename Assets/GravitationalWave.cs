@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravitationalWave : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] float amplitude = 10;
+    [SerializeField] float amplitude = 0.1f;
     [SerializeField] float mass1 = 2;
     [SerializeField] float mass2 = 3;
     [SerializeField] float coalescenceTime = 0f;
