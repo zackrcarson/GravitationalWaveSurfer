@@ -6,12 +6,9 @@ using System.Numerics;
 public class GravitationalWave : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] float A = 0.1f;
     [SerializeField] float mass1 = 2;
     [SerializeField] float mass2 = 3;
-    [SerializeField] float coalescenceTime = 0f;
-    [SerializeField] float coalescencePhase = 0f;
-    [SerializeField] float timeFactor = 1f;
+    [SerializeField] float phaseFactor = 0.01f;
 
     // Cached References
     const float solarMassToSeconds = 0.000005f;
@@ -25,14 +22,21 @@ public class GravitationalWave : MonoBehaviour
         GetChirpMass();
     }
 
-    // Update is called once per frame
-    void Update()
+    public float GetMaxAmplitude()
     {
-        time += Time.deltaTime * timeFactor;
+        GetChirpMass();
+
+        return Waveform(Time.deltaTime);
+    }
+
+    // Update is called once per frame
+    public float GetGravitationalWave()
+    {
+        time += Time.deltaTime;
 
         hOfT = Waveform(time);
 
-        Debug.Log(hOfT);
+        return hOfT;
     }
 
     private void GetChirpMass()
@@ -44,21 +48,21 @@ public class GravitationalWave : MonoBehaviour
 
     private float Waveform(float t)
     {
-        float waveform = A * Amplitude(t) * Mathf.Cos(Phase(t));
+        float waveform = Amplitude(t) * Mathf.Cos(phaseFactor * Phase(t));
 
         return waveform;
     }
 
     private float Phase(float t)
     {
-        Complex phase =  -2 * Complex.Pow( (1 / (5 * chirpMass)) * (coalescenceTime - t), (5.0 / 8.0)) + coalescencePhase;
+        Complex phase =  -2 * Complex.Pow( (1 / (5 * chirpMass)) * (t), (5.0 / 8.0));
 
         return (float)phase.Real;
     }
 
     private float Amplitude(float t)
     {
-        Complex amplitude = (1 / (8 * Mathf.PI * chirpMass)) * Complex.Pow((coalescenceTime - t) / (5 * chirpMass) , -(3.0 / 8.0));
+        Complex amplitude = (1 / (8 * Mathf.PI * chirpMass)) * Complex.Pow((t) / (5 * chirpMass) , -(3.0 / 8.0));
 
         return (float)amplitude.Real;
     }

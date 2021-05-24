@@ -25,10 +25,10 @@ public class CreateGridWindow : EditorWindow
     {
         GUILayout.Label("Grid Settings", EditorStyles.boldLabel);
         gridWidth = EditorGUILayout.IntField("Grid Width", gridWidth);
-        gridHeight = EditorGUILayout.IntField("Grid Height (even only)", gridHeight);
+        gridHeight = EditorGUILayout.IntField("Grid Height (odd only)", gridHeight);
         gridMarkerScale = EditorGUILayout.FloatField("Grid Marker Scale", gridMarkerScale);
 
-        if (gridHeight % 2 != 0)
+        if (gridHeight % 2 == 0)
         {
             gridHeight = gridHeight + 1;
         }
