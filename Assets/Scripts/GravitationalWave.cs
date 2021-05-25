@@ -6,19 +6,27 @@ using System.Numerics;
 public class GravitationalWave : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] float mass1 = 2;
-    [SerializeField] float mass2 = 3;
     [SerializeField] float phaseFactor = 0.01f;
 
     // Cached References
     const float solarMassToSeconds = 0.000005f;
+
+    float mass1 = 2;
+    float mass2 = 3;
+
     float chirpMass, totalMass, symMassRatio;
     float time = 0;
     float hOfT = 0;
 
+
     // Start is called before the first frame update
-    void Start()
+    public void StartNewWave(float m1, float m2)
     {
+        mass1 = m1;
+        mass2 = m2;
+
+        time = 0;
+
         GetChirpMass();
     }
 

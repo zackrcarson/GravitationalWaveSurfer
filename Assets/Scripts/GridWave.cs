@@ -20,6 +20,7 @@ public class GridWave : MonoBehaviour
     float hOfTDelta;
     Vector3 deviationVector;
     public List<Vector3> sliceState;
+    bool isWaving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -61,38 +62,77 @@ public class GridWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hOfTDelta = gravitationalWave.GetGravitationalWave();
-        deviationVector.y = hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
-
-        for (int k = sliceState.Count; k-- > 1;)
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            sliceState[k] = sliceState[k - 1];
-        }
-        sliceState[0] = deviationVector;
-
-        int i = 0;
-        foreach (List<Transform> slice in grid)
-        {
-            int j = 0;
-            foreach (Transform child in slice)
+            int i = 0;
+            foreach (List<Transform> slice in grid)
             {
-                if (j < halfWayMarker)
+                int j = 0;
+                foreach (Transform child in slice)
                 {
-                    child.position = gridOrigins[i][j] + sliceState[i];
-                }
-                else if (j > halfWayMarker)
-                {
-                    child.position = gridOrigins[i][j] - sliceState[i];
-                }
-                else
-                {
-                    child.position = gridOrigins[i][j];
+                    if (j < halfWayMarker)
+                    {
+                        child.position = gridOrigins[i][j];
+                    }
+                    else if (j > halfWayMarker)
+                    {
+                        child.position = gridOrigins[i][j];
+                    }
+                    else
+                    {
+                        child.position = gridOrigins[i][j];
+                    }
+
+                    j++;
                 }
 
-                j++;
+                i++;
             }
 
-            i++;
+
+            isWaving = !isWaving;
+
+            if (isWaving)
+            {
+                gravitationalWave.StartNewWave(2, 3);
+            }
+        }
+
+        if (isWaving)
+        {
+            hOfTDelta = gravitationalWave.GetGravitationalWave();
+            deviationVector.y = hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
+
+            for (int k = sliceState.Count; k-- > 1;)
+            {
+                sliceState[k] = sliceState[k - 1];
+            }
+            sliceState[0] = deviationVector;
+
+            int i = 0;
+            foreach (List<Transform> slice in grid)
+            {
+                int j = 0;
+                foreach (Transform child in slice)
+                {
+                    if (j < halfWayMarker)
+                    {
+                        child.position = gridOrigins[i][j] + sliceState[i];
+                    }
+                    else if (j > halfWayMarker)
+                    {
+                        child.position = gridOrigins[i][j] - sliceState[i];
+                    }
+                    else
+                    {
+                        child.position = gridOrigins[i][j];
+                    }
+
+                    j++;
+                }
+
+                i++;
+            }
         }
     }
 }

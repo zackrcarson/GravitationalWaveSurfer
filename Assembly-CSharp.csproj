@@ -58,6 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GravitationalWave.cs" />
     <Compile Include="Assets\Scripts\GridWave.cs" />
+    <Compile Include="Assets\Scripts\CreateGrid.cs" />
+    <Compile Include="Assets\Scripts\ParticleText.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
