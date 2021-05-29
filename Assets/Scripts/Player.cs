@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         float currentInputX = Input.GetAxis("Horizontal");
         float currentInputY = Input.GetAxis("Vertical");
-
+        Debug.Log(currentInputX);
         if (currentInputX != 0 || currentInputY != 0)
         {
             hasStartedControlling = true;
