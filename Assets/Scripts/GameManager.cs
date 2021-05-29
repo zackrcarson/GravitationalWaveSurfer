@@ -100,7 +100,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddParticle(string type)
+    public void AddParticles(List<string> types)
+    {
+        foreach (string type in types)
+        {
+            AddParticle(type);
+        }
+
+        ShowScore();
+    }
+
+    private void AddParticle(string type)
     {
         if (type == PROTON_NAME)
         {
@@ -118,7 +128,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Unknown particle (" + type + ") not added!");
         }
-
-        ShowScore();
     }
 }
