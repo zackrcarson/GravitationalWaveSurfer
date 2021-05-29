@@ -762,6 +762,8 @@ MonoBehaviour:
   playerSpeed: 3
   initialRandomTorque: 0.001
   initialRandomPush: 0.4
+  xBoundaryPadding: 0.1
+  yBoundaryPadding: 0.1
 --- !u!58 &5564408322420912231
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,9 +6,12 @@ public class Player : MonoBehaviour
     [SerializeField] float playerSpeed = 1f;
     [SerializeField] float initialRandomTorque = 0.001f;
     [SerializeField] float initialRandomPush = 0.4f;
+    [SerializeField] float xBoundaryPadding = 0.1f;
+    [SerializeField] float yBoundaryPadding = 0.1f;
 
     // Cached References
     Rigidbody2D rigidBody = null;
+    float xMin, xMax, yMin, yMax;
 
     bool canMove = true;
     bool isMoving = false;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        
+        SetupMoveBoundaries();
         
         RandomKick();
     }
@@ -46,7 +49,7 @@ public class Player : MonoBehaviour
     {
         float currentInputX = Input.GetAxis("Horizontal");
         float currentInputY = Input.GetAxis("Vertical");
-        Debug.Log(currentInputX);
+
         if (currentInputX != 0 || currentInputY != 0)
         {
             hasStartedControlling = true;
@@ -62,23 +65,45 @@ public class Player : MonoBehaviour
 
             isMoving = (Mathf.Abs(rigidBody.velocity.x) > Mathf.Epsilon) || (Mathf.Abs(rigidBody.velocity.y) > Mathf.Epsilon);
         }
+
+        ClampPosition();
     }
 
-    ///*private void OnTriggerEnter2D(Collider2D otherCollider)*/
-    //private void OnCollisionEnter2D(Collision2D otherCollider)
-    //{
-    //    Debug.Log(otherCollider);
+    private void ClampPosition()
+    {
+        if (transform.position.x > xMax)
+        {
+            Vector3 newPos = new Vector3(xMax, transform.position.y, transform.position.z);
+            transform.position = newPos;
+        }
 
-    //    // creates joint
-    //    FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();
+        if (transform.position.x < xMin)
+        {
+            Vector3 newPos = new Vector3(xMin, transform.position.y, transform.position.z);
+            transform.position = newPos;
+        }
 
-    //    // sets joint position to point of contact
-    //    joint.anchor = otherCollider.contacts[0].point;
+        if (transform.position.y > yMax)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, yMax, transform.position.z);
+            transform.position = newPos;
+        }
 
-    //    // conects the joint to the other object
-    //    joint.connectedBody = otherCollider.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody2D>();
+        if (transform.position.y < yMin)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, yMin, transform.position.z);
+            transform.position = newPos;
+        }
+    }
 
-    //    // Stops objects from continuing to collide and creating more joints
-    //    joint.enableCollision = false;
-    //}
+    private void SetupMoveBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + xBoundaryPadding;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - xBoundaryPadding;
+
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + yBoundaryPadding;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yBoundaryPadding;
+    }
 }
