@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     const string PROTON_NAME = "Proton";
     const string NEUTRON_NAME = "Neutron";
     const string ELECTRON_NAME = "Electron";
+    const string ANTI_PREFIX = "Anti-";
 
     private void Awake()
     {
@@ -123,6 +124,10 @@ public class GameManager : MonoBehaviour
         else if (type == ELECTRON_NAME)
         {
             numElectrons++;
+        }
+        else if (type.StartsWith(ANTI_PREFIX))
+        {
+            return;
         }
         else
         {
