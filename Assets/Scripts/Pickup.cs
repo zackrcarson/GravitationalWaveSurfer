@@ -20,7 +20,9 @@ public class Pickup : MonoBehaviour
     // State variables
     bool hasTouched = false;
     [SerializeField] public List<string> listOfParticles;
-    List<Pickup> listOfChildren = new List<Pickup>();
+    [SerializeField] public List<Pickup> listOfChildren = new List<Pickup>();
+    [SerializeField] public List<Pickup> listOfParents = new List<Pickup>();
+    [SerializeField] public List<string> antiNames = new List<string>();
 
     // Constants
     const string PROTON_NAME = "Proton";
@@ -28,6 +30,7 @@ public class Pickup : MonoBehaviour
     const string ELECTRON_NAME = "Electron";
     const string ANTI_PREFIX = "Anti-";
     const string PLAYER_NAME = "Player";
+    const string PARTICLE_PARENT = "Particle_Parent";
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class Pickup : MonoBehaviour
 
         StoreRigidBody();
 
-        //RandomKick();
+        RandomKick();
     }
 
     private void RandomKick()
@@ -53,43 +56,57 @@ public class Pickup : MonoBehaviour
         // If this particle hasn't been merged with the player yet. Else, do nothing.
         if (!hasTouched)
         {
-            // Collect list of children
-            GetAllChildren(gameObject, listOfChildren); // Do I need to look at parents too?
-
             bool foundAnti = false;
-            List<string> antiNames = new List<string>();
+            antiNames = new List<string>();
 
-            foreach (Pickup child in listOfChildren)
-            {
-                if (child.gameObject.tag.StartsWith(ANTI_PREFIX))
-                {
-                    foundAnti = true;
-                    antiNames.Add(child.gameObject.tag);
-                }
-            }
+            listOfChildren = new List<Pickup>();
+            listOfParents = new List<Pickup>();
 
-            Transform tempObject = gameObject.transform;
+            // Collect list of children in other object
+            GetAllChildren(gameObject, listOfChildren);
 
-            while (tempObject.parent != null)
-            {
-                if (tempObject.gameObject.tag.StartsWith(ANTI_PREFIX))
-                {
-                    foundAnti = true;
-                    antiNames.Add(tempObject.gameObject.tag);
-                }
+            // Collect list of parents in other object
+            GetAllParents(gameObject, listOfParents);
 
-                tempObject = tempObject.transform.parent;
-            }
-
-            if (tempObject.gameObject.tag.StartsWith(ANTI_PREFIX))
+            // Check if the other particle is anti
+            if (tag.StartsWith(ANTI_PREFIX))
             {
                 foundAnti = true;
-                antiNames.Add(tempObject.gameObject.tag);
+                antiNames.Add(tag);
             }
 
+            // Check if any of the children of the other particle is an anti
+            if (listOfChildren.Count > 0)
+            {
+                foreach (Pickup child in listOfChildren)
+                {
+                    if (child.gameObject.tag.StartsWith(ANTI_PREFIX))
+                    {
+                        foundAnti = true;
+                        antiNames.Add(child.gameObject.tag);
+                    }
+                }
+            }
+
+            // Check if any of the parents of the other particle is an anti
+            if (listOfParents.Count > 0)
+            {
+                foreach (Pickup parent in listOfParents)
+                {
+                    if (parent == null) { continue; }
+
+                    if (parent.gameObject.tag.StartsWith(ANTI_PREFIX))
+                    {
+                        foundAnti = true;
+                        antiNames.Add(parent.gameObject.tag);
+                    }
+                }
+            }
+
+            // Check if the other collider is Player. If any anti exists, destroy both. Else, merge them.
             if (otherCollider.gameObject.tag == PLAYER_NAME)
             {
-                if (foundAnti || tag.StartsWith(ANTI_PREFIX))
+                if (foundAnti)
                 {
                     DestroyParent(gameObject);
                     Destroy(FindObjectOfType<Player>().gameObject);
@@ -109,63 +126,31 @@ public class Pickup : MonoBehaviour
 
                     hasTouched = true;
                 }
+
+                return;
             }
-            else
+
+
+            // Check if we should destroy both particles if there is a matching anti/non-anti in either clump!
+            if (foundAnti && ShouldDestroy(otherCollider))
             {
-                if (foundAnti)
+                DestroyParent(gameObject);
+                DestroyParent(otherCollider.gameObject);
+
+                // TODO: Destroy particle effect 
+
+                return;
+            }
+            else    
+            {
+                if (rigidBody != null)
                 {
-                    Transform tobj = otherCollider.gameObject.transform;
-
-                    while (tobj.parent != null)
-                    {
-                        if (antiNames.Contains(ANTI_PREFIX + tobj.tag))
-                        {
-                            DestroyParent(gameObject);
-                            DestroyParent(otherCollider.gameObject);
-
-                            // TODO: Destroy particle effect
-                        }
-
-                        tobj = tobj.transform.parent;
-                    }
-                    if (antiNames.Contains(ANTI_PREFIX + tobj.tag))
-                    {
-                        DestroyParent(gameObject);
-                        DestroyParent(otherCollider.gameObject);
-
-                        // TODO: Destroy particle effect
-                    }
-
-                    List<Pickup> listOfOtherChildren = new List<Pickup>();
-                    GetAllChildren(gameObject, listOfOtherChildren);
-
-                    foreach (string nam in antiNames)
-                    {
-                        Debug.Log(nam);
-                    }
-                    foreach (Pickup child in listOfOtherChildren)
-                    {
-                        Debug.Log(ANTI_PREFIX + child.gameObject.tag);
-                        if (antiNames.Contains(ANTI_PREFIX + child.gameObject.tag))
-                        {
-                            DestroyParent(gameObject);
-                            DestroyParent(otherCollider.gameObject);
-
-                            // TODO: Destroy particle effect
-                        }
-                    }    
+                    StopRigidBody();
                 }
-                else if (otherCollider.gameObject.tag == PROTON_NAME || otherCollider.gameObject.tag == NEUTRON_NAME || otherCollider.gameObject.tag == ELECTRON_NAME || otherCollider.gameObject.tag == ANTI_PREFIX + ELECTRON_NAME || otherCollider.gameObject.tag == ANTI_PREFIX + PROTON_NAME || otherCollider.gameObject.tag == ANTI_PREFIX + NEUTRON_NAME)
-                {
-                    if (rigidBody != null)
-                    {
-                        StopRigidBody();
-                    }
 
-                    transform.parent = otherCollider.transform;
+                transform.parent = otherCollider.transform;
 
-                    StartCoroutine(FixChildStructure(otherCollider));
-                }
+                StartCoroutine(FixChildStructure(otherCollider));
             }
         }
     }
@@ -174,7 +159,7 @@ public class Pickup : MonoBehaviour
     {
         yield return null;
 
-        if (transform.parent.tag != "Untagged")
+        if (transform.parent.tag != PARTICLE_PARENT)
         {
             listOfParticles = new List<string>();
             Destroy(GetComponent<Rigidbody2D>());
@@ -252,9 +237,26 @@ public class Pickup : MonoBehaviour
         }
     }
 
+    private void GetAllParents(GameObject obj, List<Pickup> parentList)
+    {
+        GameObject tobj = obj;
+
+        while (tobj.transform.parent.tag != PARTICLE_PARENT)
+        {
+            tobj = tobj.transform.parent.gameObject;
+
+            if (tobj == null || tobj.tag == PARTICLE_PARENT)
+            {
+                break;
+            }
+
+            parentList.Add(tobj.GetComponent<Pickup>());
+        }
+    }
+
     private void DestroyParent(GameObject obj)
     {
-        if (obj.transform.parent == null)
+        if (obj.transform.parent.tag == PARTICLE_PARENT)
         {
             Destroy(obj);
         }
@@ -262,12 +264,53 @@ public class Pickup : MonoBehaviour
         {
             Transform tempObject = obj.transform;
 
-            while (tempObject.parent.tag != "Untagged")
+            while (tempObject.parent.tag != PARTICLE_PARENT)
             {
                 tempObject = tempObject.transform.parent;
             }
 
             Destroy(tempObject.gameObject);
         }
+    }
+
+    /// <summary>
+    /// Checks through the other clump of particles (parents, self, children) if there is a matching particle to the list of
+    /// anti-particles in my clump of particles. The opposite will of course be checked from the OTHER clump of particles pickup script.
+    /// </summary>
+    /// <param name="otherCollider"></param>
+    /// <returns></returns>
+    private bool ShouldDestroy(Collision2D otherCollider)
+    {
+        // Check if the list of antis in the other particle matches the base particle non-anti
+        if (antiNames.Contains(ANTI_PREFIX + tag))
+        {
+            return true;
+        }
+
+        // Check if the list of antis in the other particle matches the parent particles non-anti's
+        List<Pickup> listOfMyParents = new List<Pickup>();
+        GetAllParents(gameObject, listOfMyParents);
+        foreach (Pickup parent in listOfMyParents)
+        {
+            if (parent == null) { continue; }
+
+            if (antiNames.Contains(ANTI_PREFIX + parent.gameObject.tag))
+            {
+                return true;
+            }
+        }
+
+        // Check if the list of antis in the other particle matches the children particles non-anti's
+        List<Pickup> listOfMyChildren = new List<Pickup>();
+        GetAllChildren(gameObject, listOfMyChildren);
+        foreach (Pickup child in listOfMyChildren)
+        {
+            if (antiNames.Contains(ANTI_PREFIX + child.gameObject.tag))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -7,9 +7,10 @@ TagManager:
   - Electron
   - Proton
   - Neutron
-  - Positron
   - Anti-Proton
   - Anti-Neutron
+  - Anti-Electron
+  - Particle_Parent
   layers:
   - Default
   - TransparentFX

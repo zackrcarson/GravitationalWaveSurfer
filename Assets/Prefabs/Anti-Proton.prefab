@@ -139,6 +139,9 @@ MonoBehaviour:
   initialRandomTorque: 0.0005
   initialRandomPush: 0.1
   listOfParticles: []
+  listOfChildren: []
+  listOfParents: []
+  antiNames: []
 --- !u!1 &1194577118165304043
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,8 +169,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194577118165304043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.108, z: 0}
-  m_LocalScale: {x: 0.0244215, y: 0.0244215, z: 0.0244215}
+  m_LocalPosition: {x: 0, y: 0.207, z: 0}
+  m_LocalScale: {x: 0.046723213, y: 0.046723213, z: 0.046723213}
   m_Children: []
   m_Father: {fileID: 1194577117280456508}
   m_RootOrder: 1
