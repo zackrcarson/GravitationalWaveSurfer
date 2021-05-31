@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CreateGrid : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] int gridWidth = 100;
+    [SerializeField] public int gridWidth = 100;
     [SerializeField] int gridHeight = 50;
     [SerializeField] float gridMarkerScale = 0.01f;
 

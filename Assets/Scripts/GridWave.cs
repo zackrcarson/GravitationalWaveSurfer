@@ -20,7 +20,7 @@ public class GridWave : MonoBehaviour
     float hOfTDelta;
     Vector3 deviationVector;
     public List<Vector3> sliceState;
-    bool isWaving = false;
+    public bool isWaving = false;
 
     // Start is called before the first frame update
     void Start()

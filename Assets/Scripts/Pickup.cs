@@ -17,6 +17,8 @@ public class Pickup : MonoBehaviour
     CollisionDetectionMode2D rigidBodyCollisionDetectionMode;
     RigidbodyType2D rigidBodyBodyType;
 
+    WaveRider waveRider = null;
+
     // State variables
     bool hasTouched = false;
     [SerializeField] public List<string> listOfParticles;
@@ -34,6 +36,8 @@ public class Pickup : MonoBehaviour
 
     private void Start()
     {
+        waveRider = GetComponent<WaveRider>();
+
         listOfParticles = new List<string>();
         listOfParticles.Add(tag);
 
@@ -125,6 +129,7 @@ public class Pickup : MonoBehaviour
                     }
 
                     hasTouched = true;
+                    waveRider.doesRide = false;
                 }
 
                 return;
@@ -163,6 +168,7 @@ public class Pickup : MonoBehaviour
         {
             listOfParticles = new List<string>();
             Destroy(GetComponent<Rigidbody2D>());
+            waveRider.doesRide = false;
         }
         else
         {
@@ -241,10 +247,24 @@ public class Pickup : MonoBehaviour
     {
         GameObject tobj = obj;
 
-        while (tobj.transform.parent.tag != PARTICLE_PARENT)
+        if (obj != null && tobj.transform.parent != null)
         {
-            tobj = tobj.transform.parent.gameObject;
-            parentList.Add(tobj.GetComponent<Pickup>());
+            while (tobj.transform.parent.tag != PARTICLE_PARENT)
+            {
+                tobj = tobj.transform.parent.gameObject;
+
+                if (tobj == null)
+                {
+                    break;
+                }
+
+                parentList.Add(tobj.GetComponent<Pickup>());
+
+                if (tobj.transform.parent == null)
+                {
+                    break;
+                }
+            }
         }
     }
 

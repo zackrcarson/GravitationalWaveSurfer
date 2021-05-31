@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8774886708339014589}
   - component: {fileID: 4682353106660278028}
   - component: {fileID: 4682353106660278029}
+  - component: {fileID: -3508145816809229404}
   m_Layer: 0
   m_Name: Anti-Proton
   m_TagString: Anti-Proton
@@ -142,6 +143,21 @@ MonoBehaviour:
   listOfChildren: []
   listOfParents: []
   antiNames: []
+--- !u!114 &-3508145816809229404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194577117280456509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50ecab019fecd514e8df89d6a65728a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doesRide: 1
+  ridePercent: 0.1
+  bufferPercentage: 0
 --- !u!1 &1194577118165304043
 GameObject:
   m_ObjectHideFlags: 0
