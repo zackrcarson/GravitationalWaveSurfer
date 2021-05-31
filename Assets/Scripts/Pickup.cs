@@ -244,12 +244,6 @@ public class Pickup : MonoBehaviour
         while (tobj.transform.parent.tag != PARTICLE_PARENT)
         {
             tobj = tobj.transform.parent.gameObject;
-
-            if (tobj == null || tobj.tag == PARTICLE_PARENT)
-            {
-                break;
-            }
-
             parentList.Add(tobj.GetComponent<Pickup>());
         }
     }
