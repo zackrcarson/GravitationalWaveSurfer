@@ -10,6 +10,7 @@ public class GridWave : MonoBehaviour
     List<List<Transform>> grid = null;
     List<List<Vector3>> gridOrigins = null;
 
+    BlackHoleDisplay blackHoleDisplay = null;
     GravitationalWave gravitationalWave = null;
 
     int halfWayMarker = 0;
@@ -26,6 +27,8 @@ public class GridWave : MonoBehaviour
     void Start()
     {
         gravitationalWave = FindObjectOfType<GravitationalWave>();
+        blackHoleDisplay = FindObjectOfType<BlackHoleDisplay>();
+
         deviationVector = new Vector3();
         sliceState = new List<Vector3>();
 
@@ -64,37 +67,18 @@ public class GridWave : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            int i = 0;
-            foreach (List<Transform> slice in grid)
-            {
-                int j = 0;
-                foreach (Transform child in slice)
-                {
-                    if (j < halfWayMarker)
-                    {
-                        child.position = gridOrigins[i][j];
-                    }
-                    else if (j > halfWayMarker)
-                    {
-                        child.position = gridOrigins[i][j];
-                    }
-                    else
-                    {
-                        child.position = gridOrigins[i][j];
-                    }
+            ResetGridPositions();
 
-                    j++;
-                }
-
-                i++;
-            }
-
+            // Restrict m1<m2
+            float mass1 = 148.0f;
+            float mass2 = 15406788969.0f;
 
             isWaving = !isWaving;
+            blackHoleDisplay.DisplayBlackHoles(isWaving, mass1, mass2);
 
             if (isWaving)
             {
-                gravitationalWave.StartNewWave(2, 3);
+                gravitationalWave.StartNewWave(mass1, mass2);
             }
         }
 
@@ -133,6 +117,34 @@ public class GridWave : MonoBehaviour
 
                 i++;
             }
+        }
+    }
+
+    private void ResetGridPositions()
+    {
+        int i = 0;
+        foreach (List<Transform> slice in grid)
+        {
+            int j = 0;
+            foreach (Transform child in slice)
+            {
+                if (j < halfWayMarker)
+                {
+                    child.position = gridOrigins[i][j];
+                }
+                else if (j > halfWayMarker)
+                {
+                    child.position = gridOrigins[i][j];
+                }
+                else
+                {
+                    child.position = gridOrigins[i][j];
+                }
+
+                j++;
+            }
+
+            i++;
         }
     }
 }

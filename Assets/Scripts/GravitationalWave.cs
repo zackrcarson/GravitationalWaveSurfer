@@ -9,15 +9,15 @@ public class GravitationalWave : MonoBehaviour
     [SerializeField] float phaseFactor = 0.01f;
 
     // Cached References
-    const float solarMassToSeconds = 0.000005f;
-
-    float mass1 = 2;
-    float mass2 = 3;
+    float mass1 = 2.0f;
+    float mass2 = 3.0f;
 
     float chirpMass, totalMass, symMassRatio;
-    float time = 0;
-    float hOfT = 0;
+    float time = 0.0f;
+    float hOfT = 0.0f;
 
+    // constants
+    const float solarMassToSeconds = 0.000005f;
 
     // Start is called before the first frame update
     public void StartNewWave(float m1, float m2)
