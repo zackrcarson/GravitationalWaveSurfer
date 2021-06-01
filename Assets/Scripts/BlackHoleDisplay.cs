@@ -18,10 +18,10 @@ public class BlackHoleDisplay : MonoBehaviour
     [SerializeField] Text bh1SolarSymbol = null;
     [SerializeField] Text bh2SolarSymbol = null;
 
-    [SerializeField] float stellarMinMass = 3.8f;
-    [SerializeField] float stellarIntermediateMassBoundary = 100f;
-    [SerializeField] float intermediateSupermassiveMassBoundary = 100000.0f;
-    [SerializeField] float supermassiveMaxMass = 66000000000.0f;
+    [SerializeField] public float stellarMinMass = 3.8f;
+    [SerializeField] public float stellarIntermediateMassBoundary = 100f;
+    [SerializeField] public float intermediateSupermassiveMassBoundary = 100000.0f;
+    [SerializeField] public float supermassiveMaxMass = 66000000000.0f;
 
     // Constants
     const string STELLAR_NAME = "stellar";
