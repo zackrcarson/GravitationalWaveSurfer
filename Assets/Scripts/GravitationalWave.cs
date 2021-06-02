@@ -54,6 +54,7 @@ public class GravitationalWave : MonoBehaviour
         chirpMass = totalMass * Mathf.Pow(symMassRatio, (3/5)) * solarMassToSeconds;
     }
 
+    // Wolfram: plot( (0.1 * Re((1 / (8 * pi * 2.5e-5)) * ((t) / (5 * 2.5e-5)) ^(-(3.0 / 8.0))))^(7/6)  * cos(.02 * Re(-2 * ( (1 / (5 * 2.5e-5)) * ( t))^(5.0 / 8.0))) ), t=0...10
     private float Waveform(float t)
     {
         float waveform = Amplitude(t) * Mathf.Cos(phaseFactor * Phase(t));
@@ -70,7 +71,7 @@ public class GravitationalWave : MonoBehaviour
 
     private float Amplitude(float t)
     {
-        Complex amplitude = (1 / (8 * Mathf.PI * chirpMass)) * Complex.Pow((t) / (5 * chirpMass) , -(3.0 / 8.0));
+        Complex amplitude = Mathf.Sqrt(5.0f / 24.0f) * (1 / Mathf.Pow(Mathf.PI, 2.0f / 3.0f)) * Mathf.Pow(chirpMass, 5.0f / 6.0f) * Complex.Pow((1 / (8 * Mathf.PI * chirpMass)) * Complex.Pow((t) / (5 * chirpMass) , -(3.0 / 8.0)), (7.0 / 6.0));
 
         return (float)amplitude.Real;
     }

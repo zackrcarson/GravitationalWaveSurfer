@@ -18,10 +18,19 @@ public class BlackHoleDisplay : MonoBehaviour
     [SerializeField] Text bh1SolarSymbol = null;
     [SerializeField] Text bh2SolarSymbol = null;
 
+    [SerializeField] Text nameBBH = null;
+
     [SerializeField] public float stellarMinMass = 3.8f;
     [SerializeField] public float stellarIntermediateMassBoundary = 100f;
     [SerializeField] public float intermediateSupermassiveMassBoundary = 100000.0f;
     [SerializeField] public float supermassiveMaxMass = 66000000000.0f;
+
+    [SerializeField] string stellarBBH = "Stellar-mass binary black hole";
+    [SerializeField] string intermediateBBH = "Intermediate-mass binary black hole";
+    [SerializeField] string supermassiveBBH = "Supermassive binary black hole";
+    [SerializeField] string emriBBH = "Extreme-mass-ratio inspiral (EMRI)";
+    [SerializeField] string imriBBH = "Intermediate-mass-ratio inspiral (IMRI)";
+    [SerializeField] string smriBBH = "Stellar-mass-ratio inspiral (SMRI)";
 
     // Constants
     const string STELLAR_NAME = "stellar";
@@ -60,6 +69,8 @@ public class BlackHoleDisplay : MonoBehaviour
 
         bh1SolarSymbol.gameObject.SetActive(false);
         bh2SolarSymbol.gameObject.SetActive(false);
+
+        nameBBH.gameObject.SetActive(false);
     }
 
     private void ShowBlackHoleInformation(float mass1, float mass2)
@@ -74,11 +85,48 @@ public class BlackHoleDisplay : MonoBehaviour
         bh1Mass.text = ScientificNotation(mass1);
         bh2Mass.text = ScientificNotation(mass2);
 
+        nameBBH.text = GetBinaryType(bh1Type, bh2Type);
+
         bh1Mass.gameObject.SetActive(true);
         bh2Mass.gameObject.SetActive(true);
 
+        nameBBH.gameObject.SetActive(true);
+
         bh1SolarSymbol.gameObject.SetActive(true);
         bh2SolarSymbol.gameObject.SetActive(true);
+    }
+
+    private string GetBinaryType(string bh1Type, string bh2Type)
+    {
+        if (bh1Type == STELLAR_NAME && bh2Type == STELLAR_NAME)
+        {
+            return stellarBBH;
+        }
+        else if (bh1Type == INTERMEDIATE_NAME && bh2Type == INTERMEDIATE_NAME)
+        {
+            return intermediateBBH;
+        }
+        else if (bh1Type == SUPERMASSIVE_NAME && bh2Type == SUPERMASSIVE_NAME)
+        {
+            return supermassiveBBH;
+        }
+        else if (bh1Type == STELLAR_NAME && bh2Type == INTERMEDIATE_NAME || bh2Type == STELLAR_NAME && bh1Type == INTERMEDIATE_NAME)
+        {
+            return smriBBH;
+        }
+        else if (bh1Type == INTERMEDIATE_NAME && bh2Type == SUPERMASSIVE_NAME || bh2Type == INTERMEDIATE_NAME && bh1Type == SUPERMASSIVE_NAME)
+        {
+            return imriBBH;
+        }
+        else if (bh1Type == STELLAR_NAME && bh2Type == SUPERMASSIVE_NAME || bh2Type == STELLAR_NAME && bh1Type == SUPERMASSIVE_NAME)
+        {
+            return emriBBH;
+        }
+        else
+        {
+            Debug.LogError("Invalid binary type with " + bh1Type + " and " + bh2Type + ".");
+            return null;
+        }
     }
 
     private void DisplayBlackHoleImages(string bh1Type, string bh2Type)

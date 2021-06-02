@@ -5,6 +5,9 @@ public class GridWave : MonoBehaviour
 {
     // Config Parameters
     [SerializeField] bool manualControl = false;
+    [SerializeField] bool manualControlFixedMass = false;
+    [SerializeField] float manualControlFixedMass1 = 4.0f;
+    [SerializeField] float manualControlFixedMass2 = 5.0f;
     [SerializeField] float maxDeviation = 0.5f;
 
     [SerializeField] float randomWaveOffTimeMin = 1f;
@@ -85,7 +88,6 @@ public class GridWave : MonoBehaviour
 
         halfWayMarker = (int)(grid[0].Count / 2);
         halfVerticalGridSpace = (gridOrigins[0][1] - gridOrigins[0][0]).y * maxDeviation;
-        maxAmplitude = gravitationalWave.GetMaxAmplitude();
     }
 
     // Update is called once per frame
@@ -112,10 +114,18 @@ public class GridWave : MonoBehaviour
         {
             ResetGridPositions();
 
-            float[] masses = RandomlyGenerateMasses();
-            if (masses[1] == masses[0])
+            float[] masses;
+            if (!manualControlFixedMass)
             {
-                masses[1] = 1.05f * masses[0];
+                masses = RandomlyGenerateMasses();
+                if (masses[1] == masses[0])
+                {
+                    masses[1] = 1.05f * masses[0];
+                }
+            }
+            else
+            {
+                masses = new float[] { manualControlFixedMass1, manualControlFixedMass2 };
             }
 
             isWaving = !isWaving;
@@ -124,6 +134,7 @@ public class GridWave : MonoBehaviour
             if (isWaving)
             {
                 gravitationalWave.StartNewWave(masses[0], masses[1]);
+                maxAmplitude = gravitationalWave.GetMaxAmplitude();
             }
         }
     }
@@ -155,6 +166,7 @@ public class GridWave : MonoBehaviour
 
                 blackHoleDisplay.DisplayBlackHoles(true, masses[0], masses[1]);
                 gravitationalWave.StartNewWave(masses[0], masses[1]);
+                maxAmplitude = gravitationalWave.GetMaxAmplitude();
 
                 timer = Random.Range(randomWaveOnTimeMin, randomWaveOnTimeMax);
             }
