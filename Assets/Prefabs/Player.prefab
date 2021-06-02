@@ -701,7 +701,6 @@ GameObject:
   - component: {fileID: 6422042480595825322}
   - component: {fileID: 7527399149648571822}
   - component: {fileID: 7527399149648571809}
-  - component: {fileID: 5564408322420912231}
   - component: {fileID: 2579610067209671941}
   m_Layer: 0
   m_Name: Player
@@ -765,22 +764,6 @@ MonoBehaviour:
   initialRandomPush: 0.4
   xBoundaryPadding: 0.1
   yBoundaryPadding: 0.1
---- !u!58 &5564408322420912231
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6422042480595825323}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &2579610067209671941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doesRide: 1
-  ridePercent: 0.2
+  ridePercent: 0.04
   bufferPercentage: 0
 --- !u!1 &6422042481127848647
 GameObject:

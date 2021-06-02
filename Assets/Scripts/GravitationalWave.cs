@@ -7,6 +7,7 @@ public class GravitationalWave : MonoBehaviour
 {
     // Config Parameters
     [SerializeField] float phaseFactor = 0.01f;
+    [SerializeField] float coalescenceTime = 10f;
 
     // Cached References
     float mass1 = 2.0f;
@@ -34,7 +35,7 @@ public class GravitationalWave : MonoBehaviour
     {
         GetChirpMass();
 
-        return Waveform(Time.deltaTime);
+        return Waveform(coalescenceTime + Time.deltaTime);
     }
 
     // Update is called once per frame
@@ -57,9 +58,14 @@ public class GravitationalWave : MonoBehaviour
     // Wolfram: plot( (0.1 * Re((1 / (8 * pi * 2.5e-5)) * ((t) / (5 * 2.5e-5)) ^(-(3.0 / 8.0))))^(7/6)  * cos(.02 * Re(-2 * ( (1 / (5 * 2.5e-5)) * ( t))^(5.0 / 8.0))) ), t=0...10
     private float Waveform(float t)
     {
-        float waveform = Amplitude(t) * Mathf.Cos(phaseFactor * Phase(t));
+        float waveform = Amplitude(coalescenceTime - t) * Mathf.Cos(PhaseFactor() * Phase(coalescenceTime - t));
 
         return waveform;
+    }
+
+    private float PhaseFactor()
+    {
+        return phaseFactor * Mathf.Pow(chirpMass / 0.0000208932f , 4.66f / 8.0f);
     }
 
     private float Phase(float t)

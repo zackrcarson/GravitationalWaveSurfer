@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doesRide: 1
-  ridePercent: 0.1
+  ridePercent: 0.02
   bufferPercentage: 0
 --- !u!1 &1194577118165304043
 GameObject:

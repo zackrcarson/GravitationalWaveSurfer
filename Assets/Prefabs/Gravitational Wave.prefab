@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phaseFactor: 0.01
+  coalescenceTime: 10

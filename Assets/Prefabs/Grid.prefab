@@ -23626,12 +23626,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manualControl: 0
-  manualControlFixedMass: 1
+  manualControlFixedMass: 0
+  manualControlFixedMass1: 4.8
+  manualControlFixedMass2: 6.6e+10
   maxDeviation: 1
-  randomWaveOffTimeMin: 1
-  randomWaveOffTimeMax: 4
-  randomWaveOnTimeMin: 5
-  randomWaveOnTimeMax: 8
+  randomWaveOffTimeMin: 2
+  randomWaveOffTimeMax: 6
+  randomWaveOnTimeMin: 15
+  randomWaveOnTimeMax: 20
   stellarStellarProbability: 16.67
   intermediateIntermediateProbability: 16.67
   supermassiveSupermassiveProbability: 16.67

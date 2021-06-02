@@ -118,10 +118,10 @@ public class GridWave : MonoBehaviour
             if (!manualControlFixedMass)
             {
                 masses = RandomlyGenerateMasses();
-                if (masses[1] == masses[0])
+                /*if (masses[1] == masses[0])
                 {
                     masses[1] = 1.05f * masses[0];
-                }
+                }*/
             }
             else
             {
