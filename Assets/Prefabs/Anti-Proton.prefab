@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4682353106660278028}
   - component: {fileID: 4682353106660278029}
   - component: {fileID: -3508145816809229404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anti-Proton
   m_TagString: Anti-Proton
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 1194577118165304047}
   - component: {fileID: 1194577118165304040}
   - component: {fileID: 1194577118165304041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194577118582837861}
   - component: {fileID: 1194577118582837860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

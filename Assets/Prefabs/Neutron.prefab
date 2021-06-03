@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1710047441}
   - component: {fileID: 1710047440}
   - component: {fileID: 8250753686319116116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Neutron
   m_TagString: Neutron
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4136774406353909113}
   - component: {fileID: 4136774406353909118}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4136774406971352213}
   - component: {fileID: 4136774406971352212}
   - component: {fileID: 4136774406971352215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2373503583578165539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2373503583578165538}
+  - component: {fileID: 2373503583578165537}
+  m_Layer: 0
+  m_Name: Particle Spawner
+  m_TagString: Particle_Parent
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2373503583578165538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373503583578165539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2373503583578165537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373503583578165539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4037fe513b53c6a4a91305ab2731112c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  protonPrefab: {fileID: 4277081266088633053, guid: d20f938cf99fa114ab6dca64c0b9e354, type: 3}
+  neutronPrefab: {fileID: 4136774406198234608, guid: 769a453e77d9c5f4aafddc4bee775473, type: 3}
+  electronPrefab: {fileID: 372936774798733589, guid: 47d9b0e25c1657a4f884f6aa66b867d0, type: 3}
+  antiProtonPrefab: {fileID: 1194577117280456509, guid: d930b1967d1f5424fb00dd4f1bf23b6c, type: 3}
+  antiNeutronPrefab: {fileID: 3172846155888678754, guid: 9b4e533dafcd6dc4eb507a2aa70a120b, type: 3}
+  antiElectronPrefab: {fileID: 4957767434418659060, guid: 3ef957e2a5371e2419370d6d1fde8b6d, type: 3}
+  protonProbability: 20
+  neutronProbability: 20
+  electronProbability: 20
+  antiProtonProbability: 13.33
+  antiNeutronProbability: 13.33
+  randomSpawnTimeMin: 0.1
+  randomSpawnTimeMax: 3
+  playerBuffer: 1
+  boundaryBuffer: 0.1
+  doNotOverlap:
+    serializedVersion: 2
+    m_Bits: 128

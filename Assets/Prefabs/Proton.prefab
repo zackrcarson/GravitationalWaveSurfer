@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7724742191931822828}
   - component: {fileID: 7724742191931822829}
   - component: {fileID: -5554813148374726571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Proton
   m_TagString: Proton
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4277081266833047429}
   - component: {fileID: 4277081266833047428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 4277081267250573071}
   - component: {fileID: 4277081267250573064}
   - component: {fileID: 4277081267250573065}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

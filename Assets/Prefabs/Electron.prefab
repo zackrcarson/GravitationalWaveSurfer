@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372936774299609391}
   - component: {fileID: 372936774299609390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 372936774360662556}
   - component: {fileID: 372936774360662557}
   - component: {fileID: 372936774360662554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 205223076}
   - component: {fileID: 205223075}
   - component: {fileID: 3656068612139715640}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Electron
   m_TagString: Electron
   m_Icon: {fileID: 0}

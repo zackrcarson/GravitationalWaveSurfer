@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1540495657310591555}
   - component: {fileID: 1540495657310591554}
   - component: {fileID: -2272159833156757132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anti-Neutron
   m_TagString: Anti-Neutron
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3172846156066336747}
   - component: {fileID: 3172846156066336748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 3172846156256296455}
   - component: {fileID: 3172846156256296454}
   - component: {fileID: 3172846156256296453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
