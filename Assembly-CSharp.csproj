@@ -66,6 +66,8 @@
     <Compile Include="Assets\Scripts\WaveRider.cs" />
     <Compile Include="Assets\Scripts\SolarSymbol.cs" />
     <Compile Include="Assets\Scripts\BlackHoleDisplay.cs" />
+    <Compile Include="Assets\Scripts\ParticleSpawner.cs" />
+    <Compile Include="Assets\Scripts\ParticleShredder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
