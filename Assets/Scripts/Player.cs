@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
         RandomKick();
     }
 
+    public void AllowMovement(bool isAllowed)
+    {
+        canMove = isAllowed;
+    }
+
     private void RandomKick()
     {
         float randomRotation = initialRandomTorque * Random.Range(30f, 60f);

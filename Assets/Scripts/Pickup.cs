@@ -129,7 +129,7 @@ public class Pickup : MonoBehaviour
                     }
 
                     hasTouched = true;
-                    waveRider.doesRide = false;
+                    waveRider.canRide = false;
                 }
 
                 return;
@@ -168,7 +168,7 @@ public class Pickup : MonoBehaviour
         {
             listOfParticles = new List<string>();
             Destroy(GetComponent<Rigidbody2D>());
-            waveRider.doesRide = false;
+            waveRider.canRide = false;
         }
         else
         {

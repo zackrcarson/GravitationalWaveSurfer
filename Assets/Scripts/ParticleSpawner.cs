@@ -35,7 +35,7 @@ public class ParticleSpawner : MonoBehaviour
 
     // State Variables
     float timer = 0f;
-    bool isSpawning = true;
+    bool canSpawn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,7 @@ public class ParticleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isSpawning)
+        if (canSpawn)
         {
             timer -= Time.deltaTime;
 
@@ -63,12 +63,17 @@ public class ParticleSpawner : MonoBehaviour
         }
     }
 
+    public void AllowSpawning(bool isAllowed)
+    {
+        canSpawn = isAllowed;
+    }
+
     private void SpawnRandomParticle()
     {
         GameObject particlePrefab = PickSpawnParticle();
         Vector3 spawnPosition = PickSpawnPosition(particlePrefab);
 
-        if (!isSpawning)
+        if (!canSpawn)
         {
             return;
         }
@@ -113,7 +118,7 @@ public class ParticleSpawner : MonoBehaviour
 
         while (!IsValidSpawnLocation(particlePrefab, spawnPosition))
         {
-            if (!isSpawning)
+            if (!canSpawn)
             {
                 break;
             }
@@ -149,7 +154,7 @@ public class ParticleSpawner : MonoBehaviour
         validPosition = (overlapObjects.Length == 0);
 
         if (player == null) { player = FindObjectOfType<Player>(); }
-        if (player == null) { isSpawning = false; return false; }
+        if (player == null) { canSpawn = false; return false; }
 
         validPosition = (Vector3.Distance(position, player.transform.position) > playerBuffer);
 

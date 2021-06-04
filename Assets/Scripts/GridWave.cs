@@ -42,7 +42,10 @@ public class GridWave : MonoBehaviour
     float hOfTDelta;
     Vector3 deviationVector;
     public List<Vector3> sliceState;
+
     public bool isWaving = false;
+    public bool canWave = true;
+
     float timer = 0f;
 
     // Start is called before the first frame update
@@ -93,19 +96,27 @@ public class GridWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (manualControl)
+        if (canWave)
         {
-            ManualWaveControl();
+            if (manualControl)
+            {
+                ManualWaveControl();
+            }
+            else
+            {
+                OperateWaveTimer();
+            }
+
+            if (isWaving)
+            {
+                WaveGrid();
+            }
         }
-        else
-        {
-            OperateWaveTimer();
-        }
-        
-        if (isWaving)
-        {
-            WaveGrid();
-        }
+    }
+
+    public void AllowWaving(bool isAllowed)
+    {
+        canWave = isAllowed;
     }
 
     private void ManualWaveControl()

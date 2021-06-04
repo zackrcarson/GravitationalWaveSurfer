@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveRider : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] public bool doesRide = true;
+    [SerializeField] public bool canRide = true;
     [SerializeField] float ridePercent = 0.2f;
     [SerializeField] float bufferPercentage = 0.07f;
 
@@ -30,7 +30,7 @@ public class WaveRider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (doesRide)
+        if (canRide)
         {
             if (gridWave.isWaving)
             {
@@ -61,6 +61,11 @@ public class WaveRider : MonoBehaviour
                 }
             }    
         }
+    }
+
+    public void AllowRiding(bool isAllowed)
+    {
+        canRide = isAllowed;
     }
 
     private void SetupPlayAreaBoundaries()
