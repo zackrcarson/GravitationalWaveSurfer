@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     
     // Cached References
     Dictionary<int, string> elementsDict = null;
+    Dictionary<int, string> elementsFullDict = null;
 
     // Constants
     const string PROTON_NAME = "Proton";
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
     private void CollectElements()
     {
         elementsDict = new Dictionary<int, string>();
+        elementsFullDict = new Dictionary<int, string>();
 
         StreamReader strReader = new StreamReader(elementsData);
         bool endOfFile = false;
@@ -68,7 +70,8 @@ public class GameManager : MonoBehaviour
 
             string[] dataValues = dataString.Split(',');
 
-            elementsDict.Add(int.Parse(dataValues[0]), dataValues[1]);
+            elementsDict.Add(int.Parse(dataValues[0]), dataValues[2]);
+            elementsFullDict.Add(int.Parse(dataValues[0]), dataValues[1]);
         }
     }
 
@@ -133,5 +136,24 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Unknown particle (" + type + ") not added!");
         }
+    }
+
+    /// <summary>
+    /// Returns the final numbers of particles.
+    /// </summary>
+    /// <returns>Returns an int list in the order of numProtons, numNeutrons, numElectrons.</returns>
+    public int[] GetScore()
+    {
+        return new int[] { numProtons, numNeutrons, numElectrons };
+    }
+
+    /// <summary>
+    /// Returns the final element names.
+    /// </summary>
+    /// <param name="atomicNumber"></param>
+    /// <returns>Returns a string list in the order of shorthand element name, full element name.</returns>
+    public string[] GetElementName(int atomicNumber)
+    {
+        return new string[] { elementsDict[atomicNumber], elementsFullDict[atomicNumber] };
     }
 }

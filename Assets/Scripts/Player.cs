@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     // Cached References
     Rigidbody2D rigidBody = null;
+    GameOver gameOver = null;
     float xMin, xMax, yMin, yMax;
 
     bool canMove = true;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOver = FindObjectOfType<GameOver>();
         rigidBody = GetComponent<Rigidbody2D>();
         
         SetupMoveBoundaries();
@@ -110,5 +112,12 @@ public class Player : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + yBoundaryPadding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yBoundaryPadding;
+    }
+
+    public void KillPlayer(string victimName)
+    {
+        gameOver.StartGameOver(victimName);
+        Destroy(gameObject);
+        // TODO: Player Destroy Effect
     }
 }

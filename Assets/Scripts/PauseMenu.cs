@@ -167,7 +167,11 @@ public class PauseMenu : MonoBehaviour
                     // TODO: Go to main menu
                     break;
                 case RESTART_GAME:
-                    // TODO: Restart game
+                    AudioListener.pause = false;
+                    Time.timeScale = 1;
+
+                    SceneLoader.ReloadCurrentScene();
+
                     break;
                 default:
                     Debug.LogError("Unknown quit option " + confirmationType);
@@ -178,5 +182,10 @@ public class PauseMenu : MonoBehaviour
         {
             Debug.LogError("Pause menu is not activated.");
         }
+    }
+
+    public void CanPause(bool isAllowed)
+    {
+        canPause = isAllowed;
     }
 }

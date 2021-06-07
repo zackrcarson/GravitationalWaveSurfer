@@ -113,9 +113,10 @@ public class Pickup : MonoBehaviour
                 if (foundAnti)
                 {
                     DestroyParent(gameObject);
-                    Destroy(FindObjectOfType<Player>().gameObject);
 
-                    // TODO: Player Destroy Effect
+                    string victimName = antiNames[0].Replace(ANTI_PREFIX, "");
+
+                    FindObjectOfType<Player>().KillPlayer(victimName);
                 }
                 else
                 {

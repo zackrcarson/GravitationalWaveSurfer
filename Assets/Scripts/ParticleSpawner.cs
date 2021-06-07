@@ -50,6 +50,7 @@ public class ParticleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(canSpawn);
         if (canSpawn)
         {
             timer -= Time.deltaTime;
@@ -154,9 +155,11 @@ public class ParticleSpawner : MonoBehaviour
         validPosition = (overlapObjects.Length == 0);
 
         if (player == null) { player = FindObjectOfType<Player>(); }
-        if (player == null) { canSpawn = false; return false; }
 
-        validPosition = (Vector3.Distance(position, player.transform.position) > playerBuffer);
+        if (player != null) 
+        {
+            validPosition = (Vector3.Distance(position, player.transform.position) > playerBuffer);
+        }
 
         return validPosition;
     }
