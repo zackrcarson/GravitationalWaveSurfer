@@ -208,4 +208,9 @@ public class GameOver : MonoBehaviour
     {
         SceneLoader.ReloadCurrentScene();
     }
+
+    public void QuitGame()
+    {
+        SceneLoader.LoadMainMenu();
+    }
 }

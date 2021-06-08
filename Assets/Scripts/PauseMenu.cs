@@ -164,7 +164,11 @@ public class PauseMenu : MonoBehaviour
             switch (confirmationType)
             {
                 case QUIT_GAME:
-                    // TODO: Go to main menu
+                    AudioListener.pause = false;
+                    Time.timeScale = 1;
+
+                    SceneLoader.LoadMainMenu();
+
                     break;
                 case RESTART_GAME:
                     AudioListener.pause = false;

@@ -10,4 +10,16 @@ public class SceneLoader : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene(); 
         SceneManager.LoadScene(scene.name);
     }
+
+    public static void LoadMainMenu()
+    {
+        Destroy(GameManager.instance.gameObject);
+
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public static void LoadGame()
+    {
+        SceneManager.LoadScene("Main Scene");
+    }
 }
