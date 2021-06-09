@@ -21,6 +21,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject finalForm = null;
     [SerializeField] GameObject pauseButton = null;
     [SerializeField] GameObject blackHoleInformation = null;
+    [SerializeField] GameObject goalBox = null;
 
     // Cached References
     Player player = null;
@@ -51,6 +52,7 @@ public class GameOver : MonoBehaviour
         finalForm.SetActive(false);
         pauseButton.SetActive(false);
         blackHoleInformation.SetActive(false);
+        goalBox.SetActive(false);
 
         int[] particles = GameManager.instance.GetScore();
         string[] elements = GameManager.instance.GetElementName(particles[0]);

@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     // Cached References
     Dictionary<int, string> elementsDict = null;
     Dictionary<int, string> elementsFullDict = null;
+    Goals goals = null;
+    int[] currentParticles = null;
 
     // Constants
     const string PROTON_NAME = "Proton";
@@ -45,6 +47,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        currentParticles = new int[] { numProtons, numNeutrons, numElectrons };
+        goals = GetComponent<Goals>();
+
         CollectElements();
 
         ShowScore();
@@ -109,6 +114,8 @@ public class GameManager : MonoBehaviour
         foreach (string type in types)
         {
             AddParticle(type);
+
+            goals.CheckGoal(currentParticles);
         }
 
         ShowScore();
@@ -136,6 +143,10 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Unknown particle (" + type + ") not added!");
         }
+
+        currentParticles[0] = numProtons;
+        currentParticles[1] = numNeutrons;
+        currentParticles[2] = numElectrons;
     }
 
     /// <summary>
