@@ -12,6 +12,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] Text AtomicNumberText = null;
     [SerializeField] Text IonicNumberText = null;
 
+    [SerializeField] Text subHeaderText = null;
     [SerializeField] Text atomicDescriptionText = null;
     [SerializeField] Text annihilationDescriptionText = null;
 
@@ -29,6 +30,7 @@ public class GameOver : MonoBehaviour
     ParticleSpawner particleSpawner = null;
 
     // Constants
+    const string INSTABILITY_NAME = "instability";
     const string ELECTRON_NAME = "electron";
     const string POSITRON_NAME = "positron";
     const string ANTI_PREFIX = "anti-";
@@ -64,6 +66,67 @@ public class GameOver : MonoBehaviour
 
     private void ShowResults(int numProtons, int numNeutrons, int numElectrons, string elementShorthand, string elementName, string annihilatedParticle)
     {
+        if (annihilatedParticle == INSTABILITY_NAME)
+        {
+            subHeaderText.text = "Your atom became unstable and decayed to nothing!";
+
+            int surplusNeutrons = numNeutrons - numProtons;
+            int surplusElectrons = numElectrons - numProtons;
+            string singularNeutrons = "";
+            string singularElectrons = "";
+            string gainLoseWordNeutrons = "accumulated ";
+            string gainLoseWordElectrons = "accumulated ";
+
+            if (Mathf.Abs(surplusNeutrons) > 1)
+            {
+                singularNeutrons = "s";
+            }
+            if (Mathf.Abs(surplusElectrons) > 1)
+            {
+                singularElectrons = "s";
+            }
+
+            if (surplusNeutrons < 0)
+            {
+                gainLoseWordNeutrons = "lost ";
+            }
+            if (surplusElectrons < 0)
+            {
+                gainLoseWordElectrons = "lost ";
+            }
+
+            if (gainLoseWordNeutrons == gainLoseWordElectrons && surplusNeutrons != 0)
+            {
+                gainLoseWordElectrons = "";
+            }
+
+            if (surplusNeutrons != 0 && surplusElectrons != 0)
+            {
+                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + " and " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
+            }
+            else if (surplusNeutrons != 0 && surplusElectrons == 0)
+            {
+                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + "!";
+            }
+            else if (surplusNeutrons == 0 && surplusElectrons != 0)
+            {
+                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
+            }
+        }
+        else
+        {
+            subHeaderText.text = "You were annihilated riding the gravitational waves!";
+
+            if (annihilatedParticle == ELECTRON_NAME)
+            {
+                annihilationDescriptionText.text = "Your atom was annihilated when one of your " + ELECTRON_NAME.ToLower() + "s collided with a " + POSITRON_NAME.ToLower() + ".";
+            }
+            else
+            {
+                annihilationDescriptionText.text = "Your atom was annihilated when one of your " + annihilatedParticle.ToLower() + "s collided with an " + ANTI_PREFIX.ToLower() + annihilatedParticle.ToLower() + ".";
+            }
+        }
+
         elementText.text = elementShorthand;
         massNumberText.text = (numProtons + numNeutrons).ToString();
         AtomicNumberText.text = numProtons.ToString();
@@ -169,16 +232,6 @@ public class GameOver : MonoBehaviour
         else
         {
             atomicDescriptionText.text = "That is, you created a perfectly balanced " + elementName + " atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
-        }
-
-
-        if (annihilatedParticle == ELECTRON_NAME)
-        {
-            annihilationDescriptionText.text = "Your atom was annihilated when one of your " + ELECTRON_NAME.ToLower() + "s collided with a " + POSITRON_NAME.ToLower() + ".";
-        }
-        else
-        {
-            annihilationDescriptionText.text = "Your atom was annihilated when one of your " + annihilatedParticle.ToLower() + "s collided with an " + ANTI_PREFIX.ToLower() + annihilatedParticle.ToLower() + ".";
         }
     }
 

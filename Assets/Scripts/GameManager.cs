@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     Dictionary<int, string> elementsDict = null;
     Dictionary<int, string> elementsFullDict = null;
     Goals goals = null;
+    Stability stability = null;
     int[] currentParticles = null;
 
     // Constants
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         currentParticles = new int[] { numProtons, numNeutrons, numElectrons };
+
+        stability = GetComponent<Stability>();
         goals = GetComponent<Goals>();
 
         CollectElements();
@@ -117,6 +120,8 @@ public class GameManager : MonoBehaviour
 
             goals.CheckGoal(currentParticles);
         }
+
+        stability.updateStability(currentParticles);
 
         ShowScore();
     }

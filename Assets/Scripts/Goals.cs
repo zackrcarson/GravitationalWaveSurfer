@@ -4,10 +4,10 @@ using UnityEngine;
 public class Goals : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] int nextGoalDistanceMin = 5;
-    [SerializeField] int nextGoalDistanceMax = 15;
-    [SerializeField] int extraNeutronsMax = 4;
-    [SerializeField] int extraElectronsMax = 4;
+    [SerializeField] int nextGoalDistanceMin = 3;
+    [SerializeField] int nextGoalDistanceMax = 7;
+    [SerializeField] int extraNeutronsMax = 3;
+    [SerializeField] int extraElectronsMax = 3;
 
     [SerializeField] Text elementText = null;
     [SerializeField] Text massNumberText = null;
