@@ -5,7 +5,7 @@ public class Stability : MonoBehaviour
 {
     // Config Parameters
     [SerializeField] Slider stabilityBar = null;
-    [SerializeField] int surplusAmountToInstability = 8;
+    [SerializeField] int[] surplusAmountToInstabilities = { 15, 11, 8, 6 };
 
     // State variables
     float instability = 0;
@@ -13,6 +13,7 @@ public class Stability : MonoBehaviour
     // Cached References
     Player player = null;
     float maxBarValue = 100f;
+    int surplusAmountToInstability = 8; 
 
     // Constants
     const string INSTABILITY_NAME = "instability";
@@ -20,6 +21,11 @@ public class Stability : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int difficulty = GetComponent<GameManager>().difficulty;
+        surplusAmountToInstability = surplusAmountToInstabilities[difficulty];
+
+        Debug.Log(("stability", difficulty, surplusAmountToInstability));
+
         player = FindObjectOfType<Player>();
 
         stabilityBar.value = instability;
@@ -38,7 +44,7 @@ public class Stability : MonoBehaviour
 
         if (instability >= maxBarValue)
         {
-            player.KillPlayer("instability");
+            player.KillPlayer(INSTABILITY_NAME);
         }
     }
 }

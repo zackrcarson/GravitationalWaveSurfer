@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleSpawner : MonoBehaviour
@@ -13,12 +11,12 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] GameObject antiNeutronPrefab = null;
     [SerializeField] GameObject antiElectronPrefab = null;
 
-    [Header("Paticle Probability Distribution")]
-    [SerializeField] float protonProbability = 20f;
-    [SerializeField] float neutronProbability = 20f;
-    [SerializeField] float electronProbability = 20f;
-    [SerializeField] float antiProtonProbability = 13.33f;
-    [SerializeField] float antiNeutronProbability = 13.33f;
+    [Header("Paticle Probability Distributions")]
+    [SerializeField] float[] protonProbabilities = { 33.33f, 26.33f, 20f, 16.66f };
+    [SerializeField] float[] neutronProbabilities = { 33.33f, 26.33f, 20f, 16.66f };
+    [SerializeField] float[] electronProbabilities = { 33.34f, 26.33f, 20f, 16.66f };
+    [SerializeField] float[] antiProtonProbabilities = { 0f, 7f, 13.33f, 16.66f };
+    [SerializeField] float[] antiNeutronProbabilities = { 0f, 7f, 13.33f, 16.66f };
 
     [Header("Spawn Settings")]
     [SerializeField] float randomSpawnTimeMin = .1f;
@@ -33,6 +31,12 @@ public class ParticleSpawner : MonoBehaviour
     float xMin, xMax, yMin, yMax;
     Player player = null;
 
+    float protonProbability = 20f;
+    float neutronProbability = 20f;
+    float electronProbability = 20f;
+    float antiProtonProbability = 13.33f;
+    float antiNeutronProbability = 13.33f;
+
     // State Variables
     float timer = 0f;
     bool canSpawn = true;
@@ -40,6 +44,15 @@ public class ParticleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int difficulty = GetComponent<GameManager>().difficulty;
+        protonProbability = protonProbabilities[difficulty];
+        neutronProbability = neutronProbabilities[difficulty];
+        electronProbability = electronProbabilities[difficulty];
+        antiProtonProbability = antiProtonProbabilities[difficulty];
+        antiNeutronProbability = antiNeutronProbabilities[difficulty];
+
+        Debug.Log(("particle", difficulty, protonProbability, neutronProbability, electronProbability, antiProtonProbability, antiNeutronProbability));
+
         player = FindObjectOfType<Player>();
 
         SetupMoveBoundaries();

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    // State Variables
+    // Config Paramters
     [Header("Initial Numbers")]
     [SerializeField] int numProtons = 1;
     [SerializeField] int numNeutrons = 1;
@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] string elementsData = "Assets/Data/elements.csv";
-    
+
+    // State Variables
+    public int difficulty = 2;
+
     // Cached References
     Dictionary<int, string> elementsDict = null;
     Dictionary<int, string> elementsFullDict = null;
@@ -48,6 +51,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (FindObjectOfType<DifficultyHolder>())
+        {
+            difficulty = FindObjectOfType<DifficultyHolder>().difficulty;
+            Destroy(FindObjectOfType<DifficultyHolder>().gameObject);
+        }
+
         currentParticles = new int[] { numProtons, numNeutrons, numElectrons };
 
         stability = GetComponent<Stability>();

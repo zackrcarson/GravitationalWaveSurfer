@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 4957767434418659060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.507, y: -2.431, z: 0}
-  m_LocalScale: {x: 0.078837685, y: 0.078837685, z: 0.078837685}
+  m_LocalScale: {x: 0.09, y: 0.09, z: 0.09}
   m_Children:
   - {fileID: 4957767433852421838}
   - {fileID: 4957767433780358650}
@@ -345,6 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ecab019fecd514e8df89d6a65728a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doesRide: 1
+  canRide: 1
   ridePercent: 0.02
   bufferPercentage: 0

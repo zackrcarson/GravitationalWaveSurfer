@@ -14,14 +14,23 @@ public class Goals : MonoBehaviour
     [SerializeField] Text AtomicNumberText = null;
     [SerializeField] Text IonicNumberText = null;
 
+    [SerializeField] int storyGoalProtons = 118;
+
     // State Variables
     int nextGoalProtons = 0;
     int nextGoalNeutrons = 0;
     int nextGoalElectrons = 0;
 
+    // Cached Referencess
+    int difficulty = 2;
+
     // Start is called before the first frame update
     void Start()
     {
+        difficulty = GetComponent<GameManager>().difficulty;
+
+        Debug.Log(("goal", difficulty));
+
         PickNextGoal(GameManager.instance.GetScore()[0]);
 
         ShowGoal();
@@ -30,8 +39,28 @@ public class Goals : MonoBehaviour
     private void PickNextGoal(int currentProtons)
     {
         nextGoalProtons = currentProtons + Random.Range(nextGoalDistanceMin, nextGoalDistanceMax);
-        nextGoalNeutrons = nextGoalProtons + Random.Range(-extraNeutronsMax, extraNeutronsMax);
-        nextGoalElectrons = nextGoalProtons + Random.Range(-extraElectronsMax, extraElectronsMax);
+
+        if (difficulty == 3)
+        {
+            nextGoalNeutrons = nextGoalProtons + Random.Range(-extraNeutronsMax, extraNeutronsMax);
+            nextGoalElectrons = nextGoalProtons + Random.Range(-extraElectronsMax, extraElectronsMax);
+        }
+        else if (difficulty == 2)
+        {
+            nextGoalNeutrons = nextGoalProtons + Random.Range(-extraNeutronsMax, extraNeutronsMax);
+            nextGoalElectrons = nextGoalProtons;
+        }
+        else if (difficulty == 1)
+        {
+            nextGoalNeutrons = nextGoalProtons;
+            nextGoalElectrons = nextGoalProtons;
+        }
+        else if (difficulty == 0)
+        {
+            nextGoalProtons = storyGoalProtons;
+            nextGoalNeutrons = nextGoalProtons;
+            nextGoalElectrons = nextGoalProtons;
+        }
 
         if (nextGoalNeutrons < 1)
         {
@@ -46,7 +75,6 @@ public class Goals : MonoBehaviour
 
     private void ShowGoal()
     {
-        // TODO: Switch on difficulty
         elementText.text = GameManager.instance.GetElementName(nextGoalProtons)[0];
 
         massNumberText.text = (nextGoalProtons + nextGoalNeutrons).ToString();
@@ -73,7 +101,6 @@ public class Goals : MonoBehaviour
 
     public void CheckGoal(int[] newParticles)
     {
-        // TODO: Switch on difficulty
         if (newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons && newParticles[2] == nextGoalElectrons)
         {
             PickNextGoal(newParticles[0]);

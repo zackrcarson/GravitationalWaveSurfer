@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
     <Compile Include="Assets\Scripts\Goals.cs" />
     <Compile Include="Assets\Scripts\Stability.cs" />
+    <Compile Include="Assets\Scripts\DifficultyHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
