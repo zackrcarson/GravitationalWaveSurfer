@@ -40,39 +40,42 @@ public class ParticleSpawner : MonoBehaviour
     // State Variables
     float timer = 0f;
     bool canSpawn = true;
+    bool hasStarted = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void ExternalStart()
     {
-        int difficulty = GetComponent<GameManager>().difficulty;
+        int difficulty = FindObjectOfType<GameManager>().difficulty;
         protonProbability = protonProbabilities[difficulty];
         neutronProbability = neutronProbabilities[difficulty];
         electronProbability = electronProbabilities[difficulty];
         antiProtonProbability = antiProtonProbabilities[difficulty];
         antiNeutronProbability = antiNeutronProbabilities[difficulty];
 
-        Debug.Log(("particle", difficulty, protonProbability, neutronProbability, electronProbability, antiProtonProbability, antiNeutronProbability));
-
         player = FindObjectOfType<Player>();
 
         SetupMoveBoundaries();
 
         ResetTimer();
+
+        hasStarted = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(canSpawn);
-        if (canSpawn)
+        if (hasStarted)
         {
-            timer -= Time.deltaTime;
-
-            if (timer <= 0)
+            if (canSpawn)
             {
-                SpawnRandomParticle();
+                timer -= Time.deltaTime;
 
-                ResetTimer();
+                if (timer <= 0)
+                {
+                    SpawnRandomParticle();
+
+                    ResetTimer();
+                }
             }
         }
     }

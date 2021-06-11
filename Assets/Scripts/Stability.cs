@@ -19,12 +19,10 @@ public class Stability : MonoBehaviour
     const string INSTABILITY_NAME = "instability";
 
     // Start is called before the first frame update
-    void Start()
+    public void ExternalStart()
     {
         int difficulty = GetComponent<GameManager>().difficulty;
         surplusAmountToInstability = surplusAmountToInstabilities[difficulty];
-
-        Debug.Log(("stability", difficulty, surplusAmountToInstability));
 
         player = FindObjectOfType<Player>();
 

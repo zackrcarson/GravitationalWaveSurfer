@@ -776,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ecab019fecd514e8df89d6a65728a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doesRide: 1
+  canRide: 1
   ridePercent: 0.04
   bufferPercentage: 0
 --- !u!1 &6422042481127848647

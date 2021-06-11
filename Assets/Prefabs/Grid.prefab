@@ -23641,6 +23641,7 @@ MonoBehaviour:
   stellarSupermassiveProbability: 16.67
   sliceState: []
   isWaving: 0
+  canWave: 1
 --- !u!114 &5816351347508904398
 MonoBehaviour:
   m_ObjectHideFlags: 0

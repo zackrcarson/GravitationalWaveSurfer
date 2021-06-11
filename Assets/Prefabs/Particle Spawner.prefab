@@ -49,11 +49,31 @@ MonoBehaviour:
   antiProtonPrefab: {fileID: 1194577117280456509, guid: d930b1967d1f5424fb00dd4f1bf23b6c, type: 3}
   antiNeutronPrefab: {fileID: 3172846155888678754, guid: 9b4e533dafcd6dc4eb507a2aa70a120b, type: 3}
   antiElectronPrefab: {fileID: 4957767434418659060, guid: 3ef957e2a5371e2419370d6d1fde8b6d, type: 3}
-  protonProbability: 20
-  neutronProbability: 20
-  electronProbability: 20
-  antiProtonProbability: 13.33
-  antiNeutronProbability: 13.33
+  protonProbabilities:
+  - 33.33
+  - 26.33
+  - 20
+  - 16.66
+  neutronProbabilities:
+  - 33.33
+  - 26.33
+  - 20
+  - 16.66
+  electronProbabilities:
+  - 33.35
+  - 26.33
+  - 20
+  - 16.66
+  antiProtonProbabilities:
+  - 0
+  - 7
+  - 13.33
+  - 16.66
+  antiNeutronProbabilities:
+  - 0
+  - 7
+  - 13.33
+  - 16.66
   randomSpawnTimeMin: 0.1
   randomSpawnTimeMax: 3
   playerBuffer: 1

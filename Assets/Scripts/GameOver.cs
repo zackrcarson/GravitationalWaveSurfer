@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +14,9 @@ public class GameOver : MonoBehaviour
     [SerializeField] Text atomicDescriptionText = null;
     [SerializeField] Text annihilationDescriptionText = null;
 
+    [SerializeField] Text difficultyName = null;
+    [SerializeField] Image difficultyBox = null;
+
     [Header("Game Objects")]
     [SerializeField] GameObject gameOverScreen = null;
     [SerializeField] GameObject scoreBox = null;
@@ -25,7 +26,6 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject goalBox = null;
 
     // Cached References
-    Player player = null;
     PauseMenu pauseMenu = null;
     ParticleSpawner particleSpawner = null;
 
@@ -40,13 +40,15 @@ public class GameOver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<Player>();
         pauseMenu = FindObjectOfType<PauseMenu>();
         particleSpawner = FindObjectOfType<ParticleSpawner>();
     }
 
     public void StartGameOver(string annihilatedParticle)
     {
+        if (!pauseMenu) { pauseMenu = FindObjectOfType<PauseMenu>(); }
+        if (!particleSpawner) { particleSpawner = FindObjectOfType<ParticleSpawner>(); }
+
         pauseMenu.CanPause(false);
         particleSpawner.AllowSpawning(true);
 
@@ -130,6 +132,11 @@ public class GameOver : MonoBehaviour
         elementText.text = elementShorthand;
         massNumberText.text = (numProtons + numNeutrons).ToString();
         AtomicNumberText.text = numProtons.ToString();
+
+        if (!pauseMenu) { pauseMenu = GetComponent<PauseMenu>(); }
+
+        difficultyName.text = pauseMenu.GetDifficultyName();
+        difficultyBox.color = pauseMenu.GetDifficultyColor();
 
         string indefiniteArticle = FindIndefiniteArticle(elementName);
         string protonPlural = "s";

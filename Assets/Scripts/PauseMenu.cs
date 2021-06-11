@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject raycastBlocker = null;
     [SerializeField] GameObject instructionsPanel = null;
     [SerializeField] GameObject confirmationPanel = null;
+
+    [SerializeField] Image difficultyBox = null;
+    [SerializeField] Text difficultyText = null;
+    [SerializeField] Color[] difficultyColors;
 
     // Cached References
     Player player = null;
@@ -19,9 +24,17 @@ public class PauseMenu : MonoBehaviour
     bool canPause = true;
     string confirmationType = "";
 
+    Color difficultyColor;
+    string difficultyName = "Normal";
+
     // Constants
     const string QUIT_GAME = "quit";
     const string RESTART_GAME = "restart";
+
+    const string STORY_IDENTIFIER = "Story";
+    const string EASY_IDENTIFIER = "Easy";
+    const string NORMAL_IDENTIFIER = "Normal";
+    const string HARD_IDENTIFIER = "Hard";
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +73,13 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 0;
 
+        difficultyBox.color = difficultyColor;
+        difficultyText.text = difficultyName;
+
         pauseScreen.SetActive(true);
+
+        if (!player) { player = FindObjectOfType<Player>(); }
+        if (!particleSpawner) { particleSpawner = FindObjectOfType<ParticleSpawner>(); }
 
         player.AllowMovement(true);
         gridWave.AllowWaving(true);
@@ -191,5 +210,40 @@ public class PauseMenu : MonoBehaviour
     public void CanPause(bool isAllowed)
     {
         canPause = isAllowed;
+    }
+
+    public void SetDifficulty(int difficulty)
+    {
+        difficultyColor = difficultyColors[difficulty];        
+
+        switch (difficulty)
+        {
+            case 0:
+                difficultyName = STORY_IDENTIFIER;
+
+                break;
+            case 1:
+                difficultyName = EASY_IDENTIFIER;
+                break;
+            case 2:
+                difficultyName = NORMAL_IDENTIFIER;
+                break;
+            case 3:
+                difficultyName = HARD_IDENTIFIER;
+                break;
+            default:
+                Debug.LogError("Unknown difficulty " + difficulty + ".");
+                break;
+        }
+    }
+
+    public Color GetDifficultyColor()
+    {
+        return difficultyColor;
+    }
+
+    public string GetDifficultyName()
+    {
+        return difficultyName;
     }
 }
