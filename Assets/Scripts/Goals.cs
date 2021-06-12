@@ -18,6 +18,7 @@ public class Goals : MonoBehaviour
     int nextGoalProtons = 0;
     int nextGoalNeutrons = 0;
     int nextGoalElectrons = 0;
+    bool hasGoals = true;
 
     // Cached Referencess
     int difficulty = 2;
@@ -37,6 +38,8 @@ public class Goals : MonoBehaviour
 
     private void PickNextGoal(int currentProtons)
     {
+        if (!hasGoals) { return; }
+
         nextGoalProtons = currentProtons + Random.Range(nextGoalDistanceMin, nextGoalDistanceMax);
 
         if (nextGoalProtons > storyGoalProtons) { nextGoalProtons = storyGoalProtons; }
@@ -76,6 +79,8 @@ public class Goals : MonoBehaviour
 
     private void ShowGoal()
     {
+        if (!hasGoals) { return; }
+
         elementText.text = GameManager.instance.GetElementName(nextGoalProtons)[0];
 
         if (difficulty > 1)
@@ -110,37 +115,65 @@ public class Goals : MonoBehaviour
 
     public void CheckGoal(int[] newParticles)
     {
+        if (!hasGoals) { return; }
+
         if (difficulty == 3 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons && newParticles[2] == nextGoalElectrons)
         {
-            PickNextGoal(newParticles[0]);
-
-            ShowGoal();
-
-            // TODO: Ding and cool particle effect or animation
-        }
-        else if (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons)
-        {
-            PickNextGoal(newParticles[0]);
-
-            ShowGoal();
-        }
-        else if (difficulty <= 1 && newParticles[0] == nextGoalProtons)
-        {
-            if (difficulty == 1)
+            if (nextGoalProtons == storyGoalProtons)
+            {
+                StopGoals();
+            }
+            else
             {
                 PickNextGoal(newParticles[0]);
 
                 ShowGoal();
             }
+        }
+        else if (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons)
+        {
+            if (nextGoalProtons == storyGoalProtons)
+            {
+                StopGoals();
+            }
             else
             {
-                elementText.text = "??";
-                IonicNumberText.gameObject.SetActive(false);
-                massNumberText.gameObject.SetActive(false);
-                AtomicNumberText.gameObject.SetActive(false);
+                PickNextGoal(newParticles[0]);
+
+                ShowGoal();
+            }
+        }
+        else if (difficulty <= 1 && newParticles[0] == nextGoalProtons)
+        {
+            if (difficulty == 1)
+            {
+                if (nextGoalProtons == storyGoalProtons)
+                {
+                    StopGoals();
+                }
+                else
+                {
+                    PickNextGoal(newParticles[0]);
+
+                    ShowGoal();
+                }
+            }
+            else
+            {
+                StopGoals();
             }
 
             // TODO: Ding and cool particle effect or animation
         }
+    }
+
+    public void StopGoals()
+    {
+        hasGoals = false;
+
+        elementText.text = "??";
+        IonicNumberText.gameObject.SetActive(false);
+        massNumberText.gameObject.SetActive(false);
+        AtomicNumberText.gameObject.SetActive(false);
     }
 }

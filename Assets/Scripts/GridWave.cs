@@ -150,6 +150,16 @@ public class GridWave : MonoBehaviour
         }
     }
 
+    public void StopWaving()
+    {
+        isWaving = false;
+    }
+
+    public void StartWaving()
+    {
+        isWaving = true;
+    }
+
     private void OperateWaveTimer()
     {
         timer -= Time.deltaTime;

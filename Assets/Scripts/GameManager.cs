@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     // State Variables
     public int difficulty = 2;
+    bool hasReachedEnd = false;
 
     // Cached References
     Dictionary<int, string> elementsDict = null;
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     const string EASY_IDENTIFIER = "easy";
     const string NORMAL_IDENTIFIER = "normal";
     const string HARD_IDENTIFIER = "hard";
+
+    const string GAME_WON_NAME = "won";
 
     private void Awake()
     {
@@ -218,6 +221,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool IsValidElement(int protons)
+    {
+        return elementsDict.ContainsKey(protons);
+    }
+
     private void ShowScore()
     {
         protonsText.text = numProtons.ToString();
@@ -231,6 +239,13 @@ public class GameManager : MonoBehaviour
         else
         {
             elementText.text = "??";
+            goals.StopGoals();
+
+            if (!hasReachedEnd)
+            {
+                GetComponent<GameOver>().StartGameOver(GAME_WON_NAME);
+                hasReachedEnd = true;
+            }
         }
 
         massNumberText.text = (numProtons + numNeutrons).ToString();
