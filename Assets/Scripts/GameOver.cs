@@ -10,9 +10,11 @@ public class GameOver : MonoBehaviour
     [SerializeField] Text massNumberText = null;
     [SerializeField] Text AtomicNumberText = null;
     [SerializeField] Text IonicNumberText = null;
+    [SerializeField] Text scoreText = null;
 
     [SerializeField] Text subHeaderText = null;
     [SerializeField] Text atomicDescriptionText = null;
+    [SerializeField] Text scoreDescriptionText = null;
     [SerializeField] Text annihilationDescriptionText = null;
 
     [SerializeField] Text difficultyName = null;
@@ -23,8 +25,10 @@ public class GameOver : MonoBehaviour
     [SerializeField] Text massNumberTextWon = null;
     [SerializeField] Text AtomicNumberTextWon = null;
     [SerializeField] Text IonicNumberTextWon = null;
+    [SerializeField] Text scoreTextWon = null;
 
     [SerializeField] Text atomicDescriptionTextWon = null;
+    [SerializeField] Text scoreDescriptionTextWon = null;
 
     [SerializeField] Text difficultyNameWon = null;
     [SerializeField] Image difficultyBoxWon = null;
@@ -37,6 +41,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject pauseButton = null;
     [SerializeField] GameObject blackHoleInformation = null;
     [SerializeField] GameObject goalBox = null;
+    [SerializeField] GameObject pointsBox = null;
 
     // Cached References
     PauseMenu pauseMenu = null;
@@ -73,6 +78,7 @@ public class GameOver : MonoBehaviour
         pauseButton.SetActive(false);
         blackHoleInformation.SetActive(false);
         goalBox.SetActive(false);
+        pointsBox.SetActive(false);
 
         int[] particles = GameManager.instance.GetScore();
 
@@ -187,6 +193,8 @@ public class GameOver : MonoBehaviour
         if (numNeutrons == 1) { neutronPlural = ""; }
         if (numElectrons == 1) { electronPlural = ""; }
 
+        int[] score = GetComponent<Goals>().GetScore();
+
         if (annihilatedParticle != GAME_WON_NAME)
         {
             elementText.text = elementShorthand;
@@ -195,6 +203,9 @@ public class GameOver : MonoBehaviour
 
             difficultyName.text = pauseMenu.GetDifficultyName();
             difficultyBox.color = pauseMenu.GetDifficultyColor();
+
+            scoreText.text = score[0].ToString();
+            scoreDescriptionText.text = "You achieved " + score[1] + " goals, and missed " + score[2] + " goals, making your final score " + score[0] + "!";
 
             if (elementName == "??")
             {
@@ -213,6 +224,9 @@ public class GameOver : MonoBehaviour
 
             difficultyNameWon.text = pauseMenu.GetDifficultyName();
             difficultyBoxWon.color = pauseMenu.GetDifficultyColor();
+
+            scoreTextWon.text = score[0].ToString();
+            scoreDescriptionTextWon.text = "You achieved " + score[1] + " goals, and missed " + score[2] + " goals, making your final score " + score[0] + "!";
 
             atomicDescriptionTextWon.text = "You created an unknown isotope with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
         }
@@ -481,6 +495,7 @@ public class GameOver : MonoBehaviour
         pauseButton.SetActive(true);
         blackHoleInformation.SetActive(true);
         goalBox.SetActive(true);
+        pointsBox.SetActive(true);
 
         Time.timeScale = 1;
         FindObjectOfType<GridWave>().StartWaving();

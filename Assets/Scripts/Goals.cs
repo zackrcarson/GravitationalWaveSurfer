@@ -4,6 +4,8 @@ using UnityEngine;
 public class Goals : MonoBehaviour
 {
     // Config Parameters
+    [SerializeField] Text scoreText = null;
+
     [SerializeField] int nextGoalDistanceMin = 3;
     [SerializeField] int nextGoalDistanceMax = 7;
     [SerializeField] int extraNeutronsMax = 3;
@@ -14,10 +16,18 @@ public class Goals : MonoBehaviour
     [SerializeField] Text AtomicNumberText = null;
     [SerializeField] Text IonicNumberText = null;
 
+    [SerializeField] int goalPoints = 10;
+    [SerializeField] int missedGoalDeduction = 20;
+
     // State Variables
     int nextGoalProtons = 0;
     int nextGoalNeutrons = 0;
     int nextGoalElectrons = 0;
+
+    int score = 0;
+    int numGoals = 0;
+    int numMisses = 0;
+
     bool hasGoals = true;
 
     // Cached Referencess
@@ -34,6 +44,8 @@ public class Goals : MonoBehaviour
         PickNextGoal(GameManager.instance.GetScore()[0]);
 
         ShowGoal();
+
+        UpdateScore(0);
     }
 
     private void PickNextGoal(int currentProtons)
@@ -117,53 +129,85 @@ public class Goals : MonoBehaviour
     {
         if (!hasGoals) { return; }
 
+        if ((newParticles[0] > nextGoalProtons) || (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] > nextGoalNeutrons) || (difficulty == 3 && newParticles[0] == nextGoalProtons && (newParticles[1] > nextGoalNeutrons || newParticles[2] > nextGoalElectrons)))
+        {
+            MissedGoalLogic(newParticles[0]);
+        }
+
         if (difficulty == 3 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons && newParticles[2] == nextGoalElectrons)
         {
-            if (nextGoalProtons == storyGoalProtons)
-            {
-                StopGoals();
-            }
-            else
-            {
-                PickNextGoal(newParticles[0]);
-
-                ShowGoal();
-            }
+            GoalLogic(newParticles[0]);
         }
         else if (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons)
         {
-            if (nextGoalProtons == storyGoalProtons)
-            {
-                StopGoals();
-            }
-            else
-            {
-                PickNextGoal(newParticles[0]);
-
-                ShowGoal();
-            }
+            GoalLogic(newParticles[0]);
         }
         else if (difficulty <= 1 && newParticles[0] == nextGoalProtons)
         {
             if (difficulty == 1)
             {
-                if (nextGoalProtons == storyGoalProtons)
-                {
-                    StopGoals();
-                }
-                else
-                {
-                    PickNextGoal(newParticles[0]);
-
-                    ShowGoal();
-                }
+                GoalLogic(newParticles[0]);
             }
             else
             {
+                UpdateScore(goalPoints);
+
+                // TODO: Ding and cool particle effect or animation
+
                 StopGoals();
             }
+        }
+    }
 
-            // TODO: Ding and cool particle effect or animation
+    private void GoalLogic(int newProtons)
+    {
+        UpdateScore(goalPoints);
+
+        // TODO: Ding and cool particle effect or animation
+
+        if (nextGoalProtons == storyGoalProtons)
+        {
+            StopGoals();
+        }
+        else
+        {
+            PickNextGoal(newProtons);
+
+            ShowGoal();
+        }
+    }
+
+    private void UpdateScore(int amount)
+    {
+        score += amount;
+
+        if (amount < 0)
+        {
+            numMisses += 1;
+        }
+        else
+        {
+            numGoals += 1;
+        }
+
+        scoreText.text = score.ToString();
+    }
+
+    private void MissedGoalLogic(int newProtons)
+    {
+        UpdateScore(-missedGoalDeduction);
+
+        // TODO: Erhhhh and cool particle effect or animation or screen shake, etc.
+
+        if (nextGoalProtons > storyGoalProtons)
+        {
+            StopGoals();
+        }
+        else
+        {
+            PickNextGoal(newProtons);
+
+            ShowGoal();
         }
     }
 
@@ -175,5 +219,10 @@ public class Goals : MonoBehaviour
         IonicNumberText.gameObject.SetActive(false);
         massNumberText.gameObject.SetActive(false);
         AtomicNumberText.gameObject.SetActive(false);
+    }
+
+    public int[] GetScore()
+    {
+        return new int[] { score, numGoals, numMisses };
     }
 }
