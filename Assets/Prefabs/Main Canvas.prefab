@@ -14667,6 +14667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8a5b1b622b9b041b0867996ba9f636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreBox: {fileID: 894767779}
   scoreText: {fileID: 1784419446}
   nextGoalDistanceMin: 3
   nextGoalDistanceMax: 7

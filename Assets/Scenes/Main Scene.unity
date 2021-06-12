@@ -128,9 +128,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3586062931574166863, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
   m_PrefabInstance: {fileID: 3586062931965810955}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &767331765 stripped
+--- !u!1 &894767779 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 767331765, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 894767779, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
   m_PrefabInstance: {fileID: 3586062931965810955}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833297162
@@ -603,14 +603,14 @@ PrefabInstance:
     - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: scoreBox
       value: 
-      objectReference: {fileID: 767331765}
+      objectReference: {fileID: 894767779}
     - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: nextGoalDistanceMax
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: nextGoalDistanceMin
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
