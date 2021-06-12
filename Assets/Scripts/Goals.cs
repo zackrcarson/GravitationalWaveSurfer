@@ -4,6 +4,7 @@ using UnityEngine;
 public class Goals : MonoBehaviour
 {
     // Config Parameters
+    [SerializeField] GameObject scoreBox = null;
     [SerializeField] Text scoreText = null;
 
     [SerializeField] int nextGoalDistanceMin = 3;
@@ -46,6 +47,10 @@ public class Goals : MonoBehaviour
         ShowGoal();
 
         UpdateScore(0);
+        if (difficulty == 0)
+        {
+            scoreBox.SetActive(false);
+        }
     }
 
     private void PickNextGoal(int currentProtons)
