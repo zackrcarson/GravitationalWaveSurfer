@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     // Config Paramters
+    [SerializeField] GameObject pauseButton = null;
     [SerializeField] GameObject pauseScreen = null;
     [SerializeField] GameObject raycastBlocker = null;
     [SerializeField] GameObject instructionsPanel = null;
@@ -17,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     Player player = null;
     ParticleSpawner particleSpawner;
     GridWave gridWave = null;
+    Instructions instructions = null;
     WaveRider[] waveRiders;
 
     // State variables
@@ -42,8 +44,7 @@ public class PauseMenu : MonoBehaviour
         player = FindObjectOfType<Player>();
         particleSpawner = FindObjectOfType<ParticleSpawner>();
         gridWave = FindObjectOfType<GridWave>();
-
-        raycastBlocker.SetActive(false);
+        instructions = GetComponent<Instructions>();
         instructionsPanel.SetActive(false);
         confirmationPanel.SetActive(false);
         pauseScreen.SetActive(false);
@@ -69,6 +70,8 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        pauseButton.SetActive(false);
+
         AudioListener.pause = true;
 
         Time.timeScale = 0;
@@ -101,6 +104,8 @@ public class PauseMenu : MonoBehaviour
             waveRider.AllowRiding(false);
         }
 
+        pauseButton.SetActive(true);
+
         AudioListener.pause = false;
 
         Time.timeScale = 1;
@@ -115,32 +120,6 @@ public class PauseMenu : MonoBehaviour
         particleSpawner.AllowSpawning(true);
 
         isPaused = false;
-    }
-
-    public void OpenInstructions()
-    {
-        if (isPaused)
-        {
-            raycastBlocker.SetActive(true);
-            instructionsPanel.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Pause menu is not activated.");
-        }
-    }
-
-    public void CloseInstructions()
-    {
-        if (isPaused)
-        {
-            raycastBlocker.SetActive(false);
-            instructionsPanel.SetActive(false);
-        }
-        else
-        {
-            Debug.LogError("Pause menu is not activated.");
-        }
     }
 
     public void OpenConfirmation(string type)
@@ -235,6 +214,28 @@ public class PauseMenu : MonoBehaviour
                 Debug.LogError("Unknown difficulty " + difficulty + ".");
                 break;
         }
+    }
+
+    public void OpenInstructions()
+    {
+        canPause = false;
+
+        pauseScreen.SetActive(false);
+
+        pauseButton.SetActive(true);
+        GameManager.instance.SwitchRaycastBlocker(true);
+
+        instructions.OpenInstructions(true);
+    }
+
+    public void CloseInstructions()
+    {
+        canPause = true;
+
+        pauseButton.SetActive(false);
+        GameManager.instance.SwitchRaycastBlocker(false);
+
+        pauseScreen.SetActive(true);
     }
 
     public Color GetDifficultyColor()

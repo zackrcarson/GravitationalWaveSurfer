@@ -128,11 +128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3586062931574166863, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
   m_PrefabInstance: {fileID: 3586062931965810955}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &894767779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 894767779, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
-  m_PrefabInstance: {fileID: 3586062931965810955}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1833297162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,6 +407,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1505751255, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3586062931574166851, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -600,18 +599,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 7527399150522127770}
-    - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
-      propertyPath: scoreBox
-      value: 
-      objectReference: {fileID: 894767779}
-    - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
-      propertyPath: nextGoalDistanceMax
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5583708275454033058, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
-      propertyPath: nextGoalDistanceMin
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
 --- !u!1001 &5816351346783593448

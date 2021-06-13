@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -33,10 +34,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject scoreDisplay = null;
     [SerializeField] GameObject atomDisplay = null;
     [SerializeField] GameObject player = null;
+    [SerializeField] GameObject numGoalsDisplay = null;
 
     [SerializeField] GameObject difficultySelector = null;
     [SerializeField] GameObject[] difficultyButtons = null;
 
+    [SerializeField] GameObject rayCastBlocker = null;
 
     [Header("Data")]
     [SerializeField] string elementsData = "Assets/Data/elements.csv";
@@ -48,8 +51,11 @@ public class GameManager : MonoBehaviour
     // Cached References
     Dictionary<int, string> elementsDict = null;
     Dictionary<int, string> elementsFullDict = null;
+
     Goals goals = null;
     Stability stability = null;
+    Instructions instructions = null;
+
     int[] currentParticles = null;
     public int maxProtons = 118;
 
@@ -75,6 +81,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        instructions = GetComponent<Instructions>();
+        rayCastBlocker.SetActive(false);
+
         if (!FindObjectOfType<DifficultyHolder>())
         {
             Time.timeScale = 0;
@@ -87,6 +96,7 @@ public class GameManager : MonoBehaviour
             goalDisplay.SetActive(false);
             scoreDisplay.SetActive(false);
             atomDisplay.SetActive(false);
+            numGoalsDisplay.SetActive(false);
             player.SetActive(false);
             
             difficultySelector.SetActive(true);
@@ -96,37 +106,36 @@ public class GameManager : MonoBehaviour
             difficulty = FindObjectOfType<DifficultyHolder>().difficulty;
             Destroy(FindObjectOfType<DifficultyHolder>().gameObject);
 
-            GetComponent<PauseMenu>().SetDifficulty(difficulty);
+            Time.timeScale = 0;
+            AudioListener.pause = false;
 
-            currentParticles = new int[] { numProtons, numNeutrons, numElectrons };
+            GetComponent<PauseMenu>().CanPause(false);
 
-            stability = GetComponent<Stability>();
-            goals = GetComponent<Goals>();
-
-            CollectElements();
-
-            ShowScore();
-
-            goals.ExternalStart();
-            stability.ExternalStart();
-            FindObjectOfType<ParticleSpawner>().ExternalStart();
+            StartCoroutine(DelayedOpenInstructions());
         }
     }
 
-    public void SetDifficulty()
+    private IEnumerator DelayedOpenInstructions()
     {
-        Time.timeScale = 1;
-        AudioListener.pause = true;
+        yield return null;
 
+        OpenInstructions();
+    }
+
+    public void OpenInstructions()
+    {
         difficultySelector.SetActive(false);
 
         pauseButton.SetActive(true);
+        SwitchRaycastBlocker(true);
+
         stabilityBar.SetActive(true);
         blackHoleDisplay.SetActive(true);
         goalDisplay.SetActive(true);
         scoreDisplay.SetActive(true);
         atomDisplay.SetActive(true);
         player.SetActive(true);
+        numGoalsDisplay.SetActive(true);
 
         currentParticles = new int[] { numProtons, numNeutrons, numElectrons };
 
@@ -140,6 +149,16 @@ public class GameManager : MonoBehaviour
         goals.ExternalStart();
         stability.ExternalStart();
         FindObjectOfType<ParticleSpawner>().ExternalStart();
+
+        instructions.OpenInstructions(false);
+    }
+
+    public void CloseInstructions()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = true;
+
+        SwitchRaycastBlocker(true);
 
         GetComponent<PauseMenu>().SetDifficulty(difficulty);
         GetComponent<PauseMenu>().CanPause(true);
@@ -329,5 +348,10 @@ public class GameManager : MonoBehaviour
     public string[] GetElementName(int atomicNumber)
     {
         return new string[] { elementsDict[atomicNumber], elementsFullDict[atomicNumber] };
+    }
+
+    public void SwitchRaycastBlocker(bool isOn)
+    {
+        rayCastBlocker.SetActive(isOn);
     }
 }
