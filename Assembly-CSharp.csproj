@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Instructions.cs" />
+    <Compile Include="Assets\Scripts\Rotator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
