@@ -190,7 +190,7 @@ public class Goals : MonoBehaviour
         {
             numMisses += 1;
         }
-        else
+        else if(amount > 0)
         {
             numGoals += 1;
         }
