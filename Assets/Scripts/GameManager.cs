@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // Config Paramters
     [Header("Initial Numbers")]
     [SerializeField] int numProtons = 1;
-    [SerializeField] int numNeutrons = 1;
+    [SerializeField] int numNeutrons = 0;
     [SerializeField] int numElectrons = 1;
 
     [Header("Text Boxes")]
