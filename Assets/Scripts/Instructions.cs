@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Instructions : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class Instructions : MonoBehaviour
 
     [SerializeField] GameObject backButton = null;
     [SerializeField] GameObject forwardButton = null;
-    [SerializeField] Text skipButtonText = null;
+    [SerializeField] TextMeshProUGUI skipButtonText = null;
 
     // Cached References
     PauseMenu pauseMenu = null;
