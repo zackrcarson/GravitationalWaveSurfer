@@ -25295,7 +25295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numProtons: 1
-  numNeutrons: 1
+  numNeutrons: 0
   numElectrons: 1
   protonsText: {fileID: 8408864766235111836}
   neutronsText: {fileID: 8408864765945874673}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -18,9 +19,22 @@ public class Player : MonoBehaviour
     bool isMoving = false;
     bool hasStartedControlling = false;
 
+    // State Variables
+    List<Pickup> particles = null;
+    List<string> particleNames = null;
+
+    // Constants
+    const string ANTI_PREFIX = "Anti-";
+    const string PROTON_NAME = "Proton";
+    const string NEUTRON_NAME = "Neutron";
+    const string ELECTRON_NAME = "Electron";
+
     // Start is called before the first frame update
     void Start()
     {
+        particles = new List<Pickup>();
+        particleNames = new List<string>();
+
         gameOver = FindObjectOfType<GameOver>();
         rigidBody = GetComponent<Rigidbody2D>();
         
@@ -114,10 +128,98 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yBoundaryPadding;
     }
 
+    private void FindAndRemoveParticle(string particleName)
+    {
+        int number = 0;
+        GameObject particleToDelete = null;
+
+        for (int i = particles.Count; i-- > 0;)
+        {
+            if (particles[i].tag == particleName)
+            {
+                number = i;
+                particleToDelete = particles[i].gameObject;
+
+                break;
+            }
+        }
+
+        if (particleToDelete == null)
+        {
+            Debug.LogError("More debugging needed! No particle to delete found.");
+        }
+        else
+        {
+            particles.RemoveAt(number);
+            particleNames.RemoveAt(number);
+
+            GameManager.instance.RemoveParticle(particleToDelete.tag);
+            Destroy(particleToDelete);
+        }
+    }
+
     public void KillPlayer(string victimName)
     {
         gameOver.StartGameOver(victimName);
         Destroy(gameObject);
+
         // TODO: Player Destroy Effect
+    }
+
+    public bool AnnihilateParticles(List<string> antiParticleNames)
+    {
+        if (particles.Count == 0)
+        {
+            if (antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME))
+            {
+                KillPlayer(PROTON_NAME);
+                return true;
+            }
+            else if (antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME))
+            {
+                KillPlayer(ELECTRON_NAME);
+                return true;
+            }
+            else if (antiParticleNames.Contains(ANTI_PREFIX + NEUTRON_NAME))
+            {
+                return false;
+            }
+            else
+            {
+                Debug.LogError("Other condition found?");
+                return true;
+            }
+        }
+        else if (antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME) && !particleNames.Contains(PROTON_NAME))
+        {
+            KillPlayer(PROTON_NAME);
+            return true;
+        }
+        else if (antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME) && !particleNames.Contains(ELECTRON_NAME))
+        {
+            KillPlayer(ELECTRON_NAME);
+            return true;
+        }
+        else if (antiParticleNames.Contains(ANTI_PREFIX + NEUTRON_NAME) && !particleNames.Contains(NEUTRON_NAME) && !antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME) && !antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME))
+        {
+            return false;
+        }
+        else
+        {
+            foreach (string anti in antiParticleNames)
+            {
+                string particle = anti.Replace(ANTI_PREFIX, "");
+
+                FindAndRemoveParticle(particle);
+            }
+
+            return true;
+        }
+    }
+
+    public void AddParticle(Pickup particle)
+    {
+        particles.Add(particle);
+        particleNames.Add(particle.tag);
     }
 }

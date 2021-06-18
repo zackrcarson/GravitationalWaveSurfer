@@ -134,10 +134,10 @@ public class Goals : MonoBehaviour
     {
         if (!hasGoals) { return; }
 
-        if ((newParticles[0] > nextGoalProtons) || (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] > nextGoalNeutrons) || (difficulty == 3 && newParticles[0] == nextGoalProtons && (newParticles[1] > nextGoalNeutrons || newParticles[2] > nextGoalElectrons)))
+        /*if ((newParticles[0] > nextGoalProtons) || (difficulty == 2 && newParticles[0] == nextGoalProtons && newParticles[1] > nextGoalNeutrons) || (difficulty == 3 && newParticles[0] == nextGoalProtons && (newParticles[1] > nextGoalNeutrons || newParticles[2] > nextGoalElectrons)))
         {
             MissedGoalLogic(newParticles[0]);
-        }
+        }*/
 
         if (difficulty == 3 && newParticles[0] == nextGoalProtons && newParticles[1] == nextGoalNeutrons && newParticles[2] == nextGoalElectrons)
         {

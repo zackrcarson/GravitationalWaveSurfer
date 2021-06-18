@@ -112,15 +112,22 @@ public class Pickup : MonoBehaviour
             {
                 if (foundAnti)
                 {
-                    DestroyParent(gameObject);
+                    //string victimName = antiNames[0].Replace(ANTI_PREFIX, "");
+                    //FindObjectOfType<Player>().KillPlayer(victimName);
 
-                    string victimName = antiNames[0].Replace(ANTI_PREFIX, "");
-
-                    FindObjectOfType<Player>().KillPlayer(victimName);
+                    // Replace below with above to change to automatically dying when hitting an anti particle
+                    bool shouldDestroy = FindObjectOfType<Player>().AnnihilateParticles(antiNames);
+                    
+                    if (shouldDestroy)
+                    {
+                        DestroyParent(gameObject);
+                    }
                 }
                 else
                 {
                     transform.parent = otherCollider.transform;
+
+                    FindObjectOfType<Player>().AddParticle(this);
 
                     Destroy(GetComponent<Rigidbody2D>());
 

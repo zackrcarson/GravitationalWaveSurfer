@@ -38,6 +38,13 @@ public class Stability : MonoBehaviour
 
         if (instability > maxBarValue) { instability = maxBarValue; }
 
+        if (particleCounts[0] == 1)
+        {
+            instability = (float)Mathf.Abs(particleCounts[2] - 1) * (maxBarValue / (float)surplusAmountToInstability);
+
+            instability += (float)particleCounts[1] * (maxBarValue / (float)surplusAmountToInstability);
+        }
+
         stabilityBar.value = instability;
 
         if (instability >= maxBarValue)

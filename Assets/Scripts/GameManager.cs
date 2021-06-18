@@ -331,6 +331,36 @@ public class GameManager : MonoBehaviour
         currentParticles[2] = numElectrons;
     }
 
+    public void RemoveParticle(string type)
+    {
+        if (type == PROTON_NAME)
+        {
+            numProtons--;
+        }
+        else if (type == NEUTRON_NAME)
+        {
+            numNeutrons--;
+        }
+        else if (type == ELECTRON_NAME)
+        {
+            numElectrons--;
+        }
+        else if (type.StartsWith(ANTI_PREFIX))
+        {
+            return;
+        }
+        else
+        {
+            Debug.LogError("Unknown particle (" + type + ") not removed!");
+        }
+
+        currentParticles[0] = numProtons;
+        currentParticles[1] = numNeutrons;
+        currentParticles[2] = numElectrons;
+
+        ShowScore();
+    }
+
     /// <summary>
     /// Returns the final numbers of particles.
     /// </summary>

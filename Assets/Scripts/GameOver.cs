@@ -173,11 +173,11 @@ public class GameOver : MonoBehaviour
 
             if (annihilatedParticle == ELECTRON_NAME)
             {
-                annihilationDescriptionText.text = "Your atom was annihilated when one of your " + ELECTRON_NAME.ToLower() + "s collided with a " + POSITRON_NAME.ToLower() + ".";
+                annihilationDescriptionText.text = "Your atom was annihilated when your last " + ELECTRON_NAME.ToLower() + " collided with a " + POSITRON_NAME.ToLower() + ", and your atom become unstable and decayed.";
             }
             else
             {
-                annihilationDescriptionText.text = "Your atom was annihilated when one of your " + annihilatedParticle.ToLower() + "s collided with an " + ANTI_PREFIX.ToLower() + annihilatedParticle.ToLower() + ".";
+                annihilationDescriptionText.text = "Your atom was annihilated when your last " + annihilatedParticle.ToLower() + " collided with an " + ANTI_PREFIX.ToLower() + annihilatedParticle.ToLower() + ", and your atom become unstable and decayed.";
             }
         }
 
