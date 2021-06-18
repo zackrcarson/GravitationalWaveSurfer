@@ -7,7 +7,7 @@ public class GravitationalWave : MonoBehaviour
 {
     // Config Parameters
     [SerializeField] float phaseFactor = 0.01f;
-    [SerializeField] float coalescenceTime = 10f;
+    [SerializeField] public float coalescenceTime = 10f;
 
     // Cached References
     float mass1 = 2.0f;

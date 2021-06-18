@@ -1,22 +1,25 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BlackHoleDisplay : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] GameObject bh1Supermassive = null;
-    [SerializeField] GameObject bh1Intermediate = null;
-    [SerializeField] GameObject bh1Stellar = null;
-    [SerializeField] GameObject bh2Supermassive = null;
-    [SerializeField] GameObject bh2Intermediate = null;
-    [SerializeField] GameObject bh2Stellar = null;
+    [SerializeField] GameObject bh1 = null;
+    [SerializeField] GameObject bh2 = null;
+    [SerializeField] GameObject bh3 = null;
+    [SerializeField] float maxScale = 1.2f;
+    [SerializeField] float minScale = 0.5f;
+    [SerializeField] float massRetained = 0.95f;
 
     [SerializeField] Text bh1Mass = null;
     [SerializeField] Text bh2Mass = null;
+    [SerializeField] Text bh3Mass = null;
 
     [SerializeField] Text bh1SolarSymbol = null;
     [SerializeField] Text bh2SolarSymbol = null;
+    [SerializeField] Text bh3SolarSymbol = null;
 
     [SerializeField] Text nameBBH = null;
 
@@ -37,9 +40,30 @@ public class BlackHoleDisplay : MonoBehaviour
     const string INTERMEDIATE_NAME = "intermediate";
     const string SUPERMASSIVE_NAME = "supermassive";
 
+    // Cached References
+    float coalescenceTime = 10f;
+    Vector3 bh1InitialPosition, bh2InitialPosition, diffVector1, diffVector2;
+    float bhDiff1, bhDiff2;
+    RectTransform bh1RectTransform, bh2RectTransform, bh3RectTransform;
+
     private void Start()
     {
+        bh1RectTransform = bh1.GetComponent<RectTransform>();
+        bh2RectTransform = bh2.GetComponent<RectTransform>();
+        bh3RectTransform = bh3.GetComponent<RectTransform>();
+
+        bh1InitialPosition = bh1RectTransform.localPosition;
+        bh2InitialPosition = bh2RectTransform.localPosition;
+
         HideBlackHoleInformation();
+
+        diffVector1 = Vector3.Normalize(bh3RectTransform.localPosition - bh1InitialPosition);
+        diffVector2 = Vector3.Normalize(bh3RectTransform.localPosition - bh2InitialPosition);
+
+        bhDiff1 = Vector3.Distance(bh3RectTransform.localPosition, bh1InitialPosition);
+        bhDiff2 = Vector3.Distance(bh3RectTransform.localPosition, bh2InitialPosition);
+
+        coalescenceTime = FindObjectOfType<GravitationalWave>().coalescenceTime;
     }
 
     public void DisplayBlackHoles(bool display, float mass1 = 0f, float mass2 = 0f)
@@ -56,19 +80,20 @@ public class BlackHoleDisplay : MonoBehaviour
 
     private void HideBlackHoleInformation()
     {
-        bh1Supermassive.SetActive(false);
-        bh1Intermediate.SetActive(false);
-        bh1Stellar.SetActive(false);
+        bh1.SetActive(false);
+        bh2.SetActive(false);
+        bh3.SetActive(false);
 
-        bh2Supermassive.SetActive(false);
-        bh2Intermediate.SetActive(false);
-        bh2Stellar.SetActive(false);
+        bh1RectTransform.localPosition = bh1InitialPosition;
+        bh2RectTransform.localPosition = bh2InitialPosition;
 
         bh1Mass.gameObject.SetActive(false);
         bh2Mass.gameObject.SetActive(false);
+        bh3Mass.gameObject.SetActive(false);
 
         bh1SolarSymbol.gameObject.SetActive(false);
         bh2SolarSymbol.gameObject.SetActive(false);
+        bh3SolarSymbol.gameObject.SetActive(false);
 
         nameBBH.gameObject.SetActive(false);
     }
@@ -80,20 +105,34 @@ public class BlackHoleDisplay : MonoBehaviour
         string bh1Type = GetBlackHoleType(mass1);
         string bh2Type = GetBlackHoleType(mass2);
 
-        DisplayBlackHoleImages(bh1Type, bh2Type);
+        DisplayBlackHoleImages(GetScale(mass1), GetScale(mass2));
 
         bh1Mass.text = ScientificNotation(mass1);
         bh2Mass.text = ScientificNotation(mass2);
+        bh3Mass.text = ScientificNotation(massRetained * (mass1 + mass2));
 
         nameBBH.text = GetBinaryType(bh1Type, bh2Type);
 
         bh1Mass.gameObject.SetActive(true);
         bh2Mass.gameObject.SetActive(true);
+        bh3Mass.gameObject.SetActive(false);
 
         nameBBH.gameObject.SetActive(true);
 
         bh1SolarSymbol.gameObject.SetActive(true);
         bh2SolarSymbol.gameObject.SetActive(true);
+        bh3SolarSymbol.gameObject.SetActive(false);
+
+        StartCoroutine(MoveBlackHoles());
+    }
+
+    private float GetScale(float mass)
+    {
+        float massRatio = (mass - stellarMinMass) / (supermassiveMaxMass - stellarMinMass);
+
+        float scale = minScale + massRatio * (maxScale - minScale);
+
+        return scale;
     }
 
     private string GetBinaryType(string bh1Type, string bh2Type)
@@ -129,45 +168,15 @@ public class BlackHoleDisplay : MonoBehaviour
         }
     }
 
-    private void DisplayBlackHoleImages(string bh1Type, string bh2Type)
+    private void DisplayBlackHoleImages(float bh1Scale, float bh2Scale)
     {
-        switch (bh1Type)
-        {
-            case STELLAR_NAME:
-                bh1Stellar.SetActive(true);
-                break;
+        bh1.transform.localScale = new Vector3(bh1Scale, bh1Scale, 1f);
+        bh2.transform.localScale = new Vector3(bh2Scale, bh2Scale, 1f);
+        bh3.transform.localScale = new Vector3(massRetained * (bh1Scale + bh2Scale), massRetained * (bh1Scale + bh2Scale), 1f);
 
-            case INTERMEDIATE_NAME:
-                bh1Intermediate.SetActive(true);
-                break;
-
-            case SUPERMASSIVE_NAME:
-                bh1Supermassive.SetActive(true);
-                break;
-
-            default:
-                Debug.LogError("Incorrect BH1 type of " + bh1Type + ". Try another mass.");
-                break;
-        }
-
-        switch (bh2Type)
-        {
-            case STELLAR_NAME:
-                bh2Stellar.SetActive(true);
-                break;
-
-            case INTERMEDIATE_NAME:
-                bh2Intermediate.SetActive(true);
-                break;
-
-            case SUPERMASSIVE_NAME:
-                bh2Supermassive.SetActive(true);
-                break;
-
-            default:
-                Debug.LogError("Incorrect BH2 type of " + bh2Type + ". Try another mass.");
-                break;
-        }
+        bh1.SetActive(true);
+        bh2.SetActive(true);
+        bh3.SetActive(false);
     }
 
     private string GetBlackHoleType(float mass)
@@ -216,6 +225,33 @@ public class BlackHoleDisplay : MonoBehaviour
         }
 
         return displayText;
+    }
+
+    private IEnumerator MoveBlackHoles()
+    {
+        float timeElapsed = 0;
+
+        while (timeElapsed <= coalescenceTime)
+        {
+            timeElapsed += Time.deltaTime;
+
+            bh1RectTransform.localPosition += diffVector1 * bhDiff1 * (Time.deltaTime / coalescenceTime);
+            bh2RectTransform.localPosition += diffVector2 * bhDiff2 * (Time.deltaTime / coalescenceTime);
+
+            yield return null;
+        }
+
+        bh1.gameObject.SetActive(false);
+        bh2.gameObject.SetActive(false);
+        bh3.gameObject.SetActive(true);
+
+        bh1Mass.gameObject.SetActive(false);
+        bh2Mass.gameObject.SetActive(false);
+        bh3Mass.gameObject.SetActive(true);
+
+        bh1SolarSymbol.gameObject.SetActive(false);
+        bh2SolarSymbol.gameObject.SetActive(false);
+        bh3SolarSymbol.gameObject.SetActive(true);
     }
 }
 
