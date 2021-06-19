@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BlackHoleDisplay : MonoBehaviour
 {
@@ -13,27 +14,23 @@ public class BlackHoleDisplay : MonoBehaviour
     [SerializeField] float minScale = 0.5f;
     [SerializeField] float massRetained = 0.95f;
 
-    [SerializeField] Text bh1Mass = null;
-    [SerializeField] Text bh2Mass = null;
-    [SerializeField] Text bh3Mass = null;
+    [SerializeField] TextMeshProUGUI bh1Mass = null;
+    [SerializeField] TextMeshProUGUI bh2Mass = null;
+    [SerializeField] TextMeshProUGUI bh3Mass = null;
 
-    [SerializeField] Text bh1SolarSymbol = null;
-    [SerializeField] Text bh2SolarSymbol = null;
-    [SerializeField] Text bh3SolarSymbol = null;
-
-    [SerializeField] Text nameBBH = null;
+    [SerializeField] TextMeshProUGUI nameBBH = null;
 
     [SerializeField] public float stellarMinMass = 3.8f;
     [SerializeField] public float stellarIntermediateMassBoundary = 100f;
     [SerializeField] public float intermediateSupermassiveMassBoundary = 100000.0f;
     [SerializeField] public float supermassiveMaxMass = 66000000000.0f;
 
-    [SerializeField] string stellarBBH = "Stellar-mass binary black hole";
+    [SerializeField] string stellarBBH =      "Stellar-mass binary black hole";
     [SerializeField] string intermediateBBH = "Intermediate-mass binary black hole";
     [SerializeField] string supermassiveBBH = "Supermassive binary black hole";
-    [SerializeField] string emriBBH = "Extreme-mass-ratio inspiral (EMRI)";
-    [SerializeField] string imriBBH = "Intermediate-mass-ratio inspiral (IMRI)";
-    [SerializeField] string smriBBH = "Stellar-mass-ratio inspiral (SMRI)";
+    [SerializeField] string emriBBH =         "Extreme-mass-ratio inspiral (EMRI)";
+    [SerializeField] string imriBBH =         "Intermediate-mass-ratio inspiral (IMRI)";
+    [SerializeField] string smriBBH =         "Stellar-mass-ratio inspiral (SMRI)";
 
     // Constants
     const string STELLAR_NAME = "stellar";
@@ -87,13 +84,9 @@ public class BlackHoleDisplay : MonoBehaviour
         bh1RectTransform.localPosition = bh1InitialPosition;
         bh2RectTransform.localPosition = bh2InitialPosition;
 
-        bh1Mass.gameObject.SetActive(false);
-        bh2Mass.gameObject.SetActive(false);
-        bh3Mass.gameObject.SetActive(false);
-
-        bh1SolarSymbol.gameObject.SetActive(false);
-        bh2SolarSymbol.gameObject.SetActive(false);
-        bh3SolarSymbol.gameObject.SetActive(false);
+        bh1Mass.transform.parent.gameObject.SetActive(false);
+        bh2Mass.transform.parent.gameObject.SetActive(false);
+        bh3Mass.transform.parent.gameObject.SetActive(false);
 
         nameBBH.gameObject.SetActive(false);
     }
@@ -113,15 +106,11 @@ public class BlackHoleDisplay : MonoBehaviour
 
         nameBBH.text = GetBinaryType(bh1Type, bh2Type);
 
-        bh1Mass.gameObject.SetActive(true);
-        bh2Mass.gameObject.SetActive(true);
-        bh3Mass.gameObject.SetActive(false);
+        bh1Mass.transform.parent.gameObject.SetActive(true);
+        bh2Mass.transform.parent.gameObject.SetActive(true);
+        bh3Mass.transform.parent.gameObject.SetActive(false);
 
         nameBBH.gameObject.SetActive(true);
-
-        bh1SolarSymbol.gameObject.SetActive(true);
-        bh2SolarSymbol.gameObject.SetActive(true);
-        bh3SolarSymbol.gameObject.SetActive(false);
 
         StartCoroutine(MoveBlackHoles());
     }
@@ -217,11 +206,11 @@ public class BlackHoleDisplay : MonoBehaviour
 
             }
 
-            displayText = "" + (Mathf.RoundToInt(basis)).ToString() + "e" + power + " M";
+            displayText = "" + (Mathf.RoundToInt(basis)).ToString() + "e" + power + " M<sub><b><size=120%><voffset=-.2em>⊙</voffset></size></b></sub>";
         }
         else
         {
-            displayText = (Mathf.RoundToInt(number)).ToString() + " M";
+            displayText = (Mathf.RoundToInt(number)).ToString() + " M<sub><b><size=120%><voffset=-.2em>⊙</voffset></size></b></sub>";
         }
 
         return displayText;
@@ -245,13 +234,9 @@ public class BlackHoleDisplay : MonoBehaviour
         bh2.gameObject.SetActive(false);
         bh3.gameObject.SetActive(true);
 
-        bh1Mass.gameObject.SetActive(false);
-        bh2Mass.gameObject.SetActive(false);
-        bh3Mass.gameObject.SetActive(true);
-
-        bh1SolarSymbol.gameObject.SetActive(false);
-        bh2SolarSymbol.gameObject.SetActive(false);
-        bh3SolarSymbol.gameObject.SetActive(true);
+        bh1Mass.transform.parent.gameObject.SetActive(false);
+        bh2Mass.transform.parent.gameObject.SetActive(false);
+        bh3Mass.transform.parent.gameObject.SetActive(true);
     }
 }
 
