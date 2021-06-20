@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +39,9 @@ public class GridWave : MonoBehaviour
     float halfVerticalGridSpace = 0;
     float maxAmplitude = 0;
 
+    float bbhDisplayPanelOpeningTime = 1f;
+    float bbhWarningMessageTime = 2f;
+
     // State Variables
     float hOfTDelta;
     Vector3 deviationVector;
@@ -45,6 +49,7 @@ public class GridWave : MonoBehaviour
 
     public bool isWaving = false;
     public bool canWave = true;
+    bool isWaitingForPanel = false;
 
     float timer = 0f;
 
@@ -54,7 +59,10 @@ public class GridWave : MonoBehaviour
         timer = Random.Range(randomWaveOffTimeMin, randomWaveOffTimeMax);
 
         gravitationalWave = FindObjectOfType<GravitationalWave>();
+
         blackHoleDisplay = FindObjectOfType<BlackHoleDisplay>();
+        bbhDisplayPanelOpeningTime = blackHoleDisplay.panelMovementTime;
+        bbhWarningMessageTime = blackHoleDisplay.warningMessageTime;
 
         stellarMinMass = blackHoleDisplay.stellarMinMass;
         stellarIntermediateMassBoundary = blackHoleDisplay.stellarIntermediateMassBoundary;
@@ -129,10 +137,6 @@ public class GridWave : MonoBehaviour
             if (!manualControlFixedMass)
             {
                 masses = RandomlyGenerateMasses();
-                /*if (masses[1] == masses[0])
-                {
-                    masses[1] = 1.05f * masses[0];
-                }*/
             }
             else
             {
@@ -162,36 +166,50 @@ public class GridWave : MonoBehaviour
 
     private void OperateWaveTimer()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0)
+        if (!isWaitingForPanel)
         {
-            ResetGridPositions();
+            timer -= Time.deltaTime;
 
-            if (isWaving)
+            if (timer <= 0)
             {
-                isWaving = false;
-                blackHoleDisplay.DisplayBlackHoles(false);
+                ResetGridPositions();
 
-                timer = Random.Range(randomWaveOffTimeMin, randomWaveOffTimeMax);
-            }
-            else
-            {
-                float[] masses = RandomlyGenerateMasses();
-                if (masses[1] == masses[0])
+                if (isWaving)
                 {
-                    masses[1] = 1.05f * masses[0];
+                    isWaving = false;
+                    blackHoleDisplay.DisplayBlackHoles(false);
+
+                    timer = Random.Range(randomWaveOffTimeMin, randomWaveOffTimeMax);
                 }
+                else
+                {
+                    float[] masses = RandomlyGenerateMasses();
+                    if (masses[1] == masses[0])
+                    {
+                        masses[1] = 1.05f * masses[0];
+                    }
 
-                isWaving = true;
-
-                blackHoleDisplay.DisplayBlackHoles(true, masses[0], masses[1]);
-                gravitationalWave.StartNewWave(masses[0], masses[1]);
-                maxAmplitude = gravitationalWave.GetMaxAmplitude();
-
-                timer = Random.Range(randomWaveOnTimeMin, randomWaveOnTimeMax);
+                    StartCoroutine(OpenBBHDisplayPanel(masses[0], masses[1]));
+                }
             }
         }
+    }
+
+    private IEnumerator OpenBBHDisplayPanel(float mass1, float mass2)
+    {
+        isWaitingForPanel = true;
+
+        blackHoleDisplay.DisplayBlackHoles(true, mass1, mass2);
+
+        yield return new WaitForSeconds(bbhDisplayPanelOpeningTime + (2 * bbhWarningMessageTime));
+
+        gravitationalWave.StartNewWave(mass1, mass2);
+        maxAmplitude = gravitationalWave.GetMaxAmplitude();
+
+        timer = Random.Range(randomWaveOnTimeMin, randomWaveOnTimeMax);
+
+        isWaving = true;
+        isWaitingForPanel = false;
     }
 
     private float[] RandomlyGenerateMasses()

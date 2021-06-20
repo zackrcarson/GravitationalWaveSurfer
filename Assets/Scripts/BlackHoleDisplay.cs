@@ -7,30 +7,38 @@ using TMPro;
 public class BlackHoleDisplay : MonoBehaviour
 {
     // Config Parameters
+    [SerializeField] RectTransform bbhDisplayPanel = null;
+
     [SerializeField] GameObject bh1 = null;
     [SerializeField] GameObject bh2 = null;
     [SerializeField] GameObject bh3 = null;
+
     [SerializeField] float maxScale = 1.2f;
     [SerializeField] float minScale = 0.5f;
     [SerializeField] float massRetained = 0.95f;
+
+    [SerializeField] float panelMaxHeight = 555f;
+    [SerializeField] public float panelMovementTime = 1f;
+    [SerializeField] public float warningMessageTime = 2f;
 
     [SerializeField] TextMeshProUGUI bh1Mass = null;
     [SerializeField] TextMeshProUGUI bh2Mass = null;
     [SerializeField] TextMeshProUGUI bh3Mass = null;
 
     [SerializeField] TextMeshProUGUI nameBBH = null;
+    [SerializeField] GameObject warningText = null;
 
     [SerializeField] public float stellarMinMass = 3.8f;
     [SerializeField] public float stellarIntermediateMassBoundary = 100f;
     [SerializeField] public float intermediateSupermassiveMassBoundary = 100000.0f;
     [SerializeField] public float supermassiveMaxMass = 66000000000.0f;
 
-    [SerializeField] string stellarBBH =      "Stellar-mass binary black hole";
+    [SerializeField] string stellarBBH = "Stellar-mass binary black hole";
     [SerializeField] string intermediateBBH = "Intermediate-mass binary black hole";
     [SerializeField] string supermassiveBBH = "Supermassive binary black hole";
-    [SerializeField] string emriBBH =         "Extreme-mass-ratio inspiral (EMRI)";
-    [SerializeField] string imriBBH =         "Intermediate-mass-ratio inspiral (IMRI)";
-    [SerializeField] string smriBBH =         "Stellar-mass-ratio inspiral (SMRI)";
+    [SerializeField] string emriBBH = "Extreme-mass-ratio inspiral (EMRI)";
+    [SerializeField] string imriBBH = "Intermediate-mass-ratio inspiral (IMRI)";
+    [SerializeField] string smriBBH = "Stellar-mass-ratio inspiral (SMRI)";
 
     // Constants
     const string STELLAR_NAME = "stellar";
@@ -39,12 +47,24 @@ public class BlackHoleDisplay : MonoBehaviour
 
     // Cached References
     float coalescenceTime = 10f;
-    Vector3 bh1InitialPosition, bh2InitialPosition, diffVector1, diffVector2;
     float bhDiff1, bhDiff2;
+
+    float panelMinHeight = 60f;
+    float panelMinPosition, panelMaxPosition;
+    float panelPositionX, panelWidth;
+
+    Vector3 bh1InitialPosition, bh2InitialPosition, diffVector1, diffVector2;
     RectTransform bh1RectTransform, bh2RectTransform, bh3RectTransform;
 
     private void Start()
     {
+        panelMinHeight = bbhDisplayPanel.rect.height;
+        panelMinPosition = bbhDisplayPanel.localPosition.y;
+        panelMaxPosition = panelMinPosition + (panelMaxHeight - panelMinHeight) / 2f;
+
+        panelPositionX = bbhDisplayPanel.localPosition.x;
+        panelWidth = bbhDisplayPanel.rect.width;
+
         bh1RectTransform = bh1.GetComponent<RectTransform>();
         bh2RectTransform = bh2.GetComponent<RectTransform>();
         bh3RectTransform = bh3.GetComponent<RectTransform>();
@@ -67,12 +87,69 @@ public class BlackHoleDisplay : MonoBehaviour
     {
         if (display)
         {
-            ShowBlackHoleInformation(mass1, mass2);
+            StartCoroutine(OpenBlackHolePanel(mass1, mass2));
         }
         else
         {
-            HideBlackHoleInformation();
+            StartCoroutine(CloseBlackHolePanel());
         }
+    }
+
+    private IEnumerator OpenBlackHolePanel(float mass1, float mass2)
+    {
+        HideBlackHoleInformation();
+
+        warningText.SetActive(true);
+        yield return new WaitForSeconds(warningMessageTime);
+
+        float timeElapsed = 0;
+        Vector2 panelHeightDelta = new Vector2(0f, 0f);
+        Vector3 panelPositionDelta = new Vector3(0f, 0f, 0f);
+
+        while (timeElapsed <= panelMovementTime)
+        {
+            timeElapsed += Time.deltaTime;
+
+            panelHeightDelta.y = (panelMaxHeight - panelMinHeight) * (Time.deltaTime / panelMovementTime);
+            panelPositionDelta.y = (panelMaxHeight - panelMinHeight) * (Time.deltaTime / panelMovementTime);
+
+            bbhDisplayPanel.sizeDelta += panelHeightDelta;
+            bbhDisplayPanel.localPosition += panelPositionDelta / 2f;
+
+            yield return null;
+        }
+
+        bbhDisplayPanel.localPosition = new Vector3(panelPositionX, panelMaxPosition, 0f);
+        bbhDisplayPanel.sizeDelta = new Vector2(panelWidth, panelMaxHeight);
+
+        yield return new WaitForSeconds(warningMessageTime);
+
+        ShowBlackHoleInformation(mass1, mass2);
+    }
+
+    private IEnumerator CloseBlackHolePanel()
+    {
+        HideBlackHoleInformation();
+
+        float timeElapsed = 0;
+        Vector2 panelHeightDelta = new Vector2(0f, 0f);
+        Vector3 panelPositionDelta = new Vector3(0f, 0f, 0f);
+
+        while (timeElapsed <= panelMovementTime)
+        {
+            timeElapsed += Time.deltaTime;
+
+            panelHeightDelta.y = (panelMaxHeight - panelMinHeight) * (Time.deltaTime / panelMovementTime);
+            panelPositionDelta.y = (panelMaxHeight - panelMinHeight) * (Time.deltaTime / panelMovementTime);
+
+            bbhDisplayPanel.sizeDelta -= panelHeightDelta;
+            bbhDisplayPanel.localPosition -= panelPositionDelta / 2f;
+
+            yield return null;
+        }
+
+        bbhDisplayPanel.localPosition = new Vector3(panelPositionX, panelMinPosition, 0f);
+        bbhDisplayPanel.sizeDelta = new Vector2(panelWidth, panelMinHeight);
     }
 
     private void HideBlackHoleInformation()
@@ -93,8 +170,6 @@ public class BlackHoleDisplay : MonoBehaviour
 
     private void ShowBlackHoleInformation(float mass1, float mass2)
     {
-        HideBlackHoleInformation();
-
         string bh1Type = GetBlackHoleType(mass1);
         string bh2Type = GetBlackHoleType(mass2);
 
@@ -110,6 +185,7 @@ public class BlackHoleDisplay : MonoBehaviour
         bh2Mass.transform.parent.gameObject.SetActive(true);
         bh3Mass.transform.parent.gameObject.SetActive(false);
 
+        warningText.SetActive(false);
         nameBBH.gameObject.SetActive(true);
 
         StartCoroutine(MoveBlackHoles());

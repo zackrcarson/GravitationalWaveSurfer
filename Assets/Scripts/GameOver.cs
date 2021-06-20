@@ -34,6 +34,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] Image difficultyBoxWon = null;
 
     [Header("Game Objects")]
+    [SerializeField] GameObject stabilityBar = null;
     [SerializeField] GameObject gameOverScreen = null;
     [SerializeField] GameObject gameWonScreen = null;
     [SerializeField] GameObject scoreBox = null;
@@ -73,6 +74,7 @@ public class GameOver : MonoBehaviour
         pauseMenu.CanPause(false);
         particleSpawner.AllowSpawning(true);
 
+        stabilityBar.SetActive(false);
         scoreBox.SetActive(false);
         finalForm.SetActive(false);
         pauseButton.SetActive(false);
@@ -490,6 +492,7 @@ public class GameOver : MonoBehaviour
         pauseMenu.CanPause(true);
         particleSpawner.AllowSpawning(true);
 
+        stabilityBar.SetActive(true);
         scoreBox.SetActive(true);
         finalForm.SetActive(true);
         pauseButton.SetActive(true);
