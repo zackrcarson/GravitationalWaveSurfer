@@ -11,6 +11,8 @@ public class GridWave : MonoBehaviour
     [SerializeField] float manualControlFixedMass2 = 5.0f;
     [SerializeField] float maxDeviation = 0.5f;
 
+    [SerializeField] float cardinalAngleBlock = 0.1f;
+
     [SerializeField] float randomWaveOffTimeMin = 1f;
     [SerializeField] float randomWaveOffTimeMax = 4f;
 
@@ -41,6 +43,8 @@ public class GridWave : MonoBehaviour
 
     float bbhDisplayPanelOpeningTime = 1f;
     float bbhWarningMessageTime = 2f;
+
+    float xMin, xMax, yMin, yMax;
 
     // State Variables
     float hOfTDelta;
@@ -73,6 +77,8 @@ public class GridWave : MonoBehaviour
         sliceState = new List<Vector3>();
 
         CollectGrid();
+        
+        SetupScreenBoundaries();
     }
 
     private void CollectGrid()
@@ -143,13 +149,14 @@ public class GridWave : MonoBehaviour
                 masses = new float[] { manualControlFixedMass1, manualControlFixedMass2 };
             }
 
-            isWaving = !isWaving;
-            blackHoleDisplay.DisplayBlackHoles(isWaving, masses[0], masses[1]);
-
-            if (isWaving)
+            if (!isWaving)
             {
-                gravitationalWave.StartNewWave(masses[0], masses[1]);
-                maxAmplitude = gravitationalWave.GetMaxAmplitude();
+                StartCoroutine(OpenBBHDisplayPanel(masses[0], masses[1]));
+            }
+            else
+            {
+                isWaving = false;
+                blackHoleDisplay.DisplayBlackHoles(false, masses[0], masses[1]);
             }
         }
     }
@@ -242,7 +249,7 @@ public class GridWave : MonoBehaviour
         }
     }
 
-    private void WaveGrid()
+    /*private void WaveGrid()
     {
         hOfTDelta = gravitationalWave.GetGravitationalWave();
         deviationVector.y = hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
@@ -277,7 +284,9 @@ public class GridWave : MonoBehaviour
 
             i++;
         }
-    }
+    }*/
+
+    // Try multi-Dimensional
 
     private void ResetGridPositions()
     {
@@ -305,5 +314,156 @@ public class GridWave : MonoBehaviour
 
             i++;
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void WaveGrid()
+    {
+        hOfTDelta = gravitationalWave.GetGravitationalWave();
+        deviationVector.y = hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
+
+        float theta = Random.Range(0f, 360f);
+        float slope = Mathf.Tan(theta);
+
+
+
+        
+        
+        
+        for (int k = sliceState.Count; k-- > 1;)
+        {
+            sliceState[k] = sliceState[k - 1];
+        }
+        sliceState[0] = deviationVector;
+
+        int i = 0;
+        foreach (List<Transform> slice in grid)
+        {
+            int j = 0;
+            foreach (Transform child in slice)
+            {
+                if (j < halfWayMarker)
+                {
+                    child.position = gridOrigins[i][j] + sliceState[i];
+                }
+                else if (j > halfWayMarker)
+                {
+                    child.position = gridOrigins[i][j] - sliceState[i];
+                }
+                else
+                {
+                    child.position = gridOrigins[i][j];
+                }
+
+                j++;
+            }
+
+            i++;
+        }
+    }
+
+    private void SetupScreenBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
+
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
+
+
+        float theta = Random.Range(cardinalAngleBlock, 360f - cardinalAngleBlock);
+        if ((theta >= 90f - cardinalAngleBlock && theta <= 90f + cardinalAngleBlock) || (theta >= 180f - cardinalAngleBlock && theta <= 180f + cardinalAngleBlock) || (theta >= 270f - cardinalAngleBlock && theta <= 270f + cardinalAngleBlock))
+        {
+            theta += cardinalAngleBlock;
+        }
+
+        float[] perp = GetPerpFunction(theta);
+
+        Debug.Log((theta, perp[0], perp[1]));
+
+        foreach (List<Vector3> slice in gridOrigins)
+        {
+            foreach (Vector3 node in slice)
+            {
+                // Start here! save all these in a new List<List<Vector3>! then group
+                Debug.Log((node, GetPerpDistance(node, perp)));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns [slope, y-intercept] to the line perpendicular to the GW angle, and passing through the correct corner of the screen:
+    /// Equation for GW propagation: y = mx = y0 / x0 x = tan(theta) x (for any arbitrary y0, x0)
+    /// Equation for perpendicular line: yp = -1 / m x + b = - 1 / tan(theta) x + b. Constrain to corner of screen (x', y') s.t. y' =  - 1 / tan(theta) x' + b => yp =  - 1 / tan(theta) x + y0 + x0 / tan(theta)
+    /// See https://www.desmos.com/calculator/s71zjnlzed for example outputs for 25, 128, 223, and 330 degrees
+    /// </summary>
+    /// <returns></returns>
+    private float[] GetPerpFunction(float angleGW)
+    {
+        float x0, y0, slope, intercept;
+
+        if (angleGW >= 0f && angleGW <= 90f)
+        {
+            x0 = xMax;
+            y0 = yMax;
+        }
+        else if (angleGW > 90f && angleGW <= 180f)
+        {
+            x0 = xMin;
+            y0 = yMax;
+        }
+        else if (angleGW > 180f && angleGW <= 270f)
+        {
+            x0 = xMin;
+            y0 = yMin;
+        }
+        else if (angleGW > 270 && angleGW <= 360f)
+        {
+            x0 = xMax;
+            y0 = yMin;
+        }
+        else
+        {
+            Debug.Log("Incorrect angle " + angleGW.ToString() + " found.");
+            return new float[] { 0f, 0f };
+        }
+
+        slope = - 1 / (Mathf.Tan(angleGW * Mathf.Deg2Rad));
+        intercept = y0 + (x0 / (Mathf.Tan(angleGW * Mathf.Deg2Rad)));
+
+        return new float[] { slope, intercept };
+    }
+
+    /// <summary>
+    /// Returns the perpendicular distance from the GW perp line to a given node point (i.e. the closest distance to the line).
+    /// perp line equation: y = mx+b (perpLine[0,1] for m, b)
+    /// Equation of line perpendicular to that: yp = -1/mx + bp
+    /// Constrain to go through the node point <x0, y0>: y0 = -1/mx0 + bp => bp = y0 + x0/m => yp = -1/m x + y0 + x0/m
+    /// Set them equal to find intersection point <x1, y1>: y = mx1+b = yp = -1/m x1 + y0 + x0/m => x1 = (y0 + x0/m - b)/(m + 1/m) => y1 = m x1 + b
+    /// Distance is the distance from the node point <x0, y0> and the intersection point <x1, y1>
+    /// </summary>
+    /// <param name="nodePoint"></param>
+    /// <param name="perpLine"></param>
+    /// <returns></returns>
+    private float GetPerpDistance(Vector3 nodePoint, float[] perpLine)
+    {
+        float x1 = (nodePoint.y + (nodePoint.x / perpLine[0]) - perpLine[1]) / (perpLine[0] + (1 / perpLine[0]));
+        Vector3 perpLinePoint = new Vector3(x1, perpLine[0] * x1 + perpLine[1], 0f);
+
+        return Vector3.Distance(nodePoint, perpLinePoint);
     }
 }

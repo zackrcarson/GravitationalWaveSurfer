@@ -15,11 +15,11 @@ E:/GameDev/GravitationalWaveSurfer
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50273
+57188
 Successfully changed project path to: E:/GameDev/GravitationalWaveSurfer
 E:/GameDev/GravitationalWaveSurfer
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 63.94 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 25.62 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.8f1 (507919d4fff5)
 [Subsystems] Discovering subsystems at path E:/Editors/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
@@ -35,19 +35,426 @@ Initialize mono
 Mono path[0] = 'E:/Editors/2020.3.8f1/Editor/Data/Managed'
 Mono path[1] = 'E:/Editors/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'E:/Editors/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56160
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/Editors/2020.3.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: E:/Editors/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.364526 seconds.
+Registered in 0.003041 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 45.23 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 27.61 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  6.573 seconds
+- Completed reload, in  2.185 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.105702 seconds.
+Registered in 0.001932 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.912 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1187 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 61.3 MB.
+System memory in use after: 61.3 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1634.
+Total: 1.571800 ms (FindLiveObjects: 0.131800 ms CreateObjectMapping: 0.032300 ms MarkObjects: 1.336800 ms  DeleteObjects: 0.070000 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30ada2c3e3013ba9f2264db09665d3f9') in 0.061394 seconds
+  Import took 0.063891 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 145.518592 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '110d26bf0216b7e935a80484e33ef7bd') in 0.002878 seconds
+  Import took 0.007638 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.721449 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df58d765e185e039eab2f17b863378bc') in 0.002540 seconds
+  Import took 0.014700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.627711 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8fe968186262b48f7b56859962e7ec') in 0.003206 seconds
+  Import took 0.006063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.960383 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6180eb979ed6d60b55cbdfb2b1450ac5') in 0.003565 seconds
+  Import took 0.006675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.043157 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1664223b14f7f9c6e64c48639b706d67') in 0.004144 seconds
+  Import took 0.007725 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.473545 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49e9c161fb84f3576731539f28277159') in 0.003330 seconds
+  Import took 0.005583 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.976957 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85cacbccb5a0a468a1ec4d5b422c0617') in 0.002857 seconds
+  Import took 0.005570 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.954167 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72d153bc91b2ddbb2e0582a2a7361510') in 0.004434 seconds
+  Import took 0.008206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.782412 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53d34ab29a951b1bf8726f6c98d57952') in 0.003754 seconds
+  Import took 0.006594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.644368 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6c049b956e2c590cfac1f796f5c5978') in 0.004398 seconds
+  Import took 0.007824 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.863143 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b8dd9b7791a8d20b6b3b2515af42dc4') in 0.003657 seconds
+  Import took 0.006873 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.446551 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43d72b49a4555ecbed38d8abc3091d28') in 0.003975 seconds
+  Import took 0.006893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 221.822194 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49fac0fb8a7640bce91861c508a9f5ab') in 0.003663 seconds
+  Import took 0.006251 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.109219 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d26ba998e163bc1c86f1f00a8ac9ea1') in 0.003381 seconds
+  Import took 0.006243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.294565 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '074aa4267fa4bd39d530ca7432674546') in 0.002760 seconds
+  Import took 0.005845 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.476601 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b6145ed71c826ad5a9f798e552f6e33') in 0.002748 seconds
+  Import took 0.014307 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001592 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.801 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1637.
+Total: 1.585900 ms (FindLiveObjects: 0.117200 ms CreateObjectMapping: 0.027200 ms MarkObjects: 1.362500 ms  DeleteObjects: 0.078300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002100 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.878 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1640.
+Total: 1.739600 ms (FindLiveObjects: 0.139500 ms CreateObjectMapping: 0.030200 ms MarkObjects: 1.516700 ms  DeleteObjects: 0.052300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 127.565231 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e1c0236db30c31a779a47afa5d51e90') in 0.004203 seconds
+  Import took 0.016077 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001809 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.810 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1643.
+Total: 2.262400 ms (FindLiveObjects: 0.131900 ms CreateObjectMapping: 0.030200 ms MarkObjects: 2.044100 ms  DeleteObjects: 0.054500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 416.515248 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f727c0af766374396c2fb6be5a01c10') in 0.007169 seconds
+  Import took 0.018694 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001996 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.800 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1646.
+Total: 1.773900 ms (FindLiveObjects: 0.178300 ms CreateObjectMapping: 0.048300 ms MarkObjects: 1.496800 ms  DeleteObjects: 0.049500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 64.484049 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2dc051cf09cfc46a424646a6426693a') in 0.004280 seconds
+  Import took 0.014244 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002716 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.810 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1649.
+Total: 1.957100 ms (FindLiveObjects: 0.149600 ms CreateObjectMapping: 0.031100 ms MarkObjects: 1.726100 ms  DeleteObjects: 0.049400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 265.279346 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f0175d2c954ae7e33004ee313c8ff2b') in 0.005191 seconds
+  Import took 0.007539 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008362 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f0175d2c954ae7e33004ee313c8ff2b') in 0.002910 seconds
+  Import took 0.014038 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001666 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.806 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1652.
+Total: 1.849300 ms (FindLiveObjects: 0.155600 ms CreateObjectMapping: 0.033000 ms MarkObjects: 1.606400 ms  DeleteObjects: 0.053400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1229.651552 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '344d1a4d70a370f69cb5614d235a66f7') in 0.004580 seconds
+  Import took 0.007056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 189.238671 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1499f7a9669b4aba95f492ef5fa4c08b') in 0.005035 seconds
+  Import took 0.007843 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001874 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.860 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1655.
+Total: 1.718700 ms (FindLiveObjects: 0.155100 ms CreateObjectMapping: 0.030700 ms MarkObjects: 1.479000 ms  DeleteObjects: 0.053100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 856.537365 seconds.
+  path: Assets/Scripts/GridWave.cs
+  artifactKey: Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/GridWave.cs using Guid(49bdf7f142ae18d4591d1f7b64f7b35b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8591cf89bd391e5e7d16c30d6c48be81') in 0.004603 seconds
+  Import took 0.007446 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001750 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.805 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1658.
+Total: 1.924600 ms (FindLiveObjects: 0.147200 ms CreateObjectMapping: 0.029900 ms MarkObjects: 1.695100 ms  DeleteObjects: 0.051600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001878 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.784 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1169 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1661.
+Total: 1.848600 ms (FindLiveObjects: 0.146100 ms CreateObjectMapping: 0.031100 ms MarkObjects: 1.624900 ms  DeleteObjects: 0.045700 ms)
+
