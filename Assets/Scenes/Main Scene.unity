@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165539, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
 --- !u!1001 &3289980679256693023
