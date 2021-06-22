@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GridWave : MonoBehaviour
@@ -395,13 +396,57 @@ public class GridWave : MonoBehaviour
 
         Debug.Log((theta, perp[0], perp[1]));
 
+        List<float[]> gridDistances = new List<float[]>();
+        int i = 0;
         foreach (List<Vector3> slice in gridOrigins)
         {
+            int j = 0;
             foreach (Vector3 node in slice)
             {
-                // Start here! save all these in a new List<List<Vector3>! then group
-                Debug.Log((node, GetPerpDistance(node, perp)));
+                gridDistances.Add(new float[] { GetPerpDistance(node, perp), i, j });
+                
+                j++;
             }
+
+            i++;
+        }
+
+        gridDistances = gridDistances.OrderBy(lst => lst[0]).ToList();
+
+        float maxDistance = gridDistances.Last()[0];
+        int numSlices = 17;
+        if ((theta >= 315f || theta <= 45) || (theta > 135f && theta <= 225f))
+        {
+            numSlices = grid.Count();
+        }
+        else if ((theta > 45f && theta <= 135f) || (theta > 225f && theta <= 315))
+        {
+            numSlices = grid[0].Count();
+        }
+        else
+        {
+            Debug.LogError("Incorrect angle " + theta.ToString() + " found.");
+        }
+        int nodesPerSlice = grid[0].Count() * grid.Count() / numSlices;
+
+
+        List<List<int[]>> slices = new List<List<int[]>>();
+
+        // Group nodes into wave slices. This splits up the total length (perp line to opposite corner perp distance) into grid_width/grid_height equal length slices (depending on if it's coming from top/bottom or left/right side of the screen). Could potentially find a better looking way to do this :)
+        i = 0;
+        int k = -1;
+        foreach (float[] node in gridDistances)
+        {
+            if (Mathf.FloorToInt(i / nodesPerSlice) > k)
+            {
+                k++;
+                slices.Add(new List<int[]>());
+            }
+
+            slices[k].Add(new int[] { (int)node[1], (int)node[2] });
+
+            Debug.Log((k, node[0], (int)node[1], (int)node[2]));
+            i++;
         }
     }
 
@@ -431,14 +476,14 @@ public class GridWave : MonoBehaviour
             x0 = xMin;
             y0 = yMin;
         }
-        else if (angleGW > 270 && angleGW <= 360f)
+        else if (angleGW > 270f && angleGW <= 360f)
         {
             x0 = xMax;
             y0 = yMin;
         }
         else
         {
-            Debug.Log("Incorrect angle " + angleGW.ToString() + " found.");
+            Debug.LogError("Incorrect angle " + angleGW.ToString() + " found.");
             return new float[] { 0f, 0f };
         }
 
