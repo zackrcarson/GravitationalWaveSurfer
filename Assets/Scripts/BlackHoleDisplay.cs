@@ -13,6 +13,9 @@ public class BlackHoleDisplay : MonoBehaviour
     [SerializeField] GameObject bh2 = null;
     [SerializeField] GameObject bh3 = null;
 
+    [SerializeField] GameObject pointerArrow = null;
+    [SerializeField] float angleRotationTime = 0.5f;
+
     [SerializeField] float maxScale = 1.2f;
     [SerializeField] float minScale = 0.5f;
     [SerializeField] float massRetained = 0.95f;
@@ -83,11 +86,11 @@ public class BlackHoleDisplay : MonoBehaviour
         coalescenceTime = FindObjectOfType<GravitationalWave>().coalescenceTime;
     }
 
-    public void DisplayBlackHoles(bool display, float mass1 = 0f, float mass2 = 0f)
+    public void DisplayBlackHoles(bool display, float mass1 = 0f, float mass2 = 0f, float angle = 0f)
     {
         if (display)
         {
-            StartCoroutine(OpenBlackHolePanel(mass1, mass2));
+            StartCoroutine(OpenBlackHolePanel(mass1, mass2, angle));
         }
         else
         {
@@ -95,7 +98,7 @@ public class BlackHoleDisplay : MonoBehaviour
         }
     }
 
-    private IEnumerator OpenBlackHolePanel(float mass1, float mass2)
+    private IEnumerator OpenBlackHolePanel(float mass1, float mass2, float angle)
     {
         HideBlackHoleInformation();
 
@@ -124,7 +127,7 @@ public class BlackHoleDisplay : MonoBehaviour
 
         yield return new WaitForSeconds(warningMessageTime);
 
-        ShowBlackHoleInformation(mass1, mass2);
+        ShowBlackHoleInformation(mass1, mass2, angle);
     }
 
     private IEnumerator CloseBlackHolePanel()
@@ -158,6 +161,8 @@ public class BlackHoleDisplay : MonoBehaviour
         bh2.SetActive(false);
         bh3.SetActive(false);
 
+        pointerArrow.transform.parent.gameObject.SetActive(false);
+
         bh1RectTransform.localPosition = bh1InitialPosition;
         bh2RectTransform.localPosition = bh2InitialPosition;
 
@@ -168,7 +173,7 @@ public class BlackHoleDisplay : MonoBehaviour
         nameBBH.gameObject.SetActive(false);
     }
 
-    private void ShowBlackHoleInformation(float mass1, float mass2)
+    private void ShowBlackHoleInformation(float mass1, float mass2, float angle)
     {
         string bh1Type = GetBlackHoleType(mass1);
         string bh2Type = GetBlackHoleType(mass2);
@@ -185,10 +190,45 @@ public class BlackHoleDisplay : MonoBehaviour
         bh2Mass.transform.parent.gameObject.SetActive(true);
         bh3Mass.transform.parent.gameObject.SetActive(false);
 
+        pointerArrow.transform.parent.gameObject.SetActive(true);
+        StartCoroutine(RotateArrow(angle));
+
         warningText.SetActive(false);
         nameBBH.gameObject.SetActive(true);
 
         StartCoroutine(MoveBlackHoles());
+    }
+
+    private IEnumerator RotateArrow(float newAngle)
+    {
+        float startAngle = pointerArrow.transform.localEulerAngles.z;
+        float deltaAngle = newAngle - pointerArrow.transform.localEulerAngles.z;
+
+        if (deltaAngle <= -180f)
+        {
+            deltaAngle += 360f;
+        }
+        else if (deltaAngle >= 180f)
+        {
+            deltaAngle -= 360f;
+        }
+
+        Vector3 currentAngle = new Vector3(0f, 0f, 0f);
+
+        float t = 0f;
+        while (t < angleRotationTime)
+        {
+            t += Time.deltaTime;
+
+            currentAngle.z = startAngle + deltaAngle * (t / angleRotationTime);
+
+            pointerArrow.transform.localEulerAngles = currentAngle;
+
+            yield return null;
+        }
+
+        currentAngle.z = newAngle;
+        pointerArrow.transform.localEulerAngles = currentAngle;
     }
 
     private float GetScale(float mass)
