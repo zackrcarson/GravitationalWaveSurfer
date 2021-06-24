@@ -36,7 +36,11 @@ public class WaveRider : MonoBehaviour
             {
                 sliceState = gridWave.sliceState;
 
-                currentSlice = (int)Mathf.Floor((transform.position.x + halfTotal) / gridSpacing);
+                Vector3 deviation = gridWave.GetRiderDeviation(transform.position);
+
+                transform.position += ridePercent * deviation;
+
+                /*currentSlice = (int)Mathf.Floor((transform.position.x + halfTotal) / gridSpacing);
 
                 if (currentSlice < 0)
                 {
@@ -58,7 +62,7 @@ public class WaveRider : MonoBehaviour
                 else
                 {
                     return;
-                }
+                }*/
             }    
         }
     }

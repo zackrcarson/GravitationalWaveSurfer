@@ -30,7 +30,11 @@ public class CreateGridWindow : EditorWindow
 
         if (gridHeight % 2 == 0)
         {
-            gridHeight = gridHeight + 1;
+            gridHeight += 1;
+        }
+        if (gridWidth % 2 == 0)
+        {
+            gridWidth += 1;
         }
 
         gridMarker = (GameObject)(EditorGUILayout.ObjectField("Grid Marker Prefab", gridMarker, typeof(Object), true));
@@ -54,7 +58,7 @@ public class CreateGridWindow : EditorWindow
     private void CreateGrid()
     {
         cameraHeight = Camera.main.orthographicSize;
-        cameraWidth = cameraHeight * mainCanvas.GetComponent<CanvasScaler>().referenceResolution.x / mainCanvas.GetComponent<CanvasScaler>().referenceResolution.y;//1920 / 1080;
+        cameraWidth = cameraHeight * mainCanvas.GetComponent<CanvasScaler>().referenceResolution.x / mainCanvas.GetComponent<CanvasScaler>().referenceResolution.y;
 
         for (int x = 0; x <= gridWidth - 1; x++)
         {

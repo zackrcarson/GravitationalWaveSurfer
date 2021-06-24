@@ -16,6 +16,9 @@ public class GridWave : MonoBehaviour
 
     [Header("Gravitational Wave grid Mechanics")]
     [SerializeField] float maxDeviation = 0.5f;
+    [SerializeField] float centerNoDeviationBuffer = 0.5f;
+    [SerializeField] float[] numBuffersReducedDeviation = { 8f, 14f };
+    [SerializeField] float[] nearbyReductionFactor = { 0.6f, 0.8f };
     [SerializeField] float cardinalAngleBlock = 0.1f;
 
     [Header("Random Timing Parameters")]
@@ -37,6 +40,7 @@ public class GridWave : MonoBehaviour
 
     List<List<Transform>> grid = null;
     List<List<Vector3>> gridOrigins = null;
+    List<List<float>> waveCenterDistances = null;
 
     float stellarMinMass = 3.8f;
     float stellarIntermediateMassBoundary = 100f;
@@ -57,6 +61,9 @@ public class GridWave : MonoBehaviour
     Vector3 deviationVector;
     Vector3 deviationDirection;
     float centerLineSlope;
+    float[] wavefront;
+
+    float distancePerSlice, numSlices;
 
     public List<Vector3> sliceState;
     List<List<int[]>> slices;
@@ -84,7 +91,6 @@ public class GridWave : MonoBehaviour
         supermassiveMaxMass = blackHoleDisplay.supermassiveMaxMass;
 
         deviationVector = new Vector3();
-
         sliceState = new List<Vector3>();
 
         CollectGrid();
@@ -263,43 +269,6 @@ public class GridWave : MonoBehaviour
         }
     }
 
-    /*private void WaveGrid()
-    {
-        hOfTDelta = gravitationalWave.GetGravitationalWave();
-        deviationVector.y = hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
-
-        for (int k = sliceState.Count; k-- > 1;)
-        {
-            sliceState[k] = sliceState[k - 1];
-        }
-        sliceState[0] = deviationVector;
-
-        int i = 0;
-        foreach (List<Transform> slice in grid)
-        {
-            int j = 0;
-            foreach (Transform child in slice)
-            {
-                if (j < halfWayMarker)
-                {
-                    child.position = gridOrigins[i][j] + sliceState[i];
-                }
-                else if (j > halfWayMarker)
-                {
-                    child.position = gridOrigins[i][j] - sliceState[i];
-                }
-                else
-                {
-                    child.position = gridOrigins[i][j];
-                }
-
-                j++;
-            }
-
-            i++;
-        }
-    }*/
-
     private void ResetGridPositions()
     {
         int i = 0;
@@ -329,24 +298,8 @@ public class GridWave : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     private void WaveGrid()
-    {
-        // Loop through slices now! Deviate in the direction of the wavefront, up for above original angle line down for below (need to savesome values from earlier for this..)
-        // deviate wave riders in the same way!
-        // Add an arrow to BBH display for the direction it's coming from.
-        Debug.Log(centerLineSlope);
+    {        
         hOfTDelta = gravitationalWave.GetGravitationalWave();
         deviationVector = deviationDirection * hOfTDelta * (halfVerticalGridSpace / maxAmplitude);
 
@@ -364,16 +317,39 @@ public class GridWave : MonoBehaviour
                 int i = node[0];
                 int j = node[1];
 
-                Vector2 childPosiiton = gridOrigins[i][j];
+                float distanceFromCenterLine = waveCenterDistances[i][j];
 
-                // See if the node is above or below the center GW line going through the origin
-                if (childPosiiton.y > centerLineSlope * childPosiiton.x)
+                if (distanceFromCenterLine <= centerNoDeviationBuffer && distanceFromCenterLine >= - centerNoDeviationBuffer)
                 {
-                    grid[i][j].position = gridOrigins[i][j] + sliceState[s];
+                    grid[i][j].position = gridOrigins[i][j];
                 }
-                else if (childPosiiton.y < centerLineSlope * childPosiiton.x)
+                else if (distanceFromCenterLine > centerNoDeviationBuffer)
                 {
-                    grid[i][j].position = gridOrigins[i][j] - sliceState[s];
+                    float restriction = 1f;
+                    if (distanceFromCenterLine < numBuffersReducedDeviation[0] * centerNoDeviationBuffer)
+                    {
+                        restriction = nearbyReductionFactor[0];
+                    }
+                    else if (distanceFromCenterLine >= numBuffersReducedDeviation[0] * centerNoDeviationBuffer && distanceFromCenterLine <= numBuffersReducedDeviation[1] * centerNoDeviationBuffer)
+                    {
+                        restriction = nearbyReductionFactor[1];
+                    }
+
+                    grid[i][j].position = gridOrigins[i][j] + sliceState[s] * restriction;
+                }
+                else if (distanceFromCenterLine < -centerNoDeviationBuffer)
+                {
+                    float restriction = 1f;
+                    if (distanceFromCenterLine > -numBuffersReducedDeviation[0] * centerNoDeviationBuffer)
+                    {
+                        restriction = nearbyReductionFactor[0];
+                    }
+                    else if (distanceFromCenterLine <= numBuffersReducedDeviation[0] * centerNoDeviationBuffer && distanceFromCenterLine >= numBuffersReducedDeviation[1] * centerNoDeviationBuffer)
+                    {
+                        restriction = nearbyReductionFactor[1];
+                    }
+
+                    grid[i][j].position = gridOrigins[i][j] - sliceState[s] * restriction;
                 }
                 else
                 {
@@ -389,7 +365,7 @@ public class GridWave : MonoBehaviour
     {
         // Pick a random angle for the GW to come from
         float thetaGW = PickGWAngle();
-        Debug.Log(thetaGW);
+
         // Find the wavefront, and get the perpendicular distance from each node to the wavefront line
         List<float[]> gridDistances = GetGridDistances(thetaGW);
 
@@ -408,15 +384,14 @@ public class GridWave : MonoBehaviour
     private float PickGWAngle()
     {
         // Pick a random angle, buffer it slightly if it's at exactly 0, 90, 180, 270, 260
-        float thetaGW = Random.Range(cardinalAngleBlock, 360f - cardinalAngleBlock);
-
+        float thetaGW;
         if (manualControlFixedMass)
         {
             thetaGW = manualControlFixedAngle;
         }
         else
         {
-
+            thetaGW = Random.Range(cardinalAngleBlock, 360f - cardinalAngleBlock);
         }
 
         if ((thetaGW >= 90f - cardinalAngleBlock && thetaGW <= 90f + cardinalAngleBlock) || (thetaGW >= 180f - cardinalAngleBlock && thetaGW <= 180f + cardinalAngleBlock) || (thetaGW >= 270f - cardinalAngleBlock && thetaGW <= 270f + cardinalAngleBlock))
@@ -430,24 +405,34 @@ public class GridWave : MonoBehaviour
     private List<float[]> GetGridDistances(float thetaGW)
     {
         // Compute the equation (y=mx+b, written as [m,b] of the wavefront (perpendicular to wave vector), going through the corner of the screen in the pi/2 direction the wave came from
-        float[] wavefront = GetPerpFunction(thetaGW);
+        wavefront = GetPerpFunction(thetaGW);
 
         // We want to deviate in the direction of the wavefront (so unity vector in the direction of the slope)
         deviationDirection = new Vector3(1f, wavefront[0], 0f);
         deviationDirection = Vector3.Normalize(deviationDirection);
 
         // Equation of the GW propogation direction passing through the center is y = y0/x0 x = tan(theta) x. This line will split which nodes go up, and which go down.
-        centerLineSlope = Mathf.Tan(thetaGW);
+        centerLineSlope = Mathf.Tan(thetaGW * Mathf.Deg2Rad);
 
         // Get the perpendicular distance (i.e. closest distance) from the wavefront line (above) to the node for each node in the array. Order it from closest to furthest.
         List<float[]> gridDistances = new List<float[]>();
+        waveCenterDistances = new List<List<float>>();
+
         int i = 0;
         foreach (List<Vector3> slice in gridOrigins)
         {
+            waveCenterDistances.Add(new List<float>());
+
             int j = 0;
             foreach (Vector3 node in slice)
             {
                 gridDistances.Add(new float[] { GetPerpDistance(node, wavefront), i, j });
+
+                waveCenterDistances[i].Add(GetPerpDistance(node, new float[] {centerLineSlope , 0f}));
+                if (node.y < centerLineSlope * node.x)
+                {
+                    waveCenterDistances[i][j] *= -1;
+                }
 
                 j++;
             }
@@ -461,7 +446,7 @@ public class GridWave : MonoBehaviour
     private void GetSlices(float thetaGW, List<float[]> gridDistances)
     {
         // Count the number of slices there should be as the wave passes (= numColumns if coming from right/left, and = numRows if coming from top/bottom
-        int numSlices = 17;
+        numSlices = 17;
         if ((thetaGW >= 315f || thetaGW <= 45) || (thetaGW > 135f && thetaGW <= 225f))
         {
             numSlices = grid.Count();
@@ -475,8 +460,8 @@ public class GridWave : MonoBehaviour
             Debug.LogError("Incorrect angle " + thetaGW.ToString() + " found.");
         }
 
-        // Group the nodes into evenly spaces distnace slices parallel to the wavefront
-        float distancePerSlice = gridDistances.Last()[0] / numSlices;
+        // Group the nodes into evenly spaces distance slices parallel to the wavefront
+        distancePerSlice = gridDistances.Last()[0] / numSlices;
 
         slices = new List<List<int[]>>();
 
@@ -567,7 +552,7 @@ public class GridWave : MonoBehaviour
     /// <param name="nodePoint"></param>
     /// <param name="perpLine"></param>
     /// <returns></returns>
-    private float GetPerpDistance(Vector3 nodePoint, float[] perpLine)
+    float GetPerpDistance(Vector3 nodePoint, float[] perpLine)
     {
         // Perpendicular distance from the wavefront to the given node, math shown in docstring
         float x1 = (nodePoint.y + (nodePoint.x / perpLine[0]) - perpLine[1]) / (perpLine[0] + (1 / perpLine[0]));
@@ -585,5 +570,18 @@ public class GridWave : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
+    }
+
+    public Vector3 GetRiderDeviation(Vector3 riderPosition)
+    {
+        float topBottom = +1f;
+        if (riderPosition.y < centerLineSlope * riderPosition.x)
+        {
+            topBottom = -1f;
+        }
+
+        int sliceNumber = Mathf.FloorToInt(GetPerpDistance(riderPosition, wavefront) / distancePerSlice);
+
+        return topBottom *  sliceState[sliceNumber];
     }
 }

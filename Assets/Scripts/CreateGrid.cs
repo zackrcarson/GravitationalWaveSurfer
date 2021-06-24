@@ -21,7 +21,11 @@ public class CreateGrid : MonoBehaviour
     {
         if (gridHeight % 2 == 0)
         {
-            gridHeight = gridHeight + 1;
+            gridHeight += 1;
+        }
+        if (gridWidth % 2 == 0)
+        {
+            gridWidth += 1;
         }
 
         DestroyGrid();
