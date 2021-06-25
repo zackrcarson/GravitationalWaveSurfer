@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566930714797880068, guid: 6193b5053e53e6547a928a9a419f25e2, type: 3}
       propertyPath: nearbyReductionFactor.Array.data[1]
-      value: 8
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3566930714797880068, guid: 6193b5053e53e6547a928a9a419f25e2, type: 3}
       propertyPath: numbuffersReducedDeviation.Array.data[0]

@@ -359,6 +359,8 @@ public class GameManager : MonoBehaviour
         currentParticles[2] = numElectrons;
 
         ShowScore();
+        goals.CheckGoal(currentParticles);
+        stability.updateStability(currentParticles);
     }
 
     /// <summary>

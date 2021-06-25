@@ -107,14 +107,11 @@ public class Pickup : MonoBehaviour
                 }
             }
 
-            // Check if the other collider is Player. If any anti exists, destroy both. Else, merge them.
+            // Check if the other collider is Player. If any anti exists, destroy both particles only. Else, merge them.
             if (otherCollider.gameObject.tag == PLAYER_NAME)
             {
                 if (foundAnti)
                 {
-                    //string victimName = antiNames[0].Replace(ANTI_PREFIX, "");
-                    //FindObjectOfType<Player>().KillPlayer(victimName);
-
                     // Replace below with above to change to automatically dying when hitting an anti particle
                     bool shouldDestroy = FindObjectOfType<Player>().AnnihilateParticles(antiNames);
                     

@@ -271,6 +271,11 @@ public class GridWave : MonoBehaviour
 
     private void ResetGridPositions()
     {
+        if (grid[0][0] == null)
+        {
+            CollectGrid();
+        }
+
         int i = 0;
         foreach (List<Transform> slice in grid)
         {
@@ -574,11 +579,17 @@ public class GridWave : MonoBehaviour
 
     public Vector3 GetRiderDeviation(Vector3 riderPosition)
     {
+        if (GetPerpDistance(riderPosition, new float[] { centerLineSlope , 0f }) < centerNoDeviationBuffer)
+        {
+            return Vector3.zero;
+        }
+
         float topBottom = +1f;
         if (riderPosition.y < centerLineSlope * riderPosition.x)
         {
             topBottom = -1f;
         }
+
 
         int sliceNumber = Mathf.FloorToInt(GetPerpDistance(riderPosition, wavefront) / distancePerSlice);
 
