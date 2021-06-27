@@ -16,6 +16,8 @@ public class StarScroller : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        GetComponent<Renderer>().sortingLayerName = "Background";
+
         material = GetComponent<Renderer>().material;
 
         randomDirection = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized;

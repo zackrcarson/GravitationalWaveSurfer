@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 1540495657310591555}
   - component: {fileID: 1540495657310591554}
   - component: {fileID: -2272159833156757132}
+  - component: {fileID: -5930943404732256686}
   m_Layer: 7
   m_Name: Anti-Neutron
   m_TagString: Anti-Neutron
@@ -266,6 +267,17 @@ MonoBehaviour:
   canRide: 1
   ridePercent: 0.02
   bufferPercentage: 0
+--- !u!247 &-5930943404732256686
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3172846155888678754}
+  m_Enabled: 0
+  m_Force: {x: 0, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1 &3172846156066336746
 GameObject:
   m_ObjectHideFlags: 0

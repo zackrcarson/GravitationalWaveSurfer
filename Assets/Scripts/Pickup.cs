@@ -17,6 +17,10 @@ public class Pickup : MonoBehaviour
     CollisionDetectionMode2D rigidBodyCollisionDetectionMode;
     RigidbodyType2D rigidBodyBodyType;
 
+    MicroBlackHole microBlackHole = null;
+    ConstantForce2D constantForce = null;
+    Vector2 thisToBlackHole;
+
     WaveRider waveRider = null;
 
     // State variables
@@ -38,12 +42,56 @@ public class Pickup : MonoBehaviour
     {
         waveRider = GetComponent<WaveRider>();
 
+        microBlackHole = FindObjectOfType<MicroBlackHole>();
+        constantForce = GetComponent<ConstantForce2D>();
+        constantForce.enabled = false;
+
         listOfParticles = new List<string>();
         listOfParticles.Add(tag);
 
         StoreRigidBody();
 
         RandomKick();
+    }
+
+    private void Update()
+    {
+        MicroBlackHole();
+    }
+
+    private void MicroBlackHole()
+    {
+        if (constantForce != null)
+        {
+            if (microBlackHole.isActive)
+            {
+                thisToBlackHole = transform.position - microBlackHole.transform.position;
+
+                if (thisToBlackHole.magnitude < microBlackHole.interactionRadius)
+                {
+                    if (thisToBlackHole.magnitude < microBlackHole.eventHorizon)
+                    {
+                        constantForce.force = microBlackHole.eventHorizonForce * thisToBlackHole.normalized;
+                    }
+                    else
+                    {
+                        constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
+                    }
+
+                    constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
+
+                    constantForce.enabled = true;
+                }
+                else
+                {
+                    constantForce.enabled = false;
+                }
+            }
+            else
+            {
+                constantForce.enabled = false;
+            }
+        }
     }
 
     private void RandomKick()
@@ -57,11 +105,13 @@ public class Pickup : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D otherCollider)
     {
+
         // If this particle hasn't been merged with the player yet. Else, do nothing.
         if (!hasTouched)
         {
             bool foundAnti = false;
             antiNames = new List<string>();
+            List<Pickup> antiParticles = new List<Pickup>();
 
             listOfChildren = new List<Pickup>();
             listOfParents = new List<Pickup>();
@@ -77,6 +127,7 @@ public class Pickup : MonoBehaviour
             {
                 foundAnti = true;
                 antiNames.Add(tag);
+                antiParticles.Add(this);
             }
 
             // Check if any of the children of the other particle is an anti
@@ -88,6 +139,7 @@ public class Pickup : MonoBehaviour
                     {
                         foundAnti = true;
                         antiNames.Add(child.gameObject.tag);
+                        antiParticles.Add(child);
                     }
                 }
             }
@@ -103,6 +155,7 @@ public class Pickup : MonoBehaviour
                     {
                         foundAnti = true;
                         antiNames.Add(parent.gameObject.tag);
+                        antiParticles.Add(parent);
                     }
                 }
             }
@@ -126,6 +179,11 @@ public class Pickup : MonoBehaviour
 
                     FindObjectOfType<Player>().AddParticle(this);
 
+                    if (constantForce != null)
+                    {
+                        constantForce.enabled = false;
+                        Destroy(constantForce);
+                    }
                     Destroy(GetComponent<Rigidbody2D>());
 
                     if (listOfParticles.Count > 0)
@@ -140,9 +198,8 @@ public class Pickup : MonoBehaviour
                 return;
             }
 
-
             // Check if we should destroy both particles if there is a matching anti/non-anti in either clump!
-            if (foundAnti && ShouldDestroy(otherCollider))
+            if (foundAnti && ShouldDestroy())
             {
                 DestroyParent(gameObject);
                 DestroyParent(otherCollider.gameObject);
@@ -151,7 +208,7 @@ public class Pickup : MonoBehaviour
 
                 return;
             }
-            else    
+            else
             {
                 if (rigidBody != null)
                 {
@@ -172,7 +229,14 @@ public class Pickup : MonoBehaviour
         if (transform.parent.tag != PARTICLE_PARENT)
         {
             listOfParticles = new List<string>();
+
+            if (constantForce != null)
+            {
+                constantForce.enabled = false;
+                Destroy(constantForce);
+            }
             Destroy(GetComponent<Rigidbody2D>());
+
             waveRider.canRide = false;
         }
         else
@@ -292,13 +356,7 @@ public class Pickup : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Checks through the other clump of particles (parents, self, children) if there is a matching particle to the list of
-    /// anti-particles in my clump of particles. The opposite will of course be checked from the OTHER clump of particles pickup script.
-    /// </summary>
-    /// <param name="otherCollider"></param>
-    /// <returns></returns>
-    private bool ShouldDestroy(Collision2D otherCollider)
+    private bool ShouldDestroy()
     {
         // Check if the list of antis in the other particle matches the base particle non-anti
         if (antiNames.Contains(ANTI_PREFIX + tag))

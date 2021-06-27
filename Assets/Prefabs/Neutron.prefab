@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1710047441}
   - component: {fileID: 1710047440}
   - component: {fileID: 8250753686319116116}
+  - component: {fileID: 3757968902870055483}
   m_Layer: 7
   m_Name: Neutron
   m_TagString: Neutron
@@ -158,6 +159,17 @@ MonoBehaviour:
   canRide: 1
   ridePercent: 0.02
   bufferPercentage: 0
+--- !u!247 &3757968902870055483
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136774406198234608}
+  m_Enabled: 0
+  m_Force: {x: 0, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1 &4136774406353909112
 GameObject:
   m_ObjectHideFlags: 0

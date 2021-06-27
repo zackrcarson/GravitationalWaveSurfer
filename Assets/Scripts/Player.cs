@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     // Cached References
     Rigidbody2D rigidBody = null;
     GameOver gameOver = null;
+    MicroBlackHole microBlackHole = null;
+    ConstantForce2D constantForce = null;
+
     float xMin, xMax, yMin, yMax;
 
     bool canMove = true;
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     // State Variables
     List<Pickup> particles = null;
     List<string> particleNames = null;
+    Vector2 thisToBlackHole;
 
     // Constants
     const string ANTI_PREFIX = "Anti-";
@@ -37,7 +41,10 @@ public class Player : MonoBehaviour
 
         gameOver = FindObjectOfType<GameOver>();
         rigidBody = GetComponent<Rigidbody2D>();
-        
+        microBlackHole = FindObjectOfType<MicroBlackHole>();
+        constantForce = GetComponent<ConstantForce2D>();
+        constantForce.enabled = false;
+
         SetupMoveBoundaries();
         
         RandomKick();
@@ -63,6 +70,41 @@ public class Player : MonoBehaviour
         if (canMove)
         {
             Move();
+        }
+
+        MicroBlackHole();
+    }
+
+    private void MicroBlackHole()
+    {
+        if (microBlackHole.isActive)
+        {
+            thisToBlackHole = transform.position - microBlackHole.transform.position;
+
+            if (thisToBlackHole.magnitude < microBlackHole.interactionRadius)
+            {
+                if (thisToBlackHole.magnitude < microBlackHole.eventHorizon)
+                {
+                    constantForce.force = microBlackHole.eventHorizonForce * thisToBlackHole.normalized;
+                    canMove = false;
+                }
+                else
+                {
+                    constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
+                }
+
+                constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
+
+                constantForce.enabled = true;
+            }
+            else
+            {
+                constantForce.enabled = false;
+            }
+        }
+        else
+        {
+            constantForce.enabled = false;
         }
     }
 

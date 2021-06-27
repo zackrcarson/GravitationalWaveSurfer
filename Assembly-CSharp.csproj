@@ -73,13 +73,15 @@
     <Compile Include="Assets\Scripts\DifficultyHolder.cs" />
     <Compile Include="Assets\Scripts\ParticleShredder.cs" />
     <Compile Include="Assets\Scripts\GridWave.cs" />
+    <Compile Include="Assets\Scripts\OpenHyperLinks.cs" />
+    <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\BlackHoleDisplay.cs" />
     <Compile Include="Assets\Scripts\Stability.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Instructions.cs" />
-    <Compile Include="Assets\Scripts\Rotator.cs" />
-    <Compile Include="Assets\Scripts\OpenHyperLinks.cs" />
+    <Compile Include="Assets\Scripts\AntiParticle.cs" />
+    <Compile Include="Assets\Scripts\MicroBlackHole.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

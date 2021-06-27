@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7724742191931822828}
   - component: {fileID: 7724742191931822829}
   - component: {fileID: -5554813148374726571}
+  - component: {fileID: -1668175616588639378}
   m_Layer: 7
   m_Name: Proton
   m_TagString: Proton
@@ -189,6 +190,17 @@ MonoBehaviour:
   canRide: 1
   ridePercent: 0.02
   bufferPercentage: 0
+--- !u!247 &-1668175616588639378
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277081266088633053}
+  m_Enabled: 0
+  m_Force: {x: 0, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1 &4277081266833047430
 GameObject:
   m_ObjectHideFlags: 0
