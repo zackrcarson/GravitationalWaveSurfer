@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -30
+  rotateWhenPaused: 0
 --- !u!1 &2616889250772010450
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -30
+  rotateWhenPaused: 0
 --- !u!1 &2616889251355847214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -60
+  rotateWhenPaused: 0
 --- !u!1 &2657753117586497595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,6 +2292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 20
+  rotateWhenPaused: 1
 --- !u!1 &5828580524199419025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2962,6 +2966,7 @@ MonoBehaviour:
   blackHoleInformation: {fileID: 7000570912984374201}
   goalBox: {fileID: 7000570913202779880}
   pointsBox: {fileID: 7000570913346737340}
+  isGameOver: 0
 --- !u!114 &3195962750190451389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3538,6 +3543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 20
+  rotateWhenPaused: 1
 --- !u!1 &5828580524461081991
 GameObject:
   m_ObjectHideFlags: 0
@@ -4133,6 +4139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 20
+  rotateWhenPaused: 1
 --- !u!1 &5828580524577677843
 GameObject:
   m_ObjectHideFlags: 0
@@ -4664,6 +4671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 20
+  rotateWhenPaused: 1
 --- !u!1 &5828580524632565770
 GameObject:
   m_ObjectHideFlags: 0
@@ -5637,6 +5645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -30
+  rotateWhenPaused: 1
 --- !u!1 &5828580524789735362
 GameObject:
   m_ObjectHideFlags: 0
@@ -6493,6 +6502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 30
+  rotateWhenPaused: 1
 --- !u!1 &5828580525042891874
 GameObject:
   m_ObjectHideFlags: 0
@@ -7220,6 +7230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 20
+  rotateWhenPaused: 1
 --- !u!1 &5828580525277772977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8427,6 +8438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -20
+  rotateWhenPaused: 1
 --- !u!1 &5828580525584809537
 GameObject:
   m_ObjectHideFlags: 0
@@ -8751,6 +8763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -20
+  rotateWhenPaused: 1
 --- !u!1 &5828580525629578484
 GameObject:
   m_ObjectHideFlags: 0
@@ -10559,6 +10572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 30
+  rotateWhenPaused: 1
 --- !u!1 &5828580525945162945
 GameObject:
   m_ObjectHideFlags: 0
@@ -11122,6 +11136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -10
+  rotateWhenPaused: 1
 --- !u!1 &5828580526157694423
 GameObject:
   m_ObjectHideFlags: 0
@@ -11264,6 +11279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: 30
+  rotateWhenPaused: 1
 --- !u!1 &6109907206479202369
 GameObject:
   m_ObjectHideFlags: 0
@@ -12223,8 +12239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -126.86041}
-  m_SizeDelta: {x: 1100, y: 232.099}
+  m_AnchoredPosition: {x: 0, y: -121.45}
+  m_SizeDelta: {x: 1100, y: 242.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7000570912638316872
 CanvasRenderer:
@@ -12859,6 +12875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -10
+  rotateWhenPaused: 1
 --- !u!1 &7000570912765192833
 GameObject:
   m_ObjectHideFlags: 0
@@ -20132,8 +20149,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75.454956}
-  m_SizeDelta: {x: 1100, y: 126.7814}
+  m_AnchoredPosition: {x: 0, y: -69.423}
+  m_SizeDelta: {x: 1100, y: 138.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7000570913749292623
 CanvasRenderer:
@@ -21158,6 +21175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackHoleRotationSpeed: -50
+  rotateWhenPaused: 0
 --- !u!1 &7000570913902592710
 GameObject:
   m_ObjectHideFlags: 0
@@ -24855,8 +24873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -176}
-  m_SizeDelta: {x: 1200, y: 124.4532}
+  m_AnchoredPosition: {x: 0, y: -155.34583}
+  m_SizeDelta: {x: 1200, y: 83.1448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7000570914508436078
 CanvasRenderer:
@@ -24890,9 +24908,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
     m_FontSize: 49
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 116
+    m_MaxSize: 49
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -25948,8 +25966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75.454956}
-  m_SizeDelta: {x: 1100, y: 126.7814}
+  m_AnchoredPosition: {x: 0, y: -69.423}
+  m_SizeDelta: {x: 1100, y: 138.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3634291680004063619
 CanvasRenderer:

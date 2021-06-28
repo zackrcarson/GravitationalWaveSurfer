@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rigidBody = null;
     GameOver gameOver = null;
     MicroBlackHole microBlackHole = null;
-    ConstantForce2D constantForce = null;
+    new ConstantForce2D constantForce = null;
 
     float xMin, xMax, yMin, yMax;
 
@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
+                    canMove = true;
                 }
 
                 constantForce.force = microBlackHole.force * thisToBlackHole.normalized;
@@ -100,6 +101,7 @@ public class Player : MonoBehaviour
             else
             {
                 constantForce.enabled = false;
+                canMove = true;
             }
         }
         else

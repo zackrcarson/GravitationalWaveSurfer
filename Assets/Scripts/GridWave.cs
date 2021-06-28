@@ -590,9 +590,12 @@ public class GridWave : MonoBehaviour
             topBottom = -1f;
         }
 
-
         int sliceNumber = Mathf.FloorToInt(GetPerpDistance(riderPosition, wavefront) / distancePerSlice);
-
+        
+        if (sliceNumber > sliceState.Count)
+        {
+            Debug.Log((sliceNumber, sliceState.Count));
+        }
         return topBottom *  sliceState[sliceNumber];
     }
 }

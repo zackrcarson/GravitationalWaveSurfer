@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +12,6 @@ public class WaveRider : MonoBehaviour
     GravitationalWave gravitationalWave = null;
     GridWave gridWave = null;
     float xMin, xMax, halfTotal, gridSpacing, yBuffer;
-    int currentSlice = 0;
 
     // State Variables
     List<Vector3> sliceState;
@@ -39,30 +37,6 @@ public class WaveRider : MonoBehaviour
                 Vector3 deviation = gridWave.GetRiderDeviation(transform.position);
 
                 transform.position += ridePercent * deviation;
-
-                /*currentSlice = (int)Mathf.Floor((transform.position.x + halfTotal) / gridSpacing);
-
-                if (currentSlice < 0)
-                {
-                    currentSlice = 0;
-                }
-                else if (currentSlice > sliceState.Count - 1)
-                {
-                    currentSlice = sliceState.Count - 1;
-                }
-
-                if (transform.position.y > yBuffer)
-                {
-                    transform.position += ridePercent * sliceState[currentSlice];
-                }
-                else if (transform.position.y < -yBuffer)
-                {
-                    transform.position -= ridePercent * sliceState[currentSlice];
-                }
-                else
-                {
-                    return;
-                }*/
             }    
         }
     }

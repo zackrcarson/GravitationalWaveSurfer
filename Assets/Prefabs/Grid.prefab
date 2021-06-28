@@ -9437,14 +9437,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bdf7f142ae18d4591d1f7b64f7b35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manualControl: 1
-  manualControlFixedMass: 1
-  colorSliceNodes: 1
+  manualControl: 0
+  manualControlFixedMass: 0
+  colorSliceNodes: 0
   manualControlFixedMass1: 4.8
-  manualControlFixedMass2: 6.6e+10
-  manualControlFixedAngle: 92
-  maxDeviation: 0.5
-  centerNoDeviationBuffer: 0.2
+  manualControlFixedMass2: 8
+  manualControlFixedAngle: 180
+  maxDeviation: 1
+  centerNoDeviationBuffer: 0.4
+  numBuffersReducedDeviation:
+  - 8
+  - 14
+  nearbyReductionFactor:
+  - 0.6
+  - 0.8
   cardinalAngleBlock: 0.1
   randomWaveOffTimeMin: 2
   randomWaveOffTimeMax: 6

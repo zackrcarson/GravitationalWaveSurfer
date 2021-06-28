@@ -18,7 +18,7 @@ public class Pickup : MonoBehaviour
     RigidbodyType2D rigidBodyBodyType;
 
     MicroBlackHole microBlackHole = null;
-    ConstantForce2D constantForce = null;
+    new ConstantForce2D constantForce = null;
     Vector2 thisToBlackHole;
 
     WaveRider waveRider = null;
@@ -176,6 +176,8 @@ public class Pickup : MonoBehaviour
                 else
                 {
                     transform.parent = otherCollider.transform;
+
+                    tag = PLAYER_NAME;
 
                     FindObjectOfType<Player>().AddParticle(this);
 

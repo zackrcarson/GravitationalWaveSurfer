@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
         goals.ExternalStart();
         stability.ExternalStart();
         FindObjectOfType<ParticleSpawner>().ExternalStart();
+        FindObjectOfType<MicroBlackHole>().ExternalStart();
 
         instructions.OpenInstructions(false);
     }

@@ -55,12 +55,18 @@ public class GameOver : MonoBehaviour
     const string ELECTRON_NAME = "electron";
     const string POSITRON_NAME = "positron";
     const string ANTI_PREFIX = "anti-";
+    const string BLACK_HOLE_NAME = "Black Hole";
     static readonly string[] VOWEL_SOUNDS = { "a", "e", "i", "o", "u" };
     static readonly string[] NOT_VOWEL_SOUNDS = { "eu" , "ur" };
+
+    // State Variables
+    public bool isGameOver = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        isGameOver = false;
+
         pauseMenu = FindObjectOfType<PauseMenu>();
         particleSpawner = FindObjectOfType<ParticleSpawner>();
         player = FindObjectOfType<Player>();
@@ -71,9 +77,11 @@ public class GameOver : MonoBehaviour
         if (!pauseMenu) { pauseMenu = FindObjectOfType<PauseMenu>(); }
         if (!particleSpawner) { particleSpawner = FindObjectOfType<ParticleSpawner>(); }
 
+        isGameOver = true;
         pauseMenu.CanPause(false);
         particleSpawner.AllowSpawning(true);
 
+        FindObjectOfType<MicroBlackHole>().isGameOver = true;
         stabilityBar.SetActive(false);
         scoreBox.SetActive(false);
         finalForm.SetActive(false);
@@ -122,7 +130,13 @@ public class GameOver : MonoBehaviour
 
     private void ShowResults(int numProtons, int numNeutrons, int numElectrons, string elementShorthand, string elementName, string annihilatedParticle)
     {
-        if (annihilatedParticle == INSTABILITY_NAME)
+        if (annihilatedParticle == BLACK_HOLE_NAME)
+        {
+            subHeaderText.text = "Your atom plunged into the event horizon of a stray micro black hole!";
+
+            annihilationDescriptionText.text = "Inside the black hole's event horizon, the extreme curvature swapped your space and time dimensions; forcing you inwards as the extreme tidal gravitational field immediately shredded your atom into elementary particles.";
+        }
+        else if (annihilatedParticle == INSTABILITY_NAME)
         {
             subHeaderText.text = "Your atom became unstable and decayed to nothing!";
 
