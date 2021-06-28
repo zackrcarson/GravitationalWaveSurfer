@@ -6,8 +6,7 @@ public class MicroBlackHole : MonoBehaviour
 {
     // Config Parameters
     [SerializeField] GameObject pointerArrow = null;
-    [SerializeField] float pointerArrowBufferX = .3f;
-    [SerializeField] float pointerArrowBufferY = .3f;
+    [SerializeField] BoxCollider2D screenEdgeCollider = null;
 
     [SerializeField] public float interactionRadius = 5f;
     [SerializeField] public float eventHorizon = 2f;
@@ -38,6 +37,7 @@ public class MicroBlackHole : MonoBehaviour
     // Cached References
     float xMin, xMax, yMin, yMax;
     float xMinScreen, xMaxScreen, yMinScreen, yMaxScreen;
+    float xMinArrow, xMaxArrow, yMinArrow, yMaxArrow;
     Rigidbody2D rigidBody = null;
     float timerMin = 5f;
     float timerMax = 9f;
@@ -161,15 +161,15 @@ public class MicroBlackHole : MonoBehaviour
         float xPosition, yPosition;
 
         Vector2 vector1, vector2;
-
+        
         switch (randomSide)
         {
             case 0:
                 xPosition = xMin;
                 yPosition = Random.Range(yMin, yMax);
 
-                vector1 = ((new Vector2(xMin + bufferSpace, yMax - bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
-                vector2 = ((new Vector2(xMin + bufferSpace, yMin + bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector1 = ((new Vector2(xMinArrow, yMaxArrow)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector2 = ((new Vector2(xMinArrow, yMinArrow)) - (new Vector2(xPosition, yPosition))).normalized;
 
                 break;
 
@@ -177,8 +177,8 @@ public class MicroBlackHole : MonoBehaviour
                 xPosition = Random.Range(xMin, xMax);
                 yPosition = yMax;
 
-                vector1 = ((new Vector2(xMin + bufferSpace, yMax - bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
-                vector2 = ((new Vector2(xMax - bufferSpace, yMax - bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector1 = ((new Vector2(xMinArrow, yMaxArrow)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector2 = ((new Vector2(xMaxArrow, yMaxArrow)) - (new Vector2(xPosition, yPosition))).normalized;
 
                 break;
 
@@ -186,8 +186,8 @@ public class MicroBlackHole : MonoBehaviour
                 xPosition = xMax;
                 yPosition = Random.Range(yMin, yMax);
 
-                vector1 = ((new Vector2(xMax - bufferSpace, yMax - bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
-                vector2 = ((new Vector2(xMax - bufferSpace, yMin + bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector1 = ((new Vector2(xMaxArrow, yMaxArrow)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector2 = ((new Vector2(xMaxArrow, yMinArrow)) - (new Vector2(xPosition, yPosition))).normalized;
 
                 break;
 
@@ -195,8 +195,8 @@ public class MicroBlackHole : MonoBehaviour
                 xPosition = Random.Range(xMin, xMax);
                 yPosition = yMin;
 
-                vector1 = ((new Vector2(xMin + bufferSpace, yMin + bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
-                vector2 = ((new Vector2(xMax - bufferSpace, yMin + bufferSpace)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector1 = ((new Vector2(xMinArrow, yMinArrow)) - (new Vector2(xPosition, yPosition))).normalized;
+                vector2 = ((new Vector2(xMaxArrow, yMinArrow)) - (new Vector2(xPosition, yPosition))).normalized;
 
                 break;
 
@@ -250,15 +250,18 @@ public class MicroBlackHole : MonoBehaviour
 
         xMinScreen = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
         xMaxScreen = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x;
-
         yMinScreen = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
         yMaxScreen = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y;
 
         xMin = xMinScreen - bufferSpace;
         xMax = xMaxScreen + bufferSpace;
-
         yMin = yMinScreen - bufferSpace;
         yMax = yMaxScreen + bufferSpace;
+
+        xMinArrow = screenEdgeCollider.offset.x - (screenEdgeCollider.size.x / 2f) - 0.01f;
+        xMaxArrow = screenEdgeCollider.offset.x + (screenEdgeCollider.size.x / 2f) + 0.01f;
+        yMinArrow = screenEdgeCollider.offset.y - (screenEdgeCollider.size.y / 2f) - 0.01f;
+        yMaxArrow = screenEdgeCollider.offset.y + (screenEdgeCollider.size.y / 2f) + 0.01f;
     }
 
     private void RotateArrow()
@@ -321,111 +324,17 @@ public class MicroBlackHole : MonoBehaviour
 
     private void SetScreenPosition()
     {
-        Vector2 mBHDirection = transform.position.normalized;
-        float[] line = new float[] { velocity.y / velocity.x, transform.position.y - ((velocity.y / velocity.x) * transform.position.x) };
-
-        if (mBHDirection.x == 0) { mBHDirection.x += 0.05f; }
-        if (mBHDirection.y == 0) { mBHDirection.y += 0.05f; }
-
-        Vector2 newPosition = new Vector2(0f, 0f);
-
-        if (mBHDirection.x < 0 && mBHDirection.y > 0)
+        int layerMask = LayerMask.GetMask("Screen Edge");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, velocity, 20f, layerMask);
+        
+        if (hit.collider != null)
         {
-            if ((yMaxScreen - line[1]) / line[0] > xMinScreen)
-            {
-                newPosition.x = (yMaxScreen - line[1]) / line[0];
-                newPosition.y = yMaxScreen - pointerArrowBufferY;
-            }
-            else if ((yMaxScreen - line[1]) / line[0] < xMinScreen)
-            {
-                newPosition.x = xMinScreen + pointerArrowBufferX;
-                newPosition.y = (line[0] * xMinScreen) + line[1];
-            }
-            else
-            {
-                newPosition.x = xMinScreen + pointerArrowBufferX;
-                newPosition.y = yMaxScreen - pointerArrowBufferY;
-            }
-        }
-        else if (mBHDirection.x < 0 && mBHDirection.y < 0)
-        {
-            if ((yMinScreen - line[1]) / line[0] > xMinScreen)
-            {
-                newPosition.x = (yMinScreen - line[1]) / line[0];
-                newPosition.y = yMinScreen + pointerArrowBufferY;
-            }
-            else if ((yMinScreen - line[1]) / line[0] < xMinScreen)
-            {
-                newPosition.x = xMinScreen + pointerArrowBufferX;
-                newPosition.y = (line[0] * xMinScreen) + line[1];
-            }
-            else
-            {
-                newPosition.x = xMinScreen + pointerArrowBufferX;
-                newPosition.y = yMinScreen + pointerArrowBufferY;
-            }
-        }
-        else if (mBHDirection.x > 0 && mBHDirection.y < 0)
-        {
-            if ((yMinScreen - line[1]) / line[0] < xMaxScreen)
-            {
-                newPosition.x = (yMinScreen - line[1]) / line[0];
-                newPosition.y = yMinScreen + pointerArrowBufferY;
-            }
-            else if ((yMinScreen - line[1]) / line[0] > xMaxScreen)
-            {
-                newPosition.x = xMaxScreen - pointerArrowBufferX;
-                newPosition.y = (line[0] * xMaxScreen) + line[1];
-            }
-            else
-            {
-                newPosition.x = xMaxScreen - pointerArrowBufferX;
-                newPosition.y = yMinScreen + pointerArrowBufferY;
-            }
-        }
-        else if (mBHDirection.x > 0 && mBHDirection.y > 0)
-        {
-            if ((yMaxScreen - line[1]) / line[0] < xMaxScreen)
-            {
-                newPosition.x = (yMaxScreen - line[1]) / line[0];
-                newPosition.y = yMaxScreen - pointerArrowBufferY;
-            }
-            else if ((yMaxScreen - line[1]) / line[0] > xMaxScreen)
-            {
-                newPosition.x = xMaxScreen - pointerArrowBufferX;
-                newPosition.y = (line[0] * xMaxScreen) + line[1];
-            }
-            else
-            {
-                newPosition.x = xMaxScreen - pointerArrowBufferX;
-                newPosition.y = yMaxScreen - pointerArrowBufferY;
-            }
+            pointerArrow.transform.position = hit.point;
         }
         else
         {
-            newPosition.x = 0f;
-            newPosition.y = yMinScreen + pointerArrowBufferY;
-            Debug.LogError("Unknown angle with x = " + mBHDirection.x + ", and y = " + mBHDirection.y + ".");
+            Debug.LogError("Direction Raycast did not hit screen edge");
+            pointerArrow.transform.position = new Vector3(0f, -2.9f, 0f);
         }
-
-        // Offset the x/y position when the arrow is on the y/x side, but in the corener so the x/y buffer wasn't applied.
-        if (newPosition.x > xMaxScreen - pointerArrowBufferX && newPosition.x < xMaxScreen)
-        {
-            newPosition.x = xMaxScreen - pointerArrowBufferX;
-        }
-        if (newPosition.x < xMinScreen + pointerArrowBufferX && newPosition.x > xMinScreen)
-        {
-            newPosition.x = xMinScreen + pointerArrowBufferX;
-        }
-        if (newPosition.y > yMaxScreen - pointerArrowBufferY && newPosition.y < yMaxScreen)
-        {
-            newPosition.y = yMaxScreen - pointerArrowBufferY;
-        }
-        if (newPosition.y < yMinScreen + pointerArrowBufferY && newPosition.y > yMinScreen)
-        {
-            newPosition.y = yMinScreen + pointerArrowBufferY;
-        }
-
-        pointerArrow.transform.position = newPosition;
     }
 }
