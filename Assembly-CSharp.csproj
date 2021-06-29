@@ -56,32 +56,36 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Particles\AntiParticle.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\StarScroller.cs" />
-    <Compile Include="Assets\Scripts\WaveRider.cs" />
+    <Compile Include="Assets\Scripts\Particles\WaveRider.cs" />
     <Compile Include="Assets\Scripts\Goals.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SolarSymbol.cs" />
     <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
-    <Compile Include="Assets\Scripts\ParticleSpawner.cs" />
+    <Compile Include="Assets\Scripts\Particles\ParticleSpawner.cs" />
     <Compile Include="Assets\Scripts\GravitationalWave.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
-    <Compile Include="Assets\Scripts\ParticleText.cs" />
+    <Compile Include="Assets\Scripts\Particles\ParticleText.cs" />
     <Compile Include="Assets\Scripts\CreateGrid.cs" />
     <Compile Include="Assets\Scripts\DifficultyHolder.cs" />
-    <Compile Include="Assets\Scripts\ParticleShredder.cs" />
+    <Compile Include="Assets\Scripts\Particles\ParticleShredder.cs" />
     <Compile Include="Assets\Scripts\GridWave.cs" />
     <Compile Include="Assets\Scripts\OpenHyperLinks.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\MicroBlackHole.cs" />
     <Compile Include="Assets\Scripts\BlackHoleDisplay.cs" />
     <Compile Include="Assets\Scripts\Stability.cs" />
-    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\Particles\Pickup.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Instructions.cs" />
-    <Compile Include="Assets\Scripts\AntiParticle.cs" />
-    <Compile Include="Assets\Scripts\MicroBlackHole.cs" />
+    <Compile Include="Assets\Scripts\Particles\FreeParticle.cs" />
+    <Compile Include="Assets\Scripts\Particles\Particle.cs" />
+    <Compile Include="Assets\Scripts\Particles\ParticleClump.cs" />
+    <Compile Include="Assets\Scripts\Particles\AntiParticleClump.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

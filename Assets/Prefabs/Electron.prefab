@@ -201,10 +201,10 @@ GameObject:
   - component: {fileID: 372936774798733588}
   - component: {fileID: 372936774798733591}
   - component: {fileID: 6635487196962587450}
-  - component: {fileID: 205223076}
   - component: {fileID: 205223075}
   - component: {fileID: 3656068612139715640}
   - component: {fileID: 4730346655855394399}
+  - component: {fileID: -1882151040084008421}
   m_Layer: 7
   m_Name: Electron
   m_TagString: Electron
@@ -295,24 +295,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.58
---- !u!114 &205223076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372936774798733589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2c2969abc4a10469ca098d9090a89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialRandomTorque: 0.0005
-  initialRandomPush: 0.1
-  listOfParticles: []
-  listOfChildren: []
-  listOfParents: []
-  antiNames: []
 --- !u!50 &205223075
 Rigidbody2D:
   serializedVersion: 4
@@ -360,6 +342,18 @@ ConstantForce2D:
   m_Force: {x: 0, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!114 &-1882151040084008421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372936774798733589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7da03ed5c7a4745ac14775dba6ad53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4457820277466973444
 GameObject:
   m_ObjectHideFlags: 0

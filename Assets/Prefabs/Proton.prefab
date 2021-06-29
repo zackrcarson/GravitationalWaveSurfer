@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 4277081266088633059}
   - component: {fileID: 5912781796422506077}
   - component: {fileID: 7724742191931822828}
-  - component: {fileID: 7724742191931822829}
   - component: {fileID: -5554813148374726571}
   - component: {fileID: -1668175616588639378}
+  - component: {fileID: 783407424340938376}
   m_Layer: 7
   m_Name: Proton
   m_TagString: Proton
@@ -157,24 +157,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7724742191931822829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4277081266088633053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2c2969abc4a10469ca098d9090a89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialRandomTorque: 0.0005
-  initialRandomPush: 0.1
-  listOfParticles: []
-  listOfChildren: []
-  listOfParents: []
-  antiNames: []
 --- !u!114 &-5554813148374726571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +183,18 @@ ConstantForce2D:
   m_Force: {x: 0, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!114 &783407424340938376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277081266088633053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7da03ed5c7a4745ac14775dba6ad53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4277081266833047430
 GameObject:
   m_ObjectHideFlags: 0

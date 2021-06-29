@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4136774406198234609}
   - component: {fileID: 4136774406198234614}
   - component: {fileID: 1783862861695968738}
-  - component: {fileID: 1710047441}
   - component: {fileID: 1710047440}
   - component: {fileID: 8250753686319116116}
   - component: {fileID: 3757968902870055483}
+  - component: {fileID: -247155546737276487}
   m_Layer: 7
   m_Name: Neutron
   m_TagString: Neutron
@@ -105,24 +105,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.54
---- !u!114 &1710047441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4136774406198234608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a2c2969abc4a10469ca098d9090a89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialRandomTorque: 0.0005
-  initialRandomPush: 0.1
-  listOfParticles: []
-  listOfChildren: []
-  listOfParents: []
-  antiNames: []
 --- !u!50 &1710047440
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +152,18 @@ ConstantForce2D:
   m_Force: {x: 0, y: 0}
   m_RelativeForce: {x: 0, y: 0}
   m_Torque: 0
+--- !u!114 &-247155546737276487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136774406198234608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7da03ed5c7a4745ac14775dba6ad53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4136774406353909112
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    // Config Parameters
+    /*// Config Parameters
     [SerializeField] float initialRandomTorque = 0.001f;
     [SerializeField] float initialRandomPush = 0.4f;
 
@@ -167,7 +167,7 @@ public class Pickup : MonoBehaviour
                 {
                     // Replace below with above to change to automatically dying when hitting an anti particle
                     bool shouldDestroy = FindObjectOfType<Player>().AnnihilateParticles(antiNames);
-                    
+
                     if (shouldDestroy)
                     {
                         DestroyParent(gameObject);
@@ -391,5 +391,5 @@ public class Pickup : MonoBehaviour
         }
 
         return false;
-    }
+    }*/
 }
