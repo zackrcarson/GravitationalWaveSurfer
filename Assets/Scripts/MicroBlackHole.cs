@@ -5,6 +5,7 @@ using UnityEngine;
 public class MicroBlackHole : MonoBehaviour
 {
     // Config Parameters
+    [SerializeField] bool allowMBH = true;
     [SerializeField] GameObject pointerArrow = null;
     [SerializeField] BoxCollider2D screenEdgeCollider = null;
 
@@ -74,37 +75,40 @@ public class MicroBlackHole : MonoBehaviour
 
     private void Update()
     {
-        if (hasStarted)
+        if (allowMBH)
         {
-            if (!isActive)
+            if (hasStarted)
             {
-                timer -= Time.deltaTime;
-
-                if (timer <= 0f)
+                if (!isActive)
                 {
-                    ActivateBlackHole();
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 0f)
+                    {
+                        ActivateBlackHole();
+                    }
+                }
+                else
+                {
+                    CheckAndDeactivateBlackHole();
                 }
             }
-            else
-            {
-                CheckAndDeactivateBlackHole();
-            }
-        }
 
-        if (!isGameOver)
-        {
-            if (isActive && !CheckOnScreen())
+            if (!isGameOver)
             {
-                RotateArrow();
+                if (isActive && !CheckOnScreen())
+                {
+                    RotateArrow();
+                }
+                else
+                {
+                    pointerArrow.SetActive(false);
+                }
             }
             else
             {
                 pointerArrow.SetActive(false);
             }
-        }
-        else
-        {
-            pointerArrow.SetActive(false);
         }
     }
 

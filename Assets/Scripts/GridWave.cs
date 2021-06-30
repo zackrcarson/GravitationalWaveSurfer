@@ -7,6 +7,7 @@ public class GridWave : MonoBehaviour
 {
     // Config Parameters
     [Header("Manual Control Parameters")]
+    [SerializeField] bool allowWaving = true;
     [SerializeField] bool manualControl = false;
     [SerializeField] bool manualControlFixedMass = false;
     [SerializeField] bool colorSliceNodes = false;
@@ -127,20 +128,23 @@ public class GridWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canWave)
+        if (allowWaving)
         {
-            if (manualControl)
+            if (canWave)
             {
-                ManualWaveControl();
-            }
-            else
-            {
-                OperateWaveTimer();
-            }
+                if (manualControl)
+                {
+                    ManualWaveControl();
+                }
+                else
+                {
+                    OperateWaveTimer();
+                }
 
-            if (isWaving)
-            {
-                WaveGrid();
+                if (isWaving)
+                {
+                    WaveGrid();
+                }
             }
         }
     }

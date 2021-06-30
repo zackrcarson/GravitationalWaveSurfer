@@ -1,17 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleShredder : MonoBehaviour
 {
     // Constants
     const string BLACK_HOLE_NAME = "Black Hole";
+    const string PLAYER_NAME = "Player";
+    const string PARTICLE_CLUMP_NAME = "Particle Clump";
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag != "Player" && other.tag != "Black Hole")
+        if (other.tag != PLAYER_NAME && other.tag != BLACK_HOLE_NAME)
         {
-            Destroy(other.gameObject);
+            if (other.transform.parent.tag == PARTICLE_CLUMP_NAME) 
+            { 
+                Destroy(other.transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
         else if (other.tag == "Player")
         {

@@ -19,6 +19,7 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] float[] antiNeutronProbabilities = { 0f, 7f, 13.33f, 16.66f };
 
     [Header("Spawn Settings")]
+    [SerializeField] bool allowSpawning = true;
     [SerializeField] float randomSpawnTimeMin = .1f;
     [SerializeField] float randomSpawnTimeMax = 3f;
 
@@ -64,17 +65,20 @@ public class ParticleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasStarted)
+        if (allowSpawning)
         {
-            if (canSpawn)
+            if (hasStarted)
             {
-                timer -= Time.deltaTime;
-
-                if (timer <= 0)
+                if (canSpawn)
                 {
-                    SpawnRandomParticle();
+                    timer -= Time.deltaTime;
 
-                    ResetTimer();
+                    if (timer <= 0)
+                    {
+                        SpawnRandomParticle();
+
+                        ResetTimer();
+                    }
                 }
             }
         }

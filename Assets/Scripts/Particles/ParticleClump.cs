@@ -16,12 +16,12 @@ public class ParticleClump : MonoBehaviour
 
     // State Variables
     List<string> particles = null;
+    public bool touchedFirst = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void NewClump()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        waveRider = GetComponent<WaveRider>();
         microBlackHole = FindObjectOfType<MicroBlackHole>();
         constantForce = GetComponent<ConstantForce2D>();
         constantForce.enabled = false;
@@ -69,8 +69,20 @@ public class ParticleClump : MonoBehaviour
         }
     }
 
-    private void RandomKick()
+    public void ExternalRandomKick()
     {
+        StartCoroutine(RandomKick());
+    }
+
+    private IEnumerator RandomKick()
+    {
+        yield return null;
+
+        rigidBody.angularVelocity = 0f;
+        rigidBody.velocity = Vector2.zero;
+
+        yield return null;
+
         float randomRotation = initialRandomTorque * Random.Range(30f, 60f);
         rigidBody.AddTorque(randomRotation, ForceMode2D.Impulse);
 
@@ -78,10 +90,63 @@ public class ParticleClump : MonoBehaviour
         rigidBody.velocity = initialRandomPush * randomPush;
     }
 
-    public void AddParticle(string particle)
+    public void AddParticle(string particle, bool kick)
     {
         particles.Add(particle);
 
-        RandomKick();
+        rigidBody.angularVelocity = 0f;
+        rigidBody.velocity = Vector2.zero;
+
+        if (kick)
+        {
+            StartCoroutine(RandomKick());
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D otherCollider)
+    {
+        if (otherCollider.gameObject.GetComponent<ParticleClump>())
+        {
+            if (!otherCollider.gameObject.GetComponent<ParticleClump>().touchedFirst)
+            {
+                touchedFirst = true;
+
+                AddClumpToOtherClump(otherCollider.gameObject.GetComponent<ParticleClump>());
+            }
+        }
+        else if (otherCollider.gameObject.GetComponent<AntiParticleClump>())
+        {
+
+        }
+        else if (otherCollider.gameObject.GetComponent<Player>() || otherCollider.gameObject.GetComponentInParent<Player>())
+        {
+
+        }
+    }
+
+    public void AddClumpToOtherClump(ParticleClump otherClump)
+    {
+        constantForce.enabled = false;
+        Destroy(constantForce);
+
+        rigidBody.angularVelocity = 0f;
+        rigidBody.velocity = Vector2.zero;
+        Destroy(rigidBody);
+
+        Destroy(GetComponent<WaveRider>());
+        Destroy(GetComponent<FreeParticle>());
+
+        List<Transform> children = new List<Transform>();
+        foreach (Transform child in transform)
+            children.Add(child);
+        foreach (Transform child in children)
+        {
+            child.parent = otherClump.transform;
+            otherClump.AddParticle(child.tag, false);
+        }
+
+        otherClump.ExternalRandomKick();
+
+        Destroy(gameObject);
     }
 }
