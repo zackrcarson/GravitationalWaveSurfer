@@ -401,6 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8190a5d0904c794ba12a752b2525900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  antiParticleClumpPrefab: {fileID: 4277081266088633053, guid: b69a1b49a9d985e448791c599fe48701, type: 3}
+  touchedFirst: 0
 --- !u!1 &7435965964811219794
 GameObject:
   m_ObjectHideFlags: 0

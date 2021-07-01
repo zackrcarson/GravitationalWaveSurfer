@@ -12,6 +12,93 @@ public class Particle : MonoBehaviour
 
     // State variables
     public bool touchedFirst = false;
+
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+        constantForce = GetComponent<ConstantForce2D>();
+    }
+
+    public void AddToClump(ParticleClump clump = null, Particle otherParticle = null)
+    {
+        constantForce.enabled = false;
+        Destroy(constantForce);
+
+        Vector2 thisVelocity = rigidBody.velocity;
+        float thisAngularVelocity = rigidBody.angularVelocity;
+        float thisInertia = rigidBody.inertia;
+
+        rigidBody.angularVelocity = 0f;
+        rigidBody.velocity = Vector2.zero;
+        Destroy(rigidBody);
+
+        Destroy(GetComponent<WaveRider>());
+        Destroy(GetComponent<FreeParticle>());
+
+        if (clump == null)
+        {
+            clump = Instantiate(particleClumpPrefab, transform.position, transform.rotation, transform.parent).GetComponent<ParticleClump>();
+            clump.NewClump();
+        }
+
+        clump.AddParticle(tag);
+
+        clump.StoreCurrentAngularMomentum();
+        transform.parent = clump.transform;
+        clump.NewAngularMomentum(thisVelocity, thisAngularVelocity, thisInertia, otherParticle != null, transform.localPosition.magnitude, 1);
+
+        if (otherParticle != null)
+        {
+            otherParticle.AddToClump(clump);
+        }
+
+        Destroy(this);
+    }
+
+    private void OnCollisionEnter2D(Collision2D otherCollider)
+    {
+        if (otherCollider.gameObject.GetComponent<Particle>())
+        {
+            if (!otherCollider.gameObject.GetComponent<Particle>().touchedFirst)
+            {
+                touchedFirst = true;
+
+                AddToClump(null, otherCollider.gameObject.GetComponent<Particle>());
+            }
+        }
+        else if (otherCollider.gameObject.GetComponent<ParticleClump>())
+        {
+            AddToClump(otherCollider.gameObject.GetComponent<ParticleClump>());
+        }
+        else if (otherCollider.gameObject.GetComponent<AntiParticle>())
+        {
+
+        }
+        else if (otherCollider.gameObject.GetComponent<AntiParticleClump>())
+        {
+
+        }
+        else if (otherCollider.gameObject.GetComponent<Player>())
+        {
+
+        }
+    }
+}
+
+/*using System.Collections.Generic;
+using UnityEngine;
+
+public class Particle : MonoBehaviour
+{
+    // Config Parameters
+    [SerializeField] GameObject particleClumpPrefab = null;
+
+    // Cached References
+    Rigidbody2D rigidBody = null;
+    new ConstantForce2D constantForce = null;
+
+    // State variables
+    public bool touchedFirst = false;
     [SerializeField] public List<string> listOfParticles;
     [SerializeField] public List<Pickup> listOfChildren = new List<Pickup>();
     [SerializeField] public List<Pickup> listOfParents = new List<Pickup>();
@@ -83,4 +170,4 @@ public class Particle : MonoBehaviour
 
         }
     }
-}
+}*/

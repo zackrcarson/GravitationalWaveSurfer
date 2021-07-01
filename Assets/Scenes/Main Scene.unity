@@ -141,7 +141,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
       propertyPath: randomSpawnTimeMax
-      value: 0.5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: protonProbabilities.Array.data[0]
+      value: 33.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: neutronProbabilities.Array.data[0]
+      value: 33.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: electronProbabilities.Array.data[0]
+      value: 33.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: antiProtonProbabilities.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
+      propertyPath: antiNeutronProbabilities.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2373503583578165538, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
       propertyPath: m_RootOrder
