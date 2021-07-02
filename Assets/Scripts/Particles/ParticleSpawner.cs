@@ -10,6 +10,8 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] GameObject antiProtonPrefab = null;
     [SerializeField] GameObject antiNeutronPrefab = null;
     [SerializeField] GameObject antiElectronPrefab = null;
+    [SerializeField] public GameObject particleClumpPrefab = null;
+    [SerializeField] public GameObject antiParticleClumpPrefab = null;
 
     [Header("Paticle Probability Distributions")]
     [SerializeField] float[] protonProbabilities = { 33.33f, 26.33f, 20f, 16.66f };

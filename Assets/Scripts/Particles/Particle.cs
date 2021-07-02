@@ -4,19 +4,23 @@ using UnityEngine;
 public class Particle : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] GameObject particleClumpPrefab = null;
+    [SerializeField] public GameObject particleClumpPrefab = null;
 
     // Cached References
-    Rigidbody2D rigidBody = null;
+    public Rigidbody2D rigidBody = null;
     new ConstantForce2D constantForce = null;
 
     // State variables
     public bool touchedFirst = false;
 
+    // Constants
+    const string ANTI_PREFIX = "Anti-";
+
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         constantForce = GetComponent<ConstantForce2D>();
+        constantForce.enabled = false;
     }
 
     public void AddToClump(ParticleClump clump = null, Particle otherParticle = null)
@@ -41,7 +45,7 @@ public class Particle : MonoBehaviour
             clump.NewClump();
         }
 
-        clump.AddParticle(tag);
+        clump.AddParticle(gameObject);
 
         clump.StoreCurrentAngularMomentum();
         transform.parent = clump.transform;
@@ -72,11 +76,22 @@ public class Particle : MonoBehaviour
         }
         else if (otherCollider.gameObject.GetComponent<AntiParticle>())
         {
+            if (otherCollider.gameObject.tag == ANTI_PREFIX + tag)
+            {
+                Destroy(otherCollider.gameObject);
+                Destroy(gameObject);
 
+                // TODO: Particle Effect
+            }
         }
         else if (otherCollider.gameObject.GetComponent<AntiParticleClump>())
         {
+            if (otherCollider.gameObject.GetComponent<AntiParticleClump>().FindMatchingAntiParticle(tag))
+            {
+                Destroy(gameObject);
 
+                // TODO: Particle Effect
+            }
         }
         else if (otherCollider.gameObject.GetComponent<Player>())
         {

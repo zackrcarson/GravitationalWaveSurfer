@@ -10,11 +10,14 @@ public class ParticleClump : MonoBehaviour
     Vector2 thisToBlackHole;
 
     // State Variables
-    List<string> particles = null;
+    List<GameObject> particles = null;
     public bool touchedFirst = false;
     Vector2 currentVelocity;
     float currentAngularVelocity, currentInertia;
     int currentMass;
+
+    // Constants
+    const string ANTI_PREFIX = "Anti-";
 
     // Start is called before the first frame update
     public void NewClump()
@@ -24,7 +27,7 @@ public class ParticleClump : MonoBehaviour
         constantForce = GetComponent<ConstantForce2D>();
         constantForce.enabled = false;
 
-        particles = new List<string>();
+        particles = new List<GameObject>();
     }
 
     public void StoreCurrentAngularMomentum()
@@ -91,7 +94,7 @@ public class ParticleClump : MonoBehaviour
         }
     }
 
-    public void AddParticle(string particle)
+    public void AddParticle(GameObject particle)
     {
         particles.Add(particle);
     }
@@ -107,14 +110,71 @@ public class ParticleClump : MonoBehaviour
                 AddClumpToOtherClump(otherCollider.gameObject.GetComponent<ParticleClump>());
             }
         }
+        else if (otherCollider.gameObject.GetComponent<AntiParticle>())
+        {
+            if (FindMatchingParticle(otherCollider.gameObject.tag))
+            {
+                Destroy(otherCollider.gameObject);
+
+                // TODO: Particle Effect
+            }
+        }
         else if (otherCollider.gameObject.GetComponent<AntiParticleClump>())
         {
+            AntiParticleClump antiParticleClump = otherCollider.gameObject.GetComponent<AntiParticleClump>();
+            List<GameObject> antiParticles = antiParticleClump.antiParticles;
 
+            for (int i = antiParticles.Count; i-- > 0;)
+            {
+                if (FindMatchingParticle(antiParticles[i].tag))
+                {
+                    GameObject antiParticleToDestroy = antiParticles[i];
+                    antiParticles.RemoveAt(i);
+                    Destroy(antiParticleToDestroy);
+                }
+            }
+
+            if (antiParticles.Count == 1)
+            {
+                antiParticleClump.ReturnToFree();
+            }
+            else if (antiParticles.Count == 0)
+            {
+                Destroy(antiParticleClump);
+            }
+
+            if (particles.Count == 1)
+            {
+                ReturnToFree();
+            }
+            else if (particles.Count == 0)
+            {
+                Destroy(gameObject);
+            }
+
+            // TODO: Particle effect if any removed, maybe a different effect if entire clump destroyed
         }
         else if (otherCollider.gameObject.GetComponent<Player>())
         {
 
         }
+    }
+
+    public bool FindMatchingParticle(string antiParticleName)
+    {
+        for (int i = particles.Count; i-- > 0;)
+        {
+            if (particles[i].tag == antiParticleName.Replace(ANTI_PREFIX, ""))
+            {
+                GameObject particleToDestroy = particles[i];
+                particles.RemoveAt(i);
+                Destroy(particleToDestroy);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void AddClumpToOtherClump(ParticleClump otherClump)
@@ -141,11 +201,35 @@ public class ParticleClump : MonoBehaviour
         foreach (Transform child in children)
         {
             child.parent = otherClump.transform;
-            otherClump.AddParticle(child.tag);
+            otherClump.AddParticle(child.gameObject);
         }
         otherClump.NewAngularMomentum(thisVelocity, thisAngularVelocity, thisInertia, false, thisDistance.magnitude, particles.Count);
 
         Destroy(gameObject);
+    }
+
+    public void ReturnToFree()
+    {
+        Vector2 thisVelocity = rigidBody.velocity;
+        float thisAngularVelocity = rigidBody.angularVelocity;
+
+        GameObject remainingChild = particles[0];
+
+        remainingChild.transform.parent = transform.parent;
+        Destroy(gameObject);
+
+        remainingChild.AddComponent<ConstantForce2D>();
+        Rigidbody2D newRigidBody = remainingChild.AddComponent<Rigidbody2D>();
+        remainingChild.AddComponent<WaveRider>();
+        remainingChild.AddComponent<FreeParticle>();
+
+        Particle newParticle = remainingChild.AddComponent<Particle>();
+
+        newParticle.rigidBody = newRigidBody;
+        newParticle.particleClumpPrefab = FindObjectOfType<ParticleSpawner>().particleClumpPrefab;
+
+        newParticle.rigidBody.velocity = thisVelocity;
+        newParticle.rigidBody.angularVelocity = thisAngularVelocity;
     }
 }
 

@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
       propertyPath: randomSpawnTimeMax
-      value: 3
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2373503583578165537, guid: a1dd81d11e049034eb4b51261bd55060, type: 3}
       propertyPath: protonProbabilities.Array.data[0]
