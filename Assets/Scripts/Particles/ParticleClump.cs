@@ -10,7 +10,7 @@ public class ParticleClump : MonoBehaviour
     Vector2 thisToBlackHole;
 
     // State Variables
-    List<GameObject> particles = null;
+    public List<GameObject> particles = null;
     public bool touchedFirst = false;
     Vector2 currentVelocity;
     float currentAngularVelocity, currentInertia;
@@ -123,7 +123,7 @@ public class ParticleClump : MonoBehaviour
         {
             AntiParticleClump antiParticleClump = otherCollider.gameObject.GetComponent<AntiParticleClump>();
             List<GameObject> antiParticles = antiParticleClump.antiParticles;
-
+            
             for (int i = antiParticles.Count; i-- > 0;)
             {
                 if (FindMatchingParticle(antiParticles[i].tag))
@@ -169,6 +169,15 @@ public class ParticleClump : MonoBehaviour
                 GameObject particleToDestroy = particles[i];
                 particles.RemoveAt(i);
                 Destroy(particleToDestroy);
+
+                if (particles.Count == 1)
+                {
+                    ReturnToFree();
+                }
+                else if (particles.Count == 0)
+                {
+                    Destroy(gameObject);
+                }
 
                 return true;
             }
@@ -219,7 +228,19 @@ public class ParticleClump : MonoBehaviour
         Destroy(gameObject);
 
         remainingChild.AddComponent<ConstantForce2D>();
-        Rigidbody2D newRigidBody = remainingChild.AddComponent<Rigidbody2D>();
+
+        Rigidbody2D newRigidBody = remainingChild.GetComponent<Rigidbody2D>();
+        if (newRigidBody == null)
+        {
+            newRigidBody = remainingChild.AddComponent<Rigidbody2D>();
+        }
+        ParticleSpawner particleSpawner = FindObjectOfType<ParticleSpawner>();
+        newRigidBody.angularDrag = particleSpawner.particleAngularDrag;
+        newRigidBody.gravityScale = particleSpawner.particleGravityScale;
+        newRigidBody.collisionDetectionMode = particleSpawner.particleCollisionDetectionMode;
+
+        remainingChild.GetComponent<CircleCollider2D>().enabled = true;
+
         remainingChild.AddComponent<WaveRider>();
         remainingChild.AddComponent<FreeParticle>();
 

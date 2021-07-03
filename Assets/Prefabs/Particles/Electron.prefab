@@ -295,7 +295,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.58
+  m_Radius: 0.54
 --- !u!50 &205223075
 Rigidbody2D:
   serializedVersion: 4
@@ -369,14 +369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969760eb659e4fc498818493ac54a3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialRandomTorque: 0.001
-  initialRandomPush: 0.4
   particleClumpPrefab: {fileID: 4277081266088633053, guid: caaef4fdf37fcb341ab438574f343e25, type: 3}
+  rigidBody: {fileID: 0}
   touchedFirst: 0
-  listOfParticles: []
-  listOfChildren: []
-  listOfParents: []
-  antiNames: []
 --- !u!1 &4457820277466973444
 GameObject:
   m_ObjectHideFlags: 0

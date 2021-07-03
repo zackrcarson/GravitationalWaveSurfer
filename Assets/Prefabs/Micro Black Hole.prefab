@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311869264f12e274ab11646a00f7543f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowMBH: 1
   pointerArrow: {fileID: 9114386836862355727}
   screenEdgeCollider: {fileID: 2012153544520915910}
   interactionRadius: 4.5

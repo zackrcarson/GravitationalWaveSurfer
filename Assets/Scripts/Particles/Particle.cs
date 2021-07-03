@@ -25,7 +25,10 @@ public class Particle : MonoBehaviour
 
     public void AddToClump(ParticleClump clump = null, Particle otherParticle = null)
     {
-        constantForce.enabled = false;
+        if (constantForce != null)
+        {
+            constantForce.enabled = false;
+        }
         Destroy(constantForce);
 
         Vector2 thisVelocity = rigidBody.velocity;

@@ -101,15 +101,22 @@ public class AntiParticleClump : MonoBehaviour
 
     public bool FindMatchingAntiParticle(string particleName)
     {
-        Debug.Log("Looking for " + particleName);
         for (int i = antiParticles.Count; i-- > 0;)
         {
             if (antiParticles[i].tag == ANTI_PREFIX + particleName)
             {
                 GameObject antiParticleToDestroy = antiParticles[i];
-                Debug.Log("Destroy " + antiParticleToDestroy);
                 antiParticles.RemoveAt(i);
                 Destroy(antiParticleToDestroy);
+
+                if (antiParticles.Count == 1)
+                {
+                    ReturnToFree();
+                }
+                else if (antiParticles.Count == 0)
+                {
+                    Destroy(gameObject);
+                }
 
                 return true;
             }
@@ -173,7 +180,19 @@ public class AntiParticleClump : MonoBehaviour
         Destroy(gameObject);
 
         remainingChild.AddComponent<ConstantForce2D>();
-        Rigidbody2D newRigidBody = remainingChild.AddComponent<Rigidbody2D>();
+
+        Rigidbody2D newRigidBody = remainingChild.GetComponent<Rigidbody2D>();
+        if (newRigidBody == null)
+        {
+            newRigidBody = remainingChild.AddComponent<Rigidbody2D>();
+        }
+        ParticleSpawner particleSpawner = FindObjectOfType<ParticleSpawner>();
+        newRigidBody.angularDrag = particleSpawner.particleAngularDrag;
+        newRigidBody.gravityScale = particleSpawner.particleGravityScale;
+        newRigidBody.collisionDetectionMode = particleSpawner.particleCollisionDetectionMode;
+
+        remainingChild.GetComponent<CircleCollider2D>().enabled = true;
+
         remainingChild.AddComponent<WaveRider>();
         remainingChild.AddComponent<FreeParticle>();
 

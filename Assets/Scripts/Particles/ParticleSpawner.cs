@@ -10,9 +10,10 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] GameObject antiProtonPrefab = null;
     [SerializeField] GameObject antiNeutronPrefab = null;
     [SerializeField] GameObject antiElectronPrefab = null;
+
     [SerializeField] public GameObject particleClumpPrefab = null;
     [SerializeField] public GameObject antiParticleClumpPrefab = null;
-
+    
     [Header("Paticle Probability Distributions")]
     [SerializeField] float[] protonProbabilities = { 33.33f, 26.33f, 20f, 16.66f };
     [SerializeField] float[] neutronProbabilities = { 33.33f, 26.33f, 20f, 16.66f };
@@ -40,10 +41,15 @@ public class ParticleSpawner : MonoBehaviour
     float antiProtonProbability = 13.33f;
     float antiNeutronProbability = 13.33f;
 
+    public float particleAngularDrag = 0.001f;
+    public float particleGravityScale = 0f;
+    public CollisionDetectionMode2D particleCollisionDetectionMode;
+
     // State Variables
     float timer = 0f;
     bool canSpawn = true;
     bool hasStarted = false;
+    bool firstParticle = true;
 
     // Start is called before the first frame update
     public void ExternalStart()
@@ -102,6 +108,28 @@ public class ParticleSpawner : MonoBehaviour
         }
 
         Instantiate(particlePrefab, spawnPosition, Quaternion.identity, transform);
+
+        if (firstParticle)
+        {
+            if (particlePrefab.GetComponent<Particle>() != null)
+            {
+                Rigidbody2D thisRigidBody = particlePrefab.GetComponent<Particle>().GetComponent<Rigidbody2D>();
+
+                particleAngularDrag = thisRigidBody.angularDrag;
+                particleGravityScale = thisRigidBody.gravityScale;
+                particleCollisionDetectionMode = thisRigidBody.collisionDetectionMode;
+            }
+            else if (particlePrefab.GetComponent<AntiParticle>() != null)
+            {
+                Rigidbody2D thisRigidBody = particlePrefab.GetComponent<AntiParticle>().GetComponent<Rigidbody2D>();
+
+                particleAngularDrag = thisRigidBody.angularDrag;
+                particleGravityScale = thisRigidBody.gravityScale;
+                particleCollisionDetectionMode = thisRigidBody.collisionDetectionMode;
+            }
+
+            firstParticle = false;
+        }
     }
 
     private GameObject PickSpawnParticle()

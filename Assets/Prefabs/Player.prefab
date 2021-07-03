@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3932961862128560214}
   - component: {fileID: 3932961862128560217}
   - component: {fileID: 9020292155674480893}
+  - component: {fileID: 3560408011905378103}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,6 +89,17 @@ MonoBehaviour:
   canRide: 1
   ridePercent: 0.04
   bufferPercentage: 0
+--- !u!247 &3560408011905378103
+ConstantForce2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575813966909175635}
+  m_Enabled: 0
+  m_Force: {x: 0, y: 0}
+  m_RelativeForce: {x: 0, y: 0}
+  m_Torque: 0
 --- !u!1 &813449582484211821
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,8 +143,8 @@ GameObject:
   - component: {fileID: 995173719253500213}
   - component: {fileID: 7249322392973014411}
   m_Layer: 7
-  m_Name: Proton (1)
-  m_TagString: Proton
+  m_Name: Proton
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,8 +655,8 @@ GameObject:
   - component: {fileID: 3726834231642717310}
   - component: {fileID: 7674507094984298067}
   m_Layer: 7
-  m_Name: Electron (1)
-  m_TagString: Electron
+  m_Name: Electron
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9437,6 +9437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bdf7f142ae18d4591d1f7b64f7b35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowWaving: 1
   manualControl: 0
   manualControlFixedMass: 0
   colorSliceNodes: 0
