@@ -228,7 +228,7 @@ public class MicroBlackHole : MonoBehaviour
             {
                 FindObjectOfType<Player>().KillPlayer(BLACK_HOLE_NAME);
             }
-            else if (otherCollider.gameObject.GetComponent<Pickup>())
+            else if (otherCollider.gameObject.GetComponent<Particle>() || otherCollider.gameObject.GetComponent<ParticleClump>() || otherCollider.gameObject.GetComponent<AntiParticle>() || otherCollider.gameObject.GetComponent<AntiParticleClump>())
             {
                 if (otherCollider.GetComponent<Rigidbody2D>() != null)
                 {

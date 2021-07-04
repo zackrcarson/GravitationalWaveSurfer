@@ -23,8 +23,8 @@ public class Player : MonoBehaviour
     bool hasStartedControlling = false;
 
     // State Variables
-    List<Pickup> particles = null;
-    List<string> particleNames = null;
+    public List<GameObject> particles = null;
+    public List<string> particleNames = null;
     Vector2 thisToBlackHole;
 
     // Constants
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particles = new List<Pickup>();
+        particles = new List<GameObject>();
         particleNames = new List<string>();
 
         gameOver = FindObjectOfType<GameOver>();
@@ -172,36 +172,6 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yBoundaryPadding;
     }
 
-    private void FindAndRemoveParticle(string particleName)
-    {
-        int number = 0;
-        GameObject particleToDelete = null;
-
-        for (int i = particles.Count; i-- > 0;)
-        {
-            if (particles[i].tag == particleName)
-            {
-                number = i;
-                particleToDelete = particles[i].gameObject;
-
-                break;
-            }
-        }
-
-        if (particleToDelete == null)
-        {
-            Debug.LogError("More debugging needed! No particle to delete found.");
-        }
-        else
-        {
-            particles.RemoveAt(number);
-            particleNames.RemoveAt(number);
-
-            GameManager.instance.RemoveParticle(particleToDelete.tag);
-            Destroy(particleToDelete);
-        }
-    }
-
     public void KillPlayer(string victimName)
     {
         gameOver.StartGameOver(victimName);
@@ -210,60 +180,197 @@ public class Player : MonoBehaviour
         // TODO: Player Destroy Effect
     }
 
-    public bool AnnihilateParticles(List<string> antiParticleNames)
+    public bool AnnihilateParticle(string antiParticleName)
+    {
+        Debug.Log(antiParticleName);
+        if (particleNames.Contains(antiParticleName.Replace(ANTI_PREFIX, "")))
+        {
+            Debug.Log("looking");
+            for (int i = particles.Count; i-- > 0;)
+            {
+                Debug.Log(particles[i]);
+                if (particles[i].tag == antiParticleName.Replace(ANTI_PREFIX, ""))
+                {
+                    Debug.Log("Destroying");
+                    GameObject particleToDelete = particles[i].gameObject;
+
+                    particles.RemoveAt(i);
+                    particleNames.RemoveAt(i);
+
+                    GameManager.instance.RemoveParticle(particleToDelete.tag);
+                    Destroy(particleToDelete);
+
+                    // TODO: Particle Effect
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        else if (antiParticleName == ANTI_PREFIX + PROTON_NAME || antiParticleName == ANTI_PREFIX + ELECTRON_NAME)
+        {
+            Debug.Log("killing??");
+            KillPlayer(antiParticleName.Replace(ANTI_PREFIX, ""));
+
+            return true;
+
+            // TODO: Particle Effect
+        }
+        else
+        {
+            return false; // Do nothing - neutron can bounce off.
+        }
+    }
+
+    public List<GameObject> AnnihilateParticles(List<GameObject> antiParticles, List<string> antiParticleNames)
     {
         if (particles.Count == 0)
         {
             if (antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME))
             {
                 KillPlayer(PROTON_NAME);
-                return true;
+
+                if (antiParticles.Count > 0)
+                {
+                    Destroy(antiParticles[0].transform.parent.gameObject);
+                }
+                antiParticles = new List<GameObject>();
+
+                // TODO: Particle Effect
             }
             else if (antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME))
             {
                 KillPlayer(ELECTRON_NAME);
-                return true;
+
+                if (antiParticles.Count > 0)
+                {
+                    Destroy(antiParticles[0].transform.parent.gameObject);
+                }
+                antiParticles = new List<GameObject>();
+
+                // TODO: Particle Effect
             }
             else if (antiParticleNames.Contains(ANTI_PREFIX + NEUTRON_NAME))
             {
-                return false;
+                // Do nothing
             }
             else
             {
                 Debug.LogError("Other condition found?");
-                return true;
             }
         }
         else if (antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME) && !particleNames.Contains(PROTON_NAME))
         {
             KillPlayer(PROTON_NAME);
-            return true;
+
+            if (antiParticles.Count > 0)
+            {
+                Destroy(antiParticles[0].transform.parent.gameObject);
+            }
+            antiParticles = new List<GameObject>();
+
+            // TODO: Particle Effect
         }
         else if (antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME) && !particleNames.Contains(ELECTRON_NAME))
         {
-            KillPlayer(ELECTRON_NAME);
-            return true;
+            KillPlayer(ELECTRON_NAME); 
+
+            if (antiParticles.Count > 0)
+            {
+                Destroy(antiParticles[0].transform.parent.gameObject);
+            }
+            antiParticles = new List<GameObject>();
+
+            // TODO: Particle Effect
         }
         else if (antiParticleNames.Contains(ANTI_PREFIX + NEUTRON_NAME) && !particleNames.Contains(NEUTRON_NAME) && !antiParticleNames.Contains(ANTI_PREFIX + ELECTRON_NAME) && !antiParticleNames.Contains(ANTI_PREFIX + PROTON_NAME))
         {
-            return false;
+            // Do nothing
         }
         else
         {
-            foreach (string anti in antiParticleNames)
+            for (int i = antiParticles.Count; i-- > 0;)
             {
-                string particle = anti.Replace(ANTI_PREFIX, "");
+                if (particleNames.Contains(antiParticles[i].tag.Replace(ANTI_PREFIX, "")))
+                {
+                    for (int j = particles.Count; j-- > 0;)
+                    {
+                        if (ANTI_PREFIX + particles[j].tag == antiParticles[i].tag)
+                        {
+                            GameObject particleToDelete = particles[j];
+                            particles.RemoveAt(j);
+                            particleNames.RemoveAt(j);
+                            Destroy(particleToDelete);
 
-                FindAndRemoveParticle(particle);
+                            GameManager.instance.RemoveParticle(particleToDelete.tag);
+
+                            GameObject antiParticleToDelete = antiParticles[i];
+                            antiParticles.RemoveAt(i);
+                            Destroy(antiParticleToDelete);
+
+                            break;
+                        }
+                    }
+                }
+                else if (antiParticles[i].tag == ANTI_PREFIX + PROTON_NAME || antiParticles[i].tag == ANTI_PREFIX + ELECTRON_NAME)
+                {
+                    KillPlayer(antiParticles[i].tag.Replace(ANTI_PREFIX, ""));
+
+                    if (antiParticles.Count > 0)
+                    {
+                        Destroy(antiParticles[0].transform.parent.gameObject);
+                    }
+                    antiParticles = new List<GameObject>();
+
+                    // TODO: Particle Effect
+                }
+                else
+                {
+                    // Do nothing - neutron can bounce off.
+                }
             }
-
-            return true;
         }
+
+        return antiParticles;
     }
 
-    public void AddParticle(Pickup particle)
+    public void AddParticle(GameObject particle)
     {
+        foreach (GameObject p in particles)
+        {
+            if (p == particle)
+            {
+                Debug.LogWarning("Match " + p + " found when adding particle " + particle + " to list! Ignoring. No need to focus on this warning, it is alright.");
+                return;
+            }
+        }
+
         particles.Add(particle);
         particleNames.Add(particle.tag);
+
+        GameManager.instance.AddParticle(particle.tag, true);
+    }
+
+    public void AddParticles(List<GameObject> newParticles, List<string> newParticleTypes)
+    {
+        for (int i = newParticles.Count; i-- > 0;)
+        {
+            if (particles.Contains(newParticles[i]))
+            {
+                Debug.LogWarning("Match found when adding particle " + newParticles[i] + " to list! Ignoring. No need to focus on this warning, it is alright.");
+
+                newParticles.RemoveAt(i);
+                newParticleTypes.RemoveAt(i);
+            }
+        }
+
+        if (newParticles.Count > 0)
+        {
+            particles.AddRange(newParticles);
+            particleNames.AddRange(newParticleTypes);
+
+            GameManager.instance.AddParticles(newParticleTypes);
+        }
     }
 }

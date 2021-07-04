@@ -86,4 +86,4 @@ MonoBehaviour:
     m_Bits: 128
   particleAngularDrag: 0.001
   particleGravityScale: 0
-  particleCollisionDetectionMode: 0
+  particleCollisionDetectionMode: 1

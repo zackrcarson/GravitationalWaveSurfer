@@ -294,17 +294,16 @@ public class GameManager : MonoBehaviour
     {
         foreach (string type in types)
         {
-            AddParticle(type);
+            AddParticle(type, false);
 
             goals.CheckGoal(currentParticles);
         }
 
         stability.updateStability(currentParticles);
-
         ShowScore();
     }
 
-    private void AddParticle(string type)
+    public void AddParticle(string type, bool singleParticle)
     {
         if (type == PROTON_NAME)
         {
@@ -330,6 +329,12 @@ public class GameManager : MonoBehaviour
         currentParticles[0] = numProtons;
         currentParticles[1] = numNeutrons;
         currentParticles[2] = numElectrons;
+
+        if (singleParticle)
+        {
+            stability.updateStability(currentParticles);
+            ShowScore();
+        }
     }
 
     public void RemoveParticle(string type)

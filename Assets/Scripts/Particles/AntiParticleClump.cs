@@ -136,6 +136,27 @@ public class AntiParticleClump : MonoBehaviour
                 AddClumpToOtherClump(otherCollider.gameObject.GetComponent<AntiParticleClump>());
             }
         }
+        else if (otherCollider.gameObject.GetComponent<Player>())
+        {
+            Player player = otherCollider.gameObject.GetComponent<Player>();
+
+            List<string> antiParticleNames = new List<string>();
+            foreach (GameObject antiParticle in antiParticles)
+            {
+                antiParticleNames.Add(antiParticle.tag);
+            }
+
+            antiParticles = otherCollider.gameObject.GetComponent<Player>().AnnihilateParticles(antiParticles, antiParticleNames);
+
+            if (antiParticles.Count == 1)
+            {
+                ReturnToFree();
+            }
+            else if (antiParticles.Count == 0)
+            {
+                Destroy(gameObject);
+            }          
+        }
     }
 
     public void AddClumpToOtherClump(AntiParticleClump otherClump)

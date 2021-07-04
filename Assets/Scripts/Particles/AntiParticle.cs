@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AntiParticle : MonoBehaviour
@@ -70,6 +69,15 @@ public class AntiParticle : MonoBehaviour
         else if (otherCollider.gameObject.GetComponent<AntiParticleClump>())
         {
             AddToClump(otherCollider.gameObject.GetComponent<AntiParticleClump>());
+        }
+        else if (otherCollider.gameObject.GetComponent<Player>())
+        {
+            Player player = otherCollider.gameObject.GetComponent<Player>();
+
+            if (player.AnnihilateParticle(tag))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
