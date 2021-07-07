@@ -211,16 +211,21 @@ public class GridWave : MonoBehaviour
                 }
                 else
                 {
-                    float[] masses = RandomlyGenerateMasses();
-                    if (masses[1] == masses[0])
-                    {
-                        masses[1] = 1.05f * masses[0];
-                    }
-
-                    StartCoroutine(OpenBBHDisplayPanel(masses[0], masses[1]));
+                    StartNewWave();
                 }
             }
         }
+    }
+
+    public void StartNewWave()
+    {
+        float[] masses = RandomlyGenerateMasses();
+        if (masses[1] == masses[0])
+        {
+            masses[1] = 1.05f * masses[0];
+        }
+
+        StartCoroutine(OpenBBHDisplayPanel(masses[0], masses[1]));
     }
 
     private IEnumerator OpenBBHDisplayPanel(float mass1, float mass2)

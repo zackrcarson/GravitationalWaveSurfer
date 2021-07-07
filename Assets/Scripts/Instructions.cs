@@ -17,6 +17,7 @@ public class Instructions : MonoBehaviour
 
     // Cached References
     PauseMenu pauseMenu = null;
+    GridWave gridWave = null;
 
     // State Variables
     int currentPanel = 0;
@@ -25,6 +26,7 @@ public class Instructions : MonoBehaviour
     private void Start()
     {
         pauseMenu = GetComponent<PauseMenu>();
+        gridWave = GetComponent<GridWave>();
     }
 
     public void OpenInstructions(bool fromPause = false)
