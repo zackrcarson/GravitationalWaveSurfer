@@ -42,6 +42,31 @@ public class Instructions : MonoBehaviour
         instructionsPanel.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (instructionsPanel.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                if (currentPanel < panels.Length - 1)
+                {
+                    NextPanel();
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                if (currentPanel > 0)
+                {
+                    PreviousPanel();
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return))
+            {
+                CloseInstructions();
+            }
+        }
+    }
+
     public void CloseInstructions()
     {
         if (openedFromPause)
