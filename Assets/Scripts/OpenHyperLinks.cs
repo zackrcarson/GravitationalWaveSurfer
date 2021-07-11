@@ -71,7 +71,7 @@ public class OpenHyperLinks : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Debug.Log("Click at POS: " + eventData.position + "  World POS: " + eventData.worldPosition);
+        //Debug.Log("Click at POS: " + eventData.position + "  World POS: " + eventData.worldPosition);
 
         int linkIndex = TMP_TextUtilities.FindIntersectingLink(pTextMeshPro, Input.mousePosition, pCamera);
         if (linkIndex != -1)
