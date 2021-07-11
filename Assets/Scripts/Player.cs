@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            gameOver.StartGameOver("Black Hole");
+        }
+
         if (canMove)
         {
             Move();
@@ -182,7 +187,6 @@ public class Player : MonoBehaviour
 
     public bool AnnihilateParticle(string antiParticleName)
     {
-        Debug.Log(antiParticleName);
         if (particleNames.Contains(antiParticleName.Replace(ANTI_PREFIX, "")))
         {
             Debug.Log("looking");

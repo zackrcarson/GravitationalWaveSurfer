@@ -172,15 +172,15 @@ public class GameOver : MonoBehaviour
 
             if (surplusNeutrons != 0 && surplusElectrons != 0)
             {
-                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + " and " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
+                annihilationDescriptionText.text = "Your isotope reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + " and " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
             }
             else if (surplusNeutrons != 0 && surplusElectrons == 0)
             {
-                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + "!";
+                annihilationDescriptionText.text = "Your isotope reached instability and decayed when it " + gainLoseWordNeutrons + Mathf.Abs(surplusNeutrons) + " extra neutron" + singularNeutrons + "!";
             }
             else if (surplusNeutrons == 0 && surplusElectrons != 0)
             {
-                annihilationDescriptionText.text = "Your atom reached instability and decayed when it " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
+                annihilationDescriptionText.text = "Your ion reached instability and decayed when it " + gainLoseWordElectrons + Mathf.Abs(surplusElectrons) + " extra electron" + singularElectrons + "!";
             }
         }
         else if (annihilatedParticle != GAME_WON_NAME)
@@ -300,169 +300,191 @@ public class GameOver : MonoBehaviour
             extraNeutrons = true;
         }
 
-
-        if (extraCharge && extraNeutrons)
+        if (numProtons == 1)
         {
-            string extraNeutronsPlural = "s";
-            if (Mathf.Abs(numNeutrons - numProtons) == 1) 
-            { 
-                extraNeutronsPlural = ""; 
-            }
-
-            string gainLose = "gained";
-            string neutronQuantifier = " extra";
-            string electronGainLose = "";
-            if (numNeutrons < numProtons)
+            if (numElectrons == 1 && numNeutrons == 0)
             {
-                gainLose = "lost";
-                neutronQuantifier = "";
-                electronGainLose = " gained";
+                atomicDescriptionText.text = "That is, you created a perfectly balanced Hydrogen atom with 1 proton and 1 electron.";
             }
-
-            if (annihilatedParticle != GAME_WON_NAME)
+            else if (numElectrons > 1 && numNeutrons == 0)
             {
-                if (elementName == "??")
-                {
-                    atomicDescriptionText.text += " This new isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
-                }
-                else
-                {
-                    atomicDescriptionText.text += " That means you " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
-                }
-
-                if (numElectrons > numProtons)
-                {
-                    if (elementName == "??")
-                    {
-                        atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
-                    }
-                    else
-                    {
-                        atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e.";
-                    }
-                }
-                else if (numElectrons < numProtons)
-                {
-                    if (elementName == "??")
-                    {
-                        atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e.";
-                    }
-                    else
-                    {
-                        atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
-                    }
-                }
+                atomicDescriptionText.text = "That is, you created a Hydrogen ion with 1 proton and " + numElectrons + " electron" + electronPlural + ". That means you gained a net electric charge of +" + (numElectrons - 1) + "e from its stable state.";
             }
-            else
+            else if (numElectrons == 1 && numNeutrons > 0)
             {
-                atomicDescriptionTextWon.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
-                if (numElectrons > numProtons)
-                {
-                    atomicDescriptionTextWon.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
-                }
-                else if (numElectrons < numProtons)
-                {
-                    atomicDescriptionTextWon.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
-                }
+                atomicDescriptionText.text = "That is, you created a Hydrogen isotope with 1 proton, 1 electron, and " + numNeutrons + " neutron" + neutronPlural + ". That means you gained " + numNeutrons + " extra neutron" + neutronPlural + " from its stable state.";
             }
-        }
-        else if (extraCharge && !extraNeutrons)
-        {
-            if (annihilatedParticle != GAME_WON_NAME)
+            else if (numElectrons > 1 && numNeutrons > 0)
             {
-                if (elementName == "??")
-                {
-                    atomicDescriptionText.text += " This isotope gained a net electric charge of ";
-                }
-                else
-                {
-                    atomicDescriptionText.text += " That means you gained a net electric charge of ";
-                }
-
-                if (numElectrons > numProtons)
-                {
-                    if (elementName == "??")
-                    {
-                        atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
-                    }
-                    else
-                    {
-                        atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e.";
-                    }
-                }
-                else if (numElectrons < numProtons)
-                {
-                    if (elementName == "??")
-                    {
-                        atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
-                    }
-                    else
-                    {
-                        atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e.";
-                    }
-                }
-            }
-            else
-            {
-                atomicDescriptionTextWon.text += " This isotope gained a net electric charge of ";
-                if (numElectrons > numProtons)
-                {
-                    atomicDescriptionTextWon.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
-                }
-                else if (numElectrons < numProtons)
-                {
-                    atomicDescriptionTextWon.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
-                }
-            }
-        }
-        else if (!extraCharge && extraNeutrons)
-        {
-            string extraNeutronsPlural = "s";
-            if (Mathf.Abs(numNeutrons - numProtons) == 1) 
-            { 
-                extraNeutronsPlural = ""; 
-            }
-
-            string gainLose = "gained";
-            string neutronQuantifier = " extra";
-            if (numNeutrons < numProtons)
-            {
-                gainLose = "lost";
-                neutronQuantifier = "";
-            }
-
-            if (annihilatedParticle != GAME_WON_NAME)
-            {
-                if (elementName == "??")
-                {
-                    atomicDescriptionText.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " from its stable state.";
-                }
-                else
-                {
-                    atomicDescriptionText.text += " That means you " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + ".";
-                }
-            }
-            else
-            {
-                atomicDescriptionText.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + ".";
+                atomicDescriptionText.text = "That is, you created a Hydrogen isotope with 1 proton, " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ". That means you gained " + numNeutrons + " extra neutron " + neutronPlural + " and a net electric charge of +" + (numElectrons - numProtons) + "e from its stable state.";
             }
         }
         else
         {
-            if (annihilatedParticle != GAME_WON_NAME)
+            if (extraCharge && extraNeutrons)
             {
-                if (elementName == "??")
+                string extraNeutronsPlural = "s";
+                if (Mathf.Abs(numNeutrons - numProtons) == 1) 
+                { 
+                    extraNeutronsPlural = ""; 
+                }
+
+                string gainLose = "gained";
+                string neutronQuantifier = " extra";
+                string electronGainLose = "";
+                if (numNeutrons < numProtons)
                 {
-                    atomicDescriptionText.text = "This unknown isotope is a perfectly balanced " + elementName + " atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                    gainLose = "lost";
+                    neutronQuantifier = "";
+                    electronGainLose = " gained";
+                }
+
+                if (annihilatedParticle != GAME_WON_NAME)
+                {
+                    if (elementName == "??")
+                    {
+                        atomicDescriptionText.text += " This new isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
+                    }
+                    else
+                    {
+                        atomicDescriptionText.text += " That means you " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
+                    }
+
+                    if (numElectrons > numProtons)
+                    {
+                        if (elementName == "??")
+                        {
+                            atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                        }
+                        else
+                        {
+                            atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                        }
+                    }
+                    else if (numElectrons < numProtons)
+                    {
+                        if (elementName == "??")
+                        {
+                            atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                        }
+                        else
+                        {
+                            atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                        }
+                    }
                 }
                 else
                 {
-                    atomicDescriptionText.text = "That is, you created a perfectly balanced " + elementName + " atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                    atomicDescriptionTextWon.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " and" + electronGainLose + " a net electric charge of ";
+                    if (numElectrons > numProtons)
+                    {
+                        atomicDescriptionTextWon.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                    }
+                    else if (numElectrons < numProtons)
+                    {
+                        atomicDescriptionTextWon.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                    }
+                }
+            }
+            else if (extraCharge && !extraNeutrons)
+            {
+                atomicDescriptionText.text = atomicDescriptionText.text.Replace("isotope", "ion");
+                if (annihilatedParticle != GAME_WON_NAME)
+                {
+                    if (elementName == "??")
+                    {
+                        atomicDescriptionText.text += " This ion gained a net electric charge of ";
+                    }
+                    else
+                    {
+                        atomicDescriptionText.text += " That means you gained a net electric charge of ";
+                    }
+
+                    if (numElectrons > numProtons)
+                    {
+                        if (elementName == "??")
+                        {
+                            atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                        }
+                        else
+                        {
+                            atomicDescriptionText.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                        }
+                    }
+                    else if (numElectrons < numProtons)
+                    {
+                        if (elementName == "??")
+                        {
+                            atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                        }
+                        else
+                        {
+                            atomicDescriptionText.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                        }
+                    }
+                }
+                else
+                {
+                    atomicDescriptionTextWon.text += " This ion gained a net electric charge of ";
+                    if (numElectrons > numProtons)
+                    {
+                        atomicDescriptionTextWon.text += "+" + (numElectrons - numProtons) + "e from its stable state.";
+                    }
+                    else if (numElectrons < numProtons)
+                    {
+                        atomicDescriptionTextWon.text += "-" + (numProtons - numElectrons) + "e from its stable state.";
+                    }
+                }
+            }
+            else if (!extraCharge && extraNeutrons)
+            {
+                string extraNeutronsPlural = "s";
+                if (Mathf.Abs(numNeutrons - numProtons) == 1) 
+                { 
+                    extraNeutronsPlural = ""; 
+                }
+
+                string gainLose = "gained";
+                string neutronQuantifier = " extra";
+                if (numNeutrons < numProtons)
+                {
+                    gainLose = "lost";
+                    neutronQuantifier = "";
+                }
+
+                if (annihilatedParticle != GAME_WON_NAME)
+                {
+                    if (elementName == "??")
+                    {
+                        atomicDescriptionText.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " from its stable state.";
+                    }
+                    else
+                    {
+                        atomicDescriptionText.text += " That means you " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " from its stable state.";
+                    }
+                }
+                else
+                {
+                    atomicDescriptionText.text += " This isotope " + gainLose + " " + Mathf.Abs(numNeutrons - numProtons) + neutronQuantifier + " neutron" + extraNeutronsPlural + " from its stable state.";
                 }
             }
             else
             {
-                atomicDescriptionText.text = "This unknown isotope you created was a perfectly balanced atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                if (annihilatedParticle != GAME_WON_NAME)
+                {
+                    if (elementName == "??")
+                    {
+                        atomicDescriptionText.text = "This unknown isotope is a perfectly balanced " + elementName + " atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                    }
+                    else
+                    {
+                        atomicDescriptionText.text = "That is, you created a perfectly balanced " + elementName + " atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                    }
+                }
+                else
+                {
+                    atomicDescriptionText.text = "This unknown isotope you created was a perfectly balanced atom with " + numProtons + " proton" + protonPlural + ", " + numNeutrons + " neutron" + neutronPlural + ", and " + numElectrons + " electron" + electronPlural + ".";
+                }
             }
         }
     }
