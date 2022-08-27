@@ -6,6 +6,8 @@ public class FreeParticle : MonoBehaviour
     // Config Parameters
     [SerializeField] float initialRandomTorque = 0.001f;
     [SerializeField] float initialRandomPush = 0.4f;
+    [SerializeField] float deadPlayerRandomTorque = 0.003f;
+    [SerializeField] float deadPlayerRandomPush = 1.2f;
 
     // Cached References
     Rigidbody2D rigidBody = null;
@@ -19,10 +21,21 @@ public class FreeParticle : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
 
         microBlackHole = FindObjectOfType<MicroBlackHole>();
-        constantForce = GetComponent<ConstantForce2D>();
-        constantForce.enabled = false;
 
-        RandomKick();
+        if (TryGetComponent(out ConstantForce2D constantForce))
+        {
+            constantForce = GetComponent<ConstantForce2D>();
+            constantForce.enabled = false;
+            RandomKick(initialRandomTorque, initialRandomPush);
+        }
+        else
+        {
+            gameObject.AddComponent<ConstantForce2D>();
+            constantForce = GetComponent<ConstantForce2D>();
+            constantForce.enabled = false;
+
+            RandomKick(deadPlayerRandomTorque, deadPlayerRandomPush);
+        }
     }
 
     private void Update()
@@ -65,12 +78,12 @@ public class FreeParticle : MonoBehaviour
         }
     }
 
-    private void RandomKick()
+    public void RandomKick(float torqueMagnitude, float forceMagnitude)
     {
-        float randomRotation = initialRandomTorque * Random.Range(30f, 60f);
+        float randomRotation = torqueMagnitude * Random.Range(30f, 60f);
         rigidBody.AddTorque(randomRotation, ForceMode2D.Impulse);
 
         Vector2 randomPush = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        rigidBody.velocity = initialRandomPush * randomPush;
+        rigidBody.velocity = forceMagnitude * randomPush;
     }
 }

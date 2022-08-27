@@ -22,7 +22,7 @@ public class ParticleSpawner : MonoBehaviour
     [SerializeField] float[] antiNeutronProbabilities = { 0f, 7f, 13.33f, 16.66f };
 
     [Header("Spawn Settings")]
-    [SerializeField] bool allowSpawning = true;
+    [SerializeField] public bool allowSpawning = true;
     [SerializeField] float randomSpawnTimeMin = .1f;
     [SerializeField] float randomSpawnTimeMax = 3f;
 

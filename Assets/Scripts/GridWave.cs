@@ -7,7 +7,7 @@ public class GridWave : MonoBehaviour
 {
     // Config Parameters
     [Header("Manual Control Parameters")]
-    [SerializeField] bool allowWaving = true;
+    [SerializeField] public bool allowWaving = true;
     [SerializeField] bool manualControl = false;
     [SerializeField] bool manualControlFixedMass = false;
     [SerializeField] bool colorSliceNodes = false;

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,11 +10,17 @@ public class Player : MonoBehaviour
     [SerializeField] float initialRandomPush = 0.4f;
     [SerializeField] float xBoundaryPadding = 0.1f;
     [SerializeField] float yBoundaryPadding = 0.1f;
+    [SerializeField] float deathScreenDelay = 5.0f;
+    [SerializeField] float shrinkRatio = 0.85f;
+    [SerializeField] float shrinkDelay = 0.1f;
 
     // Cached References
     Rigidbody2D rigidBody = null;
     GameOver gameOver = null;
     MicroBlackHole microBlackHole = null;
+    GridWave gridWave = null;
+    ParticleSpawner particleSpawner = null;
+
     new ConstantForce2D constantForce = null;
 
     float xMin, xMax, yMin, yMax;
@@ -41,7 +48,11 @@ public class Player : MonoBehaviour
 
         gameOver = FindObjectOfType<GameOver>();
         rigidBody = GetComponent<Rigidbody2D>();
+
         microBlackHole = FindObjectOfType<MicroBlackHole>();
+        gridWave = FindObjectOfType<GridWave>();
+        particleSpawner = FindObjectOfType<ParticleSpawner>();
+
         constantForce = GetComponent<ConstantForce2D>();
         constantForce.enabled = false;
 
@@ -67,11 +78,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            gameOver.StartGameOver("Black Hole");
-        }
-
         if (canMove)
         {
             Move();
@@ -177,25 +183,14 @@ public class Player : MonoBehaviour
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - yBoundaryPadding;
     }
 
-    public void KillPlayer(string victimName)
-    {
-        gameOver.StartGameOver(victimName);
-        Destroy(gameObject);
-
-        // TODO: Player Destroy Effect
-    }
-
     public bool AnnihilateParticle(string antiParticleName)
     {
         if (particleNames.Contains(antiParticleName.Replace(ANTI_PREFIX, "")))
         {
-            Debug.Log("looking");
             for (int i = particles.Count; i-- > 0;)
             {
-                Debug.Log(particles[i]);
                 if (particles[i].tag == antiParticleName.Replace(ANTI_PREFIX, ""))
                 {
-                    Debug.Log("Destroying");
                     GameObject particleToDelete = particles[i].gameObject;
 
                     particles.RemoveAt(i);
@@ -376,5 +371,80 @@ public class Player : MonoBehaviour
 
             GameManager.instance.AddParticles(newParticleTypes);
         }
+    }
+
+    public void KillPlayer(string victimName)
+    {
+        if (victimName == "Black Hole")
+        {
+            StartCoroutine(ShrinkAtom(victimName));
+        }
+        else
+        {
+            StartCoroutine(DestroyAtom(victimName));
+        }
+
+        // TODO: Player Destroy Effect
+    }
+
+    private IEnumerator DestroyAtom(string victimName)
+    {   
+        List<Transform> children = new List<Transform>();
+        float particleAngularDrag = particleSpawner.particleAngularDrag;
+        float particleGravityScale = particleSpawner.particleGravityScale;
+
+        foreach (Transform child in transform)
+        {
+            children.Add(child);
+        }
+
+        foreach (Transform child in children)
+        {
+            child.parent = null;
+
+            // TODO: GIVE BIGGER INITIAL PUSH AND TORQUE, SOMEHOW UPDATE BEFORE sTART IS CALLED?
+            child.gameObject.AddComponent<Rigidbody2D>();
+            child.gameObject.GetComponent<Rigidbody2D>().angularDrag = particleAngularDrag;
+            child.gameObject.GetComponent<Rigidbody2D>().gravityScale = particleGravityScale;
+
+            //child.gameObject.AddComponent<ConstantForce2D>();
+            child.gameObject.AddComponent<FreeParticle>();
+        }
+
+        Destroy(gameObject);
+        particleSpawner.allowSpawning = false;
+        microBlackHole.allowMBH = false;
+        gridWave.allowWaving = false;      
+
+        yield return new WaitForSeconds(deathScreenDelay); // TODO: update this? fade in?
+
+        gameOver.StartGameOver(victimName);
+    }
+
+    private IEnumerator ShrinkAtom(string victimName)
+    {
+        transform.position = microBlackHole.transform.position;
+        rigidBody.velocity = microBlackHole.rigidBody.velocity;
+
+        Vector3 scaleChange = new Vector3(1.0f, 1.0f, 1.0f);
+
+        while (transform.localScale.x > 0.01f)
+        {
+            scaleChange.x = transform.localScale.x - (transform.localScale.x * shrinkRatio);
+            scaleChange.y = transform.localScale.x - (transform.localScale.x * shrinkRatio);
+            scaleChange.z = transform.localScale.x - (transform.localScale.x * shrinkRatio);
+
+            transform.localScale -= scaleChange;
+
+            Debug.Log(transform.localScale);
+
+            yield return new WaitForSeconds(shrinkDelay);
+        }
+
+        Destroy(gameObject);
+
+        yield return new WaitForSeconds(deathScreenDelay); // TODO: update this? fade in?
+
+        gameOver.StartGameOver(victimName);
     }
 }

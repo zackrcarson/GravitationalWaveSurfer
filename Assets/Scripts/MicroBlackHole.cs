@@ -5,7 +5,7 @@ using UnityEngine;
 public class MicroBlackHole : MonoBehaviour
 {
     // Config Parameters
-    [SerializeField] bool allowMBH = true;
+    [SerializeField] public bool allowMBH = true;
     [SerializeField] GameObject pointerArrow = null;
     [SerializeField] BoxCollider2D screenEdgeCollider = null;
 
@@ -39,7 +39,7 @@ public class MicroBlackHole : MonoBehaviour
     float xMin, xMax, yMin, yMax;
     float xMinScreen, xMaxScreen, yMinScreen, yMaxScreen;
     float xMinArrow, xMaxArrow, yMinArrow, yMaxArrow;
-    Rigidbody2D rigidBody = null;
+    public Rigidbody2D rigidBody = null;
     float timerMin = 5f;
     float timerMax = 9f;
 
