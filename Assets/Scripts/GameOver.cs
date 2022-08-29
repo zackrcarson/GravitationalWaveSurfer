@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class GameOver : MonoBehaviour
 {
     // Config Parameters
+    [Header("Control Parameters")]
+    [SerializeField] float fadeOutRate = 2.0f;
+    [SerializeField] float fadeInRate = 2.0f;
+
     [Header("Text Boxes")]
     [Header("Game Over Menu")]
     [SerializeField] Text elementText = null;
@@ -43,6 +49,10 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject blackHoleInformation = null;
     [SerializeField] GameObject goalBox = null;
     [SerializeField] GameObject pointsBox = null;
+    [SerializeField] CanvasGroup fadeOutCanvasGroup = null;
+    [SerializeField] GameObject mBHArrow = null;
+    [SerializeField] CanvasGroup fadeInCanvasGroup = null;
+    [SerializeField] GameObject raycastBlocker = null;
 
     // Cached References
     PauseMenu pauseMenu = null;
@@ -74,6 +84,13 @@ public class GameOver : MonoBehaviour
 
     public void StartGameOver(string annihilatedParticle)
     {
+        StartCoroutine(GameOverCoroutine(annihilatedParticle));
+    }
+
+    public IEnumerator GameOverCoroutine(string annihilatedParticle)
+    {
+        //raycastBlocker.SetActive(true);
+
         if (!pauseMenu) { pauseMenu = FindObjectOfType<PauseMenu>(); }
         if (!particleSpawner) { particleSpawner = FindObjectOfType<ParticleSpawner>(); }
 
@@ -82,13 +99,6 @@ public class GameOver : MonoBehaviour
         particleSpawner.AllowSpawning(true);
 
         FindObjectOfType<MicroBlackHole>().isGameOver = true;
-        stabilityBar.SetActive(false);
-        scoreBox.SetActive(false);
-        finalForm.SetActive(false);
-        pauseButton.SetActive(false);
-        blackHoleInformation.SetActive(false);
-        goalBox.SetActive(false);
-        pointsBox.SetActive(false);
 
         int[] particles = GameManager.instance.GetScore();
 
@@ -118,6 +128,8 @@ public class GameOver : MonoBehaviour
 
         ShowResults(particles[0], particles[1], particles[2], elements[0], elements[1], annihilatedParticle);
 
+        fadeInCanvasGroup.alpha = 0.0f;
+
         if (annihilatedParticle == GAME_WON_NAME)
         {
             gameWonScreen.SetActive(true);
@@ -125,6 +137,37 @@ public class GameOver : MonoBehaviour
         else
         {
             gameOverScreen.SetActive(true);
+        }
+        
+        float currentOutAlpha = fadeOutCanvasGroup.alpha;
+        float currentInAlpha = fadeInCanvasGroup.alpha;
+
+        float targetOutAlpha = 0.0f;
+        float targetInAlpha = 1.0f;
+
+        while (Mathf.Abs(currentOutAlpha - targetOutAlpha) > 0.02f)
+        {
+            currentOutAlpha = Mathf.Lerp(currentOutAlpha, targetOutAlpha, fadeOutRate * Time.deltaTime);
+            fadeOutCanvasGroup.alpha = currentOutAlpha;
+
+            yield return null;
+        }
+
+        mBHArrow.SetActive(false);
+        stabilityBar.SetActive(false);
+        scoreBox.SetActive(false);
+        finalForm.SetActive(false);
+        pauseButton.SetActive(false);
+        blackHoleInformation.SetActive(false);
+        goalBox.SetActive(false);
+        pointsBox.SetActive(false);
+
+        while (Mathf.Abs(currentInAlpha - targetInAlpha) > 0.01f)
+        {
+            currentInAlpha = Mathf.Lerp(currentInAlpha, targetInAlpha, fadeInRate * Time.deltaTime);
+            fadeInCanvasGroup.alpha = currentInAlpha;
+
+            yield return null;
         }
     }
 

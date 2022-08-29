@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] float initialRandomPush = 0.4f;
     [SerializeField] float xBoundaryPadding = 0.1f;
     [SerializeField] float yBoundaryPadding = 0.1f;
-    [SerializeField] float deathScreenDelay = 5.0f;
     [SerializeField] float shrinkRatio = 0.85f;
     [SerializeField] float shrinkDelay = 0.1f;
 
@@ -381,13 +380,13 @@ public class Player : MonoBehaviour
         }
         else
         {
-            StartCoroutine(DestroyAtom(victimName));
+            DestroyAtom(victimName);
         }
 
         // TODO: Player Destroy Effect
     }
 
-    private IEnumerator DestroyAtom(string victimName)
+    private void DestroyAtom(string victimName)
     {   
         List<Transform> children = new List<Transform>();
         float particleAngularDrag = particleSpawner.particleAngularDrag;
@@ -416,8 +415,6 @@ public class Player : MonoBehaviour
         microBlackHole.allowMBH = false;
         gridWave.allowWaving = false;      
 
-        yield return new WaitForSeconds(deathScreenDelay); // TODO: update this? fade in?
-
         gameOver.StartGameOver(victimName);
     }
 
@@ -436,14 +433,10 @@ public class Player : MonoBehaviour
 
             transform.localScale -= scaleChange;
 
-            Debug.Log(transform.localScale);
-
             yield return new WaitForSeconds(shrinkDelay);
         }
 
         Destroy(gameObject);
-
-        yield return new WaitForSeconds(deathScreenDelay); // TODO: update this? fade in?
 
         gameOver.StartGameOver(victimName);
     }
