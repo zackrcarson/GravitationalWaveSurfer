@@ -26,6 +26,9 @@ public class MicroBlackHole : MonoBehaviour
     [SerializeField] float speedMin = 5f;
     [SerializeField] float speedMax = 5f;
 
+    [SerializeField] float shrinkDelay = 0.1f;
+    [SerializeField] float shrinkRatio = 0.85f;
+
     // State Variables
     public bool isActive = false;
     bool hasStarted = false;
@@ -230,12 +233,54 @@ public class MicroBlackHole : MonoBehaviour
             }
             else if (otherCollider.gameObject.GetComponent<Particle>() || otherCollider.gameObject.GetComponent<ParticleClump>() || otherCollider.gameObject.GetComponent<AntiParticle>() || otherCollider.gameObject.GetComponent<AntiParticleClump>())
             {
-                if (otherCollider.GetComponent<Rigidbody2D>() != null)
+                if (otherCollider)
                 {
-                    otherCollider.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                    StartCoroutine(ShrinkParticle(otherCollider));
                 }
-                Destroy(otherCollider.gameObject);
+                // if (otherCollider.GetComponent<Rigidbody2D>() != null)
+                // {
+                //     otherCollider.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                // }
+                // Destroy(otherCollider.gameObject);
             }
+        }
+    }
+
+    private IEnumerator ShrinkParticle(Collider2D otherCollider)
+    {
+        // otherCollider.transform.position = transform.position;
+        
+        // if (otherCollider.GetComponent<Rigidbody2D>() != null)
+        // {
+        //     otherCollider.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity;
+        // }
+        // else
+        // {
+        //     otherCollider.gameObject.AddComponent<Rigidbody2D>();
+        //     otherCollider.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        //     otherCollider.GetComponent<Rigidbody2D>().velocity = rigidBody.velocity;
+        // }
+
+        Vector3 scaleChange = new Vector3(1.0f, 1.0f, 1.0f);
+
+        if (otherCollider)
+        {
+            while (otherCollider.transform.localScale.x > 0.01f)
+            {
+                scaleChange.x = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
+                scaleChange.y = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
+                scaleChange.z = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
+
+                otherCollider.transform.localScale -= scaleChange;
+
+                yield return new WaitForSeconds(shrinkDelay);
+            }
+
+            Destroy(otherCollider.gameObject);
+        }
+        else
+        {
+            yield return null;
         }
     }
 

@@ -162,13 +162,15 @@ public class GameOver : MonoBehaviour
         goalBox.SetActive(false);
         pointsBox.SetActive(false);
 
-        while (Mathf.Abs(currentInAlpha - targetInAlpha) > 0.01f)
+        while (Mathf.Abs(currentInAlpha - targetInAlpha) > 0.25f)
         {
             currentInAlpha = Mathf.Lerp(currentInAlpha, targetInAlpha, fadeInRate * Time.deltaTime);
             fadeInCanvasGroup.alpha = currentInAlpha;
 
             yield return null;
         }
+
+        gameOverScreen.transform.SetParent(fadeInCanvasGroup.transform.parent, true);
     }
 
     private void ShowResults(int numProtons, int numNeutrons, int numElectrons, string elementShorthand, string elementName, string annihilatedParticle)

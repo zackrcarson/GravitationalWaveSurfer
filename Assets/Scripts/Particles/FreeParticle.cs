@@ -27,6 +27,7 @@ public class FreeParticle : MonoBehaviour
             constantForce = GetComponent<ConstantForce2D>();
             constantForce.enabled = false;
             RandomKick(initialRandomTorque, initialRandomPush);
+
         }
         else
         {
@@ -45,6 +46,11 @@ public class FreeParticle : MonoBehaviour
 
     private void MicroBlackHole()
     {
+        if (constantForce == null)
+        {
+            constantForce = GetComponent<ConstantForce2D>();
+        }
+
         if (constantForce != null)
         {
             if (microBlackHole.isActive)
