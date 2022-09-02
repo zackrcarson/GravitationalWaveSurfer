@@ -1,0 +1,410 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.8f1 (507919d4fff5) revision 5273881'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19044.1889; Version 2009; 64bit' Language: 'en' Physical Memory: 16328 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/zackr/Documents/GameDev/GravitationalWaveSurfer
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58960
+Successfully changed project path to: C:/Users/zackr/Documents/GameDev/GravitationalWaveSurfer
+C:/Users/zackr/Documents/GameDev/GravitationalWaveSurfer
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 31.59 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/zackr/Documents/GameDev/GravitationalWaveSurfer/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 (ID=0x2488)
+    Vendor:   
+    VRAM:     8043 MB
+    Driver:   30.0.14.7141
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56256
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001586 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 32.95 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.738 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001189 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 33.01 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.604 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2455 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 133.7 MB.
+System memory in use after: 133.9 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 2923.
+Total: 1.922700 ms (FindLiveObjects: 0.224900 ms CreateObjectMapping: 0.086500 ms MarkObjects: 1.544600 ms  DeleteObjects: 0.065800 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a49df5a33209bcf46b7bcb4b2614907f') in 0.067090 seconds
+  Import took 0.071016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edcbed37750cc43ae6ea486daaf1032d') in 0.010043 seconds
+  Import took 0.013121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79ab29495f3667439fc2cafc38b6c53e') in 0.008297 seconds
+  Import took 0.011502 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002367 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79ab29495f3667439fc2cafc38b6c53e') in 0.006464 seconds
+  Import took 0.009533 seconds .
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.07 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 83.2 MB.
+System memory in use after: 83.4 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 2930.
+Total: 2.271500 ms (FindLiveObjects: 0.265700 ms CreateObjectMapping: 0.060300 ms MarkObjects: 1.894700 ms  DeleteObjects: 0.050000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.751896 seconds.
+  path: Assets/Prefabs/Player.prefab
+  artifactKey: Guid(12e02df8206c4d64881177f30f5617ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player.prefab using Guid(12e02df8206c4d64881177f30f5617ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d0965e9b09f0769cfc81b9db531ddc8') in 0.016284 seconds
+  Import took 0.019774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.229731 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eccdb29b9d907dc6f0167ea4c0397ad9') in 0.011692 seconds
+  Import took 0.014905 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.601752 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b563db2af454215e55d16608f981177a') in 0.015521 seconds
+  Import took 0.018725 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.044536 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c74d5fa4cd81f0c981c1a91af06e9f') in 0.007860 seconds
+  Import took 0.010910 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.264316 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '769aa6230a6fd9bc7ce7c2ee9bded815') in 0.009521 seconds
+  Import took 0.012856 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.074216 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1945d77781837773cd1400dd28783edb') in 0.009640 seconds
+  Import took 0.012747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.664809 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cdc6664b70cb1e90b9dbeaa3baac09b') in 0.009709 seconds
+  Import took 0.012940 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.653177 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96940e5c1bb7235a801fdcb99bef6dfb') in 0.010047 seconds
+  Import took 0.013231 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.818709 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e0835e6a20bdac9a60cb1cb06ecc6e9') in 0.014842 seconds
+  Import took 0.018165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.203373 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1005a6e49d6f99650c29550e860ccd19') in 0.010816 seconds
+  Import took 0.013943 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.591121 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '405e6c2a7f428bf60d4e1d7800eddea9') in 0.010146 seconds
+  Import took 0.013376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.913867 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c933ee4b2ef0b8d7ca6e2aba0b3c7ec4') in 0.006781 seconds
+  Import took 0.009881 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.820594 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec57261333ad773f125a13c55603a539') in 0.007387 seconds
+  Import took 0.010397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.052376 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fc7802dbabe6fbebdf1cd8132095321') in 0.009694 seconds
+  Import took 0.012904 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.392313 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62ca970fb7fe947913cb0916dde5d800') in 0.016484 seconds
+  Import took 0.019809 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.405607 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44b4fb315b19d41f8b98fb9027f66ed8') in 0.010664 seconds
+  Import took 0.013916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.548629 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8dcd90b6abe34429fe16d57ca4c9b2c5') in 0.014259 seconds
+  Import took 0.017442 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.871772 seconds.
+  path: Assets/Prefabs/Particles/Electron.prefab
+  artifactKey: Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Electron.prefab using Guid(47d9b0e25c1657a4f884f6aa66b867d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11eaa353b6741c240cdcb8fe260ecbc3') in 0.008131 seconds
+  Import took 0.011376 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.851509 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8351e13c70bd18b9c551f1def21c3b21') in 0.013194 seconds
+  Import took 0.016381 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.245575 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6a346f9244cdeed64352a4820460570') in 0.009639 seconds
+  Import took 0.012805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.804946 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd202a9c625ea7c3029e816a79aca801c') in 0.009879 seconds
+  Import took 0.013075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.828596 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4504db013ebd749a649109972d8bc31f') in 0.009973 seconds
+  Import took 0.013188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.417871 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b84de45c34eac89ab0fd4866064cda1') in 0.012162 seconds
+  Import took 0.015481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.623571 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f9a18e5c884323e888ef858742157cf') in 0.012705 seconds
+  Import took 0.016062 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.019892 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49fc1078aed456b0a2215487b1288d8c') in 0.010070 seconds
+  Import took 0.013395 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.000622 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b87651bb71553056be77a16cbf46f99') in 0.010117 seconds
+  Import took 0.013291 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.863156 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4a5a74c194607fd6f94016be8d2690b') in 0.010096 seconds
+  Import took 0.013334 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.215359 seconds.
+  path: Assets/Prefabs/Particles/Neutron.prefab
+  artifactKey: Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Neutron.prefab using Guid(769a453e77d9c5f4aafddc4bee775473) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '573909ad130127da1a69d12965637a55') in 0.013075 seconds
+  Import took 0.016262 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.231783 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e4f69ccff3b9314a00aec73b0dce34a') in 0.010573 seconds
+  Import took 0.013801 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.019118 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7feba0a9c3b9dd73578d34f68ec80bc') in 0.009517 seconds
+  Import took 0.012699 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.801134 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dd87edcbdfd58572aa7627636523ca3') in 0.010016 seconds
+  Import took 0.013276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.871198 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9275a3e9041612f25beda17ac1b8c44') in 0.009078 seconds
+  Import took 0.012298 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.410762 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0178062fa35177631fa2bf967fad185') in 0.011543 seconds
+  Import took 0.014617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.991752 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4e137e941578ceb39bfbf803249bdb2') in 0.009845 seconds
+  Import took 0.013028 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.059723 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbc75c0efac18a75ffeb1ef2c244adaf') in 0.016154 seconds
+  Import took 0.019435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.284392 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a376e606333a017675ba21e80f55a86') in 0.007664 seconds
+  Import took 0.010751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.627637 seconds.
+  path: Assets/Prefabs/Particles/Proton.prefab
+  artifactKey: Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Particles/Proton.prefab using Guid(d20f938cf99fa114ab6dca64c0b9e354) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40afbddfff7fbb6afbad46921317baa9') in 0.009792 seconds
+  Import took 0.013050 seconds .
+
