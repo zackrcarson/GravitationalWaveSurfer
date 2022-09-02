@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     const string GAME_WON_NAME = "won";
 
+    // TODO: This script pauses/unpauses the audioListener for some reason. Come back if needed :)
     private void Awake()
     {
         instance = this;
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
         if (!FindObjectOfType<DifficultyHolder>())
         {
             Time.timeScale = 0;
-            AudioListener.pause = false;
+            //AudioListener.pause = true;
             GetComponent<PauseMenu>().CanPause(false);
 
             pauseButton.SetActive(false);
@@ -107,7 +108,7 @@ public class GameManager : MonoBehaviour
             Destroy(FindObjectOfType<DifficultyHolder>().gameObject);
 
             Time.timeScale = 0;
-            AudioListener.pause = false;
+            //AudioListener.pause = false;
 
             GetComponent<PauseMenu>().CanPause(false);
 
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
     public void CloseInstructions()
     {
         Time.timeScale = 1;
-        AudioListener.pause = true;
+        //AudioListener.pause = true;
 
         SwitchRaycastBlocker(true);
 

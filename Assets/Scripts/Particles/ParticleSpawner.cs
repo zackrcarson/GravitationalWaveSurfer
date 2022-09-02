@@ -31,9 +31,15 @@ public class ParticleSpawner : MonoBehaviour
 
     [SerializeField] LayerMask doNotOverlap;
 
+    [Header("Audio")]
+    [SerializeField] string particleSpawnClipName = "particlePop";
+    [SerializeField] float particleSpawnSpatialBlend = 1.0f;
+    [SerializeField] float particleSpawnVolume = 0.7f;
+
     // Cached References
     float xMin, xMax, yMin, yMax;
     Player player = null;
+    AudioManager audioManager = null;
 
     float protonProbability = 20f;
     float neutronProbability = 20f;
@@ -41,9 +47,9 @@ public class ParticleSpawner : MonoBehaviour
     float antiProtonProbability = 13.33f;
     float antiNeutronProbability = 13.33f;
 
-    public float particleAngularDrag = 0.001f;
-    public float particleGravityScale = 0f;
-    public CollisionDetectionMode2D particleCollisionDetectionMode;
+    [HideInInspector] public float particleAngularDrag = 0.001f;
+    [HideInInspector] public float particleGravityScale = 0f;
+    [HideInInspector] public CollisionDetectionMode2D particleCollisionDetectionMode;
 
     // State Variables
     float timer = 0f;
@@ -62,6 +68,7 @@ public class ParticleSpawner : MonoBehaviour
         antiNeutronProbability = antiNeutronProbabilities[difficulty];
 
         player = FindObjectOfType<Player>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         SetupMoveBoundaries();
 
@@ -106,7 +113,8 @@ public class ParticleSpawner : MonoBehaviour
         {
             return;
         }
-
+        
+        audioManager.PlayEffectAtLocation(spawnPosition, particleSpawnSpatialBlend, particleSpawnVolume, particleSpawnClipName);
         Instantiate(particlePrefab, spawnPosition, Quaternion.identity, transform);
 
         if (firstParticle)
