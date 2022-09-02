@@ -155,7 +155,7 @@ public class AntiParticleClump : MonoBehaviour
             else if (antiParticles.Count == 0)
             {
                 Destroy(gameObject);
-            }          
+            }
         }
     }
 

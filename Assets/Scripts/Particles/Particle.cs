@@ -8,6 +8,7 @@ public class Particle : MonoBehaviour
     // Cached References
     public Rigidbody2D rigidBody = null;
     new ConstantForce2D constantForce = null;
+    private Highlight particleHighlight = null;
 
     // State variables
     public bool touchedFirst = false;
@@ -19,6 +20,8 @@ public class Particle : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         constantForce = GetComponent<ConstantForce2D>();
+        particleHighlight = GetComponent<Highlight>();
+
         constantForce.enabled = false;
     }
 
@@ -123,6 +126,8 @@ public class Particle : MonoBehaviour
         else if (otherCollider.gameObject.GetComponent<Player>())
         {
             Player player = otherCollider.gameObject.GetComponent<Player>();
+            
+            particleHighlight.ToggleHighlight(true);
 
             AddToPlayer(player);
         }

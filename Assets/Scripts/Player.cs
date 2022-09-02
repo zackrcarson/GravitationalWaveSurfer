@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float yBoundaryPadding = 0.1f;
     [SerializeField] float shrinkRatio = 0.85f;
     [SerializeField] float shrinkDelay = 0.1f;
+    [SerializeField] Follower playerParticleEffect;
 
     // Cached References
     Rigidbody2D rigidBody = null;
@@ -384,6 +385,7 @@ public class Player : MonoBehaviour
         }
 
         // TODO: Player Destroy Effect
+        // TODO: Turn off particle effect
     }
 
     private void DestroyAtom(string victimName)

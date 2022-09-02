@@ -171,10 +171,12 @@ public class ParticleClump : MonoBehaviour
             particle.transform.parent = player.transform;
 
             particleTypes.Add(particle.tag);
+
+            particle.GetComponent<Highlight>().ToggleHighlight(true);
         }
 
         player.AddParticles(particles, particleTypes);
-
+        
         Destroy(gameObject);
     }
 

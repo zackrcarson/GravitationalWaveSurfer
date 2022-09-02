@@ -275,6 +275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialRandomTorque: 0.001
   initialRandomPush: 0.4
+  deadPlayerRandomTorque: 0.003
+  deadPlayerRandomPush: 1.2
 --- !u!114 &5166962364666854702
 MonoBehaviour:
   m_ObjectHideFlags: 0
