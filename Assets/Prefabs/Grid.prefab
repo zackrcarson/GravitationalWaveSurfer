@@ -9482,7 +9482,9 @@ MonoBehaviour:
   gridMarkerScale: 0.02
   gridMarker: {fileID: 4225985316071069467, guid: a65b5121dde8c984b935cd93e2789b51, type: 3}
   gridMarkerParent: {fileID: 3566930714797880066}
+  gridLineParent: {fileID: 0}
   mainCanvas: {fileID: 0}
+  lineControllerPrefab: {fileID: 1519964099828112822, guid: ad13d8c3426eb484da7b269e85424ae6, type: 3}
 --- !u!1 &3566930714804426644
 GameObject:
   m_ObjectHideFlags: 0
