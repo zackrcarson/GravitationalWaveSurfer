@@ -520,6 +520,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2871576582113056645, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871576582113056645, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871576582113056645, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871576582113056645, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -570,6 +582,14 @@ PrefabInstance:
     - target: {fileID: 2871576582113056649, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: m_Name
       value: Main Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871576582113056650, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871576582113056651, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2871576582301160833, guid: 4ca4982a5b531264e888985a19ca5a8d, type: 3}
       propertyPath: m_AnchorMax.y
