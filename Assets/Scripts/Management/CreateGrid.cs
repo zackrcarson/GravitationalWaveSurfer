@@ -68,7 +68,7 @@ public class CreateGrid : MonoBehaviour
     {
         List<GridPoint> objsToConnect = new List<GridPoint>();
 
-        int idx = 0;
+        // int idx = 0;
         foreach (Transform child in gridMarkerParent.transform)
         {   
             int col = int.Parse(child.gameObject.name.Split('_')[1]);

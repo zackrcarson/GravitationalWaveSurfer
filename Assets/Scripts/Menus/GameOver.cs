@@ -52,7 +52,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] CanvasGroup fadeOutCanvasGroup = null;
     [SerializeField] GameObject mBHArrow = null;
     [SerializeField] CanvasGroup fadeInCanvasGroup = null;
-    [SerializeField] GameObject raycastBlocker = null;
+    // [SerializeField] GameObject raycastBlocker = null;
 
     // Cached References
     PauseMenu pauseMenu = null;

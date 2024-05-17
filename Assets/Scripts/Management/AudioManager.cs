@@ -13,7 +13,7 @@ public class KeyValuePair<T1, T2>
 public class AudioManager : MonoBehaviour
 {
     // Serialized Fields
-    [SerializeField] AudioSource backgroundAudioSource = null;
+    // [SerializeField] AudioSource backgroundAudioSource = null;
     [SerializeField] List<KeyValuePair<string, AudioClip>> soundEffectDictionaryList = new List<KeyValuePair<string, AudioClip>>();
 
     // Variables
