@@ -11,7 +11,7 @@ public class csShurikenEffectEditor : EditorWindow
     private float Scale = 1;
 
     public GameObject Effect;
-    public Color ShurikenSystemColor = Color.white;
+    // public Color ShurikenSystemColor = Color.white;
     static csShurikenEffectEditor myWindow;
 
 	[MenuItem("Window/Shuriken System Effect Editor")]
@@ -19,7 +19,7 @@ public class csShurikenEffectEditor : EditorWindow
 	public static void Init()
 	{
         myWindow = EditorWindow.GetWindowWithRect<csShurikenEffectEditor>(new Rect(100, 100, 300, 220)); //set Editor Position and Size
-		myWindow.title = "Scale Editor";
+		myWindow.titleContent = new GUIContent("Scale Editor");
 	}
 
     void OnGUI()
