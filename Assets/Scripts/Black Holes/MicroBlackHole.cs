@@ -225,24 +225,24 @@ public class MicroBlackHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if (isActive)
+        if (!isActive || !otherCollider) return;
+        
+        if (otherCollider.gameObject.CompareTag(PLAYER_TAG))
         {
-            if (otherCollider.gameObject.tag == PLAYER_TAG)
-            {
-                FindObjectOfType<Player>().KillPlayer(BLACK_HOLE_NAME);
-            }
-            else if (otherCollider.gameObject.GetComponent<Particle>() || otherCollider.gameObject.GetComponent<ParticleClump>() || otherCollider.gameObject.GetComponent<AntiParticle>() || otherCollider.gameObject.GetComponent<AntiParticleClump>())
-            {
-                if (otherCollider)
-                {
-                    StartCoroutine(ShrinkParticle(otherCollider));
-                }
-                // if (otherCollider.GetComponent<Rigidbody2D>() != null)
-                // {
-                //     otherCollider.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                // }
-                // Destroy(otherCollider.gameObject);
-            }
+            // TODO: Instead of finding object, just use an event that player subscribes to via an event channel 
+            FindObjectOfType<Player>()?.KillPlayer(BLACK_HOLE_NAME);
+        }
+        
+        // TODO: use interface 
+        else if (otherCollider.gameObject.GetComponent<Particle>() || otherCollider.gameObject.GetComponent<ParticleClump>() || otherCollider.gameObject.GetComponent<AntiParticle>() || otherCollider.gameObject.GetComponent<AntiParticleClump>())
+        {
+            StartCoroutine(ShrinkParticle(otherCollider));
+            
+            // if (otherCollider.GetComponent<Rigidbody2D>() != null)
+            // {
+            //     otherCollider.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            // }
+            // Destroy(otherCollider.gameObject);
         }
     }
 
@@ -263,25 +263,32 @@ public class MicroBlackHole : MonoBehaviour
 
         Vector3 scaleChange = new Vector3(1.0f, 1.0f, 1.0f);
 
-        if (otherCollider)
+        if (!otherCollider || !otherCollider.gameObject)
         {
-            while (otherCollider.transform.localScale.x > 0.01f)
+            yield break;
+        }
+        
+        while (otherCollider.transform.localScale.x > 0.01f)
+        {
+            if (!otherCollider || !otherCollider.gameObject)
             {
-                scaleChange.x = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
-                scaleChange.y = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
-                scaleChange.z = otherCollider.transform.localScale.x - (otherCollider.transform.localScale.x * shrinkRatio);
-
-                otherCollider.transform.localScale -= scaleChange;
-
-                yield return new WaitForSeconds(shrinkDelay);
+                yield break;
             }
+            
+            var otherColliderTransform = otherCollider.transform;
+            var otherColliderLocalScale = otherColliderTransform.localScale;
+                
+            scaleChange.x = otherColliderLocalScale.x - (otherColliderLocalScale.x * shrinkRatio);
+            scaleChange.y = otherColliderLocalScale.x - (otherColliderLocalScale.x * shrinkRatio);
+            scaleChange.z = otherColliderLocalScale.x - (otherColliderLocalScale.x * shrinkRatio);
 
-            Destroy(otherCollider.gameObject);
+            otherColliderLocalScale -= scaleChange;
+            otherColliderTransform.localScale = otherColliderLocalScale;
+
+            yield return new WaitForSeconds(shrinkDelay);
         }
-        else
-        {
-            yield return null;
-        }
+
+        Destroy(otherCollider.gameObject);
     }
 
     private void OnDrawGizmosSelected()

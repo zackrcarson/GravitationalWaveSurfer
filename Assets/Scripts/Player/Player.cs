@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+// TODO: Split into separate scripts 
 public class Player : MonoBehaviour
 {
     // Config Parameters
