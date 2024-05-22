@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.csproj", "{77fc723e-9bf3-f480-94ae-7a1c763f11e0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{05cdbe3d-0166-298b-568a-534a8c3a3cf1}"
@@ -14,6 +16,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

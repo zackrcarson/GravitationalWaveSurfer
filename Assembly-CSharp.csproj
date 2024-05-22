@@ -791,6 +791,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GWS.Input.csproj">
+      <Project>{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}</Project>
+      <Name>GWS.Input</Name>
+    </ProjectReference>
     <ProjectReference Include="GWSOld.csproj">
       <Project>{77fc723e-9bf3-f480-94ae-7a1c763f11e0}</Project>
       <Name>GWSOld</Name>
