@@ -45,70 +45,36 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Management\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Black Holes\GridWave.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
-    <Compile Include="Assets\Scripts\Black Holes\BlackHoleDisplay.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
-    <Compile Include="Assets\Scripts\Management\LineController.cs" />
-    <Compile Include="Assets\Scripts\Black Holes\GravitationalWave.cs" />
-    <Compile Include="Assets\Scripts\Menus\GameOver.cs" />
-    <Compile Include="Assets\Scripts\Particles\AntiParticle.cs" />
-    <Compile Include="Assets\Scripts\Player\Follower.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
-    <Compile Include="Assets\Scripts\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\Particles\Particle.cs" />
-    <Compile Include="Assets\Scripts\Particles\ParticleSpawner.cs" />
-    <Compile Include="Assets\Scripts\Particles\ParticleText.cs" />
-    <Compile Include="Assets\Scripts\Particles\ParticleShredder.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
-    <Compile Include="Assets\Scripts\Particles\FreeParticle.cs" />
-    <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\Background\BackgroundScroller.cs" />
-    <Compile Include="Assets\Scripts\Particles\AntiParticleClump.cs" />
-    <Compile Include="Assets\Scripts\Particles\WaveRider.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
-    <Compile Include="Assets\Scripts\Menus\OpenHyperLinks.cs" />
-    <Compile Include="Assets\Scripts\Management\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Menus\DifficultyHolder.cs" />
-    <Compile Include="Assets\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
-    <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Management\CreateGrid.cs" />
-    <Compile Include="Assets\Scripts\Management\SceneLoader.cs" />
-    <Compile Include="Assets\Scripts\Background\StarScroller.cs" />
-    <Compile Include="Assets\Scripts\Particles\ParticleClump.cs" />
-    <Compile Include="Assets\Scripts\UI\Goals.cs" />
-    <Compile Include="Assets\Scripts\Black Holes\MicroBlackHole.cs" />
-    <Compile Include="Assets\Scripts\UI\Stability.cs" />
-    <Compile Include="Assets\Scripts\Player\Highlight.cs" />
-    <Compile Include="Assets\Scripts\Management\GridPoint.cs" />
-    <Compile Include="Assets\Scripts\Black Holes\Rotator.cs" />
-    <Compile Include="Assets\Scripts\Menus\SolarSymbol.cs" />
-    <Compile Include="Assets\Scripts\Menus\Instructions.cs" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Fonts\Noto_Sans_SC\OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\GravitationalWaveSurferOld\Fonts\Noto_Sans_SC\OFL.txt" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Sprites\EmojiOne.json" />
+    <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -819,6 +785,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GWSOld.csproj">
+      <Project>{77fc723e-9bf3-f480-94ae-7a1c763f11e0}</Project>
+      <Name>GWSOld</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
