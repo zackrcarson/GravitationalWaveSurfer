@@ -19,8 +19,10 @@ public class ParticleShredder : MonoBehaviour
         }
         else if (other.CompareTag("Player"))
         {
-            if (!FindObjectOfType<GameOver>().isGameOver)
+            // TODO: use ScriptableObject 
+            if (FindObjectOfType<GameOver>() is { isGameOver: false })
             {
+                // TODO: use event 
                 FindObjectOfType<Player>().KillPlayer(BLACK_HOLE_NAME);
             }
         }
