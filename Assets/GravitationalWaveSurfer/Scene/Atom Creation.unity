@@ -294,10 +294,10 @@ RectTransform:
   m_Father: {fileID: 359434818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 533.1482, y: -434.28}
-  m_SizeDelta: {x: -1066.2964, y: -868.5502}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 853.7036, y: 211.44983}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &162106085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,7 +764,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1175251290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957188574}
+        m_TargetAssemblyTypeName: SimulationManagement, Assembly-CSharp
+        m_MethodName: AddParticle
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Neutron
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1175251290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,16 +898,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: b16c4dc1a17f88b4bad2a402d6ae841b, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1957188574}
+        m_TargetAssemblyTypeName: SimulationManagement, Assembly-CSharp
+        m_MethodName: RemoveParticle
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Proton
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1196197511
@@ -1021,14 +1033,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1957188574}
         m_TargetAssemblyTypeName: SimulationManagement, Assembly-CSharp
-        m_MethodName: AddProton
-        m_Mode: 1
+        m_MethodName: AddParticle
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Proton
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1419665634
@@ -1359,8 +1371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numElectron: 10
-  numProton: 80
-  numNeutron: 80
+  numProton: 2
+  numNeutron: 2
   electronPrefab: {fileID: 0}
   neutronPrefab: {fileID: 2657506972919944129, guid: ef4b7c6f6c8de7543ab61ca6f245e756, type: 3}
   protonPrefab: {fileID: 2745143563211455250, guid: 91eaffdff5c079749beaa05104c12e14, type: 3}
@@ -1588,7 +1600,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2144802029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1957188574}
+        m_TargetAssemblyTypeName: SimulationManagement, Assembly-CSharp
+        m_MethodName: RemoveParticle
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Neutron
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2144802029
 MonoBehaviour:
   m_ObjectHideFlags: 0

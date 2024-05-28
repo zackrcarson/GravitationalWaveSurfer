@@ -21,8 +21,14 @@ public class SimulationManagement : MonoBehaviour
     public float spawnSphereRadius = 5f; // Radius of the spawn sphere
     public float dampingFactor = 0.98f; // Factor to manually decrease the velocity
 
-    private List<GameObject> particles;
-    private List<Rigidbody> sphereRigidbodies;
+/*
+need a list, can delete one by one
+
+*/
+    private List<GameObject> protonParticles;
+    private List<GameObject> neutronParticles;
+    private List<Rigidbody> protonRigidbodies;
+    private List<Rigidbody> neutronRigidbodies;
 
     void Start()
     {
@@ -30,25 +36,79 @@ public class SimulationManagement : MonoBehaviour
         {
             folder = new GameObject(folderName);
         }
+        
+        protonParticles = new List<GameObject>();
+        neutronParticles = new List<GameObject>();
+        protonRigidbodies = new List<Rigidbody>();
+        neutronRigidbodies = new List<Rigidbody>();
 
         numInNucleus = numProton + numNeutron;
 
-        StartCoroutine(Simulate());
+        StartCoroutine(Simulate(true));
     }
 
-    public void StartSimulation()
+    public void StartSimulation(bool initialize)
     {
-        StartCoroutine(Simulate());
+        StartCoroutine(Simulate(initialize));
+    }
+
+    IEnumerator Simulate(bool initialize)
+    {
+        if (initialize) InitializeNucleus();
+        Physics.gravity = Vector3.zero; // Disable default gravity
+
+        for (int iteration = 0; iteration < maxIterations; iteration++)
+        {
+            bool hasConverged = true;
+
+            // Update gravitational force for each particle in the nucleus
+            foreach (Rigidbody rb in protonRigidbodies)
+            {
+                // Gravity: inward direction towards origin
+                Vector3 directionToOrigin = -rb.position.normalized;
+                rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
+                rb.velocity *= dampingFactor;   // Manual damping
+            }
+            foreach (Rigidbody rb in neutronRigidbodies)
+            {
+                // Gravity: inward direction towards origin
+                Vector3 directionToOrigin = -rb.position.normalized;
+                rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
+                // Manually take away energy to help convergence
+                rb.velocity *= dampingFactor;   // Manual damping
+            }
+
+            yield return new WaitForFixedUpdate(); // Wait for physics update
+
+            // Check for convergence
+            foreach (Rigidbody rb in protonRigidbodies)
+            {
+                if (rb.velocity.magnitude > threshold) hasConverged = false;
+            }
+            foreach (Rigidbody rb in neutronRigidbodies)
+            {
+                if (rb.velocity.magnitude > threshold) hasConverged = false;
+            }
+
+            if (hasConverged)
+            {
+                Debug.Log("Simulation has converged.");
+                StopAllMovement();
+                yield break;
+            }
+        }
+
+        StopAllMovement();
+        Debug.Log("Max iterations reached without convergence.");
     }
 
     void InitializeNucleus()
     {
-        particles = new List<GameObject>();
-        sphereRigidbodies = new List<Rigidbody>();
+        Debug.Log("Initializing nucleus.");
 
         for (int i = 0; i < numInNucleus; i++)
         {
-            if (i > numNeutron)
+            if (i < numNeutron)
             {
                 SpawnParticle("Neutron", i);
             }
@@ -66,103 +126,139 @@ public class SimulationManagement : MonoBehaviour
 
         // Instantiate particle objects
         GameObject particle;
-        if (type == "Neutron") particle = Instantiate(neutronPrefab, spawnPosition, Quaternion.identity);
-        else if (type == "Proton") particle = Instantiate(protonPrefab, spawnPosition, Quaternion.identity);
+        if (type == "Neutron") 
+        {
+            particle = Instantiate(neutronPrefab, spawnPosition, Quaternion.identity);
+
+            particle.name = $"Neutron_{i}"; // rename for cleanliness
+            particle.transform.parent = folder.transform; // all particles in a folder for cleanliness
+
+            neutronParticles.Add(particle);
+
+            // Get Rigidbody
+            Rigidbody rb = particle.GetComponent<Rigidbody>();
+            neutronRigidbodies.Add(rb);
+
+            // Apply an initial random velocity to kickstart convergence
+            Vector3 initialVelocity = Random.insideUnitSphere * initialVelocityRange;
+            rb.velocity = initialVelocity;            
+        }
+        else if (type == "Proton") 
+        {
+            particle = Instantiate(protonPrefab, spawnPosition, Quaternion.identity);
+
+            particle.name = $"Proton_{i}"; // rename for cleanliness
+            particle.transform.parent = folder.transform; // all particles in a folder for cleanliness
+
+            protonParticles.Add(particle);
+
+            // Get Rigidbody
+            Rigidbody rb = particle.GetComponent<Rigidbody>();
+            protonRigidbodies.Add(rb);
+
+            // Apply an initial random velocity to kickstart convergence
+            Vector3 initialVelocity = Random.insideUnitSphere * initialVelocityRange;
+            rb.velocity = initialVelocity;
+        }
         else {
             Debug.LogWarning("Invalid type of particle!"); 
             return;
         }
-
-        particle.name = $"{type}_{i}"; // rename for cleanliness
-        particle.transform.parent = folder.transform; // all particles in a folder for cleanliness
-
-        particles.Add(particle);
-
-        // Get Rigidbody
-        Rigidbody rb = particle.GetComponent<Rigidbody>();
-        sphereRigidbodies.Add(rb);
-
-        // Apply an initial random velocity to kickstart convergence
-        Vector3 initialVelocity = Random.insideUnitSphere * initialVelocityRange;
-        rb.velocity = initialVelocity;
     }
 
-    IEnumerator Simulate()
+    public void AddParticle(string type)
     {
-        InitializeNucleus();
-        Physics.gravity = Vector3.zero; // Disable default gravity
-
-        for (int iteration = 0; iteration < maxIterations; iteration++)
+        Debug.Log($"Adding {type}...");
+        if (type == "Proton") numProton++;
+        else if (type == "Neutron") numNeutron++;
+        else
         {
-            bool hasConverged = true;
-
-            // Update gravitational force for each particle in the nucleus
-            foreach (Rigidbody rb in sphereRigidbodies)
-            {
-                // Gravity: inward direction towards origin
-                Vector3 directionToOrigin = -rb.position.normalized;
-                rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
-
-                // Manually take away energy to help convergence
-                rb.velocity *= dampingFactor;
-            }
-
-            yield return new WaitForFixedUpdate(); // Wait for physics update
-
-            // Check for convergence
-            foreach (Rigidbody rb in sphereRigidbodies)
-            {
-                if (rb.velocity.magnitude > threshold)
-                {
-                    hasConverged = false;
-                }
-            }
-
-            if (hasConverged)
-            {
-                Debug.Log("Simulation has converged.");
-                StopAllMovement();
-                yield break;
-            }
+            Debug.LogWarning("Invalid particle type!!");
+            return;
         }
-
-        StopAllMovement();
-        Debug.Log("Max iterations reached without convergence.");
+        numInNucleus++;
+        SpawnParticle(type, numInNucleus-1);
+        StartAllMovement();
+        StartSimulation(false);
     }
 
-    void StopAllMovement()
+    public void RemoveParticle(string type)
     {
-        foreach (Rigidbody rb in sphereRigidbodies)
+        List<GameObject> particleList;
+        if (type == "Neutron") particleList = neutronParticles;
+        else if (type == "Proton") particleList = protonParticles;
+        else
         {
-            rb.isKinematic = true;
+            Debug.LogWarning("Invalid type of particle!");
+            return;
         }
+
+        if (particleList.Count == 0)
+        {
+            Debug.LogWarning($"No {type} particles left to remove!");
+            return;
+        }
+
+        if (type == "Neutron")
+        {
+            int lastIndex = neutronParticles.Count - 1;
+
+            GameObject particleToRemove = neutronParticles[lastIndex];
+            Rigidbody rbToRemove = neutronRigidbodies[lastIndex];
+
+            neutronParticles.RemoveAt(lastIndex);
+            neutronRigidbodies.RemoveAt(lastIndex);
+
+            Destroy(particleToRemove);
+            Destroy(rbToRemove);
+
+            numNeutron--;
+        }
+        else if (type == "Proton")
+        {
+            int lastIndex = protonParticles.Count - 1;
+
+            GameObject particleToRemove = protonParticles[lastIndex];
+            Rigidbody rbToRemove = protonRigidbodies[lastIndex];
+
+            protonParticles.RemoveAt(lastIndex);
+            protonRigidbodies.RemoveAt(lastIndex);
+
+            Destroy(particleToRemove);
+            Destroy(rbToRemove);
+
+            numProton--;
+        }
+
+        numInNucleus--;
+
+        Debug.Log($"Removed {type}.");    
+
+        StartAllMovement();
+        StartSimulation(false);
     }
 
     void StartAllMovement()
     {
-        foreach (Rigidbody rb in sphereRigidbodies)
+        foreach (Rigidbody rb in protonRigidbodies)
+        {
+            rb.isKinematic = false;
+        }
+        foreach (Rigidbody rb in neutronRigidbodies)
         {
             rb.isKinematic = false;
         }
     }
 
-    public void AddProton()
+    void StopAllMovement()
     {
-        Debug.Log("Adding proton...");
-        numProton++;
-        numInNucleus++;
-        SpawnParticle("Proton", numInNucleus-1);
-        StartAllMovement();
-        Simulate();
-    }
-
-    public void AddNeutron()
-    {
-        Debug.Log("Adding neutron...");
-        numNeutron++;
-        numInNucleus++;
-        SpawnParticle("Neutron", numInNucleus-1);
-        StartAllMovement();
-        Simulate();
+        foreach (Rigidbody rb in protonRigidbodies)
+        {
+            rb.isKinematic = true;
+        }
+        foreach (Rigidbody rb in neutronRigidbodies)
+        {
+            rb.isKinematic = true;
+        }
     }
 }
