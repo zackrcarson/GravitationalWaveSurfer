@@ -1,0 +1,19 @@
+{
+    "name": "GWS.Player.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1931a8976df2a6a49a23445607216094",
+        "GUID:2e8f2b6db328db244b848df36fc86381",
+        "GUID:517abbff20e001a4b87c979ec96238c8",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

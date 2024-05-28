@@ -22,7 +22,6 @@ namespace GWS.Input.Runtime
     
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
-            if (callbackContext.canceled) return; 
             inputEventChannel.RaiseOnMove(callbackContext.ReadValue<Vector2>());
         }
 
