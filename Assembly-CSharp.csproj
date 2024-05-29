@@ -726,6 +726,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Cinemachine">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
@@ -753,6 +756,9 @@
     <Reference Include="Unity.InputSystem.ForUI">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Splines.Editor">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
@@ -764,6 +770,9 @@
     </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Splines">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
@@ -780,6 +789,9 @@
     <Reference Include="Unity.AI.Navigation.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Cinemachine.Editor">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
@@ -795,9 +807,21 @@
       <Project>{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}</Project>
       <Name>GWS.Input</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.CommandPattern.csproj">
+      <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
+      <Name>GWS.CommandPattern</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.Player.Runtime.csproj">
+      <Project>{7188534b-09e0-5beb-11ab-1cd6811e33bc}</Project>
+      <Name>GWS.Player.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="GWSOld.csproj">
       <Project>{77fc723e-9bf3-f480-94ae-7a1c763f11e0}</Project>
       <Name>GWSOld</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.Character.Runtime.csproj">
+      <Project>{37d84d6b-891d-79fe-6205-f4f0c79ae309}</Project>
+      <Name>GWS.Character.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
