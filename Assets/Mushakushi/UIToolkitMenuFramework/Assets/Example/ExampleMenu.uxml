@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label tabindex="-1" text="Example Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-self: center; -unity-text-align: upper-center;" />
+    <ui:GroupBox style="flex-grow: 1; justify-content: center;">
+        <ui:Button text="Open Another Menu" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Next" />
+        <ui:GroupBox style="flex-direction: row;">
+            <ui:Label tabindex="-1" text="Press the following key to exit the application:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-self: center;" />
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:GroupBox>
+    </ui:GroupBox>
+</ui:UXML>
