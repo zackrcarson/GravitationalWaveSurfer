@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.CommandPattern", "GWS.CommandPattern.csproj", "{7f705f0f-3759-40b6-9d9d-8273f46109e7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Runtime", "Framework.UI.Runtime.csproj", "{47465933-17ac-9e6a-6ed9-21382662dafa}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Player.Runtime", "GWS.Player.Runtime.csproj", "{7188534b-09e0-5beb-11ab-1cd6811e33bc}"
 EndProject
@@ -9,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.UI", "GWS.UI.csproj", "{6ad8a9a6-3aad-c2be-2738-421fa10f4324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mushakushi.UIAddons.Editor", "Mushakushi.UIAddons.Editor.csproj", "{c985acfc-c7f9-1536-b9de-1f2128c28f01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{05cdbe3d-0166-298b-568a-534a8c3a3cf1}"
 EndProject
@@ -20,16 +26,22 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7f705f0f-3759-40b6-9d9d-8273f46109e7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7f705f0f-3759-40b6-9d9d-8273f46109e7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47465933-17ac-9e6a-6ed9-21382662dafa}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47465933-17ac-9e6a-6ed9-21382662dafa}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7188534b-09e0-5beb-11ab-1cd6811e33bc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7188534b-09e0-5beb-11ab-1cd6811e33bc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ad8a9a6-3aad-c2be-2738-421fa10f4324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ad8a9a6-3aad-c2be-2738-421fa10f4324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{c985acfc-c7f9-1536-b9de-1f2128c28f01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{c985acfc-c7f9-1536-b9de-1f2128c28f01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37d84d6b-891d-79fe-6205-f4f0c79ae309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
