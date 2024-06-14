@@ -1,0 +1,20 @@
+{
+    "name": "GWS.GeneralRelativitySimulation",
+    "rootNamespace": "",
+    "references": [
+        "GUID:96247224547897d4e85691c7330770db",
+        "GUID:5f4a94071812629499ab82023f385c2f",
+        "GUID:c1e025b5613e6dc4e9e181905b5103af",
+        "GUID:7faf1308d12391a49899eafb030b1e2f",
+        "GUID:49b49c76ee64f6b41bf28ef951cb0e50"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

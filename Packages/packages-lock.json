@@ -174,8 +174,8 @@
       }
     },
     "com.unity.splines": {
-      "version": "2.5.1",
-      "depth": 1,
+      "version": "2.5.2",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.settings-manager": "1.0.3",
