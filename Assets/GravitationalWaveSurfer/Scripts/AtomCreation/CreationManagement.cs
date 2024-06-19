@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 namespace GWS.AtomCreation
 {
@@ -42,6 +43,11 @@ namespace GWS.AtomCreation
         private List<Rigidbody> protonRigidbodies;
         private List<Rigidbody> neutronRigidbodies;
 
+        public GameObject TallyCount;
+        private TextMeshProUGUI numProtonUI;
+        private TextMeshProUGUI numNeutronUI;
+        private TextMeshProUGUI numElectronUI;
+
         private void Start()
         {
             if (nucleusFolder == null) nucleusFolder = new GameObject(nucleusFolderName);
@@ -59,6 +65,10 @@ namespace GWS.AtomCreation
 
             numInNucleus = numProton + numNeutron;
             eRingRadius = 7f;
+
+            numProtonUI = TallyCount.transform.Find("Protons/NumProtons").GetComponent<TextMeshProUGUI>();
+            numNeutronUI = TallyCount.transform.Find("Neutrons/NumNeutrons").GetComponent<TextMeshProUGUI>();
+            numElectronUI = TallyCount.transform.Find("Electrons/NumElectrons").GetComponent<TextMeshProUGUI>();
 
             StartCoroutine(Simulate(true));
         }
@@ -82,6 +92,7 @@ namespace GWS.AtomCreation
             }
 
             UpdateElectronRingRotation();
+            UpdateTallyCount();
         }
 
         public void StartSimulation(bool initialize)
@@ -427,7 +438,7 @@ namespace GWS.AtomCreation
 
             // get new angle between electrons and scale of electron ring
             float angleBetween = 360f / (float) (newElectronIndex + 1);
-            Debug.Log(angleBetween);
+            // Debug.Log(angleBetween);
             float radians = angleBetween * (float)Math.PI / 180f;
             float scale = eRing.transform.localScale.x;
 
@@ -505,7 +516,7 @@ namespace GWS.AtomCreation
 
             // get new angle between electrons and scale of electron ring
             float angleBetween = 360f / (float) (newElectronIndex + 1);
-            Debug.Log(angleBetween);
+            // Debug.Log(angleBetween);
             float radians = angleBetween * (float)Math.PI / 180f;
             float scale = eRing.transform.localScale.x;
 
@@ -550,5 +561,13 @@ namespace GWS.AtomCreation
                 rb.isKinematic = true;
             }
         }
+
+        void UpdateTallyCount()
+        {
+            numProtonUI.text = numProton.ToString();
+            numNeutronUI.text = numNeutron.ToString();
+            numElectronUI.text = numElectron.ToString();
+        }
+    
     }
 }
