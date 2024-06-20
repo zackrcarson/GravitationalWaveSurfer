@@ -65,9 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GravitationalWaveSurfer\Scripts\AtomCreation\ElectronRing.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Scripts\Environment\GWManagement copy.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Scripts\Management\InputManagement.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Scripts\Environment\GWManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Scripts\AtomCreation\CreationManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
