@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawAntenna : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] joints;
+
     private LineRenderer line;
 
     private void Start()
