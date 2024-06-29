@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6510258413620574815}
-  - component: {fileID: 5954742489861445769}
   - component: {fileID: 6930386580823312580}
   - component: {fileID: 8141422197138710744}
   m_Layer: 0
@@ -34,23 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &5954742489861445769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5209646719580372284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3758df069dc6446aecf4622ff92450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
-  particleRateDenominator: 1
-  maxParticles: 100
-  movementParticles: {fileID: 6930386580823312580}
-  speedThreshold: 5
 --- !u!198 &6930386580823312580
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -187,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 10
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -683,7 +665,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 20
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1005,27 +987,27 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 8.581383
-          outSlope: 8.581383
+          value: 0.20587921
+          inSlope: 4.7017293
+          outSlope: 4.7017293
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.11653134
-          value: 1
-          inSlope: 3.7247403
-          outSlope: 3.7247403
-          tangentMode: 34
+          time: 0.018767087
+          value: 0.29411697
+          inSlope: 7.6393013
+          outSlope: 7.6393013
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0.07847401
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -1.1319021
-          outSlope: -1.1319021
+          inSlope: -0.29974225
+          outSlope: -0.29974225
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334

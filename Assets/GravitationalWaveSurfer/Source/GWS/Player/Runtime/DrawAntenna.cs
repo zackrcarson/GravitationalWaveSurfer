@@ -1,22 +1,29 @@
 using UnityEngine;
 
-public class DrawAntenna : MonoBehaviour
+namespace GWS.Player.Runtime
 {
-    [SerializeField]
-    private GameObject[] joints;
-
-    private LineRenderer line;
-
-    private void Start()
+    /// <summary>
+    /// Draws the line between the player's bob and the player's body.
+    /// </summary>
+    public class DrawAntenna: MonoBehaviour
     {
-        line = GetComponent<LineRenderer>();
-    }
+        [SerializeField]
+        private GameObject[] joints;
 
-    private void Update()
-    {
-        for (int i = 0; i < joints.Length; i++)
+        private LineRenderer line;
+
+        private void Start()
         {
-            line.SetPosition(i, joints[i].transform.position);
+            line = GetComponent<LineRenderer>();
+        }
+
+        private void FixedUpdate()
+        {
+            for (int i = 0; i < joints.Length; i++)
+            {
+                line.SetPosition(i, joints[i].transform.position);
+            }
         }
     }
+
 }

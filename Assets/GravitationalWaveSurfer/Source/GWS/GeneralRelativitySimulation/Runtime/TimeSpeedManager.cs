@@ -2,26 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeSpeedManager : MonoBehaviour
+
+namespace GWS.GeneralRelativitySimulation.Runtime
 {
-    private float fixedDeltaTime;
-
-    private float scale = 1f;
-
-    public float Scale
+    /// <summary>
+    /// Very temporary implementation of time scaling.
+    /// </summary>
+    public class TimeSpeedManager : MonoBehaviour
     {
-        get => scale;
-        set => scale = Mathf.Clamp(value, 0f, 100f); 
-    }
+        private float fixedDeltaTime;
 
-    private void Awake()
-    {
-        fixedDeltaTime = Time.fixedDeltaTime;
-    }
+        private float scale = 1f;
 
-    private void Update()
-    {
-        Time.timeScale = scale;
-        Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+        public float Scale
+        {
+            get => scale;
+            set => scale = Mathf.Clamp(value, 0f, 100f); 
+        }
+
+        private void Awake()
+        {
+            fixedDeltaTime = Time.fixedDeltaTime;
+        }
+
+        private void Update()
+        {
+            Time.timeScale = scale;
+            Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+        }
     }
 }

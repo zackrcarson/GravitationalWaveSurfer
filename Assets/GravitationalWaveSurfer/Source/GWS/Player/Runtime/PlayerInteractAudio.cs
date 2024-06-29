@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace GWS.Player.Runtime
 { 
+    /// <summary>
+    /// Plays pop sound when player pressed the interact button (E).
+    /// </summary>
     public class PlayerInteractAudio: MonoBehaviour
     {
         [SerializeField]

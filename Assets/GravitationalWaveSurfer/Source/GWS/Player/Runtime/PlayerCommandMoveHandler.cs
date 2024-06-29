@@ -45,7 +45,7 @@ namespace GWS.Player.Runtime
 
         private void FixedUpdate()
         {
-            var rotation = Quaternion.Euler(0, referenceFrame.eulerAngles.y, 0);
+            var rotation = Quaternion.Euler(0, 0, 0);
             CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, direction * speed, rotation, friction));
 
             if (UnityEngine.Input.GetKey(KeyCode.Space))

@@ -1148,6 +1148,10 @@
       <Project>{4B538871-E009-EB5B-11AB-1CD6811E33BC}</Project>
       <Name>GWS.Player.Runtime</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.Gameplay.csproj">
+      <Project>{8DE81130-08DA-1F05-1908-32E08C56A70F}</Project>
+      <Name>GWS.Gameplay</Name>
+    </ProjectReference>
     <ProjectReference Include="GWSOld.csproj">
       <Project>{3E72FC77-F39B-80F4-94AE-7A1C763F11E0}</Project>
       <Name>GWSOld</Name>
