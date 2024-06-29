@@ -12,8 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _EMISSION
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -124,7 +123,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
-    - _Color: {r: 0.41037738, g: 0.83559746, b: 1, a: 1}
+    - _Color: {r: 0.36044857, g: 0.75555754, b: 0.9433962, a: 1}
     - _EmissionColor: {r: 0.6745283, g: 0.9387554, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []

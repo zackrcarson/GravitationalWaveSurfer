@@ -8,21 +8,20 @@ namespace GWS.Player
     /// </summary>
     public class BobCollection : MonoBehaviour
     {
-        public static List<Transform> attractedObjects = new List<Transform>();
+        public static HashSet<Transform> attractedObjects = new HashSet<Transform>();
 
         private float initialSpeed = 1f;
         private float maxSpeed = 5f;
-        private float accelerationRate = 0.5f; 
+        private float accelerationRate = 0.5f;
 
         void FixedUpdate()
         {
-            for (int i = 0; i < attractedObjects.Count; i++)
-            {
-                var obj = attractedObjects[i];
+            float currentSpeed = Mathf.Clamp(initialSpeed + accelerationRate * Time.time, initialSpeed, maxSpeed);
+            float speed = currentSpeed * Time.deltaTime;
 
+            foreach (var obj in attractedObjects)
+            {
                 if (obj == null) continue;
-                float currentSpeed = Mathf.Clamp(initialSpeed + accelerationRate * Time.time, initialSpeed, maxSpeed);
-                float speed = currentSpeed * Time.deltaTime;
 
                 obj.position = Vector3.MoveTowards(obj.position, transform.position, speed);
                 if (obj.TryGetComponent<JitterEffect>(out var jitterEffect))

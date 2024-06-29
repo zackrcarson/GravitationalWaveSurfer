@@ -26,11 +26,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Min_Brightness: 0.3
+    - _Min_Brightness: 0.69
     - _Smoothness: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 0.68708354, b: 0.0141509175, a: 1}
+    - _Color: {r: 0.5254902, g: 0.53356194, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 0.58190876, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5552135623067208264
