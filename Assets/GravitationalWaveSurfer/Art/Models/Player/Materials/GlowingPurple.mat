@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: glowing_yellow
+  m_Name: GlowingPurple
   m_Shader: {fileID: -6465566751694194690, guid: 31b61749d3b3e7040b0734ce8b30020e, type: 3}
   m_Parent: {fileID: 2100000, guid: 69cea0029f7ed3a4d8b85ac2b293d2d9, type: 2}
   m_ModifiedSerializedProperties: 2
@@ -32,7 +32,7 @@ Material:
     - _Smoothness: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.9150943, g: 0.7125677, b: 0.45323068, a: 1}
+    - _Color: {r: 0.8490566, g: 0.42052332, b: 0.8490566, a: 1}
     - _EmissionColor: {r: 1, g: 0.58190876, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5552135623067208264

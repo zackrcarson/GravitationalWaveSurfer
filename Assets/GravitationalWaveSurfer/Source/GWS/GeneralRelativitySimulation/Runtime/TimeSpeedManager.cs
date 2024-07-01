@@ -10,11 +10,11 @@ namespace GWS.GeneralRelativitySimulation.Runtime
     /// </summary>
     public class TimeSpeedManager : MonoBehaviour
     {
-        private float fixedDeltaTime;
+        private static float fixedDeltaTime;
 
-        private float scale = 1f;
+        private static float scale = 1f;
 
-        public float Scale
+        public static float Scale
         {
             get => scale;
             set => scale = Mathf.Clamp(value, 0f, 100f); 
@@ -23,6 +23,7 @@ namespace GWS.GeneralRelativitySimulation.Runtime
         private void Awake()
         {
             fixedDeltaTime = Time.fixedDeltaTime;
+            Scale = 1f;
         }
 
         private void Update()

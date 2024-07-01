@@ -16,6 +16,9 @@ public class HydrogenEater : MonoBehaviour
     [SerializeField]
     private AudioClip pop;
 
+    [SerializeField]
+    private AudioClip flash;
+
     private float audioCooldown = 0.01f;
 
     private float lastAudioTime;
@@ -24,17 +27,27 @@ public class HydrogenEater : MonoBehaviour
     {
         if (other.CompareTag("Electron"))
         {
-            BobCollection.attractedObjects.Remove(other.transform);
-            Destroy(other.gameObject);
+            HandleCollision(other, pop);
             HydrogenTracker.Instance.AddHydrogen(1);
+        }
+        else if (other.CompareTag("Anti-Electron"))
+        {
+            HandleCollision(other, flash);
+            HydrogenTracker.Instance.AddHydrogen(-1);
+        }
+    }
 
-            if (Time.time >= lastAudioTime + audioCooldown)
-            {
-                constantAudioSource.pitch = Random.Range(1f, 1.25f);
-                constantAudioSource.PlayOneShot(pop, 0.1f);
-                lastAudioTime = Time.time;
-                sparks.Play();
-            }
+    private void HandleCollision(Collider other, AudioClip clip)
+    {
+        BobCollection.attractedObjects.Remove(other.transform);
+        Destroy(other.gameObject);
+
+        if (Time.time >= lastAudioTime + audioCooldown)
+        {
+            constantAudioSource.pitch = Random.Range(1f, 1.25f);
+            constantAudioSource.PlayOneShot(clip, 0.1f);
+            lastAudioTime = Time.time;
+            sparks.Play();
         }
     }
 }

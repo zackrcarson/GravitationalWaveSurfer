@@ -27,11 +27,26 @@ namespace GWS.Gameplay
             HydrogenTracker.OnHydrogenChanged -= UpdateText;
         }
 
+        private void FixedUpdate()
+        {
+            WiggleText(0.05f);
+        }
+
+        /// <summary>
+        /// Set's the text value.
+        /// </summary>
+        /// <param name="hydrogen">Hydrogen amount to be displayed.</param>
         private void UpdateText(int hydrogen)
         {
             text.text = $"{hydrogen}/{HydrogenTracker.HYDROGEN_CAPACITY}";
+            WiggleText(0.05f);
+        }
+
+
+        private void WiggleText(float intensity)
+        {
             text.ForceMeshUpdate();
-            time += 0.1f;
+            time += intensity;
 
             TMP_TextInfo textInfo = text.textInfo;
             for (int i = 0; i < textInfo.characterCount; i++)
@@ -44,7 +59,7 @@ namespace GWS.Gameplay
                 for (int j = 0; j < 4; ++j)
                 {
                     Vector3 original = vertices[characterInfo.vertexIndex + j];
-                    vertices[characterInfo.vertexIndex + j] += original + new Vector3(0, Mathf.Sin(time * 2f + original.x * 0.01f) * 10f, 0);
+                    vertices[characterInfo.vertexIndex + j] += original + new Vector3(0, Mathf.Sin(time * 2f + original.x * 0.01f) * 9f, 0);
 
                 }
             }

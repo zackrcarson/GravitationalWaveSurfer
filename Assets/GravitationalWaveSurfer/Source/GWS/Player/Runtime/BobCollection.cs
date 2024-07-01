@@ -1,3 +1,4 @@
+using GWS.Gameplay;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,32 +9,41 @@ namespace GWS.Player
     /// </summary>
     public class BobCollection : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject radiusVisual;
+
         public static HashSet<Transform> attractedObjects = new HashSet<Transform>();
 
-        private float initialSpeed = 1f;
-        private float maxSpeed = 5f;
-        private float accelerationRate = 0.5f;
+        private new SphereCollider collider;
+
+        private float colliderRadiusBase = 20f;
+
+        private void Start()
+        {
+            collider = GetComponent<SphereCollider>();
+        }
 
         void FixedUpdate()
         {
-            float currentSpeed = Mathf.Clamp(initialSpeed + accelerationRate * Time.time, initialSpeed, maxSpeed);
-            float speed = currentSpeed * Time.deltaTime;
-
             foreach (var obj in attractedObjects)
             {
                 if (obj == null) continue;
 
-                obj.position = Vector3.MoveTowards(obj.position, transform.position, speed);
+                obj.position = Vector3.MoveTowards(obj.position, transform.position, 0.09f);
                 if (obj.TryGetComponent<JitterEffect>(out var jitterEffect))
                 {
                     jitterEffect.targetPosition = transform.position;
                 }
             }
+
+            collider.radius = colliderRadiusBase * (HydrogenTracker.Instance.Hydrogen * 1.5f / HydrogenTracker.HYDROGEN_CAPACITY) + 5f;
+            float appropriateScale = collider.radius * 2;
+            radiusVisual.transform.localScale = new Vector3(appropriateScale, appropriateScale, appropriateScale);
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Electron"))
+            if (IsAttractable(other))
             {
                 attractedObjects.Add(other.transform);
             }
@@ -41,7 +51,7 @@ namespace GWS.Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.CompareTag("Electron"))
+            if (IsAttractable(other))
             {
                 if (other.TryGetComponent<JitterEffect>(out var jitterEffect))
                 {
@@ -49,6 +59,11 @@ namespace GWS.Player
                 }
                 attractedObjects.Remove(other.transform);
             }
+        }
+
+        private bool IsAttractable(Collider other)
+        {
+            return other.CompareTag("Electron") || other.CompareTag("Anti-Electron");
         }
     }
 }
