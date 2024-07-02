@@ -18,6 +18,26 @@
       <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/InputManager.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/InputManager.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/MainMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/MainMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/PlayerMovement.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/PlayerMovement.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/SpaceTimeWarping.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/SpaceTimeWarping.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/SpaceTimeWarping.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/SpaceTimeWarping/SplineExtrude_GameObject.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/SpaceTimeWarping/SplineExtrude_GameObject.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +48,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/GeneralRelativity/Runtime/GeneralRelativity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/Example.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.eflatun.scenereference@4.0.0/Runtime/SceneReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@3.1.0/Runtime/Core/PrioritySettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.9/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f6/4ad44366/0200066Apdb25.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/1f/cace27f7/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/a5/912fed37/PhysicsScene.cs" root0="SKIP_HIGHLIGHTING" />
@@ -62,7 +82,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GWS-13",
+    "git-widget-placeholder": "GWS-29",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -139,7 +159,7 @@
       <workItem from="1717773765221" duration="27773000" />
       <workItem from="1718125059338" duration="1103000" />
       <workItem from="1718200960288" duration="33380000" />
-      <workItem from="1719926752199" duration="10371000" />
+      <workItem from="1719850366409" duration="1551000" />
     </task>
     <servers />
   </component>
