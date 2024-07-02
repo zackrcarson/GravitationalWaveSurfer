@@ -1,9 +1,5 @@
 using UnityEngine;
 using GWS.Input.Runtime;
-using System.Linq;
-using System.Collections.Generic;
-using Codice.CM.Client.Differences;
-using GWS.GeneralRelativitySimulation.Runtime;
 
 namespace GWS.Player.Runtime
 {
@@ -12,6 +8,19 @@ namespace GWS.Player.Runtime
     /// </summary>
     public class ThrusterVisualsHandler: MonoBehaviour
     {
+        [SerializeField] 
+        private InputEventChannel inputEventChannel;
+        
+        /// <summary>
+        /// Determines the direction that the thrusters should be moving.
+        /// </summary>
+        /// <remarks>Avoids being hardcoded to anything, and more accurately reflects the player movement direction.</remarks>
+        [SerializeField] 
+        private Rigidbody referenceRigidbody;
+
+        [SerializeField]
+        private bool enableEmission;
+        
         /// <summary>
         /// The number used to clamp emission rate of particles.
         /// </summary>
@@ -19,66 +28,91 @@ namespace GWS.Player.Runtime
         private float maxParticles;
 
         [SerializeField]
-        private GameObject topThruster;
+        private ParticleSystem forwardThruster;
 
         [SerializeField]
-        private GameObject leftThruster;
+        private ParticleSystem leftThruster;
 
         [SerializeField]
-        private GameObject bottomThruster;
+        private ParticleSystem backThruster;
 
         [SerializeField]
-        private GameObject rightThruster;
+        private ParticleSystem rightThruster;
 
-        [SerializeField]
-        private float rotationLerp;
+        // [SerializeField]
+        // private float rotationLerp;
+        
+        // [SerializeField]
+        // private float rotationMaxSpeed;
 
-        [SerializeField]
-        private float rotationMaxSpeed;
-
-        private KeyCode[] keys = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
-
-        private Dictionary<KeyCode, GameObject> keyMappings;
+        // private KeyCode[] keys = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
+        //
+        // private Dictionary<KeyCode, GameObject> keyMappings;
 
         /// <summary>
         /// The angle which the particles will emit, based off player input.
         /// </summary>
         //private Quaternion targetRotation = Quaternion.Euler(new Vector3(90, 0, 0));
 
+        private void OnEnable()
+        {
+            inputEventChannel.OnMove += EnableEmission;
+        }
+        
+        private void OnDisable()
+        {
+            inputEventChannel.OnMove -= EnableEmission;
+        }
+
         private void Start()
         {
-            keyMappings = new()
-            {
-                { KeyCode.W, topThruster },
-                { KeyCode.A, leftThruster },
-                { KeyCode.S, bottomThruster },
-                { KeyCode.D, rightThruster },
-            };
+            // keyMappings = new()
+            // {
+            //     { KeyCode.W, topThruster },
+            //     { KeyCode.A, leftThruster },
+            //     { KeyCode.S, bottomThruster },
+            //     { KeyCode.D, rightThruster },
+            // };
+
+            enableEmission = false;
         }
 
         private void Update()
         {
-            keys.ToList().ForEach(key =>
-            {
-                HandleInputParticles(maxParticles, keyMappings[key].GetComponentInChildren<ParticleSystem>(), key);
-                HandleThrusterSpin(keyMappings[key].GetComponentInChildren<RotationalBehavior>(), key);
-            });
+            // keys.ToList().ForEach(key =>
+            // {
+            //     HandleInputParticles(maxParticles, keyMappings[key].GetComponentInChildren<ParticleSystem>(), key);
+            //     HandleThrusterSpin(keyMappings[key].GetComponentInChildren<RotationalBehavior>(), key);
+            // });  
+
+            var velocity = referenceRigidbody.velocity;
+            var scaledMovementDirection = Vector3.Normalize(velocity); 
+            HandleThrusterParticles(forwardThruster, maxParticles, scaledMovementDirection, -forwardThruster.transform.up, enableEmission);
+            HandleThrusterParticles(backThruster, maxParticles, scaledMovementDirection, -backThruster.transform.up, enableEmission);
+            HandleThrusterParticles(leftThruster, maxParticles, scaledMovementDirection, -leftThruster.transform.up, enableEmission);
+            HandleThrusterParticles(rightThruster, maxParticles, scaledMovementDirection, -rightThruster.transform.up, enableEmission);
         }
 
-        private void HandleThrusterSpin(RotationalBehavior thrusterRotation, KeyCode key)
+        // private void HandleThrusterSpin(RotationalBehavior thrusterRotation, KeyCode key)
+        // {
+        //     float target = UnityEngine.Input.GetKey(key) ? rotationMaxSpeed : 0f;
+        //     thrusterRotation.rotationDelta.y = Mathf.Lerp(thrusterRotation.rotationDelta.y, target, Time.deltaTime * rotationLerp);
+        // }
+
+        private void EnableEmission(Vector2 movementValue)
         {
-            float target = UnityEngine.Input.GetKey(key) ? rotationMaxSpeed : 0f;
-            thrusterRotation.rotationDelta.y = Mathf.Lerp(thrusterRotation.rotationDelta.y, target, Time.deltaTime * rotationLerp);
-        }
+            enableEmission = movementValue.sqrMagnitude > 0;
+        } 
 
-        private void HandleInputParticles(float rate, ParticleSystem particles, KeyCode key)
+        private static void HandleThrusterParticles(ParticleSystem particles, float maxEmissionRate, Vector3 movementDirection, Vector3 thrusterDirection, bool enableEmission)
         {
             var emission = particles.emission;
 
-            if (UnityEngine.Input.GetKey(key))
+            var projection = Vector3.Dot(movementDirection, thrusterDirection);
+            if (enableEmission && projection > 0f)
             {
                 emission.enabled = true;
-                emission.rateOverTime = Mathf.Clamp(rate, 0, maxParticles);
+                emission.rateOverTime = projection * maxEmissionRate;
             }
             else
             {

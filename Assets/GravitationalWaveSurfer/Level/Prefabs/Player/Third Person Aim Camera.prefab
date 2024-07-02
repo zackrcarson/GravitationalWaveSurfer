@@ -102,7 +102,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 2, z: 1}
+  TargetOffset: {x: 0, y: 2, z: 0}
   Damping: {x: 0.1, y: 0.1, z: 0.1}
   Lookahead:
     Enabled: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62d54399b04b4fa48a73e121d4937dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReferenceFrame: 2
+  ReferenceFrame: 1
   PanAxis:
     Value: 0
     Center: 0

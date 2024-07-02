@@ -35,7 +35,7 @@ namespace GWS.Player
                     jitterEffect.targetPosition = transform.position;
                 }
             }
-
+    
             collider.radius = colliderRadiusBase * (HydrogenTracker.Instance.Hydrogen * 1.5f / HydrogenTracker.HYDROGEN_CAPACITY) + 5f;
             float appropriateScale = collider.radius * 2;
             radiusVisual.transform.localScale = new Vector3(appropriateScale, appropriateScale, appropriateScale);

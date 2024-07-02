@@ -23,8 +23,19 @@ namespace GWS.Player.Runtime
         [SerializeField, Range(0f, 1f)]
         private float friction;
 
+        /// <summary>
+        /// Target axis of movement for player movement driven by the rotation.
+        /// </summary>
         [SerializeField] 
         private Transform referenceFrame;
+
+        [SerializeField, Min(0)]
+        private float referenceFrameInterpolationSpeed; 
+
+        /// <summary>
+        /// Current axis of movement for player movement that interpolates towards the <see cref="referenceFrame"/>.
+        /// </summary>
+        private Quaternion currentReferenceFrame; 
         
         private Vector3 direction; 
         
@@ -43,9 +54,15 @@ namespace GWS.Player.Runtime
             direction = new Vector3(value.x, 0, value.y);
         }
 
+        private void Start()
+        {
+            currentReferenceFrame = referenceFrame.rotation;
+        }
+
         private void FixedUpdate()
         {
-            var rotation = Quaternion.Euler(0, 0, 0);
+            currentReferenceFrame = Quaternion.Slerp(currentReferenceFrame, referenceFrame.rotation, referenceFrameInterpolationSpeed * Time.deltaTime);
+            var rotation = Quaternion.Euler(0, currentReferenceFrame.eulerAngles.y, 0);
             CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, direction * speed, rotation, friction));
 
             if (UnityEngine.Input.GetKey(KeyCode.Space))
