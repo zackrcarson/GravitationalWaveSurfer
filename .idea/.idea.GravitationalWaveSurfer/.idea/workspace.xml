@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Aim Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Aim Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/PlayerMovement.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/PlayerMovement.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Character/Runtime/RigidbodyCommandMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Character/Runtime/RigidbodyCommandMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandMoveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandMoveHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/ThrusterVisualsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/ThrusterVisualsHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/InputManager.unity" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/InputManager.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/MainMenu.unity" beforeDir="false" />
