@@ -1,7 +1,7 @@
-using UnityEngine;
 using GWS.GeneralRelativitySimulation.Runtime;
+using UnityEngine;
 
-namespace GWS.Gameplay
+namespace GWS.Timing.Runtime
 {
     public class TimerButtonHandler : MonoBehaviour
     {

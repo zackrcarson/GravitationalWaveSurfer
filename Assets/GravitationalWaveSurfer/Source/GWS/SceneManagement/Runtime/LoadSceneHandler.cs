@@ -2,7 +2,7 @@ using Eflatun.SceneReference;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SceneManagement.Runtime
+namespace GWS.SceneManagement.Runtime
 {
     /// <summary>
     /// Loads a scene. 

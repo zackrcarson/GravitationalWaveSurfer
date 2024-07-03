@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace GWS.Gameplay
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Very temporary implementation of hydrogen spawning. This should be deleted eventually.

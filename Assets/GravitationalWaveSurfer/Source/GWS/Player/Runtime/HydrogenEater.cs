@@ -1,53 +1,55 @@
-using GWS.Gameplay;
-using GWS.Player;
+using GWS.HydrogenCollection.Runtime;
 using UnityEngine;
 
-/// <summary>
-/// Handles deleting hydrogen instances and adding hydrogen points.
-/// </summary>
-public class HydrogenEater : MonoBehaviour
+namespace GWS.Player.Runtime
 {
-    [SerializeField]
-    private AudioSource constantAudioSource;
-
-    [SerializeField]
-    private ParticleSystem sparks;
-
-    [SerializeField]
-    private AudioClip pop;
-
-    [SerializeField]
-    private AudioClip flash;
-
-    private float audioCooldown = 0.01f;
-
-    private float lastAudioTime;
-
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// Handles deleting hydrogen instances and adding hydrogen points.
+    /// </summary>
+    public class HydrogenEater : MonoBehaviour
     {
-        if (other.CompareTag("Electron"))
-        {
-            HandleCollision(other, pop);
-            HydrogenTracker.Instance.AddHydrogen(1);
-        }
-        else if (other.CompareTag("Anti-Electron"))
-        {
-            HandleCollision(other, flash);
-            HydrogenTracker.Instance.AddHydrogen(-1);
-        }
-    }
+        [SerializeField]
+        private AudioSource constantAudioSource;
 
-    private void HandleCollision(Collider other, AudioClip clip)
-    {
-        BobCollection.attractedObjects.Remove(other.transform);
-        Destroy(other.gameObject);
+        [SerializeField]
+        private ParticleSystem sparks;
 
-        if (Time.time >= lastAudioTime + audioCooldown)
+        [SerializeField]
+        private AudioClip pop;
+
+        [SerializeField]
+        private AudioClip flash;
+
+        private float audioCooldown = 0.01f;
+
+        private float lastAudioTime;
+
+        private void OnTriggerEnter(Collider other)
         {
-            constantAudioSource.pitch = Random.Range(1f, 1.25f);
-            constantAudioSource.PlayOneShot(clip, 0.1f);
-            lastAudioTime = Time.time;
-            sparks.Play();
+            if (other.CompareTag("Electron"))
+            {
+                HandleCollision(other, pop);
+                HydrogenTracker.Instance.AddHydrogen(1);
+            }
+            else if (other.CompareTag("Anti-Electron"))
+            {
+                HandleCollision(other, flash);
+                HydrogenTracker.Instance.AddHydrogen(-1);
+            }
+        }
+
+        private void HandleCollision(Collider other, AudioClip clip)
+        {
+            BobCollection.attractedObjects.Remove(other.transform);
+            Destroy(other.gameObject);
+
+            if (Time.time >= lastAudioTime + audioCooldown)
+            {
+                constantAudioSource.pitch = Random.Range(1f, 1.25f);
+                constantAudioSource.PlayOneShot(clip, 0.1f);
+                lastAudioTime = Time.time;
+                sparks.Play();
+            }
         }
     }
 }

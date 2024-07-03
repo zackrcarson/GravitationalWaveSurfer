@@ -1,5 +1,5 @@
 {
-    "name": "GWS.Gameplay",
+    "name": "GWS.Timing",
     "rootNamespace": "",
     "references": [
         "GUID:c7fe18c15e19be649a8dcc83efdbc6a5",

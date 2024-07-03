@@ -1,8 +1,8 @@
-using UnityEngine;
-using TMPro;
 using System;
+using TMPro;
+using UnityEngine;
 
-namespace GWS.Gameplay
+namespace GWS.Timing.Runtime
 {
     /// <summary>
     /// Timer that player must complete phase one within.
@@ -39,7 +39,7 @@ namespace GWS.Gameplay
 
             int minutes = Mathf.FloorToInt(elapsedTime / 60);
             int seconds = Mathf.FloorToInt(elapsedTime % 60);
-            text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            text.text = $"{minutes:00}:{seconds:00}";
         }
     }
 }

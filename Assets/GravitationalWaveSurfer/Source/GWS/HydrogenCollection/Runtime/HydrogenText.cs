@@ -1,10 +1,7 @@
-using GWS.Gameplay;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace GWS.Gameplay
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Displays how much hydrogen the player holds.

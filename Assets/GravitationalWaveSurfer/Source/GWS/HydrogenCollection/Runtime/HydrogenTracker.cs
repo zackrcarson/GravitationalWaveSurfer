@@ -1,24 +1,26 @@
 using System;
 using System.Linq;
+using GWS.Timing.Runtime;
 using UnityEngine;
 
-namespace GWS.Gameplay
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Singleton that holds information on the current amount of collected hydrogen.
     /// </summary>
     public class HydrogenTracker: MonoBehaviour
     {
-        [SerializeField]
         public static HydrogenTracker Instance { get; private set; }
 
-        private int hydrogen = 0;
+        private ParticleInventory particleInventory; 
 
-        public int Hydrogen
-        {
-            get { return hydrogen; }
-            set { hydrogen = Mathf.Clamp(value, 0, HYDROGEN_CAPACITY); }
-        }
+        // private int hydrogen = 0;
+        //
+        // public int Hydrogen
+        // {
+        //     get { return hydrogen; }
+        //     set { hydrogen = Mathf.Clamp(value, 0, HYDROGEN_CAPACITY); }
+        // }
 
         private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
 
@@ -82,20 +84,20 @@ namespace GWS.Gameplay
 
         public void AddHydrogen(int amount)
         {
-            Hydrogen += amount;
-            OnHydrogenChanged?.Invoke(Hydrogen);
+            particleInventory.HydrogenCount += amount;
+            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
         }
 
         public void SubtractHydrogen(int amount)
         {
-            Hydrogen -= amount;
-            OnHydrogenChanged?.Invoke(Hydrogen);
+            particleInventory.HydrogenCount -= amount;
+            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
         }
 
         private void EndPhaseOne()
         {
             StarOutcome outcome = StarOutcome.NothingHappens;
-            double score = Hydrogen * HYDROGEN_MULTIPLIER;
+            double score = particleInventory.HydrogenCount * HYDROGEN_MULTIPLIER;
 
             if (score < NOTHING_HAPPENS_THRESHOLD * SOLAR_MASS)
             {
