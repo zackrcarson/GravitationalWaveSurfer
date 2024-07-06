@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using GWS.GeneralRelativitySimulation.Runtime;
 
-public class PauseGame : MonoBehaviour
+public class InGameMenuManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject pauseMenu;
 
     [SerializeField]
-    private Animator animator;
+    private GameObject glossaryMenu;
+
+    [SerializeField]
+    private Animator pauseMenuAnimator;
+
+    [SerializeField]
+    private Animator glossaryMenuAnimator;
 
     [SerializeField]
     private GameObject statsMenu;
@@ -20,12 +26,13 @@ public class PauseGame : MonoBehaviour
 
     private void Start()
     {
-        
+        pauseMenuAnimator = pauseMenu.GetComponent<Animator>();
+        glossaryMenuAnimator = glossaryMenu.GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !glossaryMenu.activeSelf)
         {
             if (isPaused)
             {
@@ -35,6 +42,11 @@ public class PauseGame : MonoBehaviour
             {
                 StopGame();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf && glossaryMenu.activeSelf)
+        {
+            HideGlossary();
         }
     }
 
@@ -48,10 +60,10 @@ public class PauseGame : MonoBehaviour
         pauseMenu.SetActive(true);
         statsMenu.SetActive(false);
         currentTimeScale = Time.timeScale;
-        TimeSpeedManager.Scale = 0f;
+        TimeSpeedManager.Scale = 1f;
         isPaused = true;
-        AudioListener.volume = 0;
-        animator.SetTrigger("Open");
+        AudioListener.volume = 1;
+        pauseMenuAnimator.SetTrigger("Open");
 
         yield return new WaitForSecondsRealtime(1f / 5f);
 
@@ -66,7 +78,7 @@ public class PauseGame : MonoBehaviour
 
     private IEnumerator ResumeGameCoroutine()
     {
-        animator.SetTrigger("Close");
+        pauseMenuAnimator.SetTrigger("Close");
 
         yield return new WaitForSecondsRealtime(1f / 5f);
 
@@ -75,5 +87,38 @@ public class PauseGame : MonoBehaviour
         TimeSpeedManager.Scale = currentTimeScale;
         isPaused = false;
         AudioListener.volume = 1;
+    }
+
+    public void ShowGlossary()
+    {
+        StartCoroutine(ShowGlossaryCoroutine());
+    }
+
+    private IEnumerator ShowGlossaryCoroutine()
+    {
+        glossaryMenu.SetActive(true);
+        glossaryMenuAnimator.SetTrigger("Open");
+        pauseMenuAnimator.SetTrigger("Close");
+
+        yield return new WaitForSecondsRealtime(1f / 5f);
+
+        glossaryMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+
+    public void HideGlossary()
+    {
+        StartCoroutine(HideGlossaryRoutine());
+    }
+
+    private IEnumerator HideGlossaryRoutine()
+    {
+        glossaryMenuAnimator.SetTrigger("Close");
+        pauseMenu.SetActive(true);
+        pauseMenuAnimator.SetTrigger("Open");
+
+        yield return new WaitForSecondsRealtime(1f / 5f);
+
+        glossaryMenu.SetActive(false);
     }
 }
