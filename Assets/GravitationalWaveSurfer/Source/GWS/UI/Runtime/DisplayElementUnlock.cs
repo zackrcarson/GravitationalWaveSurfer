@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace GWS.UI.Runtime
 {
-    public class DisplayElementUnlock : MonoBehaviour
+    public class DisplayElementUnlock : DisplayBaseUnlock
     {
         [SerializeField]
         private ElementUnlock element;
@@ -20,32 +20,10 @@ namespace GWS.UI.Runtime
         [SerializeField]
         private TextMeshProUGUI subscript;
 
-        [SerializeField]
-        private Image image;
+        protected override bool IsUnlocked() => element.IsUnlocked();
 
-        [SerializeField]
-        private TextMeshProUGUI description;
-
-        [SerializeField]
-        private TextMeshProUGUI lockSymbol;
-
-        private void OnEnable()
+        protected override void PopulateFields()
         {
-            DisplayElement();
-        }
-
-        private void DisplayElement()
-        {
-            if (!element.IsUnlocked())
-            {
-                lockSymbol.enabled = true;
-                SetElements(false);
-                return;
-            }
-
-            SetElements(true);
-            lockSymbol.enabled = false;
-
             chemicalSymbol.text = element.chemicalSymbol;
             superscript.text = element.superscript.ToString();
             subscript.text = element.subscript.ToString();
@@ -53,13 +31,12 @@ namespace GWS.UI.Runtime
             description.text = element.description;
         }
 
-        private void SetElements(bool state)
+        protected override void SetElements(bool state)
         {
+            base.SetElements(state);
             chemicalSymbol.enabled = state;
             superscript.enabled = state;
             subscript.enabled = state;
-            image.enabled = state;
-            description.enabled = state;
         }
     }
 }

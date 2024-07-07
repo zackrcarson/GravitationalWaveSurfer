@@ -24,10 +24,17 @@ public class InGameMenuManager : MonoBehaviour
 
     private float currentTimeScale = 1f;
 
+    [SerializeField]
+    private AudioSource constantAudioSource;
+
+    [SerializeField]
+    private AudioClip audioClip;
+
     private void Start()
     {
         pauseMenuAnimator = pauseMenu.GetComponent<Animator>();
         glossaryMenuAnimator = glossaryMenu.GetComponent<Animator>();
+        constantAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -37,16 +44,19 @@ public class InGameMenuManager : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
+                constantAudioSource.PlayOneShot(audioClip, 0.8f);
             }
             else
             {
                 StopGame();
+                constantAudioSource.PlayOneShot(audioClip, 0.8f);
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf && glossaryMenu.activeSelf)
         {
             HideGlossary();
+            constantAudioSource.PlayOneShot(audioClip, 0.8f);
         }
     }
 
