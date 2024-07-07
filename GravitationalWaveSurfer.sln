@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Player.Runtime", "GWS.P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.csproj", "{77fc723e-9bf3-f480-94ae-7a1c763f11e0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.UI", "GWS.UI.csproj", "{6ad8a9a6-3aad-c2be-2738-421fa10f4324}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mushakushi.UIAddons.Editor", "Mushakushi.UIAddons.Editor.csproj", "{c985acfc-c7f9-1536-b9de-1f2128c28f01}"
@@ -24,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrinarySoftware.MEC", "TrinarySoftware.MEC.csproj", "{a70122eb-7dae-1eb5-918e-c6be50cdc733}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.HydrogenCollectionUI", "GWS.HydrogenCollectionUI.csproj", "{45348f55-0df6-e583-3c71-38a69bff2fb4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Coroutines", "GWS.Coroutines.csproj", "{871a54b5-ba25-acc4-d146-4f7ba3a68050}"
 EndProject
@@ -54,8 +54,6 @@ Global
 		{7188534b-09e0-5beb-11ab-1cd6811e33bc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ad8a9a6-3aad-c2be-2738-421fa10f4324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6ad8a9a6-3aad-c2be-2738-421fa10f4324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c985acfc-c7f9-1536-b9de-1f2128c28f01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -68,6 +66,8 @@ Global
 		{a70122eb-7dae-1eb5-918e-c6be50cdc733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{871a54b5-ba25-acc4-d146-4f7ba3a68050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{871a54b5-ba25-acc4-d146-4f7ba3a68050}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

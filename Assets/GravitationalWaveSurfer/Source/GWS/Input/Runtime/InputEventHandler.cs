@@ -6,7 +6,7 @@ namespace GWS.Input.Runtime
     /// <summary>
     /// Broadcasts input events. 
     /// </summary>
-    public class InputHandler : MonoBehaviour
+    public class InputEventHandler : MonoBehaviour
     {
         /// <summary>
         /// The <see cref="PlayerInput"/>.
@@ -23,6 +23,11 @@ namespace GWS.Input.Runtime
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             inputEventChannel.RaiseOnMove(callbackContext.ReadValue<Vector2>());
+        }
+
+        public void OnCursorPosition(InputAction.CallbackContext callbackContext)
+        {
+            inputEventChannel.RaiseOnCursorPosition(callbackContext.ReadValue<Vector2>()); 
         }
 
         public void OnInteract(InputAction.CallbackContext callbackContext)

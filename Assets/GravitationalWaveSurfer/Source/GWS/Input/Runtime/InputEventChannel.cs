@@ -20,6 +20,11 @@ namespace GWS.Input.Runtime
         public event Action OnInteract;
 
         /// <summary>
+        /// Callback on cursor position changed. 
+        /// </summary>
+        public event Action<Vector2> OnCursorPosition; 
+
+        /// <summary>
         /// Callback on input activated. 
         /// </summary>
         public event Action OnActivateInput;
@@ -39,6 +44,11 @@ namespace GWS.Input.Runtime
         /// Raises the <see cref="OnInteract"/> event. 
         /// </summary>
         public void RaiseOnInteract() => OnInteract?.Invoke();
+
+        /// <summary>
+        /// Raises the <see cref="OnCursorPosition"/> event.
+        /// </summary>
+        public void RaiseOnCursorPosition(Vector2 value) => OnCursorPosition?.Invoke(value);
 
         /// <summary>
         /// Raises the <see cref="OnActivateInput"/> event. 

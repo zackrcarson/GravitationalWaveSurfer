@@ -48,7 +48,7 @@ namespace GWS.Player.Runtime
     
             collider.radius = colliderRadiusMultiplier * particleInventory.HydrogenCount + baseRadius;
             float appropriateScale = collider.radius * 2;
-            radiusVisual.transform.localScale = new Vector3(appropriateScale, appropriateScale, appropriateScale);
+            radiusVisual.transform.localScale = Vector3.one * appropriateScale;
         }
 
         private void OnTriggerEnter(Collider other)
