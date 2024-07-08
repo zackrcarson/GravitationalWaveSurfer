@@ -19,13 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.HydrogenCollection", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativitySimulation", "GWS.GeneralRelativitySimulation.csproj", "{768ca8a1-1999-732d-943e-09349a6ddb76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrinarySoftware.MEC", "TrinarySoftware.MEC.csproj", "{a70122eb-7dae-1eb5-918e-c6be50cdc733}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.HydrogenCollectionUI", "GWS.HydrogenCollectionUI.csproj", "{45348f55-0df6-e583-3c71-38a69bff2fb4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Coroutines", "GWS.Coroutines.csproj", "{871a54b5-ba25-acc4-d146-4f7ba3a68050}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativity", "GWS.GeneralRelativity.csproj", "{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}"
 EndProject
@@ -62,14 +58,10 @@ Global
 		{024e710b-90ce-b04e-fe2a-9547586c4528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768ca8a1-1999-732d-943e-09349a6ddb76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{768ca8a1-1999-732d-943e-09349a6ddb76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{a70122eb-7dae-1eb5-918e-c6be50cdc733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{a70122eb-7dae-1eb5-918e-c6be50cdc733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{871a54b5-ba25-acc4-d146-4f7ba3a68050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{871a54b5-ba25-acc4-d146-4f7ba3a68050}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

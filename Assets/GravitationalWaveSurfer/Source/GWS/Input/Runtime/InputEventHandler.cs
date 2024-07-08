@@ -25,6 +25,12 @@ namespace GWS.Input.Runtime
             inputEventChannel.RaiseOnMove(callbackContext.ReadValue<Vector2>());
         }
 
+        public void OnFire(InputAction.CallbackContext callbackContext)
+        {
+            if (!callbackContext.started) return;
+            inputEventChannel.RaiseOnFire();
+        }
+
         public void OnCursorPosition(InputAction.CallbackContext callbackContext)
         {
             inputEventChannel.RaiseOnCursorPosition(callbackContext.ReadValue<Vector2>()); 

@@ -20,6 +20,11 @@ namespace GWS.Input.Runtime
         public event Action OnInteract;
 
         /// <summary>
+        /// Callback on fire button pressed. 
+        /// </summary>
+        public event Action OnFire;
+
+        /// <summary>
         /// Callback on cursor position changed. 
         /// </summary>
         public event Action<Vector2> OnCursorPosition; 
@@ -44,6 +49,11 @@ namespace GWS.Input.Runtime
         /// Raises the <see cref="OnInteract"/> event. 
         /// </summary>
         public void RaiseOnInteract() => OnInteract?.Invoke();
+        
+        /// <summary>
+        /// Raises the <see cref="OnInteract"/> event. 
+        /// </summary>
+        public void RaiseOnFire() => OnFire?.Invoke();
 
         /// <summary>
         /// Raises the <see cref="OnCursorPosition"/> event.
