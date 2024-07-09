@@ -1,16 +1,13 @@
-using GWS.UI.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
+using StarOutcome = GWS.UI.Runtime.Outcome.Star;
 
 namespace GWS.UI.Runtime
 {
     [CreateAssetMenu(fileName = nameof(StarUnlock), menuName = "ScriptableObjects/Unlocks/Stars")]
+
     public class StarUnlock : ScriptableObject, IUnlock
     {
-        public new string name;
+        public new StarOutcome name;
 
         public Sprite sprite;
 

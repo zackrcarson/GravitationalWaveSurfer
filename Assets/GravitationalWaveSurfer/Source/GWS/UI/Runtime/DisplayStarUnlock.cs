@@ -21,7 +21,7 @@ namespace GWS.UI.Runtime
 
         protected override void PopulateFields()
         {
-            starName.text = star.name;
+            starName.text = star.name.ToString();
             solarMass.text = $"{star.solarMass} MÅõ";
             image.sprite = star.sprite;
             description.text = star.description;

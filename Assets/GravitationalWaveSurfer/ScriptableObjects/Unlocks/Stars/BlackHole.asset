@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba4d12d18cba754591e7a1f6e949847, type: 3}
   m_Name: BlackHole
   m_EditorClassIdentifier: 
-  name: BlackHole
+  name: 3
   sprite: {fileID: 21300000, guid: 176182595c244474d92f3f851be6ff27, type: 3}
   description: I am a black hole.
   solarMass: 20

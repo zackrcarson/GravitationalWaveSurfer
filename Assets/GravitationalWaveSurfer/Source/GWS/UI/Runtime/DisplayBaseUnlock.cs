@@ -1,4 +1,6 @@
+using GWS.Gameplay;
 using GWS.UI.Runtime;
+using PlasticPipe.PlasticProtocol.Messages;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,6 +26,17 @@ public abstract class DisplayBaseUnlock : MonoBehaviour
     protected abstract bool IsUnlocked();
 
     private void OnEnable()
+    {
+        DisplayItem();
+        UnlockManager.OnUnlock += OnUnlockOccured;
+    }
+
+    private void OnDisable()
+    {
+        UnlockManager.OnUnlock -= OnUnlockOccured;
+    }
+
+    private void OnUnlockOccured(string unlockedItemName)
     {
         DisplayItem();
     }

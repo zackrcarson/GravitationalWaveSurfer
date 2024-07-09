@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using StarOutcome = GWS.UI.Runtime.Outcome.Star;
 
 namespace GWS.Gameplay
 {
@@ -24,11 +25,9 @@ namespace GWS.Gameplay
 
         public static event Action<int> OnHydrogenChanged;
 
-        private const int HYDROGEN_MULTIPLIER = 1_000_000; // each hydrogen object can represent 1,000,000 kg?
-
         public const int HYDROGEN_CAPACITY = 10_000;
 
-        public const double SOLAR_MASS = 1.989e30;
+        public const double SOLAR_MASS = 1000;
 
         // All of the following are in units of SOLAR_MASS
         public const double NOTHING_HAPPENS_THRESHOLD = 0.08;
@@ -37,14 +36,7 @@ namespace GWS.Gameplay
 
         public const double NEUTRON_STAR_THRESHOLD = 20;
 
-        public enum StarOutcome
-        {
-            NothingHappens,
-            FusionBegins,
-            WhiteDwarf,
-            NeutronStar,
-            BlackHole
-        }
+        public const double THRESHOLD_MAX = 20;
 
         private void OnEnable()
         {
@@ -95,30 +87,24 @@ namespace GWS.Gameplay
         private void EndPhaseOne()
         {
             StarOutcome outcome = StarOutcome.NothingHappens;
-            double score = Hydrogen * HYDROGEN_MULTIPLIER;
+            double score = Hydrogen / HYDROGEN_CAPACITY;
 
-            if (score < NOTHING_HAPPENS_THRESHOLD * SOLAR_MASS)
-            {
-                outcome = StarOutcome.NothingHappens;
-            }
-            else if (score <= NOTHING_HAPPENS_THRESHOLD * SOLAR_MASS)
-            {
-                outcome = StarOutcome.FusionBegins;
-            }
-            else if (score < WHITE_DWARF_THRESHOLD * SOLAR_MASS)
+            if (score >= WHITE_DWARF_THRESHOLD / THRESHOLD_MAX)
             {
                 outcome = StarOutcome.WhiteDwarf;
             }
-            else if (score < NEUTRON_STAR_THRESHOLD * SOLAR_MASS)
+            else if (score >= NEUTRON_STAR_THRESHOLD / THRESHOLD_MAX)
             {
                 outcome = StarOutcome.NeutronStar;
             }
-            else if (score > NEUTRON_STAR_THRESHOLD * SOLAR_MASS)
+            else if (score >= NEUTRON_STAR_THRESHOLD / THRESHOLD_MAX)
             {
                 outcome = StarOutcome.BlackHole;
             }
 
-            Debug.Log($"Outcome: {outcome}, Score: {score}, Mass: {0.08f * SOLAR_MASS}");
+            Debug.Log($"Outcome: {outcome}, Score: {score}");
+            UnlockManager.Instance.UnlockOutcome(outcome);
+            Debug.Log(PlayerPrefs.GetString(UnlockManager.UNLOCKED_OUTCOMES_STRING));
         }
     }
 
