@@ -15,8 +15,9 @@ namespace GWS.Player.Runtime
 
         private void Update()
         {
-            if (rigidbody.velocity.sqrMagnitude == 0) return; 
-            var targetRotation = Quaternion.LookRotation(Vector3.Normalize(rigidbody.velocity), rigidbody.transform.up);
+            var velocityDirection = Vector3.Normalize(rigidbody.velocity);
+            if (velocityDirection == Vector3.zero) return; 
+            var targetRotation = Quaternion.LookRotation(velocityDirection, rigidbody.transform.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }

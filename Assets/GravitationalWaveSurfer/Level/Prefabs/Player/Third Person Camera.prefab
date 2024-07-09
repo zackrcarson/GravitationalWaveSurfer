@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1318290661934320346}
   - component: {fileID: 2337775574587741974}
   m_Layer: 0
-  m_Name: Third Person Aim Camera
+  m_Name: Third Person Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
       Enabled: 1
       Input:
         InputAction: {fileID: -2211168479001333226, guid: 714e47455ead16f489233646057084c9, type: 3}
-        Gain: 1
+        Gain: -1
         LegacyInput: 
         LegacyGain: 0
         CancelDeltaTime: 0

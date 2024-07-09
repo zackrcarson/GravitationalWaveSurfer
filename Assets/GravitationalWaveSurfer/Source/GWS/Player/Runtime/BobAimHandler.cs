@@ -1,9 +1,7 @@
 using System;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using GWS.Input.Runtime;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GWS.Player.Runtime
 {
@@ -62,10 +60,10 @@ namespace GWS.Player.Runtime
 
         private void Fire()
         {
-            var position = transform.position;
-            if (Vector3.Distance(position, bobJoint.transform.position) > bobMaxActionableDistance) return;
+            var bobPosition = bobJoint.transform.position;
+            if (Vector3.Distance(transform.position, bobPosition) > bobMaxActionableDistance) return;
             
-            var direction = Vector3.Normalize(cursorWorldPosition - position);
+            var direction = Vector3.Normalize(cursorWorldPosition - bobPosition);
             bobRigidbody.velocity = direction * force;
             
             bobJoint.xMotion = ConfigurableJointMotion.Free;

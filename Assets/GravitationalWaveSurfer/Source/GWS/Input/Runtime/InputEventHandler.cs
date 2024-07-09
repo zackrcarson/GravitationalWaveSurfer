@@ -30,6 +30,11 @@ namespace GWS.Input.Runtime
             if (!callbackContext.started) return;
             inputEventChannel.RaiseOnFire();
         }
+        
+        public void OnFire2(InputAction.CallbackContext callbackContext)
+        {
+            inputEventChannel.RaiseOnFire2(callbackContext);
+        }
 
         public void OnCursorPosition(InputAction.CallbackContext callbackContext)
         {

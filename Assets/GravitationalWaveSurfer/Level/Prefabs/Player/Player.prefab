@@ -455,7 +455,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
   referenceRigidbody: {fileID: 847715581184191389}
-  enableEmission: 0
   maxParticles: 20
   forwardThruster: {fileID: 6608251775266632391}
   leftThruster: {fileID: 4423077556382977616}
@@ -1096,7 +1095,7 @@ GameObject:
   - component: {fileID: 6019391196080981775}
   - component: {fileID: 4120438087011129828}
   - component: {fileID: 413778352501515922}
-  - component: {fileID: 7011555255079684886}
+  - component: {fileID: 2421405298116759742}
   - component: {fileID: 4516035855179813584}
   - component: {fileID: 2143603972540715125}
   - component: {fileID: 93934632296496756}
@@ -1203,8 +1202,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!145 &7011555255079684886
-SpringJoint:
+--- !u!153 &2421405298116759742
+ConfigurableJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1213,14 +1212,92 @@ SpringJoint:
   m_ConnectedBody: {fileID: 9045139846816185260}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 6.22, z: 0}
-  serializedVersion: 2
-  m_Spring: 100
-  m_Damper: 0
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 0.025
+  serializedVersion: 3
+  m_SecondaryAxis: {x: 0, y: 1, z: 0}
+  m_XMotion: 1
+  m_YMotion: 1
+  m_ZMotion: 1
+  m_AngularXMotion: 0
+  m_AngularYMotion: 0
+  m_AngularZMotion: 0
+  m_LinearLimitSpring:
+    spring: 200
+    damper: 2
+  m_LinearLimit:
+    limit: 0.1
+    bounciness: 1
+    contactDistance: 5
+  m_AngularXLimitSpring:
+    spring: 0
+    damper: 0
+  m_LowAngularXLimit:
+    limit: 0
+    bounciness: 0
+    contactDistance: 0
+  m_HighAngularXLimit:
+    limit: 0
+    bounciness: 0
+    contactDistance: 0
+  m_AngularYZLimitSpring:
+    spring: 0
+    damper: 0
+  m_AngularYLimit:
+    limit: 0
+    bounciness: 0
+    contactDistance: 0
+  m_AngularZLimit:
+    limit: 0
+    bounciness: 0
+    contactDistance: 0
+  m_TargetPosition: {x: 0, y: 0, z: 0}
+  m_TargetVelocity: {x: 0, y: 0, z: 0}
+  m_XDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_YDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_ZDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
+  m_RotationDriveMode: 0
+  m_AngularXDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_AngularYZDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_SlerpDrive:
+    serializedVersion: 4
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 0
+  m_ProjectionMode: 0
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
+  m_ConfiguredInWorldSpace: 0
+  m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1255,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec606cc0de0f654c8ad5072eeb7dfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springJoint: {fileID: 7011555255079684886}
+  joint: {fileID: 0}
   lineRenderer: {fileID: 93934632296496756}
 --- !u!120 &93934632296496756
 LineRenderer:
@@ -1521,10 +1598,11 @@ GameObject:
   - component: {fileID: 3466504283651795352}
   - component: {fileID: 847715581184191389}
   - component: {fileID: 4323879720380340941}
-  - component: {fileID: 2077837104711936046}
   - component: {fileID: 1835580457802259244}
   - component: {fileID: 486173468663572985}
   - component: {fileID: 22330786509039008}
+  - component: {fileID: 7214076315350525367}
+  - component: {fileID: 777132862541631680}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1664,27 +1742,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
   rigidbody: {fileID: 847715581184191389}
-  speed: 1
-  friction: 0
+  speed: 2.5
+  friction: 0.025
   referenceFrame: {fileID: 0}
   referenceFrameInterpolationSpeed: 2
---- !u!114 &2077837104711936046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6420428915279397954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a83cb60ea2347d99fde384f1e7af113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
-  cameras:
-  - {fileID: 0}
-  - {fileID: 0}
-  basePriority: 0
 --- !u!96 &1835580457802259244
 TrailRenderer:
   serializedVersion: 3
@@ -1825,6 +1886,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 847715581184191389}
   rotationSpeed: 2
+--- !u!114 &7214076315350525367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420428915279397954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a0c78d61de4ce8ba89f7922b8a2746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
+  camera: {fileID: 0}
+  bobJoint: {fileID: 0}
+  springReactivationDelay: 0.25
+  bobRigidbody: {fileID: 413778352501515922}
+  bobMaxActionableDistance: 10
+  aimDepth: 10
+  force: 100
+--- !u!114 &777132862541631680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420428915279397954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e43182b433146929531377d7c5a2cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
+  aimCamera: {fileID: 0}
+  neutralCamera: {fileID: 0}
+  basePriority: 0
 --- !u!1 &6552841638164247223
 GameObject:
   m_ObjectHideFlags: 0

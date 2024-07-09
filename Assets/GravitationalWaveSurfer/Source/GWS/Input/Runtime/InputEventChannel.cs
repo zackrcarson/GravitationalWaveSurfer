@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GWS.Input.Runtime
 {
@@ -23,6 +24,11 @@ namespace GWS.Input.Runtime
         /// Callback on fire button pressed. 
         /// </summary>
         public event Action OnFire;
+        
+        /// <summary>
+        /// Callback on fire2 button pressed. 
+        /// </summary>
+        public event Action<InputAction.CallbackContext> OnFire2;
 
         /// <summary>
         /// Callback on cursor position changed. 
@@ -51,9 +57,15 @@ namespace GWS.Input.Runtime
         public void RaiseOnInteract() => OnInteract?.Invoke();
         
         /// <summary>
-        /// Raises the <see cref="OnInteract"/> event. 
+        /// Raises the <see cref="OnFire"/> event. 
         /// </summary>
         public void RaiseOnFire() => OnFire?.Invoke();
+        
+        /// <summary>
+        /// Raises the <see cref="OnFire2"/> event. 
+        /// </summary>
+        /// <param name="callbackContext">The callback context.</param>
+        public void RaiseOnFire2(InputAction.CallbackContext callbackContext) => OnFire2?.Invoke(callbackContext);
 
         /// <summary>
         /// Raises the <see cref="OnCursorPosition"/> event.
