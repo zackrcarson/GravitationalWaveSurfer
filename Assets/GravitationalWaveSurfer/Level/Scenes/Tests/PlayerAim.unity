@@ -374,6 +374,10 @@ PrefabInstance:
       value: Third Person Camera
       objectReference: {fileID: 0}
     - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
+      propertyPath: BlendHint
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 410134728}
@@ -499,8 +503,8 @@ MonoBehaviour:
     Enabled: 0
     DefaultMode: 2
   DefaultBlend:
-    Style: 1
-    Time: 0.5
+    Style: 0
+    Time: 0
     CustomCurve:
       serializedVersion: 2
       m_Curve: []
