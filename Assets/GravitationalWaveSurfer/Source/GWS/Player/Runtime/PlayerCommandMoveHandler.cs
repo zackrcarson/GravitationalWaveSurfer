@@ -65,6 +65,7 @@ namespace GWS.Player.Runtime
             var rotation = Quaternion.Euler(0, currentReferenceFrame.eulerAngles.y, 0);
             CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, direction * speed, rotation, friction));
 
+            // TODO - move to new input system
             if (UnityEngine.Input.GetKey(KeyCode.Space))
             {
                 CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, new Vector3(0, 1, 0), rotation, friction));

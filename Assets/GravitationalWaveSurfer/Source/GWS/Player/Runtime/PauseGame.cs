@@ -1,102 +1,82 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GWS.GeneralRelativitySimulation.Runtime;
+using UnityEngine;
 
-public class InGameMenuManager : MonoBehaviour
+namespace GWS.Player.Runtime
 {
-    [SerializeField]
-    private GameObject pauseMenu;
-
-    [SerializeField]
-    private GameObject glossaryMenu;
-
-    [SerializeField]
-    private Animator pauseMenuAnimator;
-
-    [SerializeField]
-    private Animator glossaryMenuAnimator;
-
-    [SerializeField]
-    private GameObject statsMenu;
-
-    private bool isPaused = false;
-
-    private float currentTimeScale = 1f;
-
-    [SerializeField]
-    private AudioSource constantAudioSource;
-
-    [SerializeField]
-    private AudioClip audioClip;
-
-    private void Start()
+    public class PauseGame : MonoBehaviour
     {
-        pauseMenuAnimator = pauseMenu.GetComponent<Animator>();
-        glossaryMenuAnimator = glossaryMenu.GetComponent<Animator>();
-        constantAudioSource = GetComponent<AudioSource>();
-    }
+        [SerializeField]
+        private GameObject pauseMenu;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && !glossaryMenu.activeSelf)
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private GameObject statsMenu;
+
+        private bool isPaused = false;
+
+        private float currentTimeScale = 1f;
+
+        private void Start()
         {
-            if (isPaused)
+        
+        }
+
+        private void Update()
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
             {
-                ResumeGame();
-                constantAudioSource.PlayOneShot(audioClip, 0.8f);
-            }
-            else
-            {
-                StopGame();
-                constantAudioSource.PlayOneShot(audioClip, 0.8f);
+                if (isPaused)
+                {
+                    ResumeGame();
+                }
+                else
+                {
+                    StopGame();
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !pauseMenu.activeSelf && glossaryMenu.activeSelf)
+        public void StopGame()
         {
-            HideGlossary();
-            constantAudioSource.PlayOneShot(audioClip, 0.8f);
+            StartCoroutine(StopGameCoroutine());
         }
-    }
 
-    public void StopGame()
-    {
-        StartCoroutine(StopGameCoroutine());
-    }
+        private IEnumerator StopGameCoroutine()
+        {
+            pauseMenu.SetActive(true);
+            statsMenu.SetActive(false);
+            currentTimeScale = Time.timeScale;
+            TimeSpeedManager.Scale = 0f;
+            isPaused = true;
+            AudioListener.volume = 0;
+            animator.SetTrigger("Open");
 
-    private IEnumerator StopGameCoroutine()
-    {
-        pauseMenu.SetActive(true);
-        statsMenu.SetActive(false);
-        currentTimeScale = Time.timeScale;
-        TimeSpeedManager.Scale = 0f;
-        isPaused = true;
-        AudioListener.volume = 1;
-        pauseMenuAnimator.SetTrigger("Open");
+            yield return new WaitForSecondsRealtime(1f / 5f);
 
-        yield return new WaitForSecondsRealtime(1f / 5f);
+            pauseMenu.SetActive(true);
+            statsMenu.SetActive(false);
+        }
 
-        pauseMenu.SetActive(true);
-        statsMenu.SetActive(false);
-    }
+        public void ResumeGame()
+        {
+            StartCoroutine(ResumeGameCoroutine());
+        }
 
-    public void ResumeGame()
-    {
-        StartCoroutine(ResumeGameCoroutine());
-    }
+        private IEnumerator ResumeGameCoroutine()
+        {
+            animator.SetTrigger("Close");
 
-    private IEnumerator ResumeGameCoroutine()
-    {
-        pauseMenuAnimator.SetTrigger("Close");
+            yield return new WaitForSecondsRealtime(1f / 5f);
 
-        yield return new WaitForSecondsRealtime(1f / 5f);
-
-        pauseMenu.SetActive(false);
-        statsMenu.SetActive(true);
-        TimeSpeedManager.Scale = currentTimeScale;
-        isPaused = false;
-        AudioListener.volume = 1;
+            pauseMenu.SetActive(false);
+            statsMenu.SetActive(true);
+            TimeSpeedManager.Scale = currentTimeScale;
+            isPaused = false;
+            AudioListener.volume = 1;
+        }
     }
 
     public void ShowGlossary()

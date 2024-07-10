@@ -18,8 +18,9 @@ namespace GWS.Player.Runtime
         [SerializeField] 
         private Rigidbody referenceRigidbody;
 
-        [SerializeField]
         private bool enableEmission;
+
+        private Vector3 movementDirection;
         
         /// <summary>
         /// The number used to clamp emission rate of particles.
@@ -56,12 +57,12 @@ namespace GWS.Player.Runtime
 
         private void OnEnable()
         {
-            inputEventChannel.OnMove += EnableEmission;
+            inputEventChannel.OnMove += HandleMovement;
         }
         
         private void OnDisable()
         {
-            inputEventChannel.OnMove -= EnableEmission;
+            inputEventChannel.OnMove -= HandleMovement;
         }
 
         private void Start()
@@ -85,12 +86,10 @@ namespace GWS.Player.Runtime
             //     HandleThrusterSpin(keyMappings[key].GetComponentInChildren<RotationalBehavior>(), key);
             // });  
 
-            var velocity = referenceRigidbody.velocity;
-            var scaledMovementDirection = Vector3.Normalize(velocity); 
-            HandleThrusterParticles(forwardThruster, maxParticles, scaledMovementDirection, -forwardThruster.transform.up, enableEmission);
-            HandleThrusterParticles(backThruster, maxParticles, scaledMovementDirection, -backThruster.transform.up, enableEmission);
-            HandleThrusterParticles(leftThruster, maxParticles, scaledMovementDirection, -leftThruster.transform.up, enableEmission);
-            HandleThrusterParticles(rightThruster, maxParticles, scaledMovementDirection, -rightThruster.transform.up, enableEmission);
+            HandleThrusterParticles(forwardThruster, maxParticles, movementDirection, -forwardThruster.transform.up, enableEmission);
+            HandleThrusterParticles(backThruster, maxParticles, movementDirection, -backThruster.transform.up, enableEmission);
+            HandleThrusterParticles(leftThruster, maxParticles, movementDirection, -leftThruster.transform.up, enableEmission);
+            HandleThrusterParticles(rightThruster, maxParticles, movementDirection, -rightThruster.transform.up, enableEmission);
         }
 
         // private void HandleThrusterSpin(RotationalBehavior thrusterRotation, KeyCode key)
@@ -99,9 +98,10 @@ namespace GWS.Player.Runtime
         //     thrusterRotation.rotationDelta.y = Mathf.Lerp(thrusterRotation.rotationDelta.y, target, Time.deltaTime * rotationLerp);
         // }
 
-        private void EnableEmission(Vector2 movementValue)
+        private void HandleMovement(Vector2 movementValue)
         {
             enableEmission = movementValue.sqrMagnitude > 0;
+            movementDirection = new Vector3(movementValue.x, 0, movementValue.y);
         } 
 
         private static void HandleThrusterParticles(ParticleSystem particles, float maxEmissionRate, Vector3 movementDirection, Vector3 thrusterDirection, bool enableEmission)
