@@ -515,10 +515,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7439453691809100421}
+  name: {fileID: 1471712728734501538}
   description: {fileID: 1787876678341518461}
   lockSymbol: {fileID: 731663253609683203}
   star: {fileID: 0}
-  starName: {fileID: 1471712728734501538}
   solarMass: {fileID: 8843867538370551585}
 --- !u!1 &8981489826690083275
 GameObject:

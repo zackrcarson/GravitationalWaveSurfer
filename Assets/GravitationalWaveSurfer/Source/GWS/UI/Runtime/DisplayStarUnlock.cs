@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 namespace GWS.UI.Runtime
 {
@@ -11,9 +11,6 @@ namespace GWS.UI.Runtime
         [SerializeField] 
         private StarUnlock star;
 
-        [SerializeField] 
-        private TextMeshProUGUI starName;
-
         [SerializeField]
         private TextMeshProUGUI solarMass;
 
@@ -21,7 +18,8 @@ namespace GWS.UI.Runtime
 
         protected override void PopulateFields()
         {
-            starName.text = star.name.ToString();
+            // Adds a space between camel case names, i.e. BlackHole -> Black Hole
+            name.text = Regex.Replace(star.name.ToString(), "(?<!^)([A-Z])", " $1");
             solarMass.text = $"{star.solarMass} M›";
             image.sprite = star.sprite;
             description.text = star.description;
@@ -30,7 +28,7 @@ namespace GWS.UI.Runtime
         protected override void SetElements(bool state)
         {
             base.SetElements(state);
-            starName.enabled = state;
+            name.enabled = state;
             solarMass.enabled = state;
         }
     }

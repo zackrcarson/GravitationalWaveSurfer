@@ -28,7 +28,7 @@ public class HydrogenEater : MonoBehaviour
         if (other.CompareTag("Electron"))
         {
             HandleCollision(other, pop);
-            HydrogenTracker.Instance.AddHydrogen(1);
+            HydrogenTracker.Instance.AddHydrogen(100);
         }
         else if (other.CompareTag("Anti-Electron"))
         {

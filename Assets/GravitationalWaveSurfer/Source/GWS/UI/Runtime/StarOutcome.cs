@@ -2,19 +2,22 @@ using UnityEngine;
 
 namespace GWS.UI.Runtime
 {
-    public static class Outcome
+    public enum Outcome
     {
-        public enum Star
-        {
-            NothingHappens,
-            WhiteDwarf,
-            NeutronStar,
-            BlackHole
-        }
-
-        public enum Element
-        {
-            He4,
-        }
+        // Stars
+        NothingHappens,
+        WhiteDwarf,
+        NeutronStar,
+        BlackHole,
+        // Elements
+        H,
+        H2,
+        He3,
+        He4,
+        C,
+        O,
+        Ne,
+        Si,
+        Fe
     }
 }

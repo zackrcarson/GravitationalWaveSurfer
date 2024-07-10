@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using GWS.UI.Runtime;
-using StarOutcome = GWS.UI.Runtime.Outcome.Star;
 using System;
 
 namespace GWS.Gameplay
@@ -12,19 +11,21 @@ namespace GWS.Gameplay
 
         public const string UNLOCKED_OUTCOMES_STRING = "UnlockedOutcomes";
 
-        public static event Action<string> OnUnlock;
+        public static event Action OnUnlock;
 
-        private HashSet<StarOutcome> starUnlocks = new();
+        private HashSet<Outcome> currentUnlocks = new();
 
         [SerializeField]
         private StarUnlock[] allStarUnlocks;
+
+        [SerializeField]
+        private ElementUnlock[] allElementUnlocks;
 
         private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
                 LoadUnlocks();
             }
             else
@@ -33,56 +34,70 @@ namespace GWS.Gameplay
             }
         }
 
-        public void UnlockOutcome(StarOutcome outcome)
+        public void UnlockOutcome(Outcome outcome)
         {
-            if (!starUnlocks.Contains(outcome))    
+            if (!currentUnlocks.Contains(outcome))
             {
-                starUnlocks.Add(outcome);
+                currentUnlocks.Add(outcome);
                 SaveUnlocks();
                 LoadUnlocks();
-                OnUnlock?.Invoke(nameof(outcome));
+                OnUnlock?.Invoke();
             }
         }
 
-        public bool IsOutcomeUnlocked(StarOutcome outcome)
+        public bool IsOutcomeUnlocked(Outcome outcome)
         {
-            return starUnlocks.Contains(outcome);
+            return currentUnlocks.Contains(outcome);
         }
 
         private void SaveUnlocks()
         {
-            PlayerPrefs.SetString(UNLOCKED_OUTCOMES_STRING, string.Join(",", starUnlocks));
+            PlayerPrefs.SetString(UNLOCKED_OUTCOMES_STRING, string.Join(",", currentUnlocks));
             PlayerPrefs.Save();
         }
 
         private void LoadUnlocks()
         {
             string savedOutcomes = PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, "");
+            Debug.Log(savedOutcomes);
+
             if (!string.IsNullOrEmpty(savedOutcomes))
             {
                 foreach (string outcome in savedOutcomes.Split(','))
                 {
-                    if (Enum.TryParse(outcome, out StarOutcome parsedOutcome))
+                    if (Enum.TryParse(outcome, out Outcome parsedOutcome))
                     {
-                        starUnlocks.Add(parsedOutcome);
+                        currentUnlocks.Add(parsedOutcome);
                     }
                 }
             }
 
-            foreach (StarUnlock starUnlock in allStarUnlocks)
+            foreach (StarUnlock outcomeUnlock in allStarUnlocks)
             {
-                if (savedOutcomes.Contains(starUnlock.name.ToString())) starUnlock.unlocked = true;
+                outcomeUnlock.unlocked = savedOutcomes.Contains(outcomeUnlock.name.ToString());
+            }
+
+            foreach (ElementUnlock outcomeUnlock in allElementUnlocks)
+            {
+                outcomeUnlock.unlocked = savedOutcomes.Contains(outcomeUnlock.name.ToString());
+                Debug.Log($"{outcomeUnlock}, nametostring{outcomeUnlock.name.ToString()}");
             }
         }
 
         public void ResetUnlocks()
         {
             PlayerPrefs.DeleteAll();
-            starUnlocks.Clear();
+            currentUnlocks.Clear();
+            foreach (StarUnlock outcomeUnlock in allStarUnlocks)
+            {
+                outcomeUnlock.unlocked = false;
+            }
 
-            foreach (StarUnlock starUnlock in allStarUnlocks) starUnlock.unlocked = false;
-            OnUnlock?.Invoke("");
+            foreach (ElementUnlock outcomeUnlock in allElementUnlocks)
+            {
+                outcomeUnlock.unlocked = false;
+            }
+            OnUnlock?.Invoke();
         }
-
     }
 }

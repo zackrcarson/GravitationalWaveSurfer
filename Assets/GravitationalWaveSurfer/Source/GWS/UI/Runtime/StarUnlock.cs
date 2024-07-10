@@ -1,5 +1,4 @@
 using UnityEngine;
-using StarOutcome = GWS.UI.Runtime.Outcome.Star;
 
 namespace GWS.UI.Runtime
 {
@@ -7,7 +6,7 @@ namespace GWS.UI.Runtime
 
     public class StarUnlock : ScriptableObject, IUnlock
     {
-        public new StarOutcome name;
+        public new Outcome name;
 
         public Sprite sprite;
 

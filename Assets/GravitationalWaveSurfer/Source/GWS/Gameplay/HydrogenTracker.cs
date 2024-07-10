@@ -1,7 +1,7 @@
+using GWS.UI.Runtime;
 using System;
 using System.Linq;
 using UnityEngine;
-using StarOutcome = GWS.UI.Runtime.Outcome.Star;
 
 namespace GWS.Gameplay
 {
@@ -86,25 +86,24 @@ namespace GWS.Gameplay
 
         private void EndPhaseOne()
         {
-            StarOutcome outcome = StarOutcome.NothingHappens;
-            double score = Hydrogen / HYDROGEN_CAPACITY;
+            Outcome outcome = Outcome.NothingHappens;
+            double score = Hydrogen / (double)HYDROGEN_CAPACITY;
 
-            if (score >= WHITE_DWARF_THRESHOLD / THRESHOLD_MAX)
+            if (score >= NEUTRON_STAR_THRESHOLD / THRESHOLD_MAX)
             {
-                outcome = StarOutcome.WhiteDwarf;
+                outcome = Outcome.BlackHole;
             }
-            else if (score >= NEUTRON_STAR_THRESHOLD / THRESHOLD_MAX)
+            else if (score >= WHITE_DWARF_THRESHOLD / THRESHOLD_MAX)
             {
-                outcome = StarOutcome.NeutronStar;
+                outcome = Outcome.NeutronStar;
             }
-            else if (score >= NEUTRON_STAR_THRESHOLD / THRESHOLD_MAX)
+            else if (score >= NOTHING_HAPPENS_THRESHOLD / THRESHOLD_MAX)
             {
-                outcome = StarOutcome.BlackHole;
+                outcome = Outcome.WhiteDwarf;
             }
 
-            Debug.Log($"Outcome: {outcome}, Score: {score}");
             UnlockManager.Instance.UnlockOutcome(outcome);
-            Debug.Log(PlayerPrefs.GetString(UnlockManager.UNLOCKED_OUTCOMES_STRING));
+            UnlockManager.Instance.UnlockOutcome(Outcome.He4);
         }
     }
 

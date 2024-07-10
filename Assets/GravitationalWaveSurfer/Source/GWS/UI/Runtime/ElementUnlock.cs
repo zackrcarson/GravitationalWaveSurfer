@@ -10,11 +10,7 @@ namespace GWS.UI.Runtime
     [CreateAssetMenu(fileName = nameof(ElementUnlock), menuName = "ScriptableObjects/Unlocks/Elements")]
     public class ElementUnlock : ScriptableObject, IUnlock
     {
-        public string chemicalSymbol;
-
-        public int superscript;
-
-        public int subscript;
+        public new Outcome name;
 
         public Sprite sprite;
 

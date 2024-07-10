@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e03d0cc8975224f9cf694f09553688, type: 3}
   m_Name: Helium-4
   m_EditorClassIdentifier: 
-  chemicalSymbol: He
-  superscript: 4
-  subscript: 2
+  name: 7
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   description: 'I am helium 4. I am helium 4. I am helium 4. I am helium 4. I am
     helium 4. I am helium 4. I am helium 4. '

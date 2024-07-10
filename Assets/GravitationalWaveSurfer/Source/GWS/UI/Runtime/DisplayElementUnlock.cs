@@ -14,19 +14,11 @@ namespace GWS.UI.Runtime
         [SerializeField]
         private TextMeshProUGUI chemicalSymbol;
 
-        [SerializeField]
-        private TextMeshProUGUI superscript;
-
-        [SerializeField]
-        private TextMeshProUGUI subscript;
-
         protected override bool IsUnlocked() => element.IsUnlocked();
 
         protected override void PopulateFields()
         {
-            chemicalSymbol.text = element.chemicalSymbol;
-            superscript.text = element.superscript.ToString();
-            subscript.text = element.subscript.ToString();
+            chemicalSymbol.text = element.name.ToString();
             image.sprite = element.sprite;
             description.text = element.description;
         }
@@ -35,8 +27,6 @@ namespace GWS.UI.Runtime
         {
             base.SetElements(state);
             chemicalSymbol.enabled = state;
-            superscript.enabled = state;
-            subscript.enabled = state;
         }
     }
 }

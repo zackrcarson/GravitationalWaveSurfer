@@ -1,62 +1,57 @@
 using GWS.Gameplay;
-using GWS.UI.Runtime;
-using PlasticPipe.PlasticProtocol.Messages;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class DisplayBaseUnlock : MonoBehaviour
+namespace GWS.UI.Runtime
 {
-    [SerializeField]
-    protected IUnlock unlock;
-
-    [SerializeField] 
-    protected Image image;
-
-    [SerializeField] 
-    protected TextMeshProUGUI description;
-
-    [SerializeField] 
-    protected TextMeshProUGUI lockSymbol;
-
-    protected abstract void PopulateFields();
-
-    protected abstract bool IsUnlocked();
-
-    private void OnEnable()
+    public abstract class DisplayBaseUnlock : MonoBehaviour
     {
-        DisplayItem();
-        UnlockManager.OnUnlock += OnUnlockOccured;
-    }
+        [SerializeField] 
+        protected Image image;
 
-    private void OnDisable()
-    {
-        UnlockManager.OnUnlock -= OnUnlockOccured;
-    }
+        [SerializeField]
+        protected new TextMeshProUGUI name;
 
-    private void OnUnlockOccured(string unlockedItemName)
-    {
-        DisplayItem();
-    }
+        [SerializeField] 
+        protected TextMeshProUGUI description;
 
-    private void DisplayItem()
-    {
-        if (!IsUnlocked())
+        [SerializeField] 
+        protected TextMeshProUGUI lockSymbol;
+
+        protected abstract void PopulateFields();
+
+        protected abstract bool IsUnlocked();
+
+        private void OnEnable()
         {
-            lockSymbol.gameObject.SetActive(true);
-            SetElements(false);
-            return;
+            DisplayItem();
+            UnlockManager.OnUnlock += DisplayItem;
         }
-        SetElements(true);
-        lockSymbol.gameObject.SetActive(false);
-        PopulateFields();
-    }
 
-    protected virtual void SetElements(bool state)
-    {
-        image.enabled = state;
-        description.enabled = state;
+        private void OnDisable()
+        {
+            UnlockManager.OnUnlock -= DisplayItem;
+        }
+
+        private void DisplayItem()
+        {
+            if (!IsUnlocked())
+            {
+                lockSymbol.gameObject.SetActive(true);
+                SetElements(false);
+                return;
+            }
+            SetElements(true);
+            lockSymbol.gameObject.SetActive(false);
+            PopulateFields();
+        }
+
+        protected virtual void SetElements(bool state)
+        {
+            name.enabled = state;
+            image.enabled = state;
+            description.enabled = state;
+        }
     }
 }
