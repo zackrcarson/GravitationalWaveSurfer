@@ -70,7 +70,7 @@ public class InGameMenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         statsMenu.SetActive(false);
         currentTimeScale = Time.timeScale;
-        TimeSpeedManager.Scale = 1f;
+        TimeSpeedManager.Scale = 0f;
         isPaused = true;
         AudioListener.volume = 1;
         pauseMenuAnimator.SetTrigger("Open");

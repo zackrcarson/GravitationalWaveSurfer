@@ -59,8 +59,6 @@ namespace GWS.Gameplay
         private void LoadUnlocks()
         {
             string savedOutcomes = PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, "");
-            Debug.Log(savedOutcomes);
-
             if (!string.IsNullOrEmpty(savedOutcomes))
             {
                 foreach (string outcome in savedOutcomes.Split(','))
@@ -80,7 +78,6 @@ namespace GWS.Gameplay
             foreach (ElementUnlock outcomeUnlock in allElementUnlocks)
             {
                 outcomeUnlock.unlocked = savedOutcomes.Contains(outcomeUnlock.name.ToString());
-                Debug.Log($"{outcomeUnlock}, nametostring{outcomeUnlock.name.ToString()}");
             }
         }
 
