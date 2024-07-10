@@ -1,0 +1,16 @@
+{
+    "name": "GWS.HydrogenCollectionUI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:204d59aa5aa7bb34ebfeda9974a78cf2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GWS.Input.Runtime
 {
@@ -18,6 +19,21 @@ namespace GWS.Input.Runtime
         /// Callback on interact button pressed.  
         /// </summary>
         public event Action OnInteract;
+
+        /// <summary>
+        /// Callback on fire button pressed. 
+        /// </summary>
+        public event Action OnFire;
+        
+        /// <summary>
+        /// Callback on fire2 button pressed. 
+        /// </summary>
+        public event Action<InputAction.CallbackContext> OnFire2;
+
+        /// <summary>
+        /// Callback on cursor position changed. 
+        /// </summary>
+        public event Action<Vector2> OnCursorPosition; 
 
         /// <summary>
         /// Callback on input activated. 
@@ -39,6 +55,22 @@ namespace GWS.Input.Runtime
         /// Raises the <see cref="OnInteract"/> event. 
         /// </summary>
         public void RaiseOnInteract() => OnInteract?.Invoke();
+        
+        /// <summary>
+        /// Raises the <see cref="OnFire"/> event. 
+        /// </summary>
+        public void RaiseOnFire() => OnFire?.Invoke();
+        
+        /// <summary>
+        /// Raises the <see cref="OnFire2"/> event. 
+        /// </summary>
+        /// <param name="callbackContext">The callback context.</param>
+        public void RaiseOnFire2(InputAction.CallbackContext callbackContext) => OnFire2?.Invoke(callbackContext);
+
+        /// <summary>
+        /// Raises the <see cref="OnCursorPosition"/> event.
+        /// </summary>
+        public void RaiseOnCursorPosition(Vector2 value) => OnCursorPosition?.Invoke(value);
 
         /// <summary>
         /// Raises the <see cref="OnActivateInput"/> event. 

@@ -5,6 +5,7 @@ namespace GWS.GeneralRelativity.Runtime
     /// <summary>
     /// Math class for General Relativity. 
     /// </summary>
+    // ReSharper disable once InconsistentNaming
     public static class GRPhysics // (i.e. GeneralRelativityPhysics) 
     {
         /// <summary>

@@ -1,14 +1,23 @@
-using GWS.Gameplay;
 using System.Collections.Generic;
+using GWS.HydrogenCollection.Runtime;
 using UnityEngine;
 
-namespace GWS.Player
+namespace GWS.Player.Runtime
 {
     /// <summary>
     /// Attracts hydrogen bobs and moves them towards the bob of the player.
     /// </summary>
     public class BobCollection : MonoBehaviour
     {
+        [SerializeField] 
+        private ParticleInventory particleInventory;
+
+        /// <summary>
+        /// The base radius of the bob.
+        /// </summary>
+        [SerializeField] 
+        private float baseRadius; 
+        
         [SerializeField]
         private GameObject radiusVisual;
 
@@ -16,7 +25,8 @@ namespace GWS.Player
 
         private new SphereCollider collider;
 
-        private float colliderRadiusBase = 20f;
+        [SerializeField]
+        private float colliderRadiusMultiplier = 20f;
 
         private void Start()
         {
@@ -36,9 +46,9 @@ namespace GWS.Player
                 }
             }
     
-            collider.radius = colliderRadiusBase * (HydrogenTracker.Instance.Hydrogen * 1.5f / HydrogenTracker.HYDROGEN_CAPACITY) + 5f;
+            collider.radius = colliderRadiusMultiplier * particleInventory.HydrogenCount + baseRadius;
             float appropriateScale = collider.radius * 2;
-            radiusVisual.transform.localScale = new Vector3(appropriateScale, appropriateScale, appropriateScale);
+            radiusVisual.transform.localScale = Vector3.one * appropriateScale;
         }
 
         private void OnTriggerEnter(Collider other)

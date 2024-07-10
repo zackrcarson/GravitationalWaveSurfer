@@ -772,11 +772,20 @@
     <Reference Include="Unity.Burst">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
+    <Reference Include="UniTask.TextMeshPro">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.DOTween">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Addressables">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
@@ -789,6 +798,9 @@
     </Reference>
     <Reference Include="Unity.Cinemachine">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="UniTask.Linq">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.Linq.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
@@ -826,11 +838,14 @@
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    <Reference Include="UniTask">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLite">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLite.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLiteEditor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLiteEditor.dll</HintPath>
@@ -841,6 +856,10 @@
       <Project>{feb9d089-e649-6b02-a1d4-a36c558416f5}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.MeshDeformation.csproj">
+      <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
+      <Name>GWS.MeshDeformation</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.SceneManagement.csproj">
       <Project>{4f6ac138-04f8-a82c-66ef-0432bf9869df}</Project>
       <Name>GWS.SceneManagement</Name>
@@ -849,21 +868,17 @@
       <Project>{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}</Project>
       <Name>GWS.Input</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.Timing.csproj">
+      <Project>{404f39b2-3672-e72d-39b4-7be66cd8501b}</Project>
+      <Name>GWS.Timing</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.CommandPattern.csproj">
       <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
       <Name>GWS.CommandPattern</Name>
     </ProjectReference>
-    <ProjectReference Include="TrinarySoftware.MEC.csproj">
-      <Project>{a70122eb-7dae-1eb5-918e-c6be50cdc733}</Project>
-      <Name>TrinarySoftware.MEC</Name>
-    </ProjectReference>
     <ProjectReference Include="Mushakushi.UIAddons.Editor.csproj">
       <Project>{c985acfc-c7f9-1536-b9de-1f2128c28f01}</Project>
       <Name>Mushakushi.UIAddons.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="GWS.Coroutines.csproj">
-      <Project>{871a54b5-ba25-acc4-d146-4f7ba3a68050}</Project>
-      <Name>GWS.Coroutines</Name>
     </ProjectReference>
     <ProjectReference Include="GWS.GeneralRelativitySimulation.csproj">
       <Project>{768ca8a1-1999-732d-943e-09349a6ddb76}</Project>
@@ -872,6 +887,10 @@
     <ProjectReference Include="GWS.Character.Runtime.csproj">
       <Project>{37d84d6b-891d-79fe-6205-f4f0c79ae309}</Project>
       <Name>GWS.Character.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.HydrogenCollectionUI.csproj">
+      <Project>{45348f55-0df6-e583-3c71-38a69bff2fb4}</Project>
+      <Name>GWS.HydrogenCollectionUI</Name>
     </ProjectReference>
     <ProjectReference Include="Framework.UI.Runtime.csproj">
       <Project>{47465933-17ac-9e6a-6ed9-21382662dafa}</Project>
@@ -885,10 +904,6 @@
       <Project>{7188534b-09e0-5beb-11ab-1cd6811e33bc}</Project>
       <Name>GWS.Player.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="GWS.Gameplay.csproj">
-      <Project>{3011e88d-da08-051f-1908-32e08c56a70f}</Project>
-      <Name>GWS.Gameplay</Name>
-    </ProjectReference>
     <ProjectReference Include="GWSOld.csproj">
       <Project>{77fc723e-9bf3-f480-94ae-7a1c763f11e0}</Project>
       <Name>GWSOld</Name>
@@ -897,9 +912,9 @@
       <Project>{6ad8a9a6-3aad-c2be-2738-421fa10f4324}</Project>
       <Name>GWS.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="GWS.MeshDeformation.csproj">
-      <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
-      <Name>GWS.MeshDeformation</Name>
+    <ProjectReference Include="GWS.HydrogenCollection.csproj">
+      <Project>{024e710b-90ce-b04e-fe2a-9547586c4528}</Project>
+      <Name>GWS.HydrogenCollection</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
