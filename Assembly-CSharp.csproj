@@ -52,6 +52,7 @@
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\Example.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\MainMenuUI\Runtime\MainMenu.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
@@ -839,20 +840,24 @@
     <Reference Include="Unity.Cinemachine.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    <Reference Include="UniTask">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLite">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLite.dll</HintPath>
     </Reference>
-    <Reference Include="UniTask">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.dll</HintPath>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLiteEditor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLiteEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GWS.MeshDeformation.csproj">
+      <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
+      <Name>GWS.MeshDeformation</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.SceneManagement.csproj">
       <Project>{4f6ac138-04f8-a82c-66ef-0432bf9869df}</Project>
       <Name>GWS.SceneManagement</Name>
@@ -908,10 +913,6 @@
     <ProjectReference Include="GWS.HydrogenCollection.csproj">
       <Project>{024e710b-90ce-b04e-fe2a-9547586c4528}</Project>
       <Name>GWS.HydrogenCollection</Name>
-    </ProjectReference>
-    <ProjectReference Include="GWS.MeshDeformation.csproj">
-      <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
-      <Name>GWS.MeshDeformation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

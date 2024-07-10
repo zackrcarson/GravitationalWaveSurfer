@@ -29,11 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Character.Runtime", "GWS.Character.Runtime.csproj", "{37d84d6b-891d-79fe-6205-f4f0c79ae309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.SceneManagement", "GWS.SceneManagement.csproj", "{4f6ac138-04f8-a82c-66ef-0432bf9869df}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Timing", "GWS.Timing.csproj", "{404f39b2-3672-e72d-39b4-7be66cd8501b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.MeshDeformation", "GWS.MeshDeformation.csproj", "{e7b5757c-9575-fa20-8905-48349e94d19e}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.SceneManagement", "GWS.SceneManagement.csproj", "{4f6ac138-04f8-a82c-66ef-0432bf9869df}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,12 +68,12 @@ Global
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37d84d6b-891d-79fe-6205-f4f0c79ae309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37d84d6b-891d-79fe-6205-f4f0c79ae309}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{404f39b2-3672-e72d-39b4-7be66cd8501b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{404f39b2-3672-e72d-39b4-7be66cd8501b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e7b5757c-9575-fa20-8905-48349e94d19e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e7b5757c-9575-fa20-8905-48349e94d19e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
