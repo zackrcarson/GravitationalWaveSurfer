@@ -6,12 +6,11 @@ using UnityEngine;
 namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
-    /// Singleton that holds information on the current amount of collected hydrogen.
+    /// Manages a <see cref="ParticleInventory"/>
     /// </summary>
     public class HydrogenTracker: MonoBehaviour
     {
-        public static HydrogenTracker Instance { get; private set; }
-
+        [SerializeField]
         private ParticleInventory particleInventory; 
 
         // private int hydrogen = 0;
@@ -23,8 +22,6 @@ namespace GWS.HydrogenCollection.Runtime
         // }
 
         // private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
-
-        public static event Action<int> OnHydrogenChanged;
 
         private const int HYDROGEN_MULTIPLIER = 1_000_000; // each hydrogen object can represent 1,000,000 kg?
 
@@ -48,6 +45,11 @@ namespace GWS.HydrogenCollection.Runtime
             BlackHole
         }
 
+        private void Start()
+        {
+            particleInventory.HydrogenCount = 0;
+        }
+
         private void OnEnable()
         {
             PhaseOneTimer.TimeUp += EndPhaseOne;
@@ -56,19 +58,6 @@ namespace GWS.HydrogenCollection.Runtime
         private void OnDisable()
         {
             PhaseOneTimer.TimeUp -= EndPhaseOne;
-        }
-
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
         }
 
         // I think we're not doing this anymore iirc
@@ -82,18 +71,6 @@ namespace GWS.HydrogenCollection.Runtime
         //         }
         //     });
         // }
-
-        public void AddHydrogen(int amount)
-        {
-            particleInventory.HydrogenCount += amount;
-            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
-        }
-
-        public void SubtractHydrogen(int amount)
-        {
-            particleInventory.HydrogenCount -= amount;
-            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
-        }
 
         private void EndPhaseOne()
         {

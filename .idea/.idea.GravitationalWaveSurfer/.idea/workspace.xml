@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerAim.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerAim.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/Hydrogen Tracker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/Hydrogen Tracker.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/GWS.HydrogenCollection.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/GWS.HydrogenCollection.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenText.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenProgress.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenProgress.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PauseGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PauseGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/GWS.HydrogenCollectionUI.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/GWS.HydrogenCollectionUI.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenProgress.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenEater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenEater.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/DrawSpringJoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/Example.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.eflatun.scenereference@4.0.0/Runtime/SceneReference.cs" root0="SKIP_HIGHLIGHTING" />
@@ -60,7 +65,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "GWS-32-hotfix",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -144,7 +149,7 @@
       <workItem from="1720019599598" duration="153000" />
       <workItem from="1720019763746" duration="236000" />
       <workItem from="1720450388944" duration="5589000" />
-      <workItem from="1720708867809" duration="4832000" />
+      <workItem from="1720708867809" duration="11145000" />
     </task>
     <servers />
   </component>

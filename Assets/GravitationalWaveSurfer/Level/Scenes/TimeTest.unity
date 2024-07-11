@@ -2047,6 +2047,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517597121}
   m_CullTransparentMesh: 1
+--- !u!82 &546312167 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2382108446876858090, guid: 2367970281cef76468b43a13fecccd70, type: 3}
+  m_PrefabInstance: {fileID: 6759081673150317745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &636544295
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,6 +5227,10 @@ PrefabInstance:
       propertyPath: referenceFrame
       value: 
       objectReference: {fileID: 2112943059}
+    - target: {fileID: 4516035855179813584, guid: 6a88236b393d5554f9446192846024f8, type: 3}
+      propertyPath: colliderRadiusMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6420428915279397954, guid: 6a88236b393d5554f9446192846024f8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5233,11 +5242,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5620761988650772656, guid: 6a88236b393d5554f9446192846024f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1893915684}
   m_SourcePrefab: {fileID: 100100000, guid: 6a88236b393d5554f9446192846024f8, type: 3}
 --- !u!4 &1893218063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2544736572196402396, guid: 6a88236b393d5554f9446192846024f8, type: 3}
+  m_PrefabInstance: {fileID: 1893218062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1893915673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5620761988650772656, guid: 6a88236b393d5554f9446192846024f8, type: 3}
+  m_PrefabInstance: {fileID: 1893218062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1893915684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893915673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ded7aeb9ffea0a47b919e4f46167b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
+  constantAudioSource: {fileID: 546312167}
+  sparks: {fileID: 1939755420}
+  pop: {fileID: 8300000, guid: c90be5074631cf24b8b78c7dd7f490da, type: 3}
+  flash: {fileID: 8300000, guid: bf5d5da38bee5c140b471409729e48af, type: 3}
+  audioCooldown: 0.01
+--- !u!198 &1939755420 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2997521712843171661, guid: 6a88236b393d5554f9446192846024f8, type: 3}
   m_PrefabInstance: {fileID: 1893218062}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1999484472
@@ -5410,7 +5451,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -5477,6 +5518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13f22db5b1456040b7c7d52730cc17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   text: {fileID: 1555864079}
 --- !u!114 &2009852605
 MonoBehaviour:
@@ -5490,7 +5532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5151c3b95c6bac4e81d75218fc68e89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleInventory: {fileID: 0}
+  particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   hydrogenSlider: {fileID: 1205819614}
   whiteDwarfTick: {fileID: 1071554904}
   neutronStarTick: {fileID: 1999484473}
