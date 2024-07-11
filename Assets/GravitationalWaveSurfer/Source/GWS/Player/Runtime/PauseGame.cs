@@ -9,7 +9,8 @@ namespace GWS.Player.Runtime
         [SerializeField] private GameObject pauseMenu;
 
         [SerializeField] private Animator animator;
-        
+
+        [SerializeField]
         private GameObject glossaryMenu;
 
         [SerializeField]
@@ -32,7 +33,7 @@ namespace GWS.Player.Runtime
 
         private void Update()
         {
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape) && !glossaryMenu.activeSelf)
             {
                 if (isPaused)
                 {
@@ -42,6 +43,10 @@ namespace GWS.Player.Runtime
                 {
                     StopGame();
                 }
+            }
+            else if (UnityEngine.Input.GetKeyDown(KeyCode.Escape) && glossaryMenu.activeSelf)
+            {
+                HideGlossary();
             }
         }
 
@@ -57,7 +62,7 @@ namespace GWS.Player.Runtime
             currentTimeScale = Time.timeScale;
             TimeSpeedManager.Scale = 0f;
             isPaused = true;
-            AudioListener.volume = 0;
+            AudioListener.volume = 1;
             animator.SetTrigger(Open);
 
             yield return new WaitForSecondsRealtime(pauseTime);

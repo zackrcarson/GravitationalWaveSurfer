@@ -6318,10 +6318,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ded7aeb9ffea0a47b919e4f46167b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   constantAudioSource: {fileID: 1835403564790648329}
   sparks: {fileID: 2997521712843171661}
   pop: {fileID: 8300000, guid: 12a26363fb00df24bb2f921d1296b5cf, type: 3}
   flash: {fileID: 8300000, guid: c90be5074631cf24b8b78c7dd7f490da, type: 3}
+  audioCooldown: 0.01
 --- !u!1001 &180083581646576245
 PrefabInstance:
   m_ObjectHideFlags: 0

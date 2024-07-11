@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.005667244, g: 0.0053570885, b: 0.005820637, a: 1}
+  m_IndirectSpecularColor: {r: 0.0056678755, g: 0.0053577763, b: 0.0058211638, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -530,6 +530,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 106213248}
   m_CullTransparentMesh: 1
+--- !u!1 &119183861 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5723506850615411799, guid: 48146140f49bfe54083990c84bf25f28, type: 3}
+  m_PrefabInstance: {fileID: 417840310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &165159005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1722,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5118007733934834132, guid: 48146140f49bfe54083990c84bf25f28, type: 3}
+      propertyPath: constantAudioSource
+      value: 
+      objectReference: {fileID: 4442635722463317592}
     - target: {fileID: 5723506850615411799, guid: 48146140f49bfe54083990c84bf25f28, type: 3}
       propertyPath: m_Name
       value: GlossaryScreen
@@ -2090,6 +2099,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 809}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &757727435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2507180198733815871, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+  m_PrefabInstance: {fileID: 1327769147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &769946031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3667,6 +3687,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Input Handler
       objectReference: {fileID: 0}
+    - target: {fileID: 3359671578048746798, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 757727435}
+    - target: {fileID: 3359671578048746798, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+      propertyPath: inputEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6364,7 +6392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1384218514}
-  animator: {fileID: 0}
+  animator: {fileID: 1384218519}
+  glossaryMenu: {fileID: 119183861}
   pauseMenuAnimator: {fileID: 1384218519}
   glossaryMenuAnimator: {fileID: 1809586327}
   statsMenu: {fileID: 2009852597}
