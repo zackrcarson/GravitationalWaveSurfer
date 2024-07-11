@@ -1,7 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.UI", "GWS.UI.csproj", "{A6A9D86A-AD3A-BEC2-2738-421FA10F4324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{89D0B9FE-49E6-026B-A1D4-A36C558416F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.CommandPattern", "GWS.CommandPattern.csproj", "{7f705f0f-3759-40b6-9d9d-8273f46109e7}"
 EndProject
@@ -33,6 +34,39 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Timing", "GWS.Timing.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.MeshDeformation", "GWS.MeshDeformation.csproj", "{e7b5757c-9575-fa20-8905-48349e94d19e}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.MeshDeformation", "GWS.MeshDeformation.csproj", "{7C75B5E7-7595-20FA-8905-48349E94D19E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.UI", "GWS.UI.Player.csproj", "{0707BF97-4AB9-6F15-A7DB-3D47670A66ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.Player.csproj", "{31C1B362-F3EA-0EE1-B0A5-E5C9970DEA96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.CommandPattern", "GWS.CommandPattern.Player.csproj", "{3957C9FA-A1FA-B961-BD9A-8F9BFF7D8A90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Runtime", "Framework.UI.Runtime.Player.csproj", "{F7F2F0CF-68DE-E3A1-ED11-7F503336C50D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Player.Runtime", "GWS.Player.Runtime.Player.csproj", "{9F79044F-EBB7-2718-D6BC-8E22F5CFC2DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.Player.csproj", "{B1CD51B9-D8AA-AD3C-0D59-E687234141A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.Player.csproj", "{67E3BD0D-F450-47CA-2233-A0FC8A88CE96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Gameplay", "GWS.Gameplay.Player.csproj", "{18D62930-F41D-5D04-3140-84DC1369CC76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mushakushi.UIAddons.Editor", "Mushakushi.UIAddons.Editor.Player.csproj", "{CB589D96-E0F5-6987-4734-BBB473E39FFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativitySimulation", "GWS.GeneralRelativitySimulation.Player.csproj", "{41159D9C-F8C1-026F-73C0-E690B4B53FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrinarySoftware.MEC", "TrinarySoftware.MEC.Player.csproj", "{0A9999C9-F467-D337-16DC-E898FC087B2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Coroutines", "GWS.Coroutines.Player.csproj", "{F94F9D57-387C-F0B1-F84E-4AF01B7ED418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativity", "GWS.GeneralRelativity.Player.csproj", "{703D9F8B-B765-865C-218E-92A4320CF196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Character.Runtime", "GWS.Character.Runtime.Player.csproj", "{CBA464E6-4DD6-6525-9726-42D4AC51FED7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.SceneManagement", "GWS.SceneManagement.Player.csproj", "{B8DE90AE-A035-FEC8-F589-75289509EDAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.MeshDeformation", "GWS.MeshDeformation.Player.csproj", "{FC73CA41-F761-8136-D9E5-8CA6F5825F0B}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.SceneManagement", "GWS.SceneManagement.csproj", "{4f6ac138-04f8-a82c-66ef-0432bf9869df}"
 EndProject
 Global

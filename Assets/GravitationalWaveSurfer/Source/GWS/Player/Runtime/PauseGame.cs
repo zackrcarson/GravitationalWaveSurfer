@@ -78,4 +78,37 @@ namespace GWS.Player.Runtime
             AudioListener.volume = 1;
         }
     }
+
+    public void ShowGlossary()
+    {
+        StartCoroutine(ShowGlossaryCoroutine());
+    }
+
+    private IEnumerator ShowGlossaryCoroutine()
+    {
+        glossaryMenu.SetActive(true);
+        glossaryMenuAnimator.SetTrigger("Open");
+        pauseMenuAnimator.SetTrigger("Close");
+
+        yield return new WaitForSecondsRealtime(1f / 5f);
+
+        glossaryMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+
+    public void HideGlossary()
+    {
+        StartCoroutine(HideGlossaryRoutine());
+    }
+
+    private IEnumerator HideGlossaryRoutine()
+    {
+        glossaryMenuAnimator.SetTrigger("Close");
+        pauseMenu.SetActive(true);
+        pauseMenuAnimator.SetTrigger("Open");
+
+        yield return new WaitForSecondsRealtime(1f / 5f);
+
+        glossaryMenu.SetActive(false);
+    }
 }
