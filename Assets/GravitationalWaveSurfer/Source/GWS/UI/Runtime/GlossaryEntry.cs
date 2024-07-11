@@ -50,7 +50,7 @@ namespace GWS.UI.Runtime
 
             while (elapsedTime < animationDuration)
             {
-                elapsedTime += Time.deltaTime;
+                elapsedTime += Time.unscaledDeltaTime;
                 float t = elapsedTime / animationDuration;
 
                 // Quadratic easing

@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Third Person Camera Aim Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
+      propertyPath: BlendHint
+      value: 47
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1318290661934320346, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
     - {fileID: 2337775574587741974, guid: ae25ab05d213cb342899a1c77af94062, type: 3}

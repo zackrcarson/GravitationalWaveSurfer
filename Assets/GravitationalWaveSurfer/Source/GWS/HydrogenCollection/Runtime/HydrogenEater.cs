@@ -1,13 +1,18 @@
-using GWS.HydrogenCollection.Runtime;
 using UnityEngine;
 
-namespace GWS.Player.Runtime
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Handles deleting hydrogen instances and adding hydrogen points.
     /// </summary>
     public class HydrogenEater : MonoBehaviour
     {
+        [SerializeField]
+        private ParticleInventory particleInventory;
+
+        [SerializeField] 
+        private ParticleInventoryEventChannel particleInventoryEventChannel;
+        
         [SerializeField]
         private AudioSource constantAudioSource;
 
@@ -20,6 +25,7 @@ namespace GWS.Player.Runtime
         [SerializeField]
         private AudioClip flash;
 
+        [SerializeField]
         private float audioCooldown = 0.01f;
 
         private float lastAudioTime;
@@ -29,16 +35,22 @@ namespace GWS.Player.Runtime
             if (other.CompareTag("Electron"))
             {
                 HandleCollision(other, pop);
-                HydrogenTracker.Instance.AddHydrogen(1);
+                AddHydrogen(1);
             }
             else if (other.CompareTag("Anti-Electron"))
             {
                 HandleCollision(other, flash);
-                HydrogenTracker.Instance.AddHydrogen(-1);
+                AddHydrogen(-1);
             }
         }
+        
+        private void AddHydrogen(int amount)
+        {
+            particleInventory.HydrogenCount += amount;
+            particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);
+        }
 
-        private void HandleCollision(Collider other, AudioClip clip)
+        private void HandleCollision(Component other, AudioClip clip)
         {
             BobCollection.attractedObjects.Remove(other.transform);
             Destroy(other.gameObject);

@@ -1,17 +1,18 @@
 using System;
 using System.Linq;
+using GWS.Gameplay;
 using GWS.Timing.Runtime;
+using GWS.UI.Runtime;
 using UnityEngine;
 
 namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
-    /// Singleton that holds information on the current amount of collected hydrogen.
+    /// Manages a <see cref="ParticleInventory"/>
     /// </summary>
     public class HydrogenTracker: MonoBehaviour
     {
-        public static HydrogenTracker Instance { get; private set; }
-
+        [SerializeField]
         private ParticleInventory particleInventory; 
 
         // private int hydrogen = 0;
@@ -22,11 +23,7 @@ namespace GWS.HydrogenCollection.Runtime
         //     set { hydrogen = Mathf.Clamp(value, 0, HYDROGEN_CAPACITY); }
         // }
 
-        private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
-
-        public static event Action<int> OnHydrogenChanged;
-
-        private const int HYDROGEN_MULTIPLIER = 1_000_000; // each hydrogen object can represent 1,000,000 kg?
+        // private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
 
         public const int HYDROGEN_CAPACITY = 10_000;
 
@@ -39,13 +36,9 @@ namespace GWS.HydrogenCollection.Runtime
 
         public const double NEUTRON_STAR_THRESHOLD = 20;
 
-        public enum StarOutcome
+        private void Start()
         {
-            NothingHappens,
-            FusionBegins,
-            WhiteDwarf,
-            NeutronStar,
-            BlackHole
+            particleInventory.HydrogenCount = 0;
         }
 
         private void OnEnable()
@@ -58,69 +51,43 @@ namespace GWS.HydrogenCollection.Runtime
             PhaseOneTimer.TimeUp -= EndPhaseOne;
         }
 
-        private void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-
-        private void FixedUpdate()
-        {
-            keycodes.ToList().ForEach(key =>
-            {
-                if (Input.GetKey(key))
-                {
-                    SubtractHydrogen(1);
-                }
-            });
-        }
-
-        public void AddHydrogen(int amount)
-        {
-            particleInventory.HydrogenCount += amount;
-            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
-        }
-
-        public void SubtractHydrogen(int amount)
-        {
-            particleInventory.HydrogenCount -= amount;
-            OnHydrogenChanged?.Invoke(particleInventory.HydrogenCount);
-        }
+        // I think we're not doing this anymore iirc
+        // private void FixedUpdate()
+        // {
+        //     keycodes.ToList().ForEach(key =>
+        //     {
+        //         if (Input.GetKey(key))
+        //         {
+        //             SubtractHydrogen(1);
+        //         }
+        //     });
+        // }
 
         private void EndPhaseOne()
         {
-            StarOutcome outcome = StarOutcome.NothingHappens;
-            double score = particleInventory.HydrogenCount * HYDROGEN_MULTIPLIER;
+            Outcome outcome = Outcome.NothingHappens;
+            double score = particleInventory.HydrogenCount / HYDROGEN_CAPACITY;
 
-            if (score < NOTHING_HAPPENS_THRESHOLD * SOLAR_MASS)
+            if (score >= NEUTRON_STAR_THRESHOLD / NEUTRON_STAR_THRESHOLD)
             {
-                outcome = StarOutcome.NothingHappens;
+                outcome = Outcome.BlackHole;
             }
-            else if (score <= NOTHING_HAPPENS_THRESHOLD * SOLAR_MASS)
+            else if (score < NEUTRON_STAR_THRESHOLD / NEUTRON_STAR_THRESHOLD)
             {
-                outcome = StarOutcome.FusionBegins;
+                outcome = Outcome.NeutronStar;
             }
-            else if (score < WHITE_DWARF_THRESHOLD * SOLAR_MASS)
+            else if (score < WHITE_DWARF_THRESHOLD / NEUTRON_STAR_THRESHOLD)
             {
-                outcome = StarOutcome.WhiteDwarf;
+                outcome = Outcome.WhiteDwarf;
             }
-            else if (score < NEUTRON_STAR_THRESHOLD * SOLAR_MASS)
+            else if (score < NOTHING_HAPPENS_THRESHOLD / NEUTRON_STAR_THRESHOLD)
             {
-                outcome = StarOutcome.NeutronStar;
-            }
-            else if (score > NEUTRON_STAR_THRESHOLD * SOLAR_MASS)
-            {
-                outcome = StarOutcome.BlackHole;
+                outcome = Outcome.NothingHappens;
             }
 
-            Debug.Log($"Outcome: {outcome}, Score: {score}, Mass: {0.08f * SOLAR_MASS}");
+            Debug.Log($"Outcome: {outcome}, Score: {score}");
+            UnlockManager.Instance.UnlockOutcome(Outcome.He4);
+            UnlockManager.Instance.UnlockOutcome(outcome);
         }
     }
 

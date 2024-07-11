@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using GWS.HydrogenCollection.Runtime;
+using System.Linq;
 using UnityEngine;
 
-namespace GWS.Player.Runtime
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Attracts hydrogen bobs and moves them towards the bob of the player.
@@ -33,12 +33,10 @@ namespace GWS.Player.Runtime
             collider = GetComponent<SphereCollider>();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
-            foreach (var obj in attractedObjects)
+            foreach (var obj in attractedObjects.Where(obj => obj != null))
             {
-                if (obj == null) continue;
-
                 obj.position = Vector3.MoveTowards(obj.position, transform.position, 0.09f);
                 if (obj.TryGetComponent<JitterEffect>(out var jitterEffect))
                 {
@@ -46,9 +44,9 @@ namespace GWS.Player.Runtime
                 }
             }
     
-            collider.radius = colliderRadiusMultiplier * particleInventory.HydrogenCount + baseRadius;
-            float appropriateScale = collider.radius * 2;
-            radiusVisual.transform.localScale = Vector3.one * appropriateScale;
+            var radius = colliderRadiusMultiplier * particleInventory.HydrogenCount + baseRadius;
+            collider.radius = radius;
+            radiusVisual.transform.localScale = Vector3.one * radius;
         }
 
         private void OnTriggerEnter(Collider other)

@@ -1,13 +1,17 @@
+using GWS.HydrogenCollection.Runtime;
 using TMPro;
 using UnityEngine;
 
-namespace GWS.HydrogenCollection.Runtime
+namespace GWS.HydrogenCollectionUI.Runtime
 {
     /// <summary>
     /// Displays how much hydrogen the player holds.
     /// </summary>
     public class HydrogenText : MonoBehaviour
     {
+        [SerializeField] 
+        private ParticleInventoryEventChannel particleInventoryEventChannel;
+        
         [SerializeField]
         private TMP_Text text;
 
@@ -15,13 +19,17 @@ namespace GWS.HydrogenCollection.Runtime
 
         private void OnEnable()
         {
-            HydrogenTracker.OnHydrogenChanged += UpdateText;
-            UpdateText(0);
+            particleInventoryEventChannel.OnHydrogenCountChanged += UpdateText;
         }
 
         private void OnDisable()
         {
-            HydrogenTracker.OnHydrogenChanged -= UpdateText;
+            particleInventoryEventChannel.OnHydrogenCountChanged -= UpdateText;
+        }
+
+        private void Start()
+        {
+            UpdateText(0);
         }
 
         private void FixedUpdate()

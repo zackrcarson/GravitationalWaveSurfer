@@ -10,7 +10,10 @@ namespace GWS.HydrogenCollectionUI.Runtime
     public class HydrogenProgress: MonoBehaviour
     {
         [SerializeField] 
-        private ParticleInventory particleInventory; 
+        private ParticleInventory particleInventory;
+
+        [SerializeField] 
+        private ParticleInventoryEventChannel particleInventoryEventChannel;
         
         [SerializeField]
         private Slider hydrogenSlider;
@@ -26,13 +29,13 @@ namespace GWS.HydrogenCollectionUI.Runtime
 
         private void OnEnable()
         {
-            HydrogenTracker.OnHydrogenChanged += UpdateProgress;
+            particleInventoryEventChannel.OnHydrogenCountChanged += UpdateProgress;
             hydrogenSlider.maxValue = HydrogenTracker.HYDROGEN_CAPACITY;
         }
 
         private void OnDisable()
         {
-            HydrogenTracker.OnHydrogenChanged -= UpdateProgress;
+            particleInventoryEventChannel.OnHydrogenCountChanged -= UpdateProgress;
         }
 
         private void Start()
