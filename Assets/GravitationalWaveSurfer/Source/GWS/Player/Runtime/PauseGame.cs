@@ -6,23 +6,29 @@ namespace GWS.Player.Runtime
 {
     public class PauseGame : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject pauseMenu;
+        [SerializeField] private GameObject pauseMenu;
+
+        [SerializeField] private Animator animator;
+        
+        private GameObject glossaryMenu;
 
         [SerializeField]
-        private Animator animator;
+        private Animator pauseMenuAnimator;
 
         [SerializeField]
-        private GameObject statsMenu;
+        private Animator glossaryMenuAnimator;
+
+        [SerializeField] private GameObject statsMenu;
+
+        [SerializeField, Min(0)] 
+        private float pauseTime = 0.25f; 
 
         private bool isPaused = false;
 
         private float currentTimeScale = 1f;
-
-        private void Start()
-        {
         
-        }
+        private static readonly int Open = Animator.StringToHash("Open");
+        private static readonly int Close = Animator.StringToHash("Close");
 
         private void Update()
         {
@@ -52,9 +58,9 @@ namespace GWS.Player.Runtime
             TimeSpeedManager.Scale = 0f;
             isPaused = true;
             AudioListener.volume = 0;
-            animator.SetTrigger("Open");
+            animator.SetTrigger(Open);
 
-            yield return new WaitForSecondsRealtime(1f / 5f);
+            yield return new WaitForSecondsRealtime(pauseTime);
 
             pauseMenu.SetActive(true);
             statsMenu.SetActive(false);
@@ -67,9 +73,9 @@ namespace GWS.Player.Runtime
 
         private IEnumerator ResumeGameCoroutine()
         {
-            animator.SetTrigger("Close");
+            animator.SetTrigger(Close);
 
-            yield return new WaitForSecondsRealtime(1f / 5f);
+            yield return new WaitForSecondsRealtime(pauseTime);
 
             pauseMenu.SetActive(false);
             statsMenu.SetActive(true);
@@ -77,38 +83,38 @@ namespace GWS.Player.Runtime
             isPaused = false;
             AudioListener.volume = 1;
         }
-    }
 
-    public void ShowGlossary()
-    {
-        StartCoroutine(ShowGlossaryCoroutine());
-    }
+        public void ShowGlossary()
+        {
+            StartCoroutine(ShowGlossaryCoroutine());
+        }
 
-    private IEnumerator ShowGlossaryCoroutine()
-    {
-        glossaryMenu.SetActive(true);
-        glossaryMenuAnimator.SetTrigger("Open");
-        pauseMenuAnimator.SetTrigger("Close");
+        private IEnumerator ShowGlossaryCoroutine()
+        {
+            glossaryMenu.SetActive(true);
+            glossaryMenuAnimator.SetTrigger(Open);
+            pauseMenuAnimator.SetTrigger(Close);
 
-        yield return new WaitForSecondsRealtime(1f / 5f);
+            yield return new WaitForSecondsRealtime(pauseTime);
 
-        glossaryMenu.SetActive(true);
-        pauseMenu.SetActive(false);
-    }
+            glossaryMenu.SetActive(true);
+            pauseMenu.SetActive(false);
+        }
 
-    public void HideGlossary()
-    {
-        StartCoroutine(HideGlossaryRoutine());
-    }
+        public void HideGlossary()
+        {
+            StartCoroutine(HideGlossaryRoutine());
+        }
 
-    private IEnumerator HideGlossaryRoutine()
-    {
-        glossaryMenuAnimator.SetTrigger("Close");
-        pauseMenu.SetActive(true);
-        pauseMenuAnimator.SetTrigger("Open");
+        private IEnumerator HideGlossaryRoutine()
+        {
+            glossaryMenuAnimator.SetTrigger(Close);
+            pauseMenu.SetActive(true);
+            pauseMenuAnimator.SetTrigger(Open);
 
-        yield return new WaitForSecondsRealtime(1f / 5f);
+            yield return new WaitForSecondsRealtime(pauseTime);
 
-        glossaryMenu.SetActive(false);
+            glossaryMenu.SetActive(false);
+        }
     }
 }

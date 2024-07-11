@@ -22,7 +22,7 @@ namespace GWS.HydrogenCollection.Runtime
         //     set { hydrogen = Mathf.Clamp(value, 0, HYDROGEN_CAPACITY); }
         // }
 
-        private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
+        // private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
 
         public static event Action<int> OnHydrogenChanged;
 
@@ -71,16 +71,17 @@ namespace GWS.HydrogenCollection.Runtime
             }
         }
 
-        private void FixedUpdate()
-        {
-            keycodes.ToList().ForEach(key =>
-            {
-                if (Input.GetKey(key))
-                {
-                    SubtractHydrogen(1);
-                }
-            });
-        }
+        // I think we're not doing this anymore iirc
+        // private void FixedUpdate()
+        // {
+        //     keycodes.ToList().ForEach(key =>
+        //     {
+        //         if (Input.GetKey(key))
+        //         {
+        //             SubtractHydrogen(1);
+        //         }
+        //     });
+        // }
 
         public void AddHydrogen(int amount)
         {
