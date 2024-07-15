@@ -2,7 +2,7 @@ using System.Collections;
 using GWS.GeneralRelativitySimulation.Runtime;
 using UnityEngine;
 
-namespace GWS.Player.Runtime
+namespace GWS.UI.Runtime
 {
     public class PauseGame : MonoBehaviour
     {

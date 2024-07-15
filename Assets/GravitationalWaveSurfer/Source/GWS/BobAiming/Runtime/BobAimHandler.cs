@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using GWS.Input.Runtime;
 using UnityEngine;
 
-namespace GWS.Player.Runtime
+namespace GWS.BobAiming.Runtime
 {
     /// <summary>
     /// Handles shooting the bob atop the player.

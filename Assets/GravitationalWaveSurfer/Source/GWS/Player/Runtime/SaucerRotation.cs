@@ -1,7 +1,4 @@
 using GWS.GeneralRelativitySimulation.Runtime;
-using GWS.Player.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GWS.Player.Runtime

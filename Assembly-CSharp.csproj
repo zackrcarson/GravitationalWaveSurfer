@@ -870,6 +870,10 @@
       <Project>{404f39b2-3672-e72d-39b4-7be66cd8501b}</Project>
       <Name>GWS.Timing</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.BobAiming.csproj">
+      <Project>{d1bed7db-298e-81ac-7176-651d560e38f8}</Project>
+      <Name>GWS.BobAiming</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.CommandPattern.csproj">
       <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
       <Name>GWS.CommandPattern</Name>

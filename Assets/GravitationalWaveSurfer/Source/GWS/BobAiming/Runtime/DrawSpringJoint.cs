@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace GWS.Player.Runtime
+namespace GWS.BobAiming.Runtime
 {
     /// <summary>
     /// Draws a line through a spring joint, assuming the anchor points are in local space. 
