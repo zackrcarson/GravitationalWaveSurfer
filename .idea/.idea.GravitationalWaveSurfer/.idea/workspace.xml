@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/Hydrogen Tracker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/Hydrogen Tracker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Accretion Disk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Accretion Disk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Base.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Base.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Electron.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Electron.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/ElectronRing.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/ElectronRing.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Neutron.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Neutron.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Proton.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Proton.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/BlinkFlashSparks.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/BlinkFlashSparks.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/PlayerMovementClouds.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/PlayerMovementClouds.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/SimulatedObjects/Hydrogen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/SimulatedObjects/Hydrogen.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/GWS.HydrogenCollection.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/GWS.HydrogenCollection.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenText.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/GWS.HydrogenCollectionUI.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/GWS.HydrogenCollectionUI.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenProgress.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollectionUI/Runtime/HydrogenProgress.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobCollection.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenEater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/HydrogenEater.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/WilsonMerge.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/WilsonMerge.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/Materials/emissive yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/Materials/emissive yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +68,7 @@
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GWS-32-hotfix",
+    "git-widget-placeholder": "wilson-merge",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
