@@ -533,7 +533,7 @@ MonoBehaviour:
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
   baseRadius: 5
   radiusVisual: {fileID: 8842672337667353926}
-  colliderRadiusMultiplier: 20
+  colliderRadiusMultiplier: 0.5
 --- !u!114 &2143603972540715125
 MonoBehaviour:
   m_ObjectHideFlags: 0

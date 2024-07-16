@@ -46,15 +46,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\ApplicationQuitHelper.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWData.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\Chunk.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleData.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWManager.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ChunkManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\Example.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\NoiseGenerator.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleSpawner.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\ElectronRing.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\MainMenuUI\Runtime\MainMenu.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\PlayerChunkLoader.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationCameraManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
     <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
