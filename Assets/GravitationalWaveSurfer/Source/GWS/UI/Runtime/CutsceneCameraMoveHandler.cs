@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GWS.UI.Runtime
 {
@@ -23,7 +24,7 @@ namespace GWS.UI.Runtime
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void Update()
@@ -68,7 +69,7 @@ namespace GWS.UI.Runtime
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log("Moving to next scene...");
+                SceneManager.LoadScene("BaseMainMenu");
             }
         }
 
