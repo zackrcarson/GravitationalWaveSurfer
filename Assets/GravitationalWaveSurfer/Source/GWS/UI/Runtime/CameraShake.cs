@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GWS.UI.Runtime
 {
     /// <summary>
-    /// This is a slightly modified version of <see href="https://github.com/IronWarrior/UnityCameraShake/blob/master/Assets/ShakeableTransform.cs"/>
+    /// Used in cutscenes only. Shakes the camera when there's an explosion using a signal. This is a slightly modified version of <see href="https://github.com/IronWarrior/UnityCameraShake/blob/master/Assets/ShakeableTransform.cs"/>
     /// </summary>
     public class CameraShake : MonoBehaviour
     {
