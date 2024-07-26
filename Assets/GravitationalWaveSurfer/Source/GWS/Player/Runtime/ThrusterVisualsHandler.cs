@@ -50,10 +50,10 @@ namespace GWS.Player.Runtime
 
         private void Update()
         {
-            HandleThrusterParticles(forwardThruster, maxParticles, movementDirection, -forwardThruster.transform.up, enableEmission);
-            HandleThrusterParticles(backThruster, maxParticles, movementDirection, -backThruster.transform.up, enableEmission);
-            HandleThrusterParticles(leftThruster, maxParticles, movementDirection, -leftThruster.transform.up, enableEmission);
-            HandleThrusterParticles(rightThruster, maxParticles, movementDirection, -rightThruster.transform.up, enableEmission);
+            HandleThrusterParticles(forwardThruster, maxParticles, movementDirection, forwardThruster.transform.forward, enableEmission);
+            HandleThrusterParticles(backThruster, maxParticles, movementDirection, backThruster.transform.forward, enableEmission);
+            HandleThrusterParticles(leftThruster, maxParticles, movementDirection, leftThruster.transform.forward, enableEmission);
+            HandleThrusterParticles(rightThruster, maxParticles, movementDirection, rightThruster.transform.forward, enableEmission);
         }
         
         private void HandleMovement(Vector2 movementValue)

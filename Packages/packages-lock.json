@@ -8,7 +8,7 @@
       "url": "https://package.openupm.com"
     },
     "com.eflatun.scenereference": {
-      "version": "4.0.0",
+      "version": "4.1.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -231,6 +231,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "nl.jeffreylanters.tweens": {
+      "version": "3.4.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

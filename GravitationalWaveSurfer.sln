@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.CommandPattern", "GWS.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Runtime", "Framework.UI.Runtime.csproj", "{47465933-17ac-9e6a-6ed9-21382662dafa}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Aiming", "GWS.Aiming.csproj", "{f30b5379-fb8f-70f2-8fdf-fc980940707b}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Player.Runtime", "GWS.Player.Runtime.csproj", "{7188534b-09e0-5beb-11ab-1cd6811e33bc}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.csproj", "{77fc723e-9bf3-f480-94ae-7a1c763f11e0}"
@@ -21,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativitySimula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.HydrogenCollectionUI", "GWS.HydrogenCollectionUI.csproj", "{45348f55-0df6-e583-3c71-38a69bff2fb4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.BobAiming", "GWS.BobAiming.csproj", "{d1bed7db-298e-81ac-7176-651d560e38f8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Input", "GWS.Input.csproj", "{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativity", "GWS.GeneralRelativity.csproj", "{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}"
 EndProject
@@ -32,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Character.Runtime", "GWS.Character.Runtime.csproj", "{37d84d6b-891d-79fe-6205-f4f0c79ae309}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Timing", "GWS.Timing.csproj", "{404f39b2-3672-e72d-39b4-7be66cd8501b}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.AimingUI", "GWS.AimingUI.csproj", "{0c1f3a96-1f06-1506-7d94-797e7843a419}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.MeshDeformation", "GWS.MeshDeformation.csproj", "{e7b5757c-9575-fa20-8905-48349e94d19e}"
 EndProject
@@ -50,6 +54,8 @@ Global
 		{7f705f0f-3759-40b6-9d9d-8273f46109e7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47465933-17ac-9e6a-6ed9-21382662dafa}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47465933-17ac-9e6a-6ed9-21382662dafa}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f30b5379-fb8f-70f2-8fdf-fc980940707b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f30b5379-fb8f-70f2-8fdf-fc980940707b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7188534b-09e0-5beb-11ab-1cd6811e33bc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7188534b-09e0-5beb-11ab-1cd6811e33bc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -62,10 +68,10 @@ Global
 		{768ca8a1-1999-732d-943e-09349a6ddb76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45348f55-0df6-e583-3c71-38a69bff2fb4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d1bed7db-298e-81ac-7176-651d560e38f8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d1bed7db-298e-81ac-7176-651d560e38f8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44d9eb11-f32a-aca8-e2f6-5664aca1d5e5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05cdbe3d-0166-298b-568a-534a8c3a3cf1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -74,6 +80,8 @@ Global
 		{37d84d6b-891d-79fe-6205-f4f0c79ae309}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{404f39b2-3672-e72d-39b4-7be66cd8501b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{404f39b2-3672-e72d-39b4-7be66cd8501b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0c1f3a96-1f06-1506-7d94-797e7843a419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0c1f3a96-1f06-1506-7d94-797e7843a419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e7b5757c-9575-fa20-8905-48349e94d19e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e7b5757c-9575-fa20-8905-48349e94d19e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

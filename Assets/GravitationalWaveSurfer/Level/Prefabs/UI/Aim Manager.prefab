@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7233103076162172261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879718121405904635}
+  - component: {fileID: 2122455774995476958}
+  - component: {fileID: 2238700810176475953}
+  - component: {fileID: 3056323317417882447}
+  - component: {fileID: 2404453957779067395}
+  - component: {fileID: 6578447394385847008}
+  m_Layer: 0
+  m_Name: Aim Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &879718121405904635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2122455774995476958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b993a22b21df4eb3b330500e5392c662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimData: {fileID: 11400000, guid: f4713f31f58865c45aaa9c48486a3c55, type: 2}
+  camera: {fileID: 0}
+--- !u!114 &2238700810176475953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f0b30a462b4818acebfa18f4538d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimTargetEventChannel: {fileID: 11400000, guid: 36b6bae1363c8924a8d694a8a191dbf2, type: 2}
+  aimFollowCursor: {fileID: 3056323317417882447}
+  aimFollowTarget: {fileID: 2404453957779067395}
+--- !u!114 &3056323317417882447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e126e8c0e1854728bea20cc3cb71c168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEventChannel: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
+  aimData: {fileID: 11400000, guid: f4713f31f58865c45aaa9c48486a3c55, type: 2}
+  zDepth: 10
+--- !u!114 &2404453957779067395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a216327faf445ad95685b4577bf1a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aimData: {fileID: 11400000, guid: f4713f31f58865c45aaa9c48486a3c55, type: 2}
+  aimTarget: {fileID: 0}
+--- !u!114 &6578447394385847008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7233103076162172261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5612e6f574bf4a3c8967e4ba5d822252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

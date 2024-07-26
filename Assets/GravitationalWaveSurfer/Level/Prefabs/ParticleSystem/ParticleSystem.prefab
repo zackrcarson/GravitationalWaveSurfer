@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8587554318817960810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4219951007269686451}
+  - component: {fileID: 3033025951435821139}
+  - component: {fileID: 5030476880963661068}
+  - component: {fileID: 426022998776335439}
+  m_Layer: 0
+  m_Name: ParticleSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4219951007269686451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587554318817960810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3033025951435821139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587554318817960810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc53cdad95c90054ea96fa82793aac35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 5030476880963661068}
+  lifetime: 10
+  initialLinearVelocity: 10
+  playOnStart: 1
+  rateOverTime: 3
+  burstCount: 30
+  directionGenerator:
+    rid: 3718529138996805637
+  references:
+    version: 2
+    RefIds:
+    - rid: 3718529138996805637
+      type: {class: SphericalDirection, ns: GWS.ParticleSystem.Runtime.DirectionGeneration, asm: Assembly-CSharp}
+      data:
+        <Faces>k__BackingField: 30
+--- !u!114 &5030476880963661068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587554318817960810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6a381b49ac48f0b014ef400fb58513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <InitialPoolSize>k__BackingField: 100
+  <MaxPoolSize>k__BackingField: 120
+  <Parent>k__BackingField: {fileID: 4219951007269686451}
+  <Factory>k__BackingField: {fileID: 426022998776335439}
+--- !u!114 &426022998776335439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587554318817960810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817c35f3e2534203a9b8cd554699e20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 7750682673996737565, guid: db709286ad9500d45bb5823c84e1e719, type: 3}

@@ -5,23 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/AimingUI/Runtime.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/MainMenu.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/MainMenu.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobAimHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/BobAimHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimHandler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/DrawSpringJoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/DrawSpringJoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/DrawSpringJoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/DrawSpringJoint.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/GWS.Player.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/GWS.Player.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PauseGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/PauseGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PauseGame.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/PauseGame.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/SaucerRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/SaucerRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Main Camera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Main Camera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Camera Aim Variant.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Camera Aim Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Camera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Third Person Camera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Top-Down Camera.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Player/Top-Down Camera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Reflection Probe.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Reflection Probe.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/BlackHoleShader.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/BlackHoleShader.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerAim.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerAim.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked/LightingData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/Tests/PlayerBeingAttacked/LightingData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimFireHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimFireHandler.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/DrawSpringJoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/DrawSpringJoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/DrawSpringJoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/DrawSpringJoint.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/GWS.BobAiming.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/GWS.Aiming.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/GWS.BobAiming.asmdef.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/GWS.Aiming.asmdef.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAimingUI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/AimingUI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAimingUI/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandSetActiveCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandSetActiveCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/ThrusterVisualsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/ThrusterVisualsHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/GWS.UI.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/GWS.UI.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/MainMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Planets of the Solar System 3D/Materials/URP_Mercury_Lod.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Planets of the Solar System 3D/Materials/URP_Mercury_Lod.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Planets of the Solar System 3D/Materials/URP_Uranus_Lod.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Planets of the Solar System 3D/Materials/URP_Uranus_Lod.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,25 +57,46 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/DrawSpringJoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/DrawSpringJoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/BobCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/ParticleSystem/Runtime/ParticlePoolSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/Example.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.eflatun.scenereference@4.0.0/Runtime/SceneReference.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.5.5/Runtime/Internal/ContinuationQueue.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.5.5/Runtime/Internal/PlayerLoopRunner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.5.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@3.1.0/Runtime/Components/CinemachineHardLookAt.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@3.1.0/Runtime/Core/CinemachineVirtualCameraBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@3.1.0/Runtime/Core/PrioritySettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.9/Editor/Drawing/Controllers/BlackboardController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/RawImage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/f6/4ad44366/0200066Apdb25.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17d9ce77f27a4bd2afb5ba32c9bea97646ac00/1d/acbace3f/AsyncVoidMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17d9ce77f27a4bd2afb5ba32c9bea97646ac00/7f/b9d27807/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17d9ce77f27a4bd2afb5ba32c9bea97646ac00/b9/11157d54/CancellationTokenSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/284f0abb8014497cac58bcf5042a4ea93c00/e5/0247329a/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/78fe3e0b66cf40fc8dbec96aa3584483952400/5d/2d846a1d/PhysicsDebugDraw.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bed3c648adea411ea03fe29d57cdd52726400/17/2f85c5e9/ParticleSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/1f/cace27f7/Rigidbody.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/27/7b5a1b24/ConfigurableJoint.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/a1/485fb845/SpringJoint.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/a5/912fed37/PhysicsScene.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/cf/3259aacb/Physics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bff907ed581f483ab4bd129472866e971fe00/ff/58e0af9c/ForceMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/04/c0c91a6d/Mesh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/27/9402ab9d/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/34/0e274cf5/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/37/dfc532fd/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/45/45df1b0b/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/4c/1f949071/IObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/52/1ca7a64e/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/74/7a20e7c4/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/93/88bede61/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/96/ed8f3fe3/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/b0/b91e5516/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -69,28 +115,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GWS-34",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor &amp; Play.executor&quot;: &quot;Debug&quot;,
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GWS-34&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\mushakushi\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\mushakushi\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Unity.exe" />
@@ -159,6 +206,12 @@
       <workItem from="1720019763746" duration="236000" />
       <workItem from="1720450388944" duration="5589000" />
       <workItem from="1720708867809" duration="20451000" />
+      <workItem from="1721228243951" duration="53182000" />
+      <workItem from="1721680535753" duration="2866000" />
+      <workItem from="1721740335647" duration="26556000" />
+      <workItem from="1721826318944" duration="35211000" />
+      <workItem from="1721913270027" duration="14853000" />
+      <workItem from="1722001806336" duration="5418000" />
     </task>
     <servers />
   </component>

@@ -2,8 +2,9 @@
     "name": "GWS.BobAiming",
     "rootNamespace": "",
     "references": [
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:1931a8976df2a6a49a23445607216094"
+        "GUID:93f9375d8dce6f541b28a6e94f27e780",
+        "GUID:1931a8976df2a6a49a23445607216094",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
