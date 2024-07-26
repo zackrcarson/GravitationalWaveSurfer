@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/AimingUI/Runtime.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
@@ -47,6 +48,24 @@
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Accretion Disk.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Accretion Disk.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Base.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Base.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Electron.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Electron.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/ElectronRing.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/ElectronRing.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Neutron.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Neutron.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Proton.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Materials/BasicObjects/Proton.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/BlinkFlashSparks.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/BlinkFlashSparks.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/PlayerMovementClouds.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Art/Particles/PlayerMovementClouds.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/SimulatedObjects/Hydrogen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Simulation/SimulatedObjects/Hydrogen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/WilsonMerge.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Scenes/WilsonMerge.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/Materials/emissive yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/Materials/emissive yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
+>>>>>>> 5fca2679461a22871f5c22ef75f97fd7cab55352
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +134,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Attach to Unity Editor.Attach to Unity Editor &amp; Play.executor&quot;: &quot;Debug&quot;,
@@ -129,6 +149,21 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "wilson-merge",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> 5fca2679461a22871f5c22ef75f97fd7cab55352
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
