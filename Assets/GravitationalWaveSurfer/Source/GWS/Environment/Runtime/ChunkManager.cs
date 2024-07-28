@@ -22,6 +22,14 @@ namespace GWS.WorldGen
         private Dictionary<Vector3Int, Chunk> chunks = new Dictionary<Vector3Int, Chunk>();
         private Vector3Int currentPlayerChunk;
 
+        [Space(6)]
+        [Header("Chunk randomization parameters")]
+        public float minParticlePercentage = 0.5f;
+        public float POIProbability = 0.05f;
+        public float blackHoleProbability = 0.01f;
+        public GameObject blackHole;
+        public List<GameObject> POIList;
+
         // ------------------------------------
         [Space(6)]
         [Header("(Debug) Chunk visualization")]
@@ -175,16 +183,59 @@ namespace GWS.WorldGen
             Chunk newChunk = new Chunk(chunkPos, chunkParent);
             chunks[chunkPos] = newChunk;    // chunks: V3I -> Chunk
 
-            // generate coordinates for objects first
-            List<Vector3> particlesPos = ParticleSpawner.Instance.GenerateObjectsForChunk(chunkPos, chunkSize);
+            // random chunk attributes and parameters
+            float density = Random.Range(minParticlePercentage, 1f);
+            float POI = Random.Range(0f, 1f);
 
-            // actually instantiating them in Unity
-            InstantiateParticles(newChunk, particlesPos);
-
-            // initialize particles if GW active
-            if (!awake && GWManager.Instance.IsWaveActive)
+            /*
+            approximate probability distribution:
+            |    POI    | BLACK HOLE |                        PARTICLES                        |
+            determined by parameters
+            */
+            if (POI > (POIProbability + blackHoleProbability))
             {
-                GWManager.Instance.InitializeChunk(newChunk);
+                // generate coordinates for particles first
+                List<Vector3> particlesPos = ParticleSpawner.Instance.GenerateParticlesForChunk(chunkPos, chunkSize, density);
+                // actually instantiating them in Unity
+                InstantiateParticles(newChunk, particlesPos);
+
+                // initialize particles if GW active
+                if (!awake && GWManager.Instance.IsWaveActive)
+                {
+                    GWManager.Instance.InitializeChunk(newChunk);
+                }
+            }
+            else if (POI < POIProbability)
+            {
+                Debug.Log("Generating POI");
+                // generate POI for chunk
+                Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
+                                    chunkPos.y * chunkSize + chunkSize / 2,
+                                    chunkPos.z * chunkSize + chunkSize / 2);
+
+                chunkCenter += new Vector3(Random.Range(0f, chunkSize * 0.3f), 
+                                           Random.Range(0f, chunkSize * 0.3f), 
+                                           Random.Range(0f, chunkSize * 0.3f));
+
+                // pick random POI and instantiate the GameObject
+                int POIIndex = Random.Range(0, POIList.Count);
+                InstantiateObject(newChunk, chunkCenter, POIList[POIIndex]);
+                newChunk.SetPOI(true);
+            }
+            else
+            {
+                Debug.Log("Generating black hole");
+                // generate black hole
+                Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
+                                    chunkPos.y * chunkSize + chunkSize / 2,
+                                    chunkPos.z * chunkSize + chunkSize / 2);
+
+                chunkCenter += new Vector3(Random.Range(0f, chunkSize * 0.3f), 
+                                           Random.Range(0f, chunkSize * 0.3f), 
+                                           Random.Range(0f, chunkSize * 0.3f));
+
+                InstantiateObject(newChunk, chunkCenter, blackHole);
+                newChunk.SetPOI(true);
             }
 
             // visualize chunk borders
@@ -210,6 +261,25 @@ namespace GWS.WorldGen
             chunk.SetObjects(objects);
         }
 
+        /// <summary>
+        /// Instantiate object at some position in some chunk
+        /// </summary>
+        /// <param name="chunk"></param>
+        /// <param name="chunkCenter"></param>
+        /// <param name="POI"></param>
+        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject)
+        {
+            List<GameObject> objects = new List<GameObject>();
+            GameObject POIGameObject = Instantiate(gameObject, chunkCenter, Quaternion.identity, chunk.ChunkObject.transform);
+            POIGameObject.transform.localScale *= 40f;
+            objects.Add(POIGameObject);
+            chunk.SetObjects(objects);
+        }
+
+        /// <summary>
+        /// Helper function: return an iterable of Chunk that are active right now
+        /// </summary>
+        /// <returns>IEnumerable of Chunk</returns>
         public IEnumerable<Chunk> GetActiveChunks()
         {
             return chunks.Values.Where(c => c.IsActive);

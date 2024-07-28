@@ -1011,11 +1011,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 8262499975645697392, guid: 319c9862803afd548bb0869f6178d68f, type: 3}
-  numParticles: 300
+  numMaxParticles: 500
   numClusters: 8
-  clusterRadius: 50
+  clusterRadius: 100
   clusterCenterPadding: 0
-  minDistanceFromOrigin: 2
+  minDistanceFromOrigin: 0
 --- !u!1 &252015764
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,11 +2154,11 @@ MonoBehaviour:
   blackHolePosition: {x: 48.8, y: 0, z: 105.2}
   minInitialFrequency: 0.3
   maxInitialFrequency: 1.5
-  minInitialAmplitude: 0.01
-  maxInitialAmplitude: 0.1
+  minInitialAmplitude: 0.1
+  maxInitialAmplitude: 1
   minMergeTime: 10
   maxMergeTime: 20
-  speedOfLight: 80
+  speedOfLight: 1000
   initialFrequency: 1
   initialAmplitude: 1
   mergeTime: 5
@@ -5459,12 +5459,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chunkParent: {fileID: 1545162426}
-  chunkSize: 200
-  renderDistance: 2
+  chunkSize: 500
+  renderDistance: 1
   chunkDeleteDistance: 4
   initialChunkRadius: 2
   initialPosition: {x: 0, y: 0, z: 0}
-  visualizeChunks: 0
+  minParticlePercentage: 0.5
+  POIProbability: 0.05
+  blackHoleProbability: 0.01
+  blackHole: {fileID: 3548356298615962880, guid: 5f776740c447e45afb25edbca842de92, type: 3}
+  POIList:
+  - {fileID: 1526814149960808, guid: 7e4bfb3c6ba1d4bc4ba31d585abdae0f, type: 3}
+  - {fileID: 1856687845478954, guid: ab152f61198d54532ae39108e616ff59, type: 3}
+  - {fileID: 1733945558841920, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
+  - {fileID: 1377197793697218, guid: b4201d402613a4464b35c805dafcca62, type: 3}
+  visualizeChunks: 1
   chunkBorderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   borderWidth: 0.1
 --- !u!95 &1809586327 stripped
