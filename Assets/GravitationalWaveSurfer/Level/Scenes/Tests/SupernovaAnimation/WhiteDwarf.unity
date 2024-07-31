@@ -6749,6 +6749,7 @@ GameObject:
   - component: {fileID: 6336507411035384542}
   - component: {fileID: 4530872278588925622}
   - component: {fileID: 3588838337146145922}
+  - component: {fileID: 6974233948425455095}
   m_Layer: 1
   m_Name: WhiteDwarf
   m_TagString: Untagged
@@ -6756,6 +6757,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6974233948425455095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974233948425455094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54164de367824542833637ea374d4197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationDelta: {x: 180, y: 180, z: 180}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
