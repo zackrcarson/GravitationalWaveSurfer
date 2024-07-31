@@ -88,6 +88,7 @@ namespace GWS.ParticleSystem.Runtime
                 
                 for (var i = 0; i < burstCount; i++)
                 {
+                    if (cancellationToken.IsCancellationRequested || pool == null) return;
                     var particleArgs = new ParticleArgs(pool.Parent.position, 
                         transform.rotation * directionGenerator?.GetDirection() ?? Vector3.zero, 
                         initialLinearVelocity);

@@ -14,13 +14,13 @@ namespace GWS.ParticleSystem.Runtime.DirectionGeneration
         [field: SerializeField]
         public int Faces { get; set; }
 
-        private int randomIndex; 
+        private int faceIndex; 
         
         public Vector3 GetDirection()
         {
-            randomIndex %= Faces;
-            var direction = FibonacciSphere(Faces, randomIndex);
-            randomIndex++;
+            faceIndex %= Faces;
+            var direction = FibonacciSphere(Faces, faceIndex);
+            faceIndex++;
             return direction;
         }
 

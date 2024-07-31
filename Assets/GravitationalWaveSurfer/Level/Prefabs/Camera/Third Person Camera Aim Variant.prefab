@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1065367230849628933, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 5.7684126
       objectReference: {fileID: 0}
     - target: {fileID: 1065367230849628933, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -22.29
       objectReference: {fileID: 0}
     - target: {fileID: 1065367230849628933, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62,7 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: BlendHint
-      value: 47
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
+      propertyPath: Priority.m_Value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: Target.CustomLookAtTarget
@@ -76,9 +80,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6557909413532024187, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4046553594873741123}
-    - targetCorrespondingSourceObject: {fileID: 6557909413532024187, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3472887517692080881}
   m_SourcePrefab: {fileID: 100100000, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
 --- !u!1 &157552899549553016 stripped
@@ -86,20 +87,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6557909413532024187, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
   m_PrefabInstance: {fileID: 6426041122795019267}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4046553594873741123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157552899549553016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef0545aa3d49c489437119ecde4718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aimTargetEventChannel: {fileID: 11400000, guid: 36b6bae1363c8924a8d694a8a191dbf2, type: 2}
-  virtualCamera: {fileID: 448830481880874964}
 --- !u!114 &3472887517692080881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,14 +116,3 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
---- !u!114 &448830481880874964 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6852071437786653655, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
-  m_PrefabInstance: {fileID: 6426041122795019267}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157552899549553016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

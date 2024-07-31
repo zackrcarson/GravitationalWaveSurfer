@@ -45,13 +45,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\Shapes\RegularPolygon.cs" />
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\ApplicationQuitHelper.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWData.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticleFactory.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\IPooledItem.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\IPool.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\Chunk.cs" />
@@ -60,33 +56,19 @@
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ChunkManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticleArgs.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\PoolBase.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\DirectionGeneration\SphericalDirection.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\DirectionGeneration\IDirectionGenerator.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\Example.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\GameObjectPoolBase.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\IFactory.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticlePoolSystem.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\NoiseGenerator.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleSpawner.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pooling\Runtime\IGameObjectProvider.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\ElectronRing.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticleBase.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\DirectionGeneration\RandomDirectionInShape.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\MainMenuUI\Runtime\MainMenu.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\PlayerChunkLoader.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticlePool.cs" />
     <Compile Include="Assets\Vefects\Trails VFX URP\Scripts\Demo_TurningAround.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationCameraManagement.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\ParticleEmpty.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\Shapes\Sphere.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\ParticleSystem\Runtime\Shapes\IShape.cs" />
     <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\GravitationalWaveSurferOld\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\GravitationalWaveSurfer\UI\Docments\MainMenu.uxml" />
@@ -745,11 +727,11 @@
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AI.Navigation">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
@@ -898,6 +880,10 @@
       <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
       <Name>GWS.MeshDeformation</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.Pooling.csproj">
+      <Project>{1b2bc1d4-a549-2dfd-4dbc-18e907d4a8f6}</Project>
+      <Name>GWS.Pooling</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.SceneManagement.csproj">
       <Project>{4f6ac138-04f8-a82c-66ef-0432bf9869df}</Project>
       <Name>GWS.SceneManagement</Name>
@@ -913,6 +899,10 @@
     <ProjectReference Include="GWS.BobAiming.csproj">
       <Project>{d1bed7db-298e-81ac-7176-651d560e38f8}</Project>
       <Name>GWS.BobAiming</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.ParticleSystem.csproj">
+      <Project>{715cebed-8069-1406-7fa8-447912d6f000}</Project>
+      <Name>GWS.ParticleSystem</Name>
     </ProjectReference>
     <ProjectReference Include="GWS.CommandPattern.csproj">
       <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
@@ -945,6 +935,10 @@
     <ProjectReference Include="GWS.GeneralRelativity.csproj">
       <Project>{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}</Project>
       <Name>GWS.GeneralRelativity</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.CollisionEvents.csproj">
+      <Project>{536ec4f1-1cf0-69aa-5b03-fe47f819ee03}</Project>
+      <Name>GWS.CollisionEvents</Name>
     </ProjectReference>
     <ProjectReference Include="GWS.Aiming.csproj">
       <Project>{f30b5379-fb8f-70f2-8fdf-fc980940707b}</Project>

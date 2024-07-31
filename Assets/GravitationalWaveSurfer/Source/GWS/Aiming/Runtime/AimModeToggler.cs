@@ -1,47 +1,60 @@
+using GWS.Input.Runtime;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GWS.Aiming.Runtime
 {
     /// <summary>
-    /// Toggles the aim mode based on <see cref="aimTargetEventChannel"/> events.
+    /// Toggles the aim mode based on <see cref="inputEventChannel"/> events.
     /// </summary>
     public class AimModeToggler: MonoBehaviour
     {
         [SerializeField] 
-        private AimTargetEventChannel aimTargetEventChannel;
+        private InputEventChannel inputEventChannel;
+
+        [SerializeField] 
+        private AimData aimData;
         
         [SerializeField]
-        private AimFollowCursor aimFollowCursor;
+        private AimModeFollowCursor aimModeFollowCursor;
         
         [SerializeField]
-        private AimFollowTarget aimFollowTarget;
+        private AimModeFollowTransform aimModeFollowTransform;
 
         private void OnEnable()
         {
-            aimTargetEventChannel.OnSetLockOnTarget += HandleSetLockOnTarget;
-            aimTargetEventChannel.OnUnsetLockOnTarget += HandleUnsetLockOnTarget;
+            inputEventChannel.OnFire2 += HandleSetLockOnTarget;
         }
 
         private void OnDisable()
         {
-            aimTargetEventChannel.OnSetLockOnTarget -= HandleSetLockOnTarget;
-            aimTargetEventChannel.OnUnsetLockOnTarget -= HandleUnsetLockOnTarget;
+            inputEventChannel.OnFire2 -= HandleSetLockOnTarget;
+        }
+        
+        private void Start() => HandleUnsetLockOnTarget();
+
+        private void HandleSetLockOnTarget(InputAction.CallbackContext callbackContext)
+        {
+            if (callbackContext.canceled)
+            {
+                HandleUnsetLockOnTarget();
+            }
+            else if (aimData.LockOnTarget)
+            {
+                HandleSetLockOnTarget();
+            }
         }
 
-        private void HandleSetLockOnTarget(Transform target)
+        private void HandleSetLockOnTarget()
         {
-            aimFollowCursor.enabled = false;
-            
-            aimFollowTarget.enabled = true;
-            aimFollowTarget.aimTarget = target;
+            aimModeFollowCursor.enabled = false;
+            aimModeFollowTransform.enabled = true;
         }
         
         private void HandleUnsetLockOnTarget()
         {
-            aimFollowTarget.enabled = false;
-            aimFollowCursor.enabled = true;
+            aimModeFollowCursor.enabled = true;
+            aimModeFollowTransform.enabled = false;
         }
-
-        private void Start() => HandleUnsetLockOnTarget();
     }
 }

@@ -182,7 +182,7 @@ namespace GWS.WorldGen
             InstantiateParticles(newChunk, particlesPos);
 
             // initialize particles if GW active
-            if (!awake && GWManager.Instance.IsWaveActive)
+            if (!awake && (GWManager.Instance?.IsWaveActive ?? false))
             {
                 GWManager.Instance.InitializeChunk(newChunk);
             }

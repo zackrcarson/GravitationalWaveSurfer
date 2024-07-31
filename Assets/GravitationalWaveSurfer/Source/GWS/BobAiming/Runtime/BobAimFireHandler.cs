@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using GWS.Aiming.Runtime;
 using GWS.Input.Runtime;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace GWS.BobAiming.Runtime
         private InputEventChannel inputEventChannel;
 
         [SerializeField] 
-        private Aiming.Runtime.AimData aimData;
+        private AimData aimData;
 
         [SerializeField] 
         private ConfigurableJoint bobJoint;
@@ -53,7 +54,7 @@ namespace GWS.BobAiming.Runtime
             
             if (bobJoint.xMotion != ConfigurableJointMotion.Limited || !CanFire(transform.position, bobPosition, bobMaxActionableDistance)) return;
             
-            var direction = ScreenPointToDirection(aimData.position, aimData.camera, bobPosition);
+            var direction = AimDataManager.ScreenPointToDirection(aimData.position, aimData.camera, bobPosition);
             
             bobJoint.connectedBody = null;
             bobJoint.xMotion = ConfigurableJointMotion.Free;
@@ -69,14 +70,6 @@ namespace GWS.BobAiming.Runtime
         private static bool CanFire(Vector3 position, Vector3 bobPosition, float maxActionableDistance)
         {
             return Vector3.Distance(position, bobPosition) <= maxActionableDistance;
-        }
-
-        private static Vector3 ScreenPointToDirection(Vector3 point, Camera camera, Vector3 position)
-        {
-            var distanceToCamera = Vector3.Distance(camera.transform.position, position);
-            point.z += distanceToCamera;
-            var pointToWorld = camera.ScreenToWorldPoint(point);
-            return Vector3.Normalize(pointToWorld - position);
         }
 
         private async void DelayReactivateSpring()

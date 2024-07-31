@@ -10,22 +10,12 @@ namespace GWS.HydrogenCollectionUI.Runtime
     public class HydrogenText : MonoBehaviour
     {
         [SerializeField] 
-        private ParticleInventoryEventChannel particleInventoryEventChannel;
+        private ParticleInventory particleInventory;
         
         [SerializeField]
         private TMP_Text text;
 
         private float time;
-
-        private void OnEnable()
-        {
-            particleInventoryEventChannel.OnHydrogenCountChanged += UpdateText;
-        }
-
-        private void OnDisable()
-        {
-            particleInventoryEventChannel.OnHydrogenCountChanged -= UpdateText;
-        }
 
         private void Start()
         {
@@ -35,6 +25,11 @@ namespace GWS.HydrogenCollectionUI.Runtime
         private void FixedUpdate()
         {
             WiggleText(0.05f);
+        }
+
+        private void Update()
+        {
+            UpdateText(particleInventory.HydrogenCount);
         }
 
         /// <summary>

@@ -15,7 +15,7 @@ namespace GWS.WorldGen
         private void Start()
         {
             lastUpdatedPosition = transform.position;
-            ChunkManager.Instance.UpdatePlayerPosition(transform.position);
+            ChunkManager.Instance?.UpdatePlayerPosition(transform.position);
         }
 
         private void Update()
@@ -23,7 +23,7 @@ namespace GWS.WorldGen
             if (Vector3.Distance(transform.position, lastUpdatedPosition) > updateThreshold)
             {
                 lastUpdatedPosition = transform.position;
-                ChunkManager.Instance.UpdatePlayerPosition(transform.position);
+                ChunkManager.Instance?.UpdatePlayerPosition(transform.position);
             }    
         }
     }

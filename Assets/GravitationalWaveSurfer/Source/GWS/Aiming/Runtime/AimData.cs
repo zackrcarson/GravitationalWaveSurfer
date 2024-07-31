@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GWS.Aiming.Runtime
 {
@@ -12,6 +13,11 @@ namespace GWS.Aiming.Runtime
         /// The screen-space position of the aim, with the z axis representing depth.
         /// </summary>
         public Vector3 position;
+
+        /// <summary>
+        /// The target to be locked onto. 
+        /// </summary>
+        public Transform LockOnTarget { get; set; } 
 
         /// <summary>
         /// The camera used for aim calculations.

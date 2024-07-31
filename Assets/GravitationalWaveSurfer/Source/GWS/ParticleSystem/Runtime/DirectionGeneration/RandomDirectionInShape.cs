@@ -15,7 +15,7 @@ namespace GWS.ParticleSystem.Runtime.DirectionGeneration
 
         public Vector3 GetDirection()
         {
-            return shape.ConvertToShapeDirection(Random.insideUnitSphere);
+            return shape?.ConvertToShapeDirection(Random.insideUnitSphere) ?? Vector3.zero;
         }
     }
 }

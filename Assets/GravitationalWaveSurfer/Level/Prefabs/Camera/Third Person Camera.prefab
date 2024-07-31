@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8165240769551873035}
   - component: {fileID: 1318290661934320346}
   - component: {fileID: 2337775574587741974}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Third Person Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
+    Enabled: 1
     m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
       Curvature: {x: 2, y: 11}
       BarrelClipping: 0.25
       Anamorphism: 0
-  BlendHint: 11
+  BlendHint: 8
 --- !u!114 &8165240769551873035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: 0, y: 0.008522749}
     DeadZone:
       Enabled: 0
       Size: {x: 0.2, y: 0.2}
@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReferenceFrame: 1
+  RecenterTarget: 0
   PanAxis:
     Value: 0
     Center: 0
