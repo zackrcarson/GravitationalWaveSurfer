@@ -154,7 +154,7 @@ Material:
     - _ISCO_Cutoff_Smoothness: 2.55
     - _Index_Of_Refraction: 0
     - _MaskRadius: 1.57
-    - _Mass: 0.44
+    - _Mass: 0.3
     - _Mass_Accretion: 0.0000001
     - _Mass_Multiplier: 1
     - _Metallic: 0
