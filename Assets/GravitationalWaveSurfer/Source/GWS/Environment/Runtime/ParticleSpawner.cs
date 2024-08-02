@@ -9,7 +9,7 @@ namespace GWS.WorldGen
 
         public GameObject particlePrefab; // Prefab of the particle system
 
-        public int numParticles = 2000;  // Number of particles to spawn
+        public int numMaxParticles = 2000;  // Number of particles to spawn
         public int numClusters = 20;     // Number of clusters
         public float clusterRadius = 20f;     // Radius of each cluster
         public float clusterCenterPadding = 5f; // Cluster Center must be this number far away from boundary
@@ -25,17 +25,18 @@ namespace GWS.WorldGen
         }
 
         /// <summary>
-        /// Main generative function, right now only generating particles<br />
+        /// Randomly generates positions for particles in a chunk  <br/>
         /// </summary>
         /// <param name="chunkPosition"></param>
         /// <param name="chunkSize"></param>
-        /// <returns>List of ParticleData</returns>
-        public List<Vector3> GenerateObjectsForChunk(Vector3Int chunkPosition, float chunkSize)
+        /// <param name="density">float smaller than 1</param>
+        /// <returns>List of particle positions</returns>
+        public List<Vector3> GenerateParticlesForChunk(Vector3Int chunkPosition, float chunkSize, float density)
         {
             List<Vector3> particles = new List<Vector3>();
-            Vector3 chunkCenter = new Vector3(chunkPosition.x * chunkSize + chunkSize / 2,
-                                              chunkPosition.y * chunkSize + chunkSize / 2,
-                                              chunkPosition.z * chunkSize + chunkSize / 2);
+            Vector3 chunkCenter = new Vector3(chunkPosition.x * chunkSize + chunkSize / 2f,
+                                              chunkPosition.y * chunkSize + chunkSize / 2f,
+                                              chunkPosition.z * chunkSize + chunkSize / 2f);
 
             // Generate cluster centers
             Vector3[] clusterCenters = new Vector3[numClusters];
@@ -43,6 +44,8 @@ namespace GWS.WorldGen
             {
                 clusterCenters[i] = chunkCenter + GetRandomPositionInChunk(chunkSize, clusterCenterPadding);
             }
+
+            float numParticles = density * numMaxParticles;
 
             // Generate particles around cluster centers
             for (int i= 0; i < numParticles; i++)

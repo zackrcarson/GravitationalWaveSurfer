@@ -9,7 +9,7 @@ namespace GWS.HydrogenCollection.Runtime
     {
         [SerializeField]
         private ParticleInventory particleInventory;
-
+        
         [SerializeField] 
         private ParticleInventoryEventChannel particleInventoryEventChannel;
         
@@ -48,6 +48,7 @@ namespace GWS.HydrogenCollection.Runtime
         {
             particleInventory.HydrogenCount += amount;
             particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);
+            Debug.Log("adding 1 hydrogen");
         }
 
         private void HandleCollision(Component other, AudioClip clip)
