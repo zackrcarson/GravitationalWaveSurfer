@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.013329662, g: 0.012600996, b: 0.013690378, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,11 +254,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Input Handler
       objectReference: {fileID: 0}
+    - target: {fileID: 3359671578048746798, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+      propertyPath: playerInput
+      value: 
+      objectReference: {fileID: 455261527}
+    - target: {fileID: 3359671578048746798, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+      propertyPath: inputEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: caead84492d983641ae97fb3cd15754c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+--- !u!114 &455261527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2507180198733815871, guid: 7499aacb478b4db4ab83c975c2bf2513, type: 3}
+  m_PrefabInstance: {fileID: 455261526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &620042588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1065367230849628933, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.0984123
       objectReference: {fileID: 0}
     - target: {fileID: 1065367230849628933, guid: ae25ab05d213cb342899a1c77af94062, type: 3}
       propertyPath: m_LocalPosition.z
@@ -408,7 +427,7 @@ Transform:
   m_GameObject: {fileID: 956270515}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -10}
+  m_LocalPosition: {x: 0, y: 2.0984123, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -767,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6333489894968387334, guid: b068994387690fe48b323f183bef82f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.0984123
       objectReference: {fileID: 0}
     - target: {fileID: 6333489894968387334, guid: b068994387690fe48b323f183bef82f2, type: 3}
       propertyPath: m_LocalPosition.z
