@@ -4,6 +4,12 @@ using UnityEngine.UI;
 using GWS.UI.Runtime;
 using GWS.WorldGen;
 
+/// <summary>
+/// Manages everything related to POIs: <br/>
+/// - checking for POIs in current chunk to show interact UI <br/>
+/// - generating UIs for each POI, randomly picking a question <br/>
+/// - turning on and off UIs
+/// </summary>
 public class POIManager : MonoBehaviour
 {
     [Header("Interaction settings")]
@@ -11,6 +17,7 @@ public class POIManager : MonoBehaviour
     public KeyCode interactionKey = KeyCode.E;
     private bool interactionPermission = true;
     public bool interactionUIActive = false;
+    public bool POIUIActive = false;
 
     [Space(6)]
     [Header("Relevant GameObjects")]
@@ -31,13 +38,20 @@ public class POIManager : MonoBehaviour
             CheckPOIInVicinity();
         }
 
-        if (interactionUIActive && Input.GetKeyDown(interactionKey))
+        if (interactionUIActive && Input.GetKeyDown(interactionKey) && !POIUIActive)
         {
             InteractWithPOI();
+            POIUIActive = true;
+            // restrict movements when in POI interaction menu?
+        }
+        else if (POIUIActive && Input.GetKeyDown(interactionKey))
+        {
+            POI_UI.Instance.TogglePOIUI(false);
+            POIUIActive = false;
         }
     }
 
-    public void toggleInteractionPermission(bool value)
+    public void ToggleInteractionPermission(bool value)
     {
         interactionPermission = value;
     }
@@ -82,11 +96,21 @@ public class POIManager : MonoBehaviour
         if (currentPOI.CompareTag("POI"))
         {
             Debug.Log("Interacting with POI: " + currentPOI.name);
+            POI_UI.Instance.TogglePOIUI(true, 10, 1000);
         }
         else if (currentPOI.CompareTag("Black Hole"))
         {
             Debug.Log("Interacting with Black Hole: " + currentPOI.name);
         }
+    }
+
+    /// <summary>
+    /// Specifically for the exit button in POI UI
+    /// </summary>
+    public void DeactivatePOIUI()
+    {
+        POIUIActive = false;
+        POI_UI.Instance.TogglePOIUI(false);
     }
 
 }

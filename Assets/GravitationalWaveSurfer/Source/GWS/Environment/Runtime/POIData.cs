@@ -10,6 +10,7 @@ namespace GWS.Data
         public float PassiveValue { get; private set; }
         public float OneTimeValue { get; private set; }
         public bool Available { get; private set; } = true;
+        public int QuestionID;
 
         public POIData(float passiveValue, float oneTimeValue)
         {

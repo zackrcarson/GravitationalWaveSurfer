@@ -218,7 +218,7 @@ namespace GWS.WorldGen
             }
             else if (POI < POIProbability)
             {
-                Debug.Log("Generating POI");
+                // Debug.Log("Generating POI");
                 // generate POI for chunk
                 Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
                                     chunkPos.y * chunkSize + chunkSize / 2,
@@ -235,7 +235,7 @@ namespace GWS.WorldGen
             }
             else
             {
-                Debug.Log("Generating black hole");
+                // Debug.Log("Generating black hole");
                 // generate black hole
                 Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
                                     chunkPos.y * chunkSize + chunkSize / 2,
@@ -307,7 +307,7 @@ namespace GWS.WorldGen
         /// <param name="chunk"></param>
         /// <param name="chunkCenter"></param>
         /// <param name="POI"></param>
-        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject, String tag="Object")
+        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject, string tag ="Object")
         {
             List<GameObject> objects = new List<GameObject>();
             GameObject POIGameObject = Instantiate(gameObject, chunkCenter, Quaternion.identity, chunk.ChunkObject.transform);
