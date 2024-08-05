@@ -20,13 +20,10 @@ namespace GWS.GeneralRelativitySimulation.Runtime
         [SerializeField]
         public SimulatedObjectMonoBehaviour simulatedObject;
 
-        [SerializeField] 
-        private float forceMultiplier = 1;
-
         private void FixedUpdate()
         {
             var totalForces = GetTotalForces(simulatedObject, simulatedObjects.objects); 
-            simulatedObject.AddForce(totalForces * forceMultiplier);
+            simulatedObject.AddForce(totalForces);
         }
 
         private static Vector3 GetTotalForces(ISimulatedObject simulatedObject, IEnumerable<ISimulatedObject> otherObjects)

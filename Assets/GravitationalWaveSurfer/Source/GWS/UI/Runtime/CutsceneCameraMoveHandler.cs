@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,8 +44,8 @@ namespace GWS.UI.Runtime
         // TODO - move to new output system
         private void HandleMouseLook()
         {
-            float mouseX = UnityEngine.Input.GetAxis("Mouse X") * mouseSensitivty;
-            float mouseY = UnityEngine.Input.GetAxis("Mouse Y") * mouseSensitivty;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivty;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivty;
 
             transform.Rotate(Vector3.up * mouseX);
             playerCamera.transform.Rotate(Vector3.left * mouseY);
@@ -53,18 +56,18 @@ namespace GWS.UI.Runtime
         {
             moveDirection = Vector3.zero;
 
-            if (UnityEngine.Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
                 moveDirection += playerCamera.transform.forward;
-            if (UnityEngine.Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
                 moveDirection -= playerCamera.transform.forward;
-            if (UnityEngine.Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
                 moveDirection -= playerCamera.transform.right;
-            if (UnityEngine.Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
                 moveDirection += playerCamera.transform.right;
 
             moveDirection.Normalize();
 
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene("BaseMainMenu");
             }
@@ -72,7 +75,7 @@ namespace GWS.UI.Runtime
 
         private void ApplyMovement()
         {
-            transform.position += moveDirection * (flySpeed * Time.fixedDeltaTime);
+            transform.position += moveDirection * flySpeed * Time.fixedDeltaTime;
         }
 
         /// <summary>

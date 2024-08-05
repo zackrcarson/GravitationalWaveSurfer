@@ -6,7 +6,7 @@ using Unity.Cinemachine;
 namespace GWS.Player.Runtime
 {
     /// <summary>
-    /// Cycles through a list of Cinemachine cameras by adjusting their priorities. Used for testing purposes.
+    /// Cycles through a list of Cinemachine cameras by adjusting their priorities.
     /// </summary>
     public readonly struct PlayerCommandSetActiveCamera: ICommand
     {
