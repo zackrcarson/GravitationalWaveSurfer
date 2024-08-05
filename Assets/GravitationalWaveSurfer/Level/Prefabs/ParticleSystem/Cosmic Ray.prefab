@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8844596366210428655}
   - component: {fileID: 7893081905440952450}
   - component: {fileID: -8935381257456776879}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Cosmic Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}

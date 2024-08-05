@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TrackingObject
+  - Attractable
+  - Electron
+  - Particle_Parent
+  - Proton
+  - Neutron
+  - Particle Clump
+  - Anti-Proton
+  - Anti-Electron
+  - Anti-Neutron
+  - Black Hole
+  - Actors
   layers:
   - Default
   - TransparentFX
@@ -11,7 +23,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Aimable
   - 
   - 
   - 

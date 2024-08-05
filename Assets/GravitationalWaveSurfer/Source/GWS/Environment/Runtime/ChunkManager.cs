@@ -183,6 +183,8 @@ namespace GWS.WorldGen
         /// <param name="chunkPos">chunk coordinate of new chunk</param>
         private void GenerateChunk(Vector3Int chunkPos, bool awake=false)
         {
+            if (!GWManager.Instance) return; 
+                
             Chunk newChunk = new Chunk(chunkPos, chunkParent);
             chunks[chunkPos] = newChunk;    // chunks: V3I -> Chunk
 

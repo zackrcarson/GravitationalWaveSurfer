@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Environment/Runtime/ChunkManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Environment/Runtime/ChunkManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/HydrogenCollection/Runtime/HydrogenEater.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/CutsceneCameraMoveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/CutsceneCameraMoveHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +28,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -149,7 +146,8 @@
       <workItem from="1722403561553" duration="19000" />
       <workItem from="1722403620721" duration="141000" />
       <workItem from="1722403774260" duration="14182000" />
-      <workItem from="1722868832004" duration="359000" />
+      <workItem from="1722868832004" duration="1047000" />
+      <workItem from="1722870456870" duration="1255000" />
     </task>
     <servers />
   </component>
