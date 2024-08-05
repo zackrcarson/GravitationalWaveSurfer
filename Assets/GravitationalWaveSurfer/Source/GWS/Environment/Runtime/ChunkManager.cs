@@ -195,15 +195,10 @@ namespace GWS.WorldGen
             |    POI    | BLACK HOLE |                        PARTICLES                        |
             determined by parameters
             */
-
-<<<<<<< HEAD
-            // initialize particles if GW active
-            if (!awake && (GWManager.Instance?.IsWaveActive ?? false))
-=======
+            
             // restrict POI generation if any adjacent chunk already has a POI
             bool hasPOINearby = false;
             if (POI <= (POIProbability + blackHoleProbability))
->>>>>>> 1b1e6b7598f8c6ba01457ed502d0de6b1882a161
             {
                 hasPOINearby = CheckPOINearby(chunkPos);
             }

@@ -2302,8 +2302,6 @@ MonoBehaviour:
   minTimeBetweenWaves: 60
   maxTimeBetweenWaves: 120
   nextWaveTime: 0
-<<<<<<< HEAD
-=======
 --- !u!82 &546312167 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2382108446876858090, guid: 2367970281cef76468b43a13fecccd70, type: 3}
@@ -2443,7 +2441,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612454230}
   m_CullTransparentMesh: 1
->>>>>>> 1b1e6b7598f8c6ba01457ed502d0de6b1882a161
 --- !u!1 &636544295
 GameObject:
   m_ObjectHideFlags: 0
