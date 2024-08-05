@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5042296205299648048}
   - component: {fileID: 8497931787710963434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AttractionRadius
   m_TagString: Attractable
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 7256105841943397165}
   - component: {fileID: 7917249844138790442}
   - component: {fileID: 7601120826822814451}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hydrogen
   m_TagString: Electron
   m_Icon: {fileID: 0}

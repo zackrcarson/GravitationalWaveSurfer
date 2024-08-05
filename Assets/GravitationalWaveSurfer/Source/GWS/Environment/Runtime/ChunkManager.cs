@@ -195,7 +195,7 @@ namespace GWS.WorldGen
             |    POI    | BLACK HOLE |                        PARTICLES                        |
             determined by parameters
             */
-
+            
             // restrict POI generation if any adjacent chunk already has a POI
             bool hasPOINearby = false;
             if (POI <= (POIProbability + blackHoleProbability))

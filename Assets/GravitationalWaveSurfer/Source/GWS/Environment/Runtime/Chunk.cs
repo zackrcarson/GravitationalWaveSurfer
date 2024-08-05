@@ -26,6 +26,7 @@ namespace GWS.WorldGen
             Position = position;
             ChunkObject = new GameObject($"Chunk_{position.x}_{position.y}_{position.z}");
             ChunkObject.transform.parent = chunkParent.transform;
+            ChunkObject.layer = ChunkObject.transform.parent.gameObject.layer;
             IsActive = false;
             Objects = new List<GameObject>();
         }
