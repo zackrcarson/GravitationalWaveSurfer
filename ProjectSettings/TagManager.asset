@@ -15,6 +15,9 @@ TagManager:
   - Particle Clump
   - gridParent
   - Attractable
+  - Actors
+  - TrackingObject
+  - POI
   layers:
   - Default
   - TransparentFX
@@ -25,7 +28,11 @@ TagManager:
   - Player
   - Particles No Overlap
   - Screen Edge
+<<<<<<< HEAD
   - Damage Player
+=======
+  - POI
+>>>>>>> 1b1e6b7598f8c6ba01457ed502d0de6b1882a161
   - 
   - 
   - 

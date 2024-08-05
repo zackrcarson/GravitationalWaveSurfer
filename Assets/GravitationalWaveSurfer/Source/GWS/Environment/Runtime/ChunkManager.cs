@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 namespace GWS.WorldGen
 {
@@ -13,14 +14,23 @@ namespace GWS.WorldGen
 
         [Header("Chunk settings")]
         public GameObject chunkParent;
-        public float chunkSize = 50f;
+        public float chunkSize = 500f;
         public int renderDistance = 1;  // radius of visible chunks beyond current chunk 
-        public int chunkDeleteDistance = 5; // how far away until chunks get deleted for performance sake
+        public int chunkDeleteDistance = 4; // how far away until chunks get deleted for performance sake
         public int initialChunkRadius = 2;  // radius of chunks initially generated beyond current chunk
         public Vector3 initialPosition = Vector3.zero;
 
         private Dictionary<Vector3Int, Chunk> chunks = new Dictionary<Vector3Int, Chunk>();
         private Vector3Int currentPlayerChunk;
+
+        [Space(6)]
+        [Header("Chunk randomization parameters")]
+        public float minParticlePercentage = 0.5f;
+        public float POIProbability = 0.05f;
+        public float blackHoleProbability = 0.01f;
+        public GameObject blackHole;
+        public List<GameObject> POIList;
+        public int POILayer;
 
         // ------------------------------------
         [Space(6)]
@@ -167,6 +177,7 @@ namespace GWS.WorldGen
         /// High level chunk generation function, calls: <br/>
         /// - ParticleSpawner.GenerateObjectsForChunks, actual generation <br/>
         /// - InstantiateParticles(), actual instantiation of GameObjects <br/>
+        /// - InstantiateObject(), for POIs and black holes <br/>
         /// - (debug) chunk border visualization
         /// </summary>
         /// <param name="chunkPos">chunk coordinate of new chunk</param>
@@ -175,20 +186,105 @@ namespace GWS.WorldGen
             Chunk newChunk = new Chunk(chunkPos, chunkParent);
             chunks[chunkPos] = newChunk;    // chunks: V3I -> Chunk
 
-            // generate coordinates for objects first
-            List<Vector3> particlesPos = ParticleSpawner.Instance.GenerateObjectsForChunk(chunkPos, chunkSize);
+            // random chunk attributes and parameters
+            float density = UnityEngine.Random.Range(minParticlePercentage, 1f);
+            float POI = UnityEngine.Random.Range(0f, 1f);
 
-            // actually instantiating them in Unity
-            InstantiateParticles(newChunk, particlesPos);
+            /*
+            approximate probability distribution:
+            |    POI    | BLACK HOLE |                        PARTICLES                        |
+            determined by parameters
+            */
 
+<<<<<<< HEAD
             // initialize particles if GW active
             if (!awake && (GWManager.Instance?.IsWaveActive ?? false))
+=======
+            // restrict POI generation if any adjacent chunk already has a POI
+            bool hasPOINearby = false;
+            if (POI <= (POIProbability + blackHoleProbability))
+>>>>>>> 1b1e6b7598f8c6ba01457ed502d0de6b1882a161
             {
-                GWManager.Instance.InitializeChunk(newChunk);
+                hasPOINearby = CheckPOINearby(chunkPos);
+            }
+
+            if (POI > (POIProbability + blackHoleProbability) || hasPOINearby)
+            {
+                // generate coordinates for particles first
+                List<Vector3> particlesPos = ParticleSpawner.Instance.GenerateParticlesForChunk(chunkPos, chunkSize, density);
+                // actually instantiating them in Unity
+                InstantiateParticles(newChunk, particlesPos);
+
+                // initialize particles if GW active
+                if (!awake && GWManager.Instance.IsWaveActive)
+                {
+                    GWManager.Instance.InitializeChunk(newChunk);
+                }
+            }
+            else if (POI < POIProbability)
+            {
+                Debug.Log("Generating POI");
+                // generate POI for chunk
+                Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
+                                    chunkPos.y * chunkSize + chunkSize / 2,
+                                    chunkPos.z * chunkSize + chunkSize / 2);
+
+                chunkCenter += new Vector3(UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f));
+
+                // pick random POI and instantiate the GameObject
+                int POIIndex = UnityEngine.Random.Range(0, POIList.Count);
+                InstantiateObject(newChunk, chunkCenter, POIList[POIIndex], "POI");
+                newChunk.SetPOI(true);
+            }
+            else
+            {
+                Debug.Log("Generating black hole");
+                // generate black hole
+                Vector3 chunkCenter = new Vector3(chunkPos.x * chunkSize + chunkSize / 2,
+                                    chunkPos.y * chunkSize + chunkSize / 2,
+                                    chunkPos.z * chunkSize + chunkSize / 2);
+
+                chunkCenter += new Vector3(UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f));
+
+                InstantiateObject(newChunk, chunkCenter, blackHole, "Black Hole");
+                newChunk.SetPOI(true);
             }
 
             // visualize chunk borders
             VisualizeChunkBorders(newChunk);
+        }
+
+        /// <summary>
+        /// Helper function: checks if POI exists in any adjacent Chunk (6 directions not diagonals)
+        /// </summary>
+        /// <param name="chunkPos">current chunk coordinate</param>
+        /// <returns>boolean, true if exists, false otherwise</returns>
+        private bool CheckPOINearby(Vector3Int chunkPos)
+        {
+            Vector3Int[] adjacentPositions = new Vector3Int[]
+            {
+                new Vector3Int(1, 0, 0),
+                new Vector3Int(-1, 0, 0),
+                new Vector3Int(0, 1, 0),
+                new Vector3Int(0, -1, 0),
+                new Vector3Int(0, 0, 1),
+                new Vector3Int(0, 0, -1)
+            };
+
+            foreach (Vector3Int offset in adjacentPositions)
+            {
+                Vector3Int adjacentPos = chunkPos + offset;
+                if (chunks.TryGetValue(adjacentPos, out Chunk adjacentChunk))
+                {
+                    if (adjacentChunk.HasPOI) return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -210,9 +306,39 @@ namespace GWS.WorldGen
             chunk.SetObjects(objects);
         }
 
+        /// <summary>
+        /// Instantiate object at some position in some chunk
+        /// </summary>
+        /// <param name="chunk"></param>
+        /// <param name="chunkCenter"></param>
+        /// <param name="POI"></param>
+        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject, String tag="Object")
+        {
+            List<GameObject> objects = new List<GameObject>();
+            GameObject POIGameObject = Instantiate(gameObject, chunkCenter, Quaternion.identity, chunk.ChunkObject.transform);
+            POIGameObject.transform.localScale *= 40f;
+            POIGameObject.tag = tag;
+            POIGameObject.layer = POILayer;
+            objects.Add(POIGameObject);
+            chunk.SetObjects(objects);
+        }
+
+        /// <summary>
+        /// Helper function: return an iterable of Chunk that are active right now
+        /// </summary>
+        /// <returns>IEnumerable of Chunk</returns>
         public IEnumerable<Chunk> GetActiveChunks()
         {
             return chunks.Values.Where(c => c.IsActive);
+        }
+
+        /// <summary>
+        /// Helper function: return the Chunk object where the player is currently in
+        /// </summary>
+        /// <returns></returns>
+        public Chunk GetCurrentChunk()
+        {
+            return chunks[currentPlayerChunk];
         }
 
         /// <summary>
