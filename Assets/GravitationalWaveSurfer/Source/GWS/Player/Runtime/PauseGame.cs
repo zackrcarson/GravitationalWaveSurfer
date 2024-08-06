@@ -27,6 +27,8 @@ namespace GWS.Player.Runtime
         private bool isPaused = false;
 
         private float currentTimeScale = 1f;
+
+        public static bool isInMainScene = true;
         
         private static readonly int Open = Animator.StringToHash("Open");
         private static readonly int Close = Animator.StringToHash("Close");
@@ -83,7 +85,10 @@ namespace GWS.Player.Runtime
             yield return new WaitForSecondsRealtime(pauseTime);
 
             pauseMenu.SetActive(false);
-            statsMenu.SetActive(true);
+            if (isInMainScene)
+            {
+                statsMenu.SetActive(true);
+            }
             TimeSpeedManager.Scale = currentTimeScale;
             isPaused = false;
             AudioListener.volume = 1;

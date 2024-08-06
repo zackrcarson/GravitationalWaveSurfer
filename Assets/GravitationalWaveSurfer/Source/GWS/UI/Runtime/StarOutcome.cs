@@ -15,9 +15,9 @@ namespace GWS.UI.Runtime
         He3,
         He4,
         C,
-        O,
         Ne,
-        Si,
+        O,
+        S,
         Fe
     }
 }

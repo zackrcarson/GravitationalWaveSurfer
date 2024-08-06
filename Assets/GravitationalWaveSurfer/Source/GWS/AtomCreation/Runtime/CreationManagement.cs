@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Numerics;
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
 
 namespace GWS.AtomCreation
 {
@@ -50,11 +53,15 @@ namespace GWS.AtomCreation
         public GameObject UI;
         public bool UIVisible = true;
 
+        private static readonly Vector3 ORIGIN_POINT = new Vector3(0, 10000, 0);
+
         private void Start()
         {
             if (nucleusFolder == null) nucleusFolder = new GameObject(nucleusFolderName);
+            nucleusFolder.transform.position = ORIGIN_POINT;
             if (eRingFolder == null) eRingFolder = new GameObject(eRingFolderName);
-            
+            eRingFolder.transform.position = ORIGIN_POINT;
+
             protonParticles = new List<GameObject>();
             neutronParticles = new List<GameObject>();
 
@@ -127,14 +134,14 @@ namespace GWS.AtomCreation
                 foreach (Rigidbody rb in protonRigidbodies)
                 {
                     // Gravity: inward direction towards origin
-                    Vector3 directionToOrigin = -rb.position.normalized;
+                    Vector3 directionToOrigin = (ORIGIN_POINT - rb.position).normalized;
                     rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
                     rb.velocity *= dampingFactor;   // Manual damping
                 }
                 foreach (Rigidbody rb in neutronRigidbodies)
                 {
                     // Gravity: inward direction towards origin
-                    Vector3 directionToOrigin = -rb.position.normalized;
+                    Vector3 directionToOrigin = (ORIGIN_POINT - rb.position).normalized;
                     rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
                     // Manually take away energy to help convergence
                     rb.velocity *= dampingFactor;   // Manual damping
@@ -158,7 +165,7 @@ namespace GWS.AtomCreation
                 {
                     if (numProton == 1)
                     {
-                        Debug.Log(Vector3.Distance(protonParticles[0].transform.position, Vector3.zero));
+                        //Debug.Log(Vector3.Distance(protonParticles[0].transform.position, Vector3.zero));
                     }
                     if (numProton == 1 && Vector3.Distance(protonParticles[0].transform.position, Vector3.zero) > threshold)
                     {
@@ -207,7 +214,7 @@ namespace GWS.AtomCreation
 
             for (int i = 0; i < eRingConfiguration.Count; i++) 
             {
-                GameObject ring = Instantiate(electronRingPrefab, Vector3.zero, Quaternion.identity);
+                GameObject ring = Instantiate(electronRingPrefab, ORIGIN_POINT, Quaternion.identity);
                 float radius = eRingRadius + i * eRingRadiusDiff;
                 ring.transform.localScale = new Vector3(radius, radius, radius);
                 electronRings.Add(ring);
@@ -280,7 +287,7 @@ namespace GWS.AtomCreation
         void SpawnParticle(string type, int i)
         {
             Vector3 randomDirection = UnityEngine.Random.onUnitSphere; // Point on the surface of a unit sphere
-            Vector3 spawnPosition = randomDirection * spawnSphereRadius; // Scale to the desired radius
+            Vector3 spawnPosition = ORIGIN_POINT + (randomDirection * spawnSphereRadius); // Scale to the desired radius
 
             // Instantiate particle objects
             GameObject particle;
@@ -458,6 +465,7 @@ namespace GWS.AtomCreation
                 // newPositions.Add(new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale);
                 Vector3 position = new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale;
                 position = eRing.transform.rotation * position;
+                position += ORIGIN_POINT; // Offset by ORIGIN_POINT
                 newPositions.Add(position);
             }
 
@@ -536,6 +544,7 @@ namespace GWS.AtomCreation
                 // newPositions.Add(new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale);
                 Vector3 position = new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale;
                 position = eRing.transform.rotation * position;
+                position += ORIGIN_POINT;
                 newPositions.Add(position);
             }
 
