@@ -7,6 +7,8 @@ namespace GWS.HydrogenCollection.Runtime
     /// </summary>
     public class HydrogenEater : MonoBehaviour
     {
+        public static HydrogenEater Instance { get; private set; }
+
         [SerializeField]
         private ParticleInventory particleInventory;
         
@@ -30,6 +32,11 @@ namespace GWS.HydrogenCollection.Runtime
 
         private float lastAudioTime;
 
+        private void Awake()
+        {
+            if (Instance == null) Instance = this;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Electron"))
@@ -44,11 +51,11 @@ namespace GWS.HydrogenCollection.Runtime
             }
         }
         
-        private void AddHydrogen(int amount)
+        public void AddHydrogen(int amount)
         {
             particleInventory.HydrogenCount += amount;
             particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);
-            Debug.Log("adding 1 hydrogen");
+            // Debug.Log($"adding {amount} hydrogen");
         }
 
         private void HandleCollision(Component other, AudioClip clip)

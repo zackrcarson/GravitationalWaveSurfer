@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+using GWS.Data;
+
 namespace GWS.WorldGen
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace GWS.WorldGen
     public class ChunkManager : MonoBehaviour
     {
         public static ChunkManager Instance { get; private set; }
-
+        
         [Header("Chunk settings")]
         public GameObject chunkParent;
         public float chunkSize = 500f;
@@ -31,6 +33,13 @@ namespace GWS.WorldGen
         public GameObject blackHole;
         public List<GameObject> POIList;
         public int POILayer;
+
+        [Space(6)]
+        [Header("POI properties' randomization parameters")]
+        public int minOneTimeValue = 100;
+        public int maxOneTimeValue = 1000;
+        public int minPassiveValue = 1;
+        public int maxPassiveValue = 5;
 
         // ------------------------------------
         [Space(6)]
@@ -314,6 +323,15 @@ namespace GWS.WorldGen
             POIGameObject.transform.localScale *= 40f;
             POIGameObject.tag = tag;
             POIGameObject.layer = POILayer;
+
+            if (tag == "POI")
+            {
+                POIData poiData = POIGameObject.GetComponent<POIData>();
+                poiData.Initialize(UnityEngine.Random.Range(minPassiveValue, maxPassiveValue),
+                                   UnityEngine.Random.Range(minOneTimeValue, maxOneTimeValue),
+                                   POIManager.Instance.questionDatabase.GetRandomQuestion());
+            }
+
             objects.Add(POIGameObject);
             chunk.SetObjects(objects);
         }

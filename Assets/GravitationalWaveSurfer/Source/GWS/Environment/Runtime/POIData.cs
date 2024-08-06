@@ -3,24 +3,28 @@ using UnityEngine;
 namespace GWS.Data
 {
     /// <summary>
-    /// Helper class to store POI-specific data
+    /// Helper class to store POI-specific data <br/>
+    /// Needs to be attached on every POI Prefab
     /// </summary>
     public class POIData : MonoBehaviour
     {
-        public float PassiveValue { get; private set; }
-        public float OneTimeValue { get; private set; }
-        public bool Available { get; private set; } = true;
-        public int QuestionID;
+        public string Name;
+        public int PassiveValue { get; private set; }
+        public int OneTimeValue { get; private set; }
+        public bool Available { get; private set; }
+        public int QuestionID { get; private set; }
 
-        public POIData(float passiveValue, float oneTimeValue)
+        public void Initialize(int passiveValue, int oneTimeValue, int questionID)
         {
             PassiveValue = passiveValue;
             OneTimeValue = oneTimeValue;
+            QuestionID = questionID;
+            Available = true;
         }
 
-        public void SetAvailable(bool available)
+        public void SetAvailability(bool value)
         {
-            Available = available;
+            Available = value;
         }
     }
 }
