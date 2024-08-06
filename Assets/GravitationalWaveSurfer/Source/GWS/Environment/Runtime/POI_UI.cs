@@ -4,7 +4,7 @@ using TMPro;
 
 using GWS.Quiz;
 using GWS.HydrogenCollection.Runtime;
-using GWS.GameStage;
+using GWS.GameStage.Runtime;
 
 namespace GWS.WorldGen
 {
@@ -158,7 +158,7 @@ namespace GWS.WorldGen
                 oneTimeButton.onClick.RemoveAllListeners();
                 passiveButton.onClick.RemoveAllListeners();
 
-                oneTimeButton.onClick.AddListener(() => HydrogenEater.Instance.AddHydrogen(oneTimeValue));
+                oneTimeButton.onClick.AddListener(() => HydrogenManager.Instance.AddHydrogen(oneTimeValue));
                 oneTimeButton.onClick.AddListener(() => TogglePOIUI(false));
                 oneTimeButton.onClick.AddListener(() => POIManager.Instance.TogglePOIUIActive(false));
                 oneTimeButton.onClick.AddListener(() => POIManager.Instance.ToggleCurrentPOIAvailability(false));

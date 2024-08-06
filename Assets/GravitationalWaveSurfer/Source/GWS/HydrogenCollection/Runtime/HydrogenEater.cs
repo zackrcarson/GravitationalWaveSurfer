@@ -1,6 +1,5 @@
 using UnityEngine;
-
-// using GWS.GameStage;
+using System;
 
 namespace GWS.HydrogenCollection.Runtime
 {
@@ -44,12 +43,14 @@ namespace GWS.HydrogenCollection.Runtime
             if (other.CompareTag("Electron"))
             {
                 HandleCollision(other, pop);
-                AddHydrogen(1);
+                HydrogenManager.Instance.AddHydrogen(1);
+                // AddHydrogen(1);
             }
             else if (other.CompareTag("Anti-Electron"))
             {
                 HandleCollision(other, flash);
-                AddHydrogen(-1);
+                HydrogenManager.Instance.AddHydrogen(-1);
+                // AddHydrogen(-1);
             }
         }
         
@@ -67,7 +68,7 @@ namespace GWS.HydrogenCollection.Runtime
 
             if (Time.time >= lastAudioTime + audioCooldown)
             {
-                constantAudioSource.pitch = Random.Range(1f, 1.25f);
+                constantAudioSource.pitch = UnityEngine.Random.Range(1f, 1.25f);
                 constantAudioSource.PlayOneShot(clip, 0.1f);
                 lastAudioTime = Time.time;
                 sparks.Play();

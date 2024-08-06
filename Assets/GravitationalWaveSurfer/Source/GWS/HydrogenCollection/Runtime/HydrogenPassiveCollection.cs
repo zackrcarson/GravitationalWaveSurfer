@@ -13,6 +13,7 @@ namespace GWS.HydrogenCollection.Runtime
         private void Awake()
         {
             if (Instance == null) Instance = this;
+            else Destroy(gameObject);
         }
 
         private void Start()
@@ -31,7 +32,7 @@ namespace GWS.HydrogenCollection.Runtime
 
         private void CollectPassiveHydrogen()
         {
-            HydrogenEater.Instance.AddHydrogen(passiveCollection);
+            HydrogenManager.Instance.AddHydrogen(passiveCollection);
         }
 
         /// <summary>

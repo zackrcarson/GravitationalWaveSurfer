@@ -2966,8 +2966,9 @@ GameObject:
   m_Component:
   - component: {fileID: 432549263}
   - component: {fileID: 432549264}
+  - component: {fileID: 432549265}
   m_Layer: 0
-  m_Name: PassiveCollectManager
+  m_Name: HydrogenManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3001,6 +3002,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   passiveCollection: 0
+--- !u!114 &432549265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432549262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1eb56c47951caf488518f1e33bb6d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 0
 --- !u!1 &442485285
 GameObject:
   m_ObjectHideFlags: 0
@@ -6853,7 +6867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTime: 600
-  multiplier: 1
+  multiplier: 0
   incPerQuizQuestion: 3
   incPassiveTotal: 40
   incPassiveTime: 2.2
@@ -11490,7 +11504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1975000326
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,8 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 using TMPro;
+using GWS.HydrogenCollection.Runtime;
 
-namespace GWS.GameStage
+namespace GWS.GameStage.Runtime
 {
     public class GameStageManager : MonoBehaviour
     {
@@ -11,7 +12,7 @@ namespace GWS.GameStage
 
         [Header("Game stage parameters")]
         public float gameTime = 600f;
-        public int multiplier = 1;
+        public int multiplier = 0;
         public int incPerQuizQuestion = 3;
         public int incPassiveTotal = 40;
         public float incPassiveTime = 2.2f;
@@ -34,7 +35,7 @@ namespace GWS.GameStage
             gameStageText = gameStageObject.GetComponent<TextMeshProUGUI>();
 
             incPassiveTime =  gameTime / (float) incPassiveTotal;
-            Debug.Log(incPassiveTime);
+            // Debug.Log(incPassiveTime);
 
             StartCoroutine(PassiveGameStageInc());
         }
@@ -46,6 +47,7 @@ namespace GWS.GameStage
                 yield return new WaitForSeconds(incPassiveTime);
                 multiplier++;
                 gameStageText.text = $"Multiplier: 10^{multiplier}";
+                HydrogenManager.Instance.ChangeMultiplier(multiplier);
             }
         }
 
@@ -53,6 +55,7 @@ namespace GWS.GameStage
         {
             multiplier += incPerQuizQuestion;
             gameStageText.text = $"Multiplier: 10^{multiplier}";
+            HydrogenManager.Instance.ChangeMultiplier(multiplier);
         }
 
     }
