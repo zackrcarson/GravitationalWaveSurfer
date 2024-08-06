@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5403963097144837537}
   - component: {fileID: 4049603308874130314}
   - component: {fileID: 5561829925315107984}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BlinkFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 6931826706478741843}
   - component: {fileID: 6778186015642087822}
   - component: {fileID: 2721308732287370133}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Eater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 6400143534579463366}
   - component: {fileID: 6535921217487066000}
   - component: {fileID: 2828939834337317088}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RadiusVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4997,7 +4997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8576229930514196763}
   - component: {fileID: 6312261898654853279}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5060,7 +5060,7 @@ GameObject:
   - component: {fileID: 5586729021008961801}
   - component: {fileID: 4457544115482278719}
   - component: {fileID: 4632737243372351482}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HydrogenCollectorBob
   m_TagString: Untagged
   m_Icon: {fileID: 0}

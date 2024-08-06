@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GWS.Aiming.Runtime
 {
@@ -29,6 +28,7 @@ namespace GWS.Aiming.Runtime
         [SerializeField]
         private LayerMask includeLayerMask;
         
+        [SerializeField]
         private Collider[] contacts;
         
         private const int MaxContacts = 20;
