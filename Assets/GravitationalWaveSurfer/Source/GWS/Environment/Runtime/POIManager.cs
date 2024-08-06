@@ -1,6 +1,5 @@
 using UnityEngine;
 
-using GWS.UI.Runtime;
 using GWS.Quiz;
 using GWS.Data;
 
@@ -75,6 +74,10 @@ namespace GWS.WorldGen
             interactionPermission = value;
         }
 
+        /// <summary>
+        /// Called in POIManager.Update() <br/>
+        /// Checks if there is a POI in the current Chunk, shows interact UI if so 
+        /// </summary>
         private void CheckPOIInVicinity()
         {
             Chunk currentChunk = ChunkManager.Instance.GetCurrentChunk();
@@ -100,6 +103,9 @@ namespace GWS.WorldGen
             }
         }
         
+        /// <summary>
+        /// Handles what happens when interact key is pressed w/ a POI
+        /// </summary>
         private void InteractWithPOI()
         {
             if (currentPOI.CompareTag("POI"))

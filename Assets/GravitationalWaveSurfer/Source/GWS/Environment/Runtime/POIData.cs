@@ -4,10 +4,12 @@ namespace GWS.Data
 {
     /// <summary>
     /// Helper class to store POI-specific data <br/>
-    /// Needs to be attached on every POI Prefab
+    /// Needs to be attached on every POI Prefab <br/>
+    /// Name field needs to be filled
     /// </summary>
     public class POIData : MonoBehaviour
     {
+        [Header("Fill in the name field:")]
         public string Name;
         public int PassiveValue { get; private set; }
         public int OneTimeValue { get; private set; }

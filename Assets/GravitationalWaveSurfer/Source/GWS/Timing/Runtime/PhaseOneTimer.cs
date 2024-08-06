@@ -12,7 +12,9 @@ namespace GWS.Timing.Runtime
         [SerializeField]
         private TMP_Text text;
 
-        private float elapsedTime = 120f;
+        public static PhaseOneTimer Instance { get; private set; }
+        public float phaseOneTotalTime = 600f;
+        private float elapsedTime = 600f;
 
         /// <summary>
         /// Emitted when timer finishes.
@@ -20,6 +22,11 @@ namespace GWS.Timing.Runtime
         public static event Action TimeUp;
 
         private bool done = false;
+
+        private void Awake()
+        {
+            if (Instance = null) Instance = this;    
+        }
 
         void Update()
         {

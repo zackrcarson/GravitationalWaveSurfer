@@ -4,6 +4,7 @@ using TMPro;
 
 using GWS.Quiz;
 using GWS.HydrogenCollection.Runtime;
+using GWS.GameStage;
 
 namespace GWS.WorldGen
 {
@@ -161,11 +162,16 @@ namespace GWS.WorldGen
                 oneTimeButton.onClick.AddListener(() => TogglePOIUI(false));
                 oneTimeButton.onClick.AddListener(() => POIManager.Instance.TogglePOIUIActive(false));
                 oneTimeButton.onClick.AddListener(() => POIManager.Instance.ToggleCurrentPOIAvailability(false));
+                oneTimeButton.onClick.AddListener(() => GameStageManager.Instance.GameStageIncQuiz());
 
                 passiveButton.onClick.AddListener(() => HydrogenPassiveCollection.Instance.ChangePassiveCollection(passiveValue));
                 passiveButton.onClick.AddListener(() => TogglePOIUI(false));
                 passiveButton.onClick.AddListener(() => POIManager.Instance.TogglePOIUIActive(false));
                 passiveButton.onClick.AddListener(() => POIManager.Instance.ToggleCurrentPOIAvailability(false));
+                passiveButton.onClick.AddListener(() => GameStageManager.Instance.GameStageIncQuiz());
+
+                TextMeshProUGUI multiplierIncText = POIRewardsObject.transform.Find("Panel/MultiplierInc").GetComponent<TextMeshProUGUI>();
+                multiplierIncText.text = $"(multiplier * 10^{GameStageManager.Instance.incPerQuizQuestion})";
 
                 // --------------set up wrong answer texts and button--------------
                 TextMeshProUGUI answertext = POIWrongAnswerObject.transform.Find("Panel/Answer").GetComponent<TextMeshProUGUI>();
