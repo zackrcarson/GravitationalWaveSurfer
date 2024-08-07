@@ -54,7 +54,7 @@ namespace GWS.HydrogenCollection.Runtime
             }
         }
         
-        public void AddHydrogen(int amount)
+        public void AddHydrogen(double amount)
         {
             particleInventory.HydrogenCount += amount;
             particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);

@@ -8,7 +8,11 @@ namespace GWS.HydrogenCollection.Runtime
         public static HydrogenPassiveCollection Instance { get; private set; }
 
         [Header("Amount collected passively per sec")]
-        public int passiveCollection = 0;
+        public double passiveCollection = 0;
+
+        [Space(6)]
+        [Header("(Debug) Toggle passive collection")]
+        public bool passiveCollect = true;
 
         private void Awake()
         {
@@ -18,7 +22,10 @@ namespace GWS.HydrogenCollection.Runtime
 
         private void Start()
         {
-            StartCoroutine(TickEverySecond());
+            if (passiveCollect)
+            {
+                StartCoroutine(TickEverySecond());
+            }
         }
 
         private IEnumerator TickEverySecond()
@@ -39,7 +46,7 @@ namespace GWS.HydrogenCollection.Runtime
         /// Change amount collected passively
         /// </summary>
         /// <param name="value">int, negative for decrease</param>
-        public void ChangePassiveCollection(int value)
+        public void ChangePassiveCollection(double value)
         {
             passiveCollection += value;
         }

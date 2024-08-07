@@ -89,7 +89,7 @@ namespace GWS.WorldGen
         /// <param name="passiveValue"></param>
         /// <param name="oneTimeValue"></param>
         /// <param name="question"></param>
-        public void TogglePOIUI(bool value, bool availability=false, string name="POI", int passiveValue=0, int oneTimeValue=0, QuizQuestion question=null)
+        public void TogglePOIUI(bool value, bool availability=false, string name="POI", double passiveValue=0, double oneTimeValue=0, QuizQuestion question=null)
         {
             if (!value)
             {

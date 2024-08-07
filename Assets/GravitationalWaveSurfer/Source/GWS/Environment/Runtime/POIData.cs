@@ -11,12 +11,12 @@ namespace GWS.Data
     {
         [Header("Fill in the name field:")]
         public string Name;
-        public int PassiveValue { get; private set; }
-        public int OneTimeValue { get; private set; }
+        public double PassiveValue { get; private set; }
+        public double OneTimeValue { get; private set; }
         public bool Available { get; private set; }
         public int QuestionID { get; private set; }
 
-        public void Initialize(int passiveValue, int oneTimeValue, int questionID)
+        public void Initialize(double passiveValue, double oneTimeValue, int questionID)
         {
             PassiveValue = passiveValue;
             OneTimeValue = oneTimeValue;

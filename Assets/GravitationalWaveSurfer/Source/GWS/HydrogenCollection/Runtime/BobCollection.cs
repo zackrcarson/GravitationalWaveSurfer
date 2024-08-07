@@ -49,7 +49,7 @@ namespace GWS.HydrogenCollection.Runtime
             collider.radius = (float) radius;
 
             // limit to how big the collection range is or else gets crazy
-            collider.radius = Math.Min(20f, radius);    
+            collider.radius = (float) Math.Min(20f, radius);    
             radius = Math.Min(20f, radius);
 
             radiusVisual.transform.localScale = Vector3.one * (float) radius;

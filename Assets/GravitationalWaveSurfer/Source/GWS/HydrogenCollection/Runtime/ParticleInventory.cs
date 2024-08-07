@@ -9,6 +9,6 @@ namespace GWS.HydrogenCollection.Runtime
     public class ParticleInventory : ScriptableObject
     {
         [field: SerializeField]
-        public int HydrogenCount { get; set; }
+        public double HydrogenCount { get; set; }
     }
 }

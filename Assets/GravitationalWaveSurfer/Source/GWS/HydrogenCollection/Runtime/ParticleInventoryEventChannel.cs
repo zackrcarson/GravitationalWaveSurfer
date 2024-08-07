@@ -12,12 +12,12 @@ namespace GWS.HydrogenCollection.Runtime
         /// <summary>
         /// Callback on hydrogen amount changed.
         /// </summary>
-        public event Action<int> OnHydrogenCountChanged;
+        public event Action<double> OnHydrogenCountChanged;
 
         /// <summary>
         /// Raises <see cref="OnHydrogenCountChanged"/>.
         /// </summary>
         /// <param name="newValue">The new hydrogen count.</param>
-        public void RaiseOnHydrogenCountChanged(int newValue) => OnHydrogenCountChanged?.Invoke(newValue);
+        public void RaiseOnHydrogenCountChanged(double newValue) => OnHydrogenCountChanged?.Invoke(newValue);
     }
 }

@@ -27,7 +27,7 @@ namespace GWS.UI.Runtime
 
         private void Awake()
         {
-            text.gameObject.SetActive(false);
+            // text.gameObject.SetActive(false);
         }
     }
 }
