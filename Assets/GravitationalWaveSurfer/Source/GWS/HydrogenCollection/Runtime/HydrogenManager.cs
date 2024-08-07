@@ -24,6 +24,10 @@ namespace GWS.HydrogenCollection.Runtime
         
         public GameObject HydrogenProgressBars;
         public List<Transform> Bars;
+        /// <summary>
+        /// Mainly referenced by HydrogenText.cs so it doesn't have to keep track of <br/>
+        /// the active progress bar, just uses this one 
+        /// </summary>
         public TextMeshProUGUI CurrentProgressBarText;
 
         [Header("Multiplier")]
@@ -59,6 +63,12 @@ namespace GWS.HydrogenCollection.Runtime
             multiplier = value;
         }
 
+        /// <summary>
+        /// USELESS wrapper function of HydrogenEater.AddHydrogen() <br/>
+        /// Since I figured out why 'using GWS.XXX' doesn't work in some places <br/>
+        /// Stupid .asmdef files 
+        /// </summary>
+        /// <param name="value"></param>
         public void AddHydrogen(double value)
         {
             double amount = value * Math.Pow(10, multiplier);
@@ -66,6 +76,8 @@ namespace GWS.HydrogenCollection.Runtime
             int capacityIndexBefore = (particleInventory.HydrogenCount == 0) ? 0 : (int) Math.Floor(Math.Log10(particleInventory.HydrogenCount) / 10);
             int capacityIndexAfter = (particleInventory.HydrogenCount == 0) ? 0 : (int) Math.Floor(Math.Log10(particleInventory.HydrogenCount + amount) / 10);
             // Debug.Log($"HydrogenManager.AddHydrogen: {capacityIndexBefore} => {capacityIndexAfter}");
+
+            // change the progress bar if necessary
             if (capacityIndexAfter != capacityIndexBefore)
             {
                 Bars[capacityIndexBefore].gameObject.SetActive(false);

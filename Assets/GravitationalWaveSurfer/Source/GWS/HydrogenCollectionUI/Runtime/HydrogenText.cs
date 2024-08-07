@@ -11,9 +11,6 @@ namespace GWS.HydrogenCollectionUI.Runtime
     {
         [SerializeField] 
         private ParticleInventoryEventChannel particleInventoryEventChannel;
-        
-        [SerializeField]
-        private TMP_Text text;
 
         private float time;
 
@@ -38,7 +35,8 @@ namespace GWS.HydrogenCollectionUI.Runtime
         }
 
         /// <summary>
-        /// Set's the text value.
+        /// If hydrogen value below 1e5, show actual number <br/>
+        /// if higher, show scientific notation of number
         /// </summary>
         /// <param name="hydrogen">Hydrogen amount to be displayed.</param>
         private void UpdateText(double hydrogen)

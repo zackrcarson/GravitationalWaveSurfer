@@ -18,6 +18,9 @@ namespace GWS.HydrogenCollectionUI.Runtime
         [SerializeField] 
         private ParticleInventoryEventChannel particleInventoryEventChannel;
         
+        /// <summary>
+        /// Is changed throughout the game for different scales
+        /// </summary>
         public Slider hydrogenSlider;
 
         [SerializeField]
@@ -63,15 +66,27 @@ namespace GWS.HydrogenCollectionUI.Runtime
             tick.anchoredPosition = new Vector2(tickPositionX, tick.anchoredPosition.y);
         }
 
+        /// <summary>
+        /// Updates the slider; uses logarithmic scale
+        /// </summary>
+        /// <param name="amount"></param>
         private void UpdateProgress(double amount)
         {
             // Debug.Log(Math.Floor(Math.Log10(particleInventory.HydrogenCount)));
+            
+            // determines which capacity is the proper one for current hydrogen count
             int capacityIndex = (amount == 0) ? 0 : (int) Math.Floor(Math.Log10(particleInventory.HydrogenCount) / 10);
             double curCapacity = HydrogenTracker.HYDROGEN_CAPACITY[capacityIndex];
+
+            // changes slider based on the logarithmic scale
             float sliderPosition = (float) (Math.Log10(particleInventory.HydrogenCount) / Math.Log10(curCapacity));
             hydrogenSlider.value = sliderPosition;
         }
 
+        /// <summary>
+        /// Accessed by HydrogenManager.cs to change the progress bar when needed
+        /// </summary>
+        /// <param name="newSlider">Slider component</param>
         public void ChangeProgressBar(Slider newSlider)
         {
             hydrogenSlider = newSlider;

@@ -54,6 +54,10 @@ namespace GWS.HydrogenCollection.Runtime
             }
         }
         
+        /// <summary>
+        /// Called by HydrogenManager.AddHydrogen(), a (useless) wrapper function
+        /// </summary>
+        /// <param name="amount">ALREADY SCALED amount to be added</param>
         public void AddHydrogen(double amount)
         {
             particleInventory.HydrogenCount += amount;
