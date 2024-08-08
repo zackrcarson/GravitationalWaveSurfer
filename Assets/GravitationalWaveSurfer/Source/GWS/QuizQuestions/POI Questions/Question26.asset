@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 569248867dc751445a592bf5c42849b8, type: 3}
-  m_Name: Question1
+  m_Name: Question26
   m_EditorClassIdentifier: 
-  id: 1
-  questionText: Who formulated general relativity?
+  id: 26
+  questionText: The _____ principle states that the laws of physics are the same
+    for all non-accelerating observers.
   answerOptions:
-  - Isaac Newton
-  - George Washington
-  - John Locke
-  - Albert Einstein
-  correctAnswerIndex: 3
+  - Uncertainty
+  - Equivalence
+  - Special relativity
+  - Conservation
+  correctAnswerIndex: 2
