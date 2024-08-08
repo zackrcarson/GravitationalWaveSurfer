@@ -8,18 +8,9 @@ namespace GWS.UI.Runtime
     public abstract class DisplayBaseUnlock : MonoBehaviour
     {
         [SerializeField] 
-        protected Image image;
-
-        [SerializeField]
-        protected new TextMeshProUGUI name;
-
-        [SerializeField] 
-        protected TextMeshProUGUI description;
-
-        [SerializeField] 
         protected TextMeshProUGUI lockSymbol;
 
-        protected abstract void PopulateFields();
+        public abstract void PopulateFields();
 
         protected abstract bool IsUnlocked();
 
@@ -49,9 +40,7 @@ namespace GWS.UI.Runtime
 
         protected virtual void SetElements(bool state)
         {
-            name.enabled = state;
-            image.enabled = state;
-            description.enabled = state;
+            
         }
     }
 }

@@ -63,29 +63,21 @@
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\ApplicationQuitHelper.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWData.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\SceneTransitionManager.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\HeatManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\Chunk.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\AdditiveSceneManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleData.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWManager.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\MainSceneManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ChunkManager.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csShowAllEffect.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleMove.cs" />
     <Compile Include="Assets\Mushakushi\UIToolkitMenuFramework\Assets\Example\Example.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\ElementInfo.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\NoiseGenerator.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleSpawner.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\ElectronRing.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\MainMenuUI\Runtime\MainMenu.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\PlayerChunkLoader.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\AtomCreation\Runtime\CreationCameraManagement.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1144,6 +1136,10 @@
     <ProjectReference Include="GWS.MeshDeformation.csproj">
       <Project>{7C75B5E7-7595-20FA-8905-48349E94D19E}</Project>
       <Name>GWS.MeshDeformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="GWS.AtomCreation.csproj">
+      <Project>{3CA7A872-FCD9-E9ED-3C31-3605A3B0560C}</Project>
+      <Name>GWS.AtomCreation</Name>
     </ProjectReference>
     <ProjectReference Include="GWS.SceneManagement.csproj">
       <Project>{38C16A4F-F804-2CA8-66EF-0432BF9869DF}</Project>

@@ -3,11 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
 namespace GWS.UI.Runtime
 {
     public class DisplayStarUnlock : DisplayBaseUnlock
     {
+        [SerializeField]
+        protected Image image;
+
+        [SerializeField]
+        protected new TextMeshProUGUI name;
+
+        [SerializeField]
+        protected TextMeshProUGUI description;
+
         [SerializeField] 
         private StarUnlock star;
 
@@ -30,6 +40,8 @@ namespace GWS.UI.Runtime
             base.SetElements(state);
             name.enabled = state;
             solarMass.enabled = state;
+            image.enabled = state;
+            description.enabled = state;
         }
     }
 }

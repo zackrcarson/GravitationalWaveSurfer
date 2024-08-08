@@ -1,4 +1,3 @@
-using GWS.Player.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,29 +14,28 @@ public class MainSceneManager : MonoBehaviour
     [SerializeField]
     public GameObject[] hideableObjects;
 
-    private static readonly int FADE_OUT_TRIGGER = Animator.StringToHash("FadeOut");
-    private static readonly int FADE_IN_TRIGGER = Animator.StringToHash("FadeIn");
+    public static readonly int FadeOutTrigger = Animator.StringToHash("FadeOut");
+    private static readonly int FadeInTrigger = Animator.StringToHash("FadeIn");
 
-    public static event Action OnReturnToMainScene;
     private void OnEnable()
     {
-        OnReturnToMainScene += ReEnableAllObjects;
+        AdditiveSceneManager.OnChangeOfScene += ReloadMainScene;
     }
     private void OnDisable()
     {
-        OnReturnToMainScene -= ReEnableAllObjects;
+        AdditiveSceneManager.OnChangeOfScene -= ReloadMainScene;
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            print("G");
             FadeToLevel();
         }
     }
     public void FadeToLevel()
     {
-        animator.SetTrigger(FADE_OUT_TRIGGER);
+        animator.SetTrigger(FadeOutTrigger);
     }
     public void OnFadeComplete()
     {
@@ -46,28 +44,24 @@ public class MainSceneManager : MonoBehaviour
     }
     private void LoadAdditiveScene()
     {
-        HideAllObjects();
+        EnableObjects(false);
         SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-        PauseGame.isInMainScene = false;
     }
-    private void HideAllObjects()
+    
+    private void EnableObjects(bool state)
     {
         foreach (GameObject obj in hideableObjects)
         {
-            obj.SetActive(false);
+            obj.SetActive(state);
         }
     }
-    private void ReEnableAllObjects()
+
+    private void ReloadMainScene(bool state)
     {
-        animator.ResetTrigger(FADE_OUT_TRIGGER);
-        foreach (GameObject obj in hideableObjects)
-        {
-            obj.SetActive(true);
-        }
-        animator.SetTrigger(FADE_IN_TRIGGER);
-    }
-    public static void TriggerReturnToMainScene()
-    {
-        OnReturnToMainScene?.Invoke();
+        if (!state) return;
+
+        animator.ResetTrigger(FadeOutTrigger);
+        EnableObjects(state);
+        animator.SetTrigger(FadeInTrigger);
     }
 }

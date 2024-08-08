@@ -1145,6 +1145,10 @@
       <Project>{7C75B5E7-7595-20FA-8905-48349E94D19E}</Project>
       <Name>GWS.MeshDeformation</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.AtomCreation.csproj">
+      <Project>{3CA7A872-FCD9-E9ED-3C31-3605A3B0560C}</Project>
+      <Name>GWS.AtomCreation</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.SceneManagement.csproj">
       <Project>{38C16A4F-F804-2CA8-66EF-0432BF9869DF}</Project>
       <Name>GWS.SceneManagement</Name>

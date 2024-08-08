@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using GWS.Player.Runtime;
+using System;
+
 public class AdditiveSceneManager : MonoBehaviour
 {
     [SerializeField]
@@ -11,12 +12,27 @@ public class AdditiveSceneManager : MonoBehaviour
     [SerializeField]
     private SceneField mainScene;
 
-    private static readonly int FADE_OUT_TRIGGER = Animator.StringToHash("FadeOut");
     private static string mainSceneName;
-   
+
+    /// <summary>
+    /// Emits false when main scene is changed to this additive (atom) scene, emits true when the additive scene changes back to the main scene. Used to control
+    // other parts of the game (player shouldn't move when atom creation is open, etc).
+    /// </summary>
+    public static event Action<bool> OnChangeOfScene;
+
+    private void OnEnable()
+    {
+        AtomFormationManager.OnComplete += FadeToLevel;
+    }
+
+    private void OnDisable()
+    {
+        AtomFormationManager.OnComplete -= FadeToLevel;
+    }
+
     private void Start()
     {
-        //animator.SetTrigger(FADE_IN_TRIGGER);
+        OnChangeOfScene?.Invoke(false);
         mainSceneName = SceneManager.GetActiveScene().name;
         SetActiveSceneToOther();
     }
@@ -29,7 +45,7 @@ public class AdditiveSceneManager : MonoBehaviour
     }
     public void FadeToLevel()
     {
-        animator.SetTrigger(FADE_OUT_TRIGGER);
+        animator.SetTrigger(MainSceneManager.FadeOutTrigger);
     }
     public void OnFadeComplete()
     {
@@ -38,8 +54,7 @@ public class AdditiveSceneManager : MonoBehaviour
     private IEnumerator ReturnToMainScene()
     {
         SetActiveSceneToMain();
-        MainSceneManager.TriggerReturnToMainScene();
-        PauseGame.isInMainScene = true;
+        OnChangeOfScene?.Invoke(true);
         yield return SceneManager.UnloadSceneAsync(gameObject.scene);
     }
     private void SetActiveSceneToOther()

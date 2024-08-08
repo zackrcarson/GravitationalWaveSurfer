@@ -31,6 +31,12 @@ namespace GWS.Player.Runtime
         private int volumeDenominator = 50;
 
         private Coroutine fadeCoroutine;
+
+        private void HandleSceneChange(bool state)
+        {
+            maxVolume = state ? 0.8f : 0f;
+        }
+
         private void Start()
         {
             audioSource.volume = 0f;
@@ -40,11 +46,13 @@ namespace GWS.Player.Runtime
         private void OnEnable()
         {
             PlayerSpeedManager.OnSpeedChanged += HandleMoveSound;
+            AdditiveSceneManager.OnChangeOfScene += HandleSceneChange;
         }
 
         private void OnDisable()
         {
             PlayerSpeedManager.OnSpeedChanged -= HandleMoveSound;
+            AdditiveSceneManager.OnChangeOfScene -= HandleSceneChange;
         }
 
         private void HandleMoveSound(float magnitude)

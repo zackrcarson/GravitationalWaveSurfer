@@ -20,6 +20,8 @@ namespace GWS.Player.Runtime
         private Animator glossaryMenuAnimator;
 
         [SerializeField] private GameObject statsMenu;
+        [SerializeField] private GameObject mainSceneExplanation;
+        [SerializeField] private GameObject atomSceneExplanation;
 
         [SerializeField, Min(0)] 
         private float pauseTime = 0.25f; 
@@ -32,6 +34,31 @@ namespace GWS.Player.Runtime
         
         private static readonly int Open = Animator.StringToHash("Open");
         private static readonly int Close = Animator.StringToHash("Close");
+
+        private void OnEnable()
+        {
+            AdditiveSceneManager.OnChangeOfScene += HandleSceneChange;
+        }
+
+        private void OnDisable()
+        {
+            AdditiveSceneManager.OnChangeOfScene -= HandleSceneChange;
+        }
+
+        private void HandleSceneChange(bool state)
+        {
+            isInMainScene = state;
+            if (isInMainScene)
+            {
+                mainSceneExplanation.SetActive(true);
+                atomSceneExplanation.SetActive(false);
+            }
+            else
+            {
+                mainSceneExplanation.SetActive(false);
+                atomSceneExplanation.SetActive(true);
+            }
+        }
 
         private void Update()
         {
