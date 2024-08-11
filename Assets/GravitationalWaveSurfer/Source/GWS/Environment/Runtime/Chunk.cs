@@ -19,6 +19,7 @@ namespace GWS.WorldGen
         public GameObject ChunkObject { get; private set; }
         public bool IsActive { get; private set; }
         public bool HasPOI { get; private set; } = false;
+        public bool HasBlackHole { get; private set; } = false;
         public List<GameObject> Objects { get; private set; }
 
         public Chunk (Vector3Int position, GameObject chunkParent)
@@ -44,6 +45,11 @@ namespace GWS.WorldGen
         public void SetPOI(bool POI)
         {
             HasPOI = POI;
+        }
+
+        public void SetBlackHole(bool BlackHole)
+        {
+            HasBlackHole = BlackHole;
         }
     }
 }

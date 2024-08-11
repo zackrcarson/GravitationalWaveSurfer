@@ -69,6 +69,8 @@ namespace GWS.WorldGen
             POIPromptObject.gameObject.SetActive(false);
             POIQuestionObject.gameObject.SetActive(false);
             POIRewardsObject.gameObject.SetActive(false);
+            POIWrongAnswerObject.gameObject.SetActive(false);
+            POIUnavailableObject.gameObject.SetActive(false);
         }
 
         /// <summary>
