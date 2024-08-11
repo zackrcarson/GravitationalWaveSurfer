@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50def7476779a294aa401b0cfd7aac27, type: 3}
   m_Name: AtomIndex
   m_EditorClassIdentifier: 
-  CurrentAtomIndex: 0
+  CurrentAtomIndex: 2

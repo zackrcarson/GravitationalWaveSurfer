@@ -86,7 +86,6 @@ namespace GWS.HydrogenCollection.Runtime
             }
 
             Debug.Log($"Outcome: {outcome}, Score: {score}");
-            UnlockManager.Instance.UnlockOutcome(Outcome.He4);
             UnlockManager.Instance.UnlockOutcome(outcome);
         }
     }

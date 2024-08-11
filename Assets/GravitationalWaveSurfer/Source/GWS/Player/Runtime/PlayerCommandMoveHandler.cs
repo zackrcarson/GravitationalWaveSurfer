@@ -55,6 +55,7 @@ namespace GWS.Player.Runtime
 
         private void HandleSceneChange(bool state)
         {
+            print($"CALLED {state}");
             canMove = state;
         }
 

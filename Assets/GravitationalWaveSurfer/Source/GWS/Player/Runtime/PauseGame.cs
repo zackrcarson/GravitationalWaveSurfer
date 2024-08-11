@@ -38,6 +38,8 @@ namespace GWS.Player.Runtime
         private void OnEnable()
         {
             AdditiveSceneManager.OnChangeOfScene += HandleSceneChange;
+            mainSceneExplanation.SetActive(true);
+            atomSceneExplanation.SetActive(false);
         }
 
         private void OnDisable()

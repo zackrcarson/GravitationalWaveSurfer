@@ -1,4 +1,5 @@
 using GWS.AtomCreation;
+using GWS.Gameplay;
 using GWS.UI.Runtime;
 using System;
 using System.Collections;
@@ -76,8 +77,12 @@ public class AtomFormationManager : MonoBehaviour
 
     private void PlayerFormedElement()
     {
+        Outcome atom = elementsToForm[currElementIndex].Atom;
+
+        UnlockManager.Instance.UnlockOutcome(atom);
         currElementIndex++;
         constantAudioSource.PlayOneShot(correctAnswerSound);
+
         if (currElementIndex < elementsToForm.Count)
         {
             SetCurrentElement(elementsToForm[currElementIndex]);

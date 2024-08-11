@@ -26,13 +26,13 @@ namespace GWS.UI.Runtime
 
         protected override bool IsUnlocked() => star.IsUnlocked();
 
-        protected override void PopulateFields()
+        public override void PopulateFields()
         {
             // Adds a space between camel case names, i.e. BlackHole -> Black Hole
-            name.text = Regex.Replace(star.name.ToString(), "(?<!^)([A-Z])", " $1");
-            solarMass.text = $"{star.solarMass} M›";
-            image.sprite = star.sprite;
-            description.text = star.description;
+            name.text = Regex.Replace(star.Name.ToString(), "(?<!^)([A-Z])", " $1");
+            solarMass.text = $"{star.SolarMass} M›";
+            image.sprite = star.Sprite;
+            description.text = star.Description;
         }
 
         protected override void SetElements(bool state)
