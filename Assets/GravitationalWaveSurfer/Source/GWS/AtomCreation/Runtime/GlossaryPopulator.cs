@@ -5,59 +5,66 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class GlossaryPopulator : MonoBehaviour
+namespace GWS.AtomCreation
 {
-    public GameObject elementEntryPrefab;
-    public GameObject elementParent;
-
-    [ContextMenu("Instantiate Atom Entries")]
-    public void InstantiateAtomEntries()
+    /// <summary>
+    /// This utility is not used in runtime. Used to add all the elements to the glossary of the GlossaryScreen. 
+    /// *Adding elements to a prefab was confusing so I'm just gonna use the hack of adding to a prefab on a per scene basis.
+    /// TODO: Fix that ^
+    /// </summary>
+    public class GlossaryPopulator : MonoBehaviour
     {
-        const string FolderPath = "Assets/GravitationalWaveSurfer/ScriptableObjects/Unlocks/Elements/Atoms";
-        string[] guids = AssetDatabase.FindAssets("t:AtomUnlock", new[] { FolderPath });
+        public GameObject elementEntryPrefab;
+        public GameObject elementParent;
 
-        List<AtomUnlock> atomUnlocks = new List<AtomUnlock>();
-
-        // https://discussions.unity.com/t/local-filepath-for-unity-asset/908990
-        foreach (string guid in guids)
+        [ContextMenu("Instantiate Atom Entries")]
+        public void InstantiateAtomEntries()
         {
-            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
-            AtomUnlock atomUnlock = AssetDatabase.LoadAssetAtPath<AtomUnlock>(assetPath);
-            if (atomUnlock != null)
-            {
-                atomUnlocks.Add(atomUnlock);
-            }
-        }
+            const string FolderPath = "Assets/GravitationalWaveSurfer/ScriptableObjects/Unlocks/Elements/Atoms";
+            string[] guids = AssetDatabase.FindAssets("t:AtomUnlock", new[] { FolderPath });
 
-        // Sort the AtomUnlock objects by proton count
-        atomUnlocks = atomUnlocks.OrderBy(a => a.Protons).ToList();
+            List<AtomUnlock> atomUnlocks = new List<AtomUnlock>();
 
-        foreach (AtomUnlock atomUnlock in atomUnlocks)
-        {
-            GameObject elementEntry = PrefabUtility.InstantiatePrefab(elementEntryPrefab, elementParent.transform) as GameObject;
-            if (elementEntry != null)
+            // https://discussions.unity.com/t/local-filepath-for-unity-asset/908990
+            foreach (string guid in guids)
             {
-                DisplayElementUnlock displayElementUnlock = elementEntry.GetComponent<DisplayElementUnlock>();
-                if (displayElementUnlock != null)
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                AtomUnlock atomUnlock = AssetDatabase.LoadAssetAtPath<AtomUnlock>(assetPath);
+                if (atomUnlock != null)
                 {
-                    displayElementUnlock.element = atomUnlock;
-                    displayElementUnlock.PopulateFields();
-                    elementEntry.name = $"{atomUnlock.FullName}Entry";
+                    atomUnlocks.Add(atomUnlock);
+                }
+            }
+
+            // Sort the AtomUnlock objects by proton count
+            atomUnlocks = atomUnlocks.OrderBy(a => a.Protons).ToList();
+
+            foreach (AtomUnlock atomUnlock in atomUnlocks)
+            {
+                GameObject elementEntry = PrefabUtility.InstantiatePrefab(elementEntryPrefab, elementParent.transform) as GameObject;
+                if (elementEntry != null)
+                {
+                    DisplayElementUnlock displayElementUnlock = elementEntry.GetComponent<DisplayElementUnlock>();
+                    if (displayElementUnlock != null)
+                    {
+                        displayElementUnlock.element = atomUnlock;
+                        displayElementUnlock.PopulateFields();
+                        elementEntry.name = $"{atomUnlock.FullName}Entry";
+                    }
+                    else
+                    {
+                        Debug.LogError($"DisplayElementUnlock component not found on prefab for {atomUnlock.FullName}");
+                    }
                 }
                 else
                 {
-                    Debug.LogError($"DisplayElementUnlock component not found on prefab for {atomUnlock.FullName}");
+                    Debug.LogError($"Failed to instantiate prefab for {atomUnlock.FullName}");
                 }
             }
-            else
-            {
-                Debug.LogError($"Failed to instantiate prefab for {atomUnlock.FullName}");
-            }
+
+            // This saves the changes to the scene.
+            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
         }
-
-        // This saves the changes to the scene.
-        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
     }
-
-
 }
+

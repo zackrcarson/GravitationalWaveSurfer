@@ -75,7 +75,7 @@ namespace GWS.Gameplay
                 SaveUnlocks();
                 LoadUnlocks();
                 OnUnlock?.Invoke();
-                print(PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, ""));
+                //print(PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, ""));
             }
         }
 

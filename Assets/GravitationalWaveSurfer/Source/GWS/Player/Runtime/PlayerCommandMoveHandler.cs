@@ -1,6 +1,7 @@
 using GWS.Character.Runtime;
 using GWS.CommandPattern.Runtime;
 using GWS.Input.Runtime;
+using GWS.SceneManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -55,7 +56,6 @@ namespace GWS.Player.Runtime
 
         private void HandleSceneChange(bool state)
         {
-            print($"CALLED {state}");
             canMove = state;
         }
 
