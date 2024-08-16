@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using GWS.UI.Runtime;
 using System;
+using System.Linq;
+using UnityEditor;
 
 namespace GWS.Gameplay
 {
@@ -19,7 +21,7 @@ namespace GWS.Gameplay
         private StarUnlock[] allStarUnlocks;
 
         [SerializeField]
-        private ElementUnlock[] allElementUnlocks;
+        private List<AtomUnlock> allElementUnlocks;
 
         private void Awake()
         {
@@ -34,6 +36,37 @@ namespace GWS.Gameplay
             }
         }
 
+        [ContextMenu("Add Atom Prefabs")]
+        public void AddAtomPrefabs()
+        {
+            const string FolderPath = "Assets/GravitationalWaveSurfer/ScriptableObjects/Unlocks/Elements/Atoms";
+            string[] guids = AssetDatabase.FindAssets("t:AtomUnlock", new[] { FolderPath });
+
+            List<AtomUnlock> atomUnlocks = new List<AtomUnlock>();
+
+            // https://discussions.unity.com/t/local-filepath-for-unity-asset/908990
+            foreach (string guid in guids)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                AtomUnlock atomUnlock = AssetDatabase.LoadAssetAtPath<AtomUnlock>(assetPath);
+                if (atomUnlock != null)
+                {
+                    atomUnlocks.Add(atomUnlock);
+                }
+            }
+
+            // Sort the AtomUnlock objects by proton count
+            atomUnlocks = atomUnlocks.OrderBy(a => a.Protons).ToList();
+
+            foreach (AtomUnlock atomUnlock in atomUnlocks)
+            {
+                allElementUnlocks.Add(atomUnlock);
+            }
+
+            // This saves the changes to the scene.
+            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+        }
+
         public void UnlockOutcome(Outcome outcome)
         {
             if (!currentUnlocks.Contains(outcome))
@@ -42,6 +75,7 @@ namespace GWS.Gameplay
                 SaveUnlocks();
                 LoadUnlocks();
                 OnUnlock?.Invoke();
+                //print(PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, ""));
             }
         }
 
@@ -72,12 +106,12 @@ namespace GWS.Gameplay
 
             foreach (StarUnlock outcomeUnlock in allStarUnlocks)
             {
-                outcomeUnlock.unlocked = savedOutcomes.Contains(outcomeUnlock.name.ToString());
+                outcomeUnlock.Unlocked = savedOutcomes.Contains(outcomeUnlock.Name.ToString());
             }
 
-            foreach (ElementUnlock outcomeUnlock in allElementUnlocks)
+            foreach (AtomUnlock outcomeUnlock in allElementUnlocks)
             {
-                outcomeUnlock.unlocked = savedOutcomes.Contains(outcomeUnlock.name.ToString());
+                outcomeUnlock.Unlocked = savedOutcomes.Contains(outcomeUnlock.Atom.ToString());
             }
         }
 
@@ -87,12 +121,12 @@ namespace GWS.Gameplay
             currentUnlocks.Clear();
             foreach (StarUnlock outcomeUnlock in allStarUnlocks)
             {
-                outcomeUnlock.unlocked = false;
+                outcomeUnlock.Unlocked = false;
             }
 
-            foreach (ElementUnlock outcomeUnlock in allElementUnlocks)
+            foreach (AtomUnlock outcomeUnlock in allElementUnlocks)
             {
-                outcomeUnlock.unlocked = false;
+                outcomeUnlock.Unlocked = false;
             }
             OnUnlock?.Invoke();
         }

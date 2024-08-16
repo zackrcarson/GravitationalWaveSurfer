@@ -48,7 +48,7 @@ namespace GWS.UI.Runtime
 
         public void PlayGame()
         {
-            SceneManager.LoadScene("TimeTest");
+            SceneManager.LoadScene("StageTwoMultipleScenes");
         }
 
         public void QuitGame()

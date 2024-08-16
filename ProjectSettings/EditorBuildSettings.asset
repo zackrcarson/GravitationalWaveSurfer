@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GravitationalWaveSurfer/Level/Scenes/TimeTest.unity
     guid: 67e215c25cf2e1149a2c287744ef01b9
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Tests/StageTwoMultipleScenes.unity
+    guid: dfcda9afdb876e6408bc3ecd9a6383f4
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/AtomCreationMultipleScenes.unity
+    guid: 007d164b299e5d347977040fe3386917
   m_configObjects: {}

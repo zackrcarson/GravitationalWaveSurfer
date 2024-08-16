@@ -3,11 +3,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Numerics;
+using Vector3 = UnityEngine.Vector3;
+using Quaternion = UnityEngine.Quaternion;
+using UnityEngine.EventSystems;
 
 namespace GWS.AtomCreation
 {
-    public class CreationManagement : MonoBehaviour
+    public class CreationManagement : MonoBehaviour, IPointerClickHandler
     {
+        [Header("Simulation")]
         public int numElectron = 10;
         public int numProton = 10;
         public int numNeutron = 10;
@@ -47,14 +52,25 @@ namespace GWS.AtomCreation
         private TextMeshProUGUI numProtonUI;
         private TextMeshProUGUI numNeutronUI;
         private TextMeshProUGUI numElectronUI;
+        [SerializeField] TextMeshProUGUI numAddRemoveIncrement;
         public GameObject UI;
         public bool UIVisible = true;
+
+        private static readonly Vector3 ORIGIN_POINT = new Vector3(0, 10000, 0);
+
+        private int addRemoveIncrement = 1;
+        private int currentIncrementIndex = 0;
+
+        public static Action<int, int, int> OnParticlesChanged;
+        public static Action<string> OnWarningRaised;
 
         private void Start()
         {
             if (nucleusFolder == null) nucleusFolder = new GameObject(nucleusFolderName);
+            nucleusFolder.transform.position = ORIGIN_POINT;
             if (eRingFolder == null) eRingFolder = new GameObject(eRingFolderName);
-            
+            eRingFolder.transform.position = ORIGIN_POINT;
+
             protonParticles = new List<GameObject>();
             neutronParticles = new List<GameObject>();
 
@@ -127,14 +143,14 @@ namespace GWS.AtomCreation
                 foreach (Rigidbody rb in protonRigidbodies)
                 {
                     // Gravity: inward direction towards origin
-                    Vector3 directionToOrigin = -rb.position.normalized;
+                    Vector3 directionToOrigin = (ORIGIN_POINT - rb.position).normalized;
                     rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
                     rb.velocity *= dampingFactor;   // Manual damping
                 }
                 foreach (Rigidbody rb in neutronRigidbodies)
                 {
                     // Gravity: inward direction towards origin
-                    Vector3 directionToOrigin = -rb.position.normalized;
+                    Vector3 directionToOrigin = (ORIGIN_POINT - rb.position).normalized;
                     rb.AddForce(directionToOrigin * gravitationalConstant, ForceMode.Acceleration);
                     // Manually take away energy to help convergence
                     rb.velocity *= dampingFactor;   // Manual damping
@@ -158,7 +174,7 @@ namespace GWS.AtomCreation
                 {
                     if (numProton == 1)
                     {
-                        Debug.Log(Vector3.Distance(protonParticles[0].transform.position, Vector3.zero));
+                        //Debug.Log(Vector3.Distance(protonParticles[0].transform.position, Vector3.zero));
                     }
                     if (numProton == 1 && Vector3.Distance(protonParticles[0].transform.position, Vector3.zero) > threshold)
                     {
@@ -174,19 +190,19 @@ namespace GWS.AtomCreation
 
                 if (hasConverged)
                 {
-                    Debug.Log("Simulation has converged.");
+                    //Debug.Log("Simulation has converged.");
                     StopAllMovement();
                     yield break;
                 }
             }
 
             StopAllMovement();
-            Debug.Log("Max iterations reached without convergence.");
+            //Debug.Log("Max iterations reached without convergence.");
         }
 
         void InitializeNucleus()
         {
-            Debug.Log("Initializing nucleus.");
+            //Debug.Log("Initializing nucleus.");
 
             for (int i = 0; i < numInNucleus; i++)
             {
@@ -203,11 +219,11 @@ namespace GWS.AtomCreation
 
         void InitializeElectronRings()
         {
-            Debug.Log("Initializing electron ring.");
+            //Debug.Log("Initializing electron ring.");
 
             for (int i = 0; i < eRingConfiguration.Count; i++) 
             {
-                GameObject ring = Instantiate(electronRingPrefab, Vector3.zero, Quaternion.identity);
+                GameObject ring = Instantiate(electronRingPrefab, ORIGIN_POINT, Quaternion.identity);
                 float radius = eRingRadius + i * eRingRadiusDiff;
                 ring.transform.localScale = new Vector3(radius, radius, radius);
                 electronRings.Add(ring);
@@ -280,7 +296,7 @@ namespace GWS.AtomCreation
         void SpawnParticle(string type, int i)
         {
             Vector3 randomDirection = UnityEngine.Random.onUnitSphere; // Point on the surface of a unit sphere
-            Vector3 spawnPosition = randomDirection * spawnSphereRadius; // Scale to the desired radius
+            Vector3 spawnPosition = ORIGIN_POINT + (randomDirection * spawnSphereRadius); // Scale to the desired radius
 
             // Instantiate particle objects
             GameObject particle;
@@ -334,7 +350,7 @@ namespace GWS.AtomCreation
         /// <param name="type">"neutron" or "proton"</param>
         public void AddParticle(string type)
         {
-            Debug.Log($"Adding {type}...");
+            //Debug.Log($"Adding {type}...");
             if (type == "Proton") numProton++;
             else if (type == "Neutron") numNeutron++;
             else
@@ -360,13 +376,13 @@ namespace GWS.AtomCreation
             else if (type == "Proton") particleList = protonParticles;
             else
             {
-                Debug.LogWarning("Invalid type of particle!");
+                //Debug.LogWarning("Invalid type of particle!");
                 return;
             }
 
             if (particleList.Count == 0)
             {
-                Debug.LogWarning($"No {type} particles left to remove!");
+                EmitWarning($"No {type} particles left to remove!");
                 return;
             }
 
@@ -425,7 +441,7 @@ namespace GWS.AtomCreation
             // NO MORE SPACE! this is when all rings are filled
             if (whereToAdd == -1)
             {
-                Debug.LogWarning("No more room to add electrons!!");
+                EmitWarning("No more room to add electrons!!");
                 return;
             }
 
@@ -458,6 +474,7 @@ namespace GWS.AtomCreation
                 // newPositions.Add(new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale);
                 Vector3 position = new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale;
                 position = eRing.transform.rotation * position;
+                position += ORIGIN_POINT; // Offset by ORIGIN_POINT
                 newPositions.Add(position);
             }
 
@@ -492,7 +509,7 @@ namespace GWS.AtomCreation
             // NO MORE ELECTRONS!!!
             if (whereToRemove == -1)
             {
-                Debug.LogWarning("No more electrons to remove!!");
+                EmitWarning("No Electron particles to remove!");
                 return;
             }
 
@@ -536,6 +553,7 @@ namespace GWS.AtomCreation
                 // newPositions.Add(new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale);
                 Vector3 position = new Vector3((float)Math.Cos(i), (float)Math.Sin(i), 0) * scale;
                 position = eRing.transform.rotation * position;
+                position += ORIGIN_POINT;
                 newPositions.Add(position);
             }
 
@@ -579,5 +597,159 @@ namespace GWS.AtomCreation
             numElectronUI.text = numElectron.ToString();
         }
     
+
+        void EmitWarning(string message)
+        {
+            OnWarningRaised?.Invoke(message);
+        }
+
+        void EmitParticleChanges()
+        {
+            OnParticlesChanged?.Invoke(numProton, numNeutron, numElectron);
+        }
+
+        #region Add / Remove in increments functions
+        public void AddMultipleElectrons()
+        {
+            int electronsAdded = 0;
+
+            for (; electronsAdded < addRemoveIncrement; electronsAdded++)
+            {
+                if (!CanAddElectron())
+                    break;
+
+                AddElectron();
+            }
+
+            EmitParticleChanges();
+
+            if (electronsAdded < addRemoveIncrement)
+            {
+                EmitWarning($"Can't add more electrons. Added {electronsAdded} out of {addRemoveIncrement} requested.");
+            }
+            else
+            {
+                EmitWarning("");
+            }
+
+        }
+
+        private bool CanAddElectron()
+        {
+            for (int i = 0; i < electronRings.Count; i++)
+            {
+                if (!electronRings[i].GetComponent<ElectronRing>().full)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void RemoveMultipleElectrons()
+        {
+            int electronsRemoved = 0;
+            for (; electronsRemoved < addRemoveIncrement; electronsRemoved++)
+            {
+                if (!CanRemoveElectron())
+                    break;
+                RemoveElectron();
+            }
+            EmitParticleChanges();
+            if (electronsRemoved < addRemoveIncrement)
+            {
+                EmitWarning($"Can't remove more electrons. Removed {electronsRemoved} out of {addRemoveIncrement} requested.");
+            }
+            else
+            {
+                EmitWarning("");
+            }
+        }
+
+        private bool CanRemoveElectron()
+        {
+            return numElectron > 0;
+        }
+
+        public void AddMultipleParticles(string type)
+        {
+            int particlesAdded = 0;
+            for (; particlesAdded < addRemoveIncrement; particlesAdded++)
+            {
+                if (!CanAddParticle(type))
+                    break;
+                AddParticle(type);
+            }
+            EmitParticleChanges();
+            if (particlesAdded < addRemoveIncrement)
+            {
+                EmitWarning($"Can't add more {type}s. Added {particlesAdded} out of {addRemoveIncrement} requested.");
+            }
+            else
+            {
+                EmitWarning("");
+            }
+        }
+
+        public void RemoveMultipleParticles(string type)
+        {
+            int particlesRemoved = 0;
+            for (; particlesRemoved < addRemoveIncrement; particlesRemoved++)
+            {
+                if (!CanRemoveParticle(type))
+                    break;
+                RemoveParticle(type);
+            }
+            EmitParticleChanges();
+            if (particlesRemoved < addRemoveIncrement)
+            {
+                EmitWarning($"Can't remove more {type} particles. Removed {particlesRemoved} out of {addRemoveIncrement} requested.");
+            }
+            else
+            {
+                EmitWarning("");
+            }
+        }
+
+        private bool CanRemoveParticle(string type)
+        {
+            if (type == "Neutron")
+                return neutronParticles.Count > 0;
+            else if (type == "Proton")
+                return protonParticles.Count > 0;
+            else
+                return false;
+        }
+
+        private bool CanAddParticle(string type)
+        {
+            const int MaxParticlesAllowed = 300;
+            if (type == "Neutron")
+                return neutronParticles.Count < MaxParticlesAllowed;
+            else if (type == "Proton")
+                return protonParticles.Count < MaxParticlesAllowed;
+            else
+                return false;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            
+        }
+
+        public void SetIncrement()
+        {
+            int[] incrementValues = { 1, 5, 10 };
+            currentIncrementIndex = (currentIncrementIndex + 1) % incrementValues.Length;
+            addRemoveIncrement = incrementValues[currentIncrementIndex];
+            numAddRemoveIncrement.text = addRemoveIncrement.ToString();
+        }
+        #endregion
+
+        private void EmitAllDefault()
+        {
+            EmitParticleChanges();
+            EmitWarning("");
+        }
     }
 }

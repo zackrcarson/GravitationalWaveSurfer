@@ -1,6 +1,7 @@
 using GWS.Character.Runtime;
 using GWS.CommandPattern.Runtime;
 using GWS.Input.Runtime;
+using GWS.SceneManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -37,16 +38,25 @@ namespace GWS.Player.Runtime
         /// </summary>
         private Quaternion currentReferenceFrame; 
         
-        private Vector3 direction; 
-        
+        private Vector3 direction;
+
+        public static bool canMove = true;
+
         private void OnEnable()
         {
             inputEventChannel.OnMove += HandleOnMove;
+            AdditiveSceneManager.OnChangeOfScene += HandleSceneChange;
         }
         
         private void OnDisable()
         {
             inputEventChannel.OnMove -= HandleOnMove;
+            AdditiveSceneManager.OnChangeOfScene -= HandleSceneChange;
+        }
+
+        private void HandleSceneChange(bool state)
+        {
+            canMove = state;
         }
 
         private void HandleOnMove(Vector2 value)
@@ -61,6 +71,8 @@ namespace GWS.Player.Runtime
 
         private void FixedUpdate()
         {
+            if (!canMove) return;
+
             currentReferenceFrame = Quaternion.Slerp(currentReferenceFrame, referenceFrame.rotation, referenceFrameInterpolationSpeed * Time.deltaTime);
             var rotation = Quaternion.Euler(0, currentReferenceFrame.eulerAngles.y, 0);
             CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, direction * speed, rotation, friction));

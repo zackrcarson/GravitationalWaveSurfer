@@ -1,5 +1,6 @@
 using System.Collections;
 using GWS.GeneralRelativitySimulation.Runtime;
+using GWS.SceneManagement;
 using UnityEngine;
 
 namespace GWS.UI.Runtime
@@ -20,6 +21,8 @@ namespace GWS.UI.Runtime
         private Animator glossaryMenuAnimator;
 
         [SerializeField] private GameObject statsMenu;
+        [SerializeField] private GameObject mainSceneExplanation;
+        [SerializeField] private GameObject atomSceneExplanation;
 
         [SerializeField, Min(0)] 
         private float pauseTime = 0.25f; 
@@ -27,9 +30,38 @@ namespace GWS.UI.Runtime
         private bool isPaused = false;
 
         private float currentTimeScale = 1f;
+
+        public static bool isInMainScene = true;
         
         private static readonly int Open = Animator.StringToHash("Open");
         private static readonly int Close = Animator.StringToHash("Close");
+
+        private void OnEnable()
+        {
+            AdditiveSceneManager.OnChangeOfScene += HandleSceneChange;
+            mainSceneExplanation.SetActive(true);
+            atomSceneExplanation.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            AdditiveSceneManager.OnChangeOfScene -= HandleSceneChange;
+        }
+
+        private void HandleSceneChange(bool state)
+        {
+            isInMainScene = state;
+            if (isInMainScene)
+            {
+                mainSceneExplanation.SetActive(true);
+                atomSceneExplanation.SetActive(false);
+            }
+            else
+            {
+                mainSceneExplanation.SetActive(false);
+                atomSceneExplanation.SetActive(true);
+            }
+        }
 
         private void Update()
         {
@@ -83,7 +115,10 @@ namespace GWS.UI.Runtime
             yield return new WaitForSecondsRealtime(pauseTime);
 
             pauseMenu.SetActive(false);
-            statsMenu.SetActive(true);
+            if (isInMainScene)
+            {
+                statsMenu.SetActive(true);
+            }
             TimeSpeedManager.Scale = currentTimeScale;
             isPaused = false;
             AudioListener.volume = 1;

@@ -6,19 +6,19 @@ namespace GWS.UI.Runtime
 
     public class StarUnlock : ScriptableObject, IUnlock
     {
-        public new Outcome name;
+        public new Outcome Name;
 
-        public Sprite sprite;
+        public Sprite Sprite;
 
-        public string description;
+        public string Description;
 
-        public double solarMass;
+        public double SolarMass;
 
-        public bool unlocked;
+        public bool Unlocked;
 
         public bool IsUnlocked()
         {
-            return unlocked;
+            return Unlocked;
         }
     }
 
