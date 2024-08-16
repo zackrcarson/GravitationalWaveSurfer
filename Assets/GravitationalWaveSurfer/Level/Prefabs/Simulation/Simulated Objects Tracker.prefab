@@ -45,5 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simulatedObjects: {fileID: 11400000, guid: 2d0615ea435e18b48921f1d377664367, type: 2}
-  interactionRadius: 100
+  origin: {fileID: 0}
+  interactionRadius: 1000
+  excludeLayerMask:
+    serializedVersion: 2
+    m_Bits: 652
   collisions: []

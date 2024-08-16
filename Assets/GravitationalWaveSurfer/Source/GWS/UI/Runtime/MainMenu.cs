@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +16,7 @@ namespace GWS.UI.Runtime
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && glossaryMenu.activeSelf)
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Escape) && glossaryMenu.activeSelf)
             {
                 HideGlossary();
             }

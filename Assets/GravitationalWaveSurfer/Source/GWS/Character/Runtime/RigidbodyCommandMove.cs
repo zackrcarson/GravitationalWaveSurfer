@@ -31,7 +31,8 @@ namespace GWS.Character.Runtime
         /// </summary>
         public void Execute()   
         {
-            rigidbody.velocity = (rigidbody.velocity + rotation * movement) * (1 - friction);
+            // rigidbody.velocity = (rigidbody.velocity + rotation * movement) * (1 - friction);
+            rigidbody.AddForce(rotation * movement, ForceMode.Impulse);
         }
     }
 }

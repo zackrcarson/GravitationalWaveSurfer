@@ -11,13 +11,19 @@ namespace GWS.GeneralRelativitySimulation.Runtime
         /// The <see cref="SimulatedObjects"/> to update. 
         /// </summary>
         [SerializeField]
-        private SimulatedObjects simulatedObjects; 
+        private SimulatedObjects simulatedObjects;
+
+        [SerializeField] 
+        private Transform origin;
         
         /// <summary>
         /// The radius in which this is attracted to other objects.
         /// </summary>
         [SerializeField, Min(0)]
         private float interactionRadius;
+
+        [SerializeField] 
+        private LayerMask excludeLayerMask;
         
         /// <summary>
         /// The active collisions within the <see cref="interactionRadius"/>.
@@ -38,7 +44,7 @@ namespace GWS.GeneralRelativitySimulation.Runtime
 
         private void FixedUpdate()
         {
-            Physics.OverlapSphereNonAlloc(transform.position, interactionRadius, collisions);
+            Physics.OverlapSphereNonAlloc(origin.position, interactionRadius, collisions, ~excludeLayerMask.value);
             UpdateSimulatedObjects();
         }
 

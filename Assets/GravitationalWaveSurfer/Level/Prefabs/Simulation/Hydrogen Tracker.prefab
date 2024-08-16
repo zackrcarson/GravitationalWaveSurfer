@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5334872276471971763}
   - component: {fileID: 3087694435852047605}
+  - component: {fileID: 8298296834042156485}
   m_Layer: 0
   m_Name: Hydrogen Tracker
   m_TagString: Untagged
@@ -44,4 +45,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4862bdd24737c6943b6633d8b9e38acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+--- !u!114 &8298296834042156485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584273982778070281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd0525a96b8466c9a4201ecd2ae8b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionEventChannel: {fileID: 11400000, guid: cfb8fa32925b2674ebf1fec8829102ab, type: 2}
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}

@@ -18,6 +18,7 @@ namespace GWS.WorldGen
         /// </summary>
         public GameObject ChunkObject { get; private set; }
         public bool IsActive { get; private set; }
+        public bool HasPOI { get; private set; } = false;
         public List<GameObject> Objects { get; private set; }
 
         public Chunk (Vector3Int position, GameObject chunkParent)
@@ -25,6 +26,7 @@ namespace GWS.WorldGen
             Position = position;
             ChunkObject = new GameObject($"Chunk_{position.x}_{position.y}_{position.z}");
             ChunkObject.transform.parent = chunkParent.transform;
+            ChunkObject.layer = ChunkObject.transform.parent.gameObject.layer;
             IsActive = false;
             Objects = new List<GameObject>();
         }
@@ -38,6 +40,11 @@ namespace GWS.WorldGen
         {
             IsActive = active;
             ChunkObject.SetActive(active);
+        }
+
+        public void SetPOI(bool POI)
+        {
+            HasPOI = POI;
         }
     }
 }

@@ -11,9 +11,6 @@ namespace GWS.HydrogenCollectionUI.Runtime
     {
         [SerializeField] 
         private ParticleInventory particleInventory;
-
-        [SerializeField] 
-        private ParticleInventoryEventChannel particleInventoryEventChannel;
         
         [SerializeField]
         private Slider hydrogenSlider;
@@ -27,19 +24,9 @@ namespace GWS.HydrogenCollectionUI.Runtime
         [SerializeField]
         public RectTransform blackHoleTick;
 
-        private void OnEnable()
-        {
-            particleInventoryEventChannel.OnHydrogenCountChanged += UpdateProgress;
-            hydrogenSlider.maxValue = HydrogenTracker.HYDROGEN_CAPACITY;
-        }
-
-        private void OnDisable()
-        {
-            particleInventoryEventChannel.OnHydrogenCountChanged -= UpdateProgress;
-        }
-
         private void Start()
         {
+            hydrogenSlider.maxValue = HydrogenTracker.HYDROGEN_CAPACITY;
             hydrogenSlider.value = 0;
             PositionTick(blackHoleTick, (float)HydrogenTracker.NEUTRON_STAR_THRESHOLD);
             PositionTick(neutronStarTick, (float)HydrogenTracker.WHITE_DWARF_THRESHOLD);
@@ -55,7 +42,7 @@ namespace GWS.HydrogenCollectionUI.Runtime
             tick.anchoredPosition = new Vector2(tickPositionX, tick.anchoredPosition.y);
         }
 
-        private void UpdateProgress(int amount)
+        private void Update()
         {
             hydrogenSlider.value = particleInventory.HydrogenCount;
         }

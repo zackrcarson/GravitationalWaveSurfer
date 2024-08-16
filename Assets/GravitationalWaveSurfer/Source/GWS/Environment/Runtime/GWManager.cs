@@ -4,6 +4,7 @@ using UnityEngine;
 
 using GWS.Data;
 using GWS.WorldGen;
+using System.Linq;
 
 public class GWManager : MonoBehaviour
 {
@@ -104,7 +105,7 @@ public class GWManager : MonoBehaviour
             initialFrequency = UnityEngine.Random.Range(minInitialFrequency, maxInitialFrequency),
             peakAmplitude = 2f * initialAmplitude,
             peakFrequency = 2f * initialFrequency,
-            mergeTime = UnityEngine.Random.Range(minMergeTime, maxMergeTime)
+            mergeTime = UnityEngine.Random.Range(minMergeTime, maxMergeTime) + Vector3.Distance(destPos, playerPosition) / speedOfLight
         };
 
         gWData = data;
@@ -165,6 +166,9 @@ public class GWManager : MonoBehaviour
 
         foreach (Chunk chunk in activeChunks)
         {
+            // POIs are unaffected by GW
+            if (chunk.HasPOI) continue;
+
             if (!initializedChunks.Contains(chunk))
             {
                 InitializeChunk(chunk);

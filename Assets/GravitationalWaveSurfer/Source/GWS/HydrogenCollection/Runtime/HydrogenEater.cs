@@ -9,9 +9,6 @@ namespace GWS.HydrogenCollection.Runtime
     {
         [SerializeField]
         private ParticleInventory particleInventory;
-
-        [SerializeField] 
-        private ParticleInventoryEventChannel particleInventoryEventChannel;
         
         [SerializeField]
         private AudioSource constantAudioSource;
@@ -47,7 +44,6 @@ namespace GWS.HydrogenCollection.Runtime
         private void AddHydrogen(int amount)
         {
             particleInventory.HydrogenCount += amount;
-            particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);
         }
 
         private void HandleCollision(Component other, AudioClip clip)
@@ -55,7 +51,7 @@ namespace GWS.HydrogenCollection.Runtime
             BobCollection.attractedObjects.Remove(other.transform);
             Destroy(other.gameObject);
 
-            if (Time.time >= lastAudioTime + audioCooldown)
+            if (constantAudioSource && Time.time >= lastAudioTime + audioCooldown)
             {
                 constantAudioSource.pitch = Random.Range(1f, 1.25f);
                 constantAudioSource.PlayOneShot(clip, 0.1f);

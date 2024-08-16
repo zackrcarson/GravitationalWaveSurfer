@@ -4,22 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - TrackingObject
+  - Attractable
   - Electron
+  - Particle_Parent
   - Proton
   - Neutron
-  - Anti-Proton
-  - Anti-Neutron
-  - Anti-Electron
-  - Particle_Parent
-  - Black Hole
   - Particle Clump
-  - gridParent
-  - Attractable
+  - Anti-Proton
+  - Anti-Electron
+  - Anti-Neutron
+  - Black Hole
+  - Actors
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - No Collision
+  - 
   - Water
   - UI
   - Player
@@ -49,12 +50,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 4275980729
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 862448501
     locked: 0
