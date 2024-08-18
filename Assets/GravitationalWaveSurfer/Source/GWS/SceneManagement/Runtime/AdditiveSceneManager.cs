@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
-using GWS.AtomCreation;
 
 namespace GWS.SceneManagement
 {
@@ -23,15 +22,15 @@ namespace GWS.SceneManagement
         /// </summary>
         public static event Action<bool> OnChangeOfScene;
 
-        private void OnEnable()
-        {
-            AtomFormationManager.OnComplete += FadeToLevel;
-        }
+        //private void OnEnable()
+        //{
+        //    AtomFormationManager.OnComplete += FadeToLevel;
+        //}
 
-        private void OnDisable()
-        {
-            AtomFormationManager.OnComplete -= FadeToLevel;
-        }
+        //private void OnDisable()
+        //{
+        //    AtomFormationManager.OnComplete -= FadeToLevel;
+        //}
 
         private void Start()
         {

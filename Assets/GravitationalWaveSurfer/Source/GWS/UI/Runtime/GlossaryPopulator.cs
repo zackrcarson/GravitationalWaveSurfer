@@ -9,7 +9,7 @@ namespace GWS.AtomCreation
 {
     /// <summary>
     /// This utility is not used in runtime. Used to add all the elements to the glossary of the GlossaryScreen. 
-    /// *Adding elements to a prefab was confusing so I'm just gonna use the hack of adding to a prefab on a per scene basis.
+    /// *Adding elements to a prefab was confusing so I'm just gonna use the hack of adding to a prefab on a per scene basis (ie the main menu and gameplay scene).
     /// TODO: Fix that ^
     /// </summary>
     public class GlossaryPopulator : MonoBehaviour
