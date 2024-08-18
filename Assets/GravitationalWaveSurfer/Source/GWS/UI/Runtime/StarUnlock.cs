@@ -6,7 +6,7 @@ namespace GWS.UI.Runtime
 
     public class StarUnlock : ScriptableObject, IUnlock
     {
-        public new Outcome Name;
+        public Outcome Name;
 
         public Sprite Sprite;
 
