@@ -2,6 +2,7 @@ using GWS.Player.Runtime;
 using GWS.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using GWS.SceneManagement.Runtime;
 using UnityEngine;
 
 namespace GWS.Player.Runtime

@@ -1,0 +1,19 @@
+﻿title: Start
+tags:
+---
+Welcome to the tutorial!
+First, try moving around. 
+<<wait_for_input_action Move>>  
+<<wait 2>>
+
+Nice! This is how you'll navigate space to collect particles.   
+<<disable_input_action Move>>
+
+Let's stop moving, and, practice moving our aim cursor. 
+<<wait_for_input_action CursorPosition>>  
+<<wait 2>>
+<<enable_input_action Move>>
+
+Simple, right? 
+This is the end of the tutorial, exit whenever you'd like to!
+===

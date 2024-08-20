@@ -1,16 +1,15 @@
-using GWS.AtomCreation;
-using GWS.Gameplay;
-using GWS.UI.Runtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GWS.Gameplay;
+using GWS.UI.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     public class AtomFormationManager : MonoBehaviour
     {

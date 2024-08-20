@@ -1,10 +1,7 @@
-using GWS.UI.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
+using GWS.UI.Runtime;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     public readonly struct AtomInfo 
     {
