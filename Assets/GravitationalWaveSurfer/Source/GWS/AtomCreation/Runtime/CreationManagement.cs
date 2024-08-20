@@ -1,14 +1,13 @@
-using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using System.Numerics;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using Vector3 = UnityEngine.Vector3;
 using Quaternion = UnityEngine.Quaternion;
-using UnityEngine.EventSystems;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     public class CreationManagement : MonoBehaviour, IPointerClickHandler
     {

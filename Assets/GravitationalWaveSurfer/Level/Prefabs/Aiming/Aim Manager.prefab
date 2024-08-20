@@ -114,9 +114,10 @@ MonoBehaviour:
   capsuleDepth: 0
   capsuleRadius: 20
   capsuleHeight: 1000
-  excludeLayerMask:
+  includeLayerMask:
     serializedVersion: 2
-    m_Bits: 78
+    m_Bits: 64
+  contacts: []
 --- !u!114 &6578447394385847008
 MonoBehaviour:
   m_ObjectHideFlags: 0

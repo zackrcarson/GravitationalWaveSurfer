@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     public class CreationCameraManagement : MonoBehaviour
     {

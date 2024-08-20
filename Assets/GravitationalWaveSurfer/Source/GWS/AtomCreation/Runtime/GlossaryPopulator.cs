@@ -1,11 +1,10 @@
-using GWS.UI.Runtime;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GWS.UI.Runtime;
 using UnityEditor;
 using UnityEngine;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     /// <summary>
     /// This utility is not used in runtime. Used to add all the elements to the glossary of the GlossaryScreen. 

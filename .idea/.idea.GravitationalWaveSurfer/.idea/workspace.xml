@@ -5,7 +5,269 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/InputSystem.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/InputSystem/DefaultInputActions.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/InputSystem/DefaultInputActions.inputactions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Aiming/Aim Manager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Aiming/Aim Manager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Camera/Third Person Camera Aim Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Level/Prefabs/Camera/Third Person Camera Aim Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandMoveHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerCommandMoveHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerMoveAudio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Player/Runtime/PlayerMoveAudio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/AdditiveSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/AdditiveSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/GWS.SceneManagement.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/GWS.SceneManagement.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/MainSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/MainSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/GWS.UI.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/GWS.UI.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/OpenMenuOnStart.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/OpenMenuOnStart.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/PauseGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/PauseGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/SceneField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/SceneField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/UI/Runtime/SceneField.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/SceneManagement/Runtime/SceneField.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/TextMeshPro.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/TextMeshPro/LiberationSans SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/TextMeshPro/LiberationSans SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/Docments.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/Docments/Empty.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/Docments/Empty.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/Docments/MainMenu.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/Docments/MainMenu.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/UIToolkit.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/UIToolkit/PanelSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/UI/UIToolkit/PanelSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/URP-HighFidelity-Renderer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/URP-HighFidelity-Renderer.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/URP-HighFidelity.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/URP-HighFidelity.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineAsset_Renderer.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/URP/UniversalRenderPipelineGlobalSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Documentation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Fonts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/LineBreaking Following Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Mobile.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne Attribution.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurferOld/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/.idea/.idea.Unity-UIAddons/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/.idea/.idea.Unity-UIAddons/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/.idea/.idea.Unity-UIAddons/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ApplicationQuitHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ApplicationQuitHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/Example.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/Example.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenu.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenu.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenu.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenu.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuAlternate.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuAlternate.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuAlternate.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuAlternate.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuEventChannel.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleMenuEventChannel.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleRootContainer.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/ExampleRootContainer.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/UnityDefaultRuntimeTheme.tss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Example/UnityDefaultRuntimeTheme.tss.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/CHANGELOG.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/Mushakushi.MenuFramework.Editor.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/Mushakushi.MenuFramework.Editor.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/NameClassSelectorAttributeDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/NameClassSelectorAttributeDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/ReflectionUtility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/ReflectionUtility.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/SelectorDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/SelectorDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/UQueryBuilderSerializableDrawer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Editor/SerializableUQuery/UQueryBuilderSerializableDrawer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/IMenuExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/IMenuExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/Menu.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/Menu.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventChannel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventChannel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventExtensionWithDictionary.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuEventExtensionWithDictionary.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/MenuExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/OnDetachFromPanelArgs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/ExtensionFramework/OnDetachFromPanelArgs.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/ApplicationQuitButtonExtension.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/ApplicationQuitButtonExtension/ApplicationQuitButtonExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/ApplicationQuitButtonExtension/ApplicationQuitButtonExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/ApplicationQuitButtonExtension/ApplicationQuitHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/ApplicationQuitButtonExtension/ApplicationQuitHelper.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/CloseMenuButtonExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/CloseMenuButtonExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconDisplayConfiguration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconDisplayConfiguration.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconMap.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/InputIconExtension/InputIconMap.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/MenuConnectionButtonExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/MenuConnectionButtonExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/UnityEventButtonExtension.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Extensions/UnityEventButtonExtension.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Mushakushi.MenuFramework.Runtime.asmdef" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/Mushakushi.MenuFramework.Runtime.asmdef.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/NameClassSelectorAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/NameClassSelectorAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/PseudoSelector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/PseudoSelector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/Selector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/Selector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/SelectorType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/SelectorType.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/UQueryBuilderSerializable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/Runtime/SerializableUQuery/UQueryBuilderSerializable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Mushakushi.MenuFramework/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit/ExamplePanelSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit/ExamplePanelSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit/UnityThemes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit/UnityThemes/ExampleUnityDefaultRuntimeTheme.tss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/Assets/UI Toolkit/UnityThemes/ExampleUnityDefaultRuntimeTheme.tss.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/CHANGELOG.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/LICENSE.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/README.md.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UIElements.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UIElements.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/Unity.Profiling.Editor.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/Unity.Profiling.Editor.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/Unity.UI.Builder.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/Unity.UI.Builder.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Overlays.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Overlays.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Search.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Search.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.ShortcutManagement.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Tilemaps.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.Tilemaps.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.SpriteLibraryEditor.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.SpriteLibraryEditor.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.Upgrading.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.Upgrading.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Animation.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Layout.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.U2D.Layout.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.UIElements.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEditor.UIElements.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEngine.UIElements.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/UIElementsSchema/UnityEngine.UIElements.xsd.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Mushakushi/UIToolkitMenuFramework/package.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,9 +280,29 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/CinemachineCameraToggler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/DialogueUI/Runtime/SoftMaskResizeWorkaround.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.5.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Editor/SerializableUQuery/NameClassSelectorAttributeDrawer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/ExtensionFramework/IMenuExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/ExtensionFramework/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/ExtensionFramework/MenuEventExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/Extensions/InputIconExtension/InputIconDisplayConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/Extensions/InputIconExtension/InputIconExtension.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/SerializableUQuery/NameClassSelectorAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.31/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/DialogueRunner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/LineProviders/LineProviderBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/Views/DialogueViewBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/Views/Effects.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/Views/LineView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/f7237cf7abef49bfbb552d7eb076e422174200/9e/d3b607c0/0200026D.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0944786e62e4d4ca0e20d46b63dbb4e15c00/6c/516e02e0/MarkupParseResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/27/9402ab9d/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/67/631c7429/WaitUntil.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/72/ce204ead/Coroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/74/7a20e7c4/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/86/c7308138/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/ee/2626dfce/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -48,7 +330,7 @@
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GWS-34&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GWS-37&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -56,13 +338,6 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\mushakushi\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\mushakushi\\AppData\\Local\\Symbols\\src&quot;
-    ]
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -148,6 +423,15 @@
       <workItem from="1722403774260" duration="14182000" />
       <workItem from="1722868832004" duration="1047000" />
       <workItem from="1722870456870" duration="1255000" />
+      <workItem from="1723472338982" duration="585000" />
+      <workItem from="1723485050344" duration="6293000" />
+      <workItem from="1723594603178" duration="17498000" />
+      <workItem from="1723657759505" duration="6058000" />
+      <workItem from="1723694892329" duration="1338000" />
+      <workItem from="1723742252747" duration="4231000" />
+      <workItem from="1723820247094" duration="18328000" />
+      <workItem from="1724011425965" duration="6684000" />
+      <workItem from="1724173828362" duration="1164000" />
     </task>
     <servers />
   </component>
@@ -162,6 +446,7 @@
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

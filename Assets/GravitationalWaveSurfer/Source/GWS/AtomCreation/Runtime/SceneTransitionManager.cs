@@ -1,9 +1,9 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace GWS.SceneManagement
+namespace GWS.AtomCreation.Runtime
 {
     public class SceneTransitionManager : MonoBehaviour
     {

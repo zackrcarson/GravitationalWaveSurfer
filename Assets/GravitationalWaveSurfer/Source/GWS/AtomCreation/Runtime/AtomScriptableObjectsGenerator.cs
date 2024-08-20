@@ -1,10 +1,8 @@
 using GWS.UI.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {
     /// <summary>
     /// Generates all atoms from AtomInfo as scriptable objects in a specified folder path.

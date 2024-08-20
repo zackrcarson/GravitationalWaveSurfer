@@ -1,9 +1,7 @@
-using UnityEngine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace GWS.AtomCreation
+namespace GWS.AtomCreation.Runtime
 {    
     public class ElectronRing : MonoBehaviour 
     {
