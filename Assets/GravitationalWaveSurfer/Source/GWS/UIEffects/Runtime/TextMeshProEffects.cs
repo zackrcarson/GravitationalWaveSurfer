@@ -45,7 +45,7 @@ namespace GWS.UIEffects.Runtime
                 }
 
                 textMeshProUGUI.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
-                if (currentCharacter < characterCount - 1)currentCharacter++;
+                if (currentCharacter < characterCount - 1) currentCharacter++;
                 yield return new WaitForSeconds(0.25f - speed * 0.01f);
             }
         }

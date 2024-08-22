@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.coffee.softmask-for-ugui": {
-      "version": "2.2.1",
+      "version": "2.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -33,12 +33,6 @@
       "dependencies": {},
       "url": "https://npm.pkg.jetbrains.space/public/p/jetbrains-gamedev/jetbrains-gamedev"
     },
-    "com.kyrylokuzyk.primetween": {
-      "version": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
-    },
     "com.mackysoft.serializereference-extensions": {
       "version": "1.4.0",
       "depth": 0,
@@ -61,7 +55,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2337dfaf78fca7975f0dcd4e3f42245f067495a0"
+      "hash": "cd86dc39ead74734c1639459de4a5e310e596bd3"
     },
     "com.rotaryheart.serializabledictionarylite": {
       "version": "2.6.11",

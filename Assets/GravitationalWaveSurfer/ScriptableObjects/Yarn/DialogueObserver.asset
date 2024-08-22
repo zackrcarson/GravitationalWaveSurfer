@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c230f3a5924248a1b2ad0866117b3a97, type: 3}
-  m_Name: YarnDialogueObserver
+  m_Name: DialogueObserver
   m_EditorClassIdentifier: 

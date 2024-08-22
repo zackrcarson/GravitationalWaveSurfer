@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.UI", "GWS.UI.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.ParticleSystem", "GWS.ParticleSystem.csproj", "{715cebed-8069-1406-7fa8-447912d6f000}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.CommandPattern", "GWS.CommandPattern.csproj", "{7f705f0f-3759-40b6-9d9d-8273f46109e7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Aiming", "GWS.Aiming.csproj", "{f30b5379-fb8f-70f2-8fdf-fc980940707b}"
@@ -16,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.AtomCreation", "GWS.AtomCreation.csproj", "{72a8a73c-d9fc-ede9-3c31-3605a3b0560c}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.SceneManagement", "GWS.SceneManagement.csproj", "{4f6ac138-04f8-a82c-66ef-0432bf9869df}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{feb9d089-e649-6b02-a1d4-a36c558416f5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWSOld", "GWSOld.csproj", "{77fc723e-9bf3-f480-94ae-7a1c763f11e0}"
 EndProject
@@ -54,8 +54,6 @@ Global
 		{6ad8a9a6-3aad-c2be-2738-421fa10f4324}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{715cebed-8069-1406-7fa8-447912d6f000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{715cebed-8069-1406-7fa8-447912d6f000}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7f705f0f-3759-40b6-9d9d-8273f46109e7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7f705f0f-3759-40b6-9d9d-8273f46109e7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f30b5379-fb8f-70f2-8fdf-fc980940707b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -66,6 +64,8 @@ Global
 		{72a8a73c-d9fc-ede9-3c31-3605a3b0560c}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4f6ac138-04f8-a82c-66ef-0432bf9869df}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{feb9d089-e649-6b02-a1d4-a36c558416f5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77fc723e-9bf3-f480-94ae-7a1c763f11e0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1b2bc1d4-a549-2dfd-4dbc-18e907d4a8f6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

@@ -46,10 +46,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\DialogueUI\Runtime\SoftMaskResizeWorkaround.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWData.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\DialogueUI\Runtime\DialogueAutoAdvance.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\Chunk.cs" />
     <Compile Include="Assets\Vefects\Trails VFX URP\Scripts\Demo_FreeCam.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleData.cs" />
@@ -70,6 +70,7 @@
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\POIManager.cs" />
     <Compile Include="Assets\Vefects\Trails VFX URP\Scripts\Demo_TurningAround.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\DialogueUI\Runtime\LineOutputController.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\EnableGroup\Runtime\EnableGroupObserver.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
@@ -767,9 +768,6 @@
     <Reference Include="UnityDropdown.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityDropdown.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="PrimeTween.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\PrimeTween.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
@@ -955,9 +953,6 @@
     </Reference>
     <Reference Include="SolidUtilities">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\SolidUtilities.dll</HintPath>
-    </Reference>
-    <Reference Include="PrimeTween.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\PrimeTween.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
