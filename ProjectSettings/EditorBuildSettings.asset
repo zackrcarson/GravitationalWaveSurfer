@@ -26,4 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GravitationalWaveSurfer/Level/AtomCreationMultipleScenes.unity
     guid: 007d164b299e5d347977040fe3386917
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Release/FinalBuild.unity
+    guid: 93b5cd94190a71c4ca8b7e6237400af2
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

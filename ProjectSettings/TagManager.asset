@@ -16,6 +16,7 @@ TagManager:
   - Anti-Neutron
   - Black Hole
   - Actors
+  - POI
   layers:
   - Default
   - TransparentFX

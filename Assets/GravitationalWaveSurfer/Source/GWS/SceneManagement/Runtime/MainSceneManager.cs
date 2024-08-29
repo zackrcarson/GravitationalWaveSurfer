@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Eflatun.SceneReference;
 using GWS.SceneManagement.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,7 @@ namespace GWS.SceneManagement
         private Animator animator;
 
         [SerializeField]
-        private SceneField sceneToLoad;
+        private SceneReference sceneToLoad;
 
         [SerializeField]
         public GameObject[] hideableObjects;
@@ -25,6 +26,7 @@ namespace GWS.SceneManagement
         {
             AdditiveSceneManager.OnChangeOfScene += ReloadMainScene;
         }
+
         private void OnDisable()
         {
             AdditiveSceneManager.OnChangeOfScene -= ReloadMainScene;
@@ -49,7 +51,7 @@ namespace GWS.SceneManagement
         private void LoadAdditiveScene()
         {
             EnableObjects(false);
-            SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(sceneToLoad.BuildIndex, LoadSceneMode.Additive);
         }
     
         private void EnableObjects(bool state)

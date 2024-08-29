@@ -1,3 +1,4 @@
+using Eflatun.SceneReference;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -14,8 +15,8 @@ namespace GWS.SceneManagement.Runtime
         private Animator animator;
 
         [SerializeField]
-        private SceneField mainScene;
-
+        private SceneReference mainScene;
+        
         private static string mainSceneName;
 
         /// <summary>
@@ -24,33 +25,26 @@ namespace GWS.SceneManagement.Runtime
         /// </summary>
         public static event Action<bool> OnChangeOfScene;
 
-        // private void OnEnable()
-        // {
-        //     AtomFormationManager.OnComplete += FadeToLevel;
-        // }
-        //
-        // private void OnDisable()
-        // {
-        //     AtomFormationManager.OnComplete -= FadeToLevel;
-        // }
-
         private void Start()
         {
             OnChangeOfScene?.Invoke(false);
             mainSceneName = SceneManager.GetActiveScene().name;
             SetActiveSceneToOther();
         }
-        // private void Update()
-        // {
-        //     if (Input.GetKeyDown(KeyCode.G))
-        //     {
-        //         FadeToLevel();
-        //     }
-        // }
-        // public void FadeToLevel()
-        // {
-        //     animator.SetTrigger(MainSceneManager.FadeOutTrigger);
-        // }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                FadeToLevel();
+            }
+        }
+
+        public void FadeToLevel()
+        {
+            animator.SetTrigger(MainSceneManager.FadeOutTrigger);
+        }
+
         public void OnFadeComplete()
         {
             StartCoroutine(ReturnToMainScene());

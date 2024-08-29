@@ -97,7 +97,10 @@ namespace GWS.AtomCreation.Runtime
         private void CompletedAllElements()
         {
             //Debug.Log("All elements completed!");
-            formationIndex.CurrentAtomIndex++;
+            if (formationIndex.CurrentAtomIndex < AtomInfo.Order.Length)
+            {
+                formationIndex.CurrentAtomIndex++;
+            }
             finishMessage.text = $"Good job!\r\n\r\nThe next element in order is:\r\n\r\n<color=#FFBAB5>{AtomInfo.Order[formationIndex.CurrentAtomIndex].FullName}</color>\r\n\r\nNow returning...";
             SetNumElementsLeftText();
             StartCoroutine(Wait());

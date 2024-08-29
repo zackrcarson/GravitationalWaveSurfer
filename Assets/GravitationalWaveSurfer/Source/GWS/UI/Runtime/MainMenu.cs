@@ -8,7 +8,7 @@ namespace GWS.UI.Runtime
     {
         [SerializeField] private GameObject glossaryMenu;
         [SerializeField] private Animator glossaryMenuAnimator;
-
+        
         private void Start()
         {
             if (glossaryMenuAnimator == null) glossaryMenuAnimator = glossaryMenu.GetComponent<Animator>();
@@ -48,7 +48,7 @@ namespace GWS.UI.Runtime
 
         public void PlayGame()
         {
-            SceneManager.LoadScene("StageTwoMultipleScenes");
+            SceneManager.LoadScene("FinalBuild");
         }
 
         public void QuitGame()
