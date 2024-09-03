@@ -73,6 +73,7 @@
     <Compile Include="Assets\Vefects\Trails VFX URP\Scripts\Demo_TurningAround.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csDestroyEffect.cs" />
     <Compile Include="Assets\Ogxd\GridShader\Demo\ZoomOverTime.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Pause\PauseGame.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csMouseOrbit.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\UI Toolkit\Documents\Dialogue.uxml" />
@@ -896,8 +897,8 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UniTask.TextMeshPro">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.TextMeshPro.dll</HintPath>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -908,14 +909,8 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask.Linq">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.Linq.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner.Unity">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinner.Unity.dll</HintPath>
@@ -949,9 +944,6 @@
     </Reference>
     <Reference Include="TypeReferences">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\TypeReferences.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask.DOTween">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Mushakushi.YarnSpinnerUtility">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Mushakushi.YarnSpinnerUtility.dll</HintPath>
@@ -1022,9 +1014,6 @@
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
-    <Reference Include="UniTask.Addressables">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.Addressables.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -1033,9 +1022,6 @@
     </Reference>
     <Reference Include="Coffee.SoftMaskForUGUI">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
-    </Reference>
-    <Reference Include="nl.jeffreylanters.tweens">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\nl.jeffreylanters.tweens.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
@@ -1054,9 +1040,6 @@
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="UniTask">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UniTask.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
       <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
@@ -1131,6 +1114,10 @@
       <Project>{6ad8a9a6-3aad-c2be-2738-421fa10f4324}</Project>
       <Name>GWS.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="GWS.ParticleSystem.csproj">
+      <Project>{715cebed-8069-1406-7fa8-447912d6f000}</Project>
+      <Name>GWS.ParticleSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="GWS.Player.Runtime.csproj">
       <Project>{7188534b-09e0-5beb-11ab-1cd6811e33bc}</Project>
       <Name>GWS.Player.Runtime</Name>
@@ -1138,10 +1125,6 @@
     <ProjectReference Include="GWS.MeshDeformation.csproj">
       <Project>{e7b5757c-9575-fa20-8905-48349e94d19e}</Project>
       <Name>GWS.MeshDeformation</Name>
-    </ProjectReference>
-    <ProjectReference Include="GWS.ParticleSystem.csproj">
-      <Project>{715cebed-8069-1406-7fa8-447912d6f000}</Project>
-      <Name>GWS.ParticleSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,5 +1,4 @@
-using System;
-using Cysharp.Threading.Tasks;
+using System.Threading;
 using GWS.Aiming.Runtime;
 using GWS.Input.Runtime;
 using UnityEngine;
@@ -36,7 +35,9 @@ namespace GWS.BobAiming.Runtime
         private float bobMaxActionableDistance;
 
         [SerializeField] 
-        private float force; 
+        private float force;
+
+        private CancellationTokenSource fireCancellationToken; 
 
         private void OnEnable()
         {
@@ -50,36 +51,40 @@ namespace GWS.BobAiming.Runtime
 
         private void Fire()
         {
-            var bobPosition = bobJoint.transform.position;
+            fireCancellationToken.Dispose();
+            fireCancellationToken.Cancel();
+            fireCancellationToken = new CancellationTokenSource();
             
-            if (bobJoint.xMotion != ConfigurableJointMotion.Limited || !CanFire(transform.position, bobPosition, bobMaxActionableDistance)) return;
+            var bobPosition = bobJoint.transform.position;
+            if (bobJoint.xMotion != ConfigurableJointMotion.Limited || !IsCloseEnough(transform.position, bobPosition, bobMaxActionableDistance)) return;
             
             var direction = AimDataManager.ScreenPointToDirection(aimData.position, aimData.camera, bobPosition);
-            
             bobJoint.connectedBody = null;
-            bobJoint.xMotion = ConfigurableJointMotion.Free;
-            bobJoint.yMotion = ConfigurableJointMotion.Free;
-            bobJoint.zMotion = ConfigurableJointMotion.Free;
-            
+            SetXYZMotion(bobJoint, ConfigurableJointMotion.Free);
             bobRigidbody.velocity = Vector3.zero;
             bobRigidbody.AddForce(direction * force, ForceMode.Impulse);
 
-            DelayReactivateSpring();
+            DelayReactivateSpring(fireCancellationToken.Token);
         }   
 
-        private static bool CanFire(Vector3 position, Vector3 bobPosition, float maxActionableDistance)
+        private static bool IsCloseEnough(Vector3 position, Vector3 bobPosition, float maxActionableDistance)
         {
             return Vector3.Distance(position, bobPosition) <= maxActionableDistance;
         }
 
-        private async void DelayReactivateSpring()
+        private static void SetXYZMotion(ConfigurableJoint joint, ConfigurableJointMotion motion)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(springReactivationDelay), ignoreTimeScale: false);
+            joint.xMotion = motion;
+            joint.yMotion = motion;
+            joint.zMotion = motion;
+        }
+
+        private async void DelayReactivateSpring(CancellationToken cancellationToken)
+        {
+            await Awaitable.WaitForSecondsAsync(springReactivationDelay, cancellationToken);
             
             bobJoint.connectedBody = connectedBody;
-            bobJoint.xMotion = ConfigurableJointMotion.Limited;
-            bobJoint.yMotion = ConfigurableJointMotion.Limited;
-            bobJoint.zMotion = ConfigurableJointMotion.Limited;
+            SetXYZMotion(bobJoint, ConfigurableJointMotion.Limited);
             
             bobRigidbody.velocity = Vector3.zero;
         }

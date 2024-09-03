@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "com.coffee.softmask-for-ugui": "2.2.2",
-    "com.cysharp.unitask": "2.5.5",
     "com.eflatun.scenereference": "4.1.1",
     "com.jetbrains.riderflow": "2023.1.0-25",
     "com.mackysoft.serializereference-extensions": "1.4.0",
@@ -22,7 +21,6 @@
     "com.unity.timeline": "1.8.6",
     "com.unity.ugui": "2.0.0",
     "dev.yarnspinner.unity": "2.4.2",
-    "nl.jeffreylanters.tweens": "3.4.1",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

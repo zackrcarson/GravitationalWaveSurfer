@@ -9,13 +9,6 @@
       },
       "url": "https://package.openupm.com"
     },
-    "com.cysharp.unitask": {
-      "version": "2.5.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "com.eflatun.scenereference": {
       "version": "4.1.1",
       "depth": 0,
@@ -307,13 +300,6 @@
     },
     "dev.yarnspinner.unity": {
       "version": "2.4.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "nl.jeffreylanters.tweens": {
-      "version": "3.4.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

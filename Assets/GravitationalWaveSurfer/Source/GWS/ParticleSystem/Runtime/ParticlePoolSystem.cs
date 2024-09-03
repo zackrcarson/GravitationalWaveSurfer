@@ -1,6 +1,4 @@
-using System;
 using System.Threading;
-using Cysharp.Threading.Tasks;
 using GWS.ParticleSystem.Runtime.DirectionGeneration;
 using GWS.ParticleSystem.Runtime.Shapes;
 using JetBrains.Annotations;
@@ -30,7 +28,7 @@ namespace GWS.ParticleSystem.Runtime
         private float initialLinearVelocity;
 
         /// <summary>
-        /// Whether or not to play the particle system on <see cref="Start"/>.
+        /// Whether to play the particle system on <see cref="Start"/>.
         /// </summary>
         [SerializeField] 
         private bool playOnStart;
@@ -54,7 +52,7 @@ namespace GWS.ParticleSystem.Runtime
         [UsedImplicitly, SerializeReference, SubclassSelector]
         private IDirectionGenerator directionGenerator;
 
-        private CancellationTokenSource resetCancellation;
+        private CancellationTokenSource resetCancellation = new();
 
         private void Awake()
         {
@@ -77,10 +75,10 @@ namespace GWS.ParticleSystem.Runtime
         public void Play()
         {
             resetCancellation = new CancellationTokenSource();
-            _ = UpdateSystem(resetCancellation.Token);
+            UpdateSystem(resetCancellation.Token);
         }
 
-        private async UniTaskVoid UpdateSystem(CancellationToken cancellationToken)
+        private async void UpdateSystem(CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
@@ -96,23 +94,24 @@ namespace GWS.ParticleSystem.Runtime
                     particles[i] = pool.Allocate(particleArgs);
 
                     if (!ReferenceEquals(particles[i], null)) continue;
-                    await UniTask.WaitUntil(() => !pool.IsCompletelyInUse, cancellationToken: cancellationToken);
+
+                    while (pool.IsCompletelyInUse) await Awaitable.NextFrameAsync(cancellationToken);
                 }
 
                 foreach (var particle in particles)
                 {
                     if (particle == null) continue;
                     particle.gameObject.SetActive(true);
-                    _ = FreeParticleAfterSeconds(particle, cancellationToken);
+                    FreeParticleAfterSeconds(particle, cancellationToken);
                 }
-                
-                await UniTask.Delay(TimeSpan.FromSeconds(rateOverTime), ignoreTimeScale: false, cancellationToken: cancellationToken);
+
+                await Awaitable.WaitForSecondsAsync(rateOverTime, cancellationToken);
             }
         }
 
-        private async UniTaskVoid FreeParticleAfterSeconds(ParticleBase particle, CancellationToken cancellationToken)
+        private async void FreeParticleAfterSeconds(ParticleBase particle, CancellationToken cancellationToken)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(lifetime), ignoreTimeScale: false, cancellationToken: cancellationToken);
+            await Awaitable.WaitForSecondsAsync(lifetime, cancellationToken);
             particle.gameObject.SetActive(false);
             pool.Free(particle);
         }
