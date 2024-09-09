@@ -7516,7 +7516,6 @@ GameObject:
   - component: {fileID: 2009852602}
   - component: {fileID: 2009852603}
   - component: {fileID: 2009852604}
-  - component: {fileID: 2009852605}
   m_Layer: 5
   m_Name: GameStats
   m_TagString: Untagged
@@ -7652,25 +7651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
-  text: {fileID: 0}
---- !u!114 &2009852605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009852597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5151c3b95c6bac4e81d75218fc68e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
-  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
-  hydrogenSlider: {fileID: 0}
-  whiteDwarfTick: {fileID: 0}
-  neutronStarTick: {fileID: 0}
-  blackHoleTick: {fileID: 0}
+  text: {fileID: 4102009714485946397}
 --- !u!1 &2020614130
 GameObject:
   m_ObjectHideFlags: 0
