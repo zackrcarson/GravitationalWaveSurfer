@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,8 +46,13 @@ namespace GWS.HydrogenCollection.Runtime
             }
     
             var radius = colliderRadiusMultiplier * particleInventory.HydrogenCount + baseRadius;
-            collider.radius = radius;
-            radiusVisual.transform.localScale = Vector3.one * radius;
+            collider.radius = (float) radius;
+
+            // limit to how big the collection range is or else gets crazy
+            collider.radius = (float) Math.Min(20f, radius);    
+            radius = Math.Min(20f, radius);
+
+            radiusVisual.transform.localScale = Vector3.one * (float) radius;
         }
 
         private void OnTriggerEnter(Collider other)

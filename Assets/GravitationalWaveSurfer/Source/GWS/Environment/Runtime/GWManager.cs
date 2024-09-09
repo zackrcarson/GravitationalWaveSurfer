@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 using GWS.Data;
+using GWS.GameStage.Runtime;
+using GWS.HydrogenCollection.Runtime;
+using GWS.Quiz;
 using GWS.WorldGen;
-using System.Linq;
 
 public class GWManager : MonoBehaviour
 {
@@ -48,7 +52,18 @@ public class GWManager : MonoBehaviour
     private float timeSinceLastWave;
     public bool IsWaveActive { get; private set; }
 
-    private void Awake() {
+    
+    [Space(6)]
+    [Header("Quiz related objects")]
+    public QuizQuestionDatabase questionDatabase;
+    public GameObject GWUIObject;
+    public GameObject GWPromptObject;
+    public GameObject GWQuestionObject;
+    public GameObject GWRewardsObject;
+    public GameObject GWWrongAnswerObject;
+
+    private void Awake() 
+    {
         if (Instance == null)
         {
             Instance = this;
@@ -64,8 +79,18 @@ public class GWManager : MonoBehaviour
 
         SetNextWaveTime();
 
-        // TriggerGravitationalWave();
-        // CreateLine(blackHolePosition, playerPosition);
+        GWPromptObject = GWUIObject.transform.Find("GWPrompt").gameObject;
+        GWQuestionObject = GWUIObject.transform.Find("GWQuestion").gameObject;
+        GWRewardsObject = GWUIObject.transform.Find("GWRewards").gameObject;
+        GWWrongAnswerObject = GWUIObject.transform.Find("GWWrongAnswer").gameObject;
+
+        if (GWPromptObject == null || GWQuestionObject == null || 
+            GWRewardsObject == null || GWWrongAnswerObject == null)
+        {
+            Debug.LogWarning("GW UI object(s) missing!!!");
+        }
+
+        InitializeUIObjects();
     }
 
     void Update()
@@ -88,6 +113,18 @@ public class GWManager : MonoBehaviour
         {
             UpdateGravitationalWave();
         }
+    }
+
+    /// <summary>
+    /// Makes sure all GW UIs are inactive in the beginning <br/>
+    /// Called by Start() of GW_UI
+    /// </summary>
+    public void InitializeUIObjects()
+    {
+        GWPromptObject.gameObject.SetActive(false);
+        GWQuestionObject.gameObject.SetActive(false);
+        GWRewardsObject.gameObject.SetActive(false);
+        GWWrongAnswerObject.gameObject.SetActive(false);
     }
 
     void SetNextWaveTime()
@@ -167,7 +204,7 @@ public class GWManager : MonoBehaviour
         foreach (Chunk chunk in activeChunks)
         {
             // POIs are unaffected by GW
-            if (chunk.HasPOI) continue;
+            if (chunk.HasPOI || chunk.HasBlackHole) continue;
 
             if (!initializedChunks.Contains(chunk))
             {
@@ -189,9 +226,14 @@ public class GWManager : MonoBehaviour
             IsWaveActive = false;
             initializedChunks.Clear();
             Debug.Log("GW Ended!");
+            StartGWQuizSequence();
         }
     }
 
+    /// <summary>
+    /// (old version) of initializing particles, can be deleted <br/>
+    /// idk why I'm keeping it 
+    /// </summary>
     void InitializeParticles()
     {
         foreach (Transform chunkTransform in ChunkManager.Instance.chunkParent.transform)
@@ -325,5 +367,142 @@ public class GWManager : MonoBehaviour
 
     //     return lineObject;
     // }
+
+
+    /* ##################################################### */
+    /* ################## GW Quiz Section ################## */
+    /* ##################################################### */
+
+    /// <summary>
+    /// Called when GW ends, starts the quiz UI sequence similar to POI UI
+    /// </summary>
+    void StartGWQuizSequence()
+    {
+        int questionID = questionDatabase.GetRandomQuestion();
+        QuizQuestion question = questionDatabase.GetQuestionById(questionID);
+
+        ToggleGWUI(true, ChunkManager.Instance.GetRandomPassiveValue(), ChunkManager.Instance.GetRandomOneTimeValue(), question);
+    }
+
+    /// <summary>
+    /// In charge of starting POI UI sequence & closing it <br/>
+    /// Sets up a random question chosen from a list from POIManager.cs <br/>
+    /// Sets up the correct values for rewards for a POI <br/>
+    /// </summary>
+    /// <param name="value">true for showing UI, false for closing it</param>
+    /// <param name="passiveValue"></param>
+    /// <param name="oneTimeValue"></param>
+    /// <param name="question"></param>
+    public void ToggleGWUI(bool value, double passiveValue=0, double oneTimeValue=0, QuizQuestion question=null)
+    {
+        if (!value)
+        {
+            GWPromptObject.gameObject.SetActive(false);
+            GWQuestionObject.gameObject.SetActive(false);
+            GWRewardsObject.gameObject.SetActive(false);    
+            GWWrongAnswerObject.gameObject.SetActive(false);       
+        }
+        else
+        {
+            GWPromptObject.gameObject.SetActive(true);
+
+            // --------------set up prompt--------------
+            Button continueButton = GWPromptObject.transform.Find("Panel/ContinueButton").GetComponent<Button>();
+            continueButton.onClick.RemoveAllListeners();
+            continueButton.onClick.AddListener(() => ToggleNextUI(GWPromptObject, GWQuestionObject));
+
+            // --------------set up question--------------
+            if (question != null)
+            {
+                TextMeshProUGUI questionText = GWQuestionObject.transform.Find("Panel/Question").GetComponent<TextMeshProUGUI>();
+                questionText.text = question.questionText;
+
+                for (int i = 0; i < question.answerOptions.Length; i++)
+                {
+                    Button answerButton = GWQuestionObject.transform.Find($"Panel/Option{i+1}").GetComponent<Button>();
+                    TextMeshProUGUI answerText = answerButton.GetComponentInChildren<TextMeshProUGUI>();
+                    answerText.text = question.answerOptions[i];
+
+                    int index = i;  // new variable because passing i will be a reference so i ends up being 4 rather than [0, 3]
+                    answerButton.onClick.RemoveAllListeners();
+                    answerButton.onClick.AddListener(() => OnAnswerSelected(index, question.correctAnswerIndex));
+                }
+            }
+            else
+            {
+                Debug.LogWarning("GW Question is null!!!");
+            }
+
+            // -------------- set up rewards--------------
+            Button oneTimeButton = GWRewardsObject.transform.Find("Panel/OneTimeButton").GetComponent<Button>();
+            Button passiveButton = GWRewardsObject.transform.Find("Panel/PassiveButton").GetComponent<Button>();
+            TextMeshProUGUI oneTimeText = oneTimeButton.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI passiveText = passiveButton.GetComponentInChildren<TextMeshProUGUI>();
+
+            // change texts for this GW
+            oneTimeText.text = $"+{oneTimeValue} Mass";
+            passiveText.text = $"+{passiveValue} Mass/sec";
+
+            oneTimeButton.onClick.RemoveAllListeners();
+            passiveButton.onClick.RemoveAllListeners();
+
+            oneTimeButton.onClick.AddListener(() => HydrogenManager.Instance.AddHydrogen(oneTimeValue));
+            oneTimeButton.onClick.AddListener(() => ToggleGWUI(false));
+            oneTimeButton.onClick.AddListener(() => GameStageManager.Instance.GameStageIncQuiz());
+
+            passiveButton.onClick.AddListener(() => HydrogenPassiveCollection.Instance.ChangePassiveCollection(passiveValue));
+            passiveButton.onClick.AddListener(() => ToggleGWUI(false));
+            passiveButton.onClick.AddListener(() => GameStageManager.Instance.GameStageIncQuiz());
+
+            TextMeshProUGUI multiplierIncText = GWRewardsObject.transform.Find("Panel/MultiplierInc").GetComponent<TextMeshProUGUI>();
+            multiplierIncText.text = $"(multiplier * 10^{GameStageManager.Instance.incPerQuizQuestion})";
+
+            // --------------set up wrong answer texts and button--------------
+            TextMeshProUGUI answertext = GWWrongAnswerObject.transform.Find("Panel/Answer").GetComponent<TextMeshProUGUI>();
+            answertext.text = question.answerOptions[question.correctAnswerIndex];
+
+            Button nowIKnowButton = GWWrongAnswerObject.transform.Find("Panel/NowIKnowButton").GetComponent<Button>();
+            nowIKnowButton.onClick.RemoveAllListeners();
+            nowIKnowButton.onClick.AddListener(() => ToggleGWUI(false));
+        }
+    }
+
+    /// <summary>
+    /// Change to a different UI
+    /// </summary>
+    /// <param name="PrevUI"></param>
+    /// <param name="NextUI"></param>
+    private void ToggleNextUI(GameObject PrevUI, GameObject NextUI)
+    {
+        PrevUI.gameObject.SetActive(false);
+        NextUI.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Checks the answer for the quiz question and proceeds accordingly
+    /// </summary>
+    /// <param name="answerIndex"></param>
+    /// <param name="correctIndex"></param>
+    private void OnAnswerSelected(int answerIndex, int correctIndex)
+    {
+        bool isCorrect = answerIndex == correctIndex;
+
+        if (isCorrect)
+        {
+            ToggleNextUI(GWQuestionObject, GWRewardsObject);
+        }
+        else
+        {
+            ToggleNextUI(GWQuestionObject, GWWrongAnswerObject);
+        }    
+    }
+
+    /// <summary>
+    /// Specifically for the exit button in GW UI
+    /// </summary>
+    public void DeactivateGWUI()
+    {
+        ToggleGWUI(false);
+    }
 
 }

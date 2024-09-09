@@ -10,6 +10,8 @@ namespace GWS.HydrogenCollectionUI.Runtime
     public class HydrogenText : MonoBehaviour
     {
         [SerializeField] 
+        private ParticleInventoryEventChannel particleInventoryEventChannel;
+
         private ParticleInventory particleInventory;
         
         [SerializeField]
@@ -33,22 +35,31 @@ namespace GWS.HydrogenCollectionUI.Runtime
         }
 
         /// <summary>
-        /// Set's the text value.
+        /// If hydrogen value below 1e5, show actual number <br/>
+        /// if higher, show scientific notation of number
         /// </summary>
         /// <param name="hydrogen">Hydrogen amount to be displayed.</param>
-        private void UpdateText(int hydrogen)
+        private void UpdateText(double hydrogen)
         {
-            text.text = $"{hydrogen}/{HydrogenTracker.HYDROGEN_CAPACITY}";
+            if (hydrogen < 100000)
+            {
+                HydrogenManager.Instance.CurrentProgressBarText.text = $"{hydrogen}";
+            }
+            else
+            {
+                string scientificNotation = hydrogen.ToString($"E{4}");
+                HydrogenManager.Instance.CurrentProgressBarText.text = $"{scientificNotation}";
+            }
             WiggleText(0.05f);
         }
 
 
         private void WiggleText(float intensity)
         {
-            text.ForceMeshUpdate();
+            HydrogenManager.Instance.CurrentProgressBarText.ForceMeshUpdate();
             time += intensity;
 
-            TMP_TextInfo textInfo = text.textInfo;
+            TMP_TextInfo textInfo = HydrogenManager.Instance.CurrentProgressBarText.textInfo;
             for (int i = 0; i < textInfo.characterCount; i++)
             {
                 TMP_CharacterInfo characterInfo = textInfo.characterInfo[i];
@@ -69,7 +80,7 @@ namespace GWS.HydrogenCollectionUI.Runtime
 
                 var meshInfo = textInfo.meshInfo[i];
                 meshInfo.mesh.vertices = meshInfo.vertices;
-                text.UpdateGeometry(meshInfo.mesh, i);
+                HydrogenManager.Instance.CurrentProgressBarText.UpdateGeometry(meshInfo.mesh, i);
             }
         }
     }

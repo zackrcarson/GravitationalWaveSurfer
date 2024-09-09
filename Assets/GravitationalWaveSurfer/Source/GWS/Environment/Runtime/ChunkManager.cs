@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 
+using GWS.Data;
+
 namespace GWS.WorldGen
 {
     /// <summary>
@@ -11,13 +13,12 @@ namespace GWS.WorldGen
     public class ChunkManager : MonoBehaviour
     {
         public static ChunkManager Instance { get; private set; }
-
+        
         [Header("Chunk settings")]
         public GameObject chunkParent;
         public float chunkSize = 500f;
         public int renderDistance = 1;  // radius of visible chunks beyond current chunk 
         public int chunkDeleteDistance = 4; // how far away until chunks get deleted for performance sake
-        public int initialChunkRadius = 2;  // radius of chunks initially generated beyond current chunk
         public Vector3 initialPosition = Vector3.zero;
 
         private Dictionary<Vector3Int, Chunk> chunks = new Dictionary<Vector3Int, Chunk>();
@@ -31,6 +32,13 @@ namespace GWS.WorldGen
         public GameObject blackHole;
         public List<GameObject> POIList;
         public int POILayer;
+
+        [Space(6)]
+        [Header("POI properties' randomization parameters")]
+        public int minOneTimeValue = 100;
+        public int maxOneTimeValue = 1000;
+        public int minPassiveValue = 1;
+        public int maxPassiveValue = 5;
 
         // ------------------------------------
         [Space(6)]
@@ -64,11 +72,11 @@ namespace GWS.WorldGen
         {
             Vector3Int centerChunkPos = GetChunkPosition(initialPosition);
 
-            for (int x = -initialChunkRadius; x  <= initialChunkRadius; x++)
+            for (int x = -renderDistance; x  <= renderDistance; x++)
             {
-                for (int y = -initialChunkRadius; y <= initialChunkRadius; y++)
+                for (int y = -renderDistance; y <= renderDistance; y++)
                 {
-                    for (int z = -initialChunkRadius; z <= initialChunkRadius; z++)
+                    for (int z = -renderDistance; z <= renderDistance; z++)
                     {
                         Vector3Int chunkPos = centerChunkPos + new Vector3Int(x, y, z);
                         if (!chunks.ContainsKey(chunkPos))
@@ -187,6 +195,7 @@ namespace GWS.WorldGen
                 
             Chunk newChunk = new Chunk(chunkPos, chunkParent);
             chunks[chunkPos] = newChunk;    // chunks: V3I -> Chunk
+            newChunk.SetActive(true);
 
             // random chunk attributes and parameters
             float density = UnityEngine.Random.Range(minParticlePercentage, 1f);
@@ -202,7 +211,7 @@ namespace GWS.WorldGen
             bool hasPOINearby = false;
             if (POI <= (POIProbability + blackHoleProbability))
             {
-                hasPOINearby = CheckPOINearby(chunkPos);
+                hasPOINearby = CheckMassiveObjectsNearby(chunkPos);
             }
 
             if (POI > (POIProbability + blackHoleProbability) || hasPOINearby)
@@ -243,12 +252,12 @@ namespace GWS.WorldGen
                                     chunkPos.y * chunkSize + chunkSize / 2,
                                     chunkPos.z * chunkSize + chunkSize / 2);
 
-                chunkCenter += new Vector3(UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
-                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f), 
-                                           UnityEngine.Random.Range(0f, chunkSize * 0.3f));
+                chunkCenter += new Vector3(UnityEngine.Random.Range(0f, chunkSize * 0.1f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.1f), 
+                                           UnityEngine.Random.Range(0f, chunkSize * 0.1f));
 
                 InstantiateObject(newChunk, chunkCenter, blackHole, "Black Hole");
-                newChunk.SetPOI(true);
+                newChunk.SetBlackHole(true);
             }
 
             // visualize chunk borders
@@ -256,11 +265,11 @@ namespace GWS.WorldGen
         }
 
         /// <summary>
-        /// Helper function: checks if POI exists in any adjacent Chunk (6 directions not diagonals)
+        /// Helper function: checks if POI / black holes exists in any adjacent Chunk (6 directions not diagonals)
         /// </summary>
         /// <param name="chunkPos">current chunk coordinate</param>
         /// <returns>boolean, true if exists, false otherwise</returns>
-        private bool CheckPOINearby(Vector3Int chunkPos)
+        private bool CheckMassiveObjectsNearby(Vector3Int chunkPos)
         {
             Vector3Int[] adjacentPositions = new Vector3Int[]
             {
@@ -277,7 +286,7 @@ namespace GWS.WorldGen
                 Vector3Int adjacentPos = chunkPos + offset;
                 if (chunks.TryGetValue(adjacentPos, out Chunk adjacentChunk))
                 {
-                    if (adjacentChunk.HasPOI) return true;
+                    if (adjacentChunk.HasPOI || adjacentChunk.HasBlackHole) return true;
                 }
             }
 
@@ -309,13 +318,24 @@ namespace GWS.WorldGen
         /// <param name="chunk"></param>
         /// <param name="chunkCenter"></param>
         /// <param name="POI"></param>
-        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject, String tag="Object")
+        private void InstantiateObject(Chunk chunk, Vector3 chunkCenter, GameObject gameObject, string tag ="Object")
         {
             List<GameObject> objects = new List<GameObject>();
             GameObject POIGameObject = Instantiate(gameObject, chunkCenter, Quaternion.identity, chunk.ChunkObject.transform);
-            POIGameObject.transform.localScale *= 40f;
+            
             POIGameObject.tag = tag;
             POIGameObject.layer = POILayer;
+
+            if (tag == "POI")
+            {
+                POIGameObject.transform.localScale *= chunkSize * 0.08f;
+
+                POIData poiData = POIGameObject.GetComponent<POIData>();
+                poiData.Initialize(GetRandomPassiveValue(),
+                                   GetRandomOneTimeValue(),
+                                   POIManager.Instance.questionDatabase.GetRandomQuestion());
+            }
+
             objects.Add(POIGameObject);
             chunk.SetObjects(objects);
         }
@@ -392,6 +412,26 @@ namespace GWS.WorldGen
                 lr.SetPosition(0, start);
                 lr.SetPosition(1, end);
             }
+        }
+
+        /// <summary>
+        /// Helper function: returns random integer within possible range for <br/>
+        /// passive hydrogen collection increase
+        /// </summary>
+        /// <returns></returns>
+        public int GetRandomPassiveValue()
+        {
+            return UnityEngine.Random.Range(minPassiveValue, maxPassiveValue);
+        }
+
+        /// <summary>
+        /// Helper function: returns random integer within possible range for <br/>
+        /// one time hydrogen bonus
+        /// </summary>
+        /// <returns></returns>
+        public int GetRandomOneTimeValue()
+        {
+            return UnityEngine.Random.Range(minOneTimeValue, maxOneTimeValue);
         }
 
     }

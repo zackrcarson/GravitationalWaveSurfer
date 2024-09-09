@@ -25,7 +25,11 @@ namespace GWS.HydrogenCollection.Runtime
 
         // private KeyCode[] keycodes = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.Q, KeyCode.Space };
 
-        public const int HYDROGEN_CAPACITY = 10_000;
+        /// <summary>
+        /// 6 capacities for 6 different progress bars with different scales
+        /// </summary>
+        /// <value></value>
+        public static double[] HYDROGEN_CAPACITY = {1e10, 1e20, 1e30, 1e40, 1e50, 1e60};
 
         public const double SOLAR_MASS = 1.989e30;
 
@@ -66,7 +70,7 @@ namespace GWS.HydrogenCollection.Runtime
         private void EndPhaseOne()
         {
             Outcome outcome = Outcome.NothingHappens;
-            double score = particleInventory.HydrogenCount / HYDROGEN_CAPACITY;
+            double score = particleInventory.HydrogenCount / HYDROGEN_CAPACITY[5];
 
             if (score >= NEUTRON_STAR_THRESHOLD / NEUTRON_STAR_THRESHOLD)
             {

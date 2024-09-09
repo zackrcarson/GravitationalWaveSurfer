@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 namespace GWS.HydrogenCollection.Runtime
 {
@@ -7,6 +8,8 @@ namespace GWS.HydrogenCollection.Runtime
     /// </summary>
     public class HydrogenEater : MonoBehaviour
     {
+        public static HydrogenEater Instance { get; private set; }
+
         [SerializeField]
         private ParticleInventory particleInventory;
         
@@ -27,23 +30,36 @@ namespace GWS.HydrogenCollection.Runtime
 
         private float lastAudioTime;
 
+        private void Awake()
+        {
+            if (Instance == null) Instance = this;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Electron"))
             {
                 HandleCollision(other, pop);
-                AddHydrogen(1);
+                HydrogenManager.Instance.AddHydrogen(1);
+                // AddHydrogen(1);
             }
             else if (other.CompareTag("Anti-Electron"))
             {
                 HandleCollision(other, flash);
-                AddHydrogen(-1);
+                HydrogenManager.Instance.AddHydrogen(-1);
+                // AddHydrogen(-1);
             }
         }
         
-        private void AddHydrogen(int amount)
+        /// <summary>
+        /// Called by HydrogenManager.AddHydrogen(), a (useless) wrapper function
+        /// </summary>
+        /// <param name="amount">ALREADY SCALED amount to be added</param>
+        public void AddHydrogen(double amount)
         {
             particleInventory.HydrogenCount += amount;
+            particleInventoryEventChannel.RaiseOnHydrogenCountChanged(particleInventory.HydrogenCount);
+            // Debug.Log($"adding {amount} hydrogen");
         }
 
         private void HandleCollision(Component other, AudioClip clip)
@@ -53,7 +69,7 @@ namespace GWS.HydrogenCollection.Runtime
 
             if (constantAudioSource && Time.time >= lastAudioTime + audioCooldown)
             {
-                constantAudioSource.pitch = Random.Range(1f, 1.25f);
+                constantAudioSource.pitch = UnityEngine.Random.Range(1f, 1.25f);
                 constantAudioSource.PlayOneShot(clip, 0.1f);
                 lastAudioTime = Time.time;
                 sparks.Play();
