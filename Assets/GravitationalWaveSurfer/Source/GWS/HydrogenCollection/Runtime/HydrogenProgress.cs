@@ -1,9 +1,8 @@
 using System;
-using GWS.HydrogenCollection.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GWS.HydrogenCollectionUI.Runtime
+namespace GWS.HydrogenCollection.Runtime
 {
     /// <summary>
     /// Draws the progress bar's fill and positions the ticks of each progress marker.
@@ -51,7 +50,7 @@ namespace GWS.HydrogenCollectionUI.Runtime
 
         private void Start()
         {
-            hydrogenSlider.maxValue = HydrogenTracker.HYDROGEN_CAPACITY;
+            hydrogenSlider.maxValue = 1;
             hydrogenSlider.value = 0;
             // PositionTick(blackHoleTick, (float)HydrogenTracker.NEUTRON_STAR_THRESHOLD);
             // PositionTick(neutronStarTick, (float)HydrogenTracker.WHITE_DWARF_THRESHOLD);

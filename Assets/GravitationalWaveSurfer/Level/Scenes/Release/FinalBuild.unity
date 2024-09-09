@@ -3381,6 +3381,12 @@ MonoBehaviour:
   minTimeBetweenWaves: 60
   maxTimeBetweenWaves: 120
   nextWaveTime: 0
+  questionDatabase: {fileID: 0}
+  GWUIObject: {fileID: 0}
+  GWPromptObject: {fileID: 0}
+  GWQuestionObject: {fileID: 0}
+  GWRewardsObject: {fileID: 0}
+  GWWrongAnswerObject: {fileID: 0}
 --- !u!1001 &595392575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7877,9 +7883,11 @@ MonoBehaviour:
   interactionDistance: 200
   interactionKey: 101
   interactionUIActive: 0
+  POIUIActive: 0
   player: {fileID: 1893218064}
   playerCamera: {fileID: 0}
   currentPOI: {fileID: 0}
+  questionDatabase: {fileID: 0}
 --- !u!114 &1764621962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7892,7 +7900,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edf2ad2b3e152b0498b28e47c1e5c1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionUIPrefab: {fileID: 1348456697}
+  interactionUIObject: {fileID: 0}
+  POIUIObject: {fileID: 0}
+  POIPromptObject: {fileID: 0}
+  POIQuestionObject: {fileID: 0}
+  POIRewardsObject: {fileID: 0}
+  POIWrongAnswerObject: {fileID: 0}
+  POIUnavailableObject: {fileID: 0}
 --- !u!224 &1768843398 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7672814651757547186, guid: b8326b949ddcf73449ef2a9bf4444b60, type: 3}
@@ -7946,7 +7960,6 @@ MonoBehaviour:
   chunkSize: 500
   renderDistance: 1
   chunkDeleteDistance: 4
-  initialChunkRadius: 2
   initialPosition: {x: 0, y: 0, z: 0}
   minParticlePercentage: 0.5
   POIProbability: 0.05
@@ -7957,6 +7970,10 @@ MonoBehaviour:
   - {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
   - {fileID: 1733945558841920, guid: 300f80108a63f48618cb4a1c8b8c1e86, type: 3}
   POILayer: 9
+  minOneTimeValue: 100
+  maxOneTimeValue: 1000
+  minPassiveValue: 1
+  maxPassiveValue: 5
   visualizeChunks: 1
   chunkBorderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   borderWidth: 0.1
@@ -9002,6 +9019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 277882569}
+  phaseOneTotalTime: 600
 --- !u!114 &2009852603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9027,7 +9045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13f22db5b1456040b7c7d52730cc17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   text: {fileID: 1555864079}
 --- !u!114 &2009852605
 MonoBehaviour:
@@ -9042,6 +9060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   hydrogenSlider: {fileID: 1205819614}
   whiteDwarfTick: {fileID: 1071554904}
   neutronStarTick: {fileID: 1999484473}

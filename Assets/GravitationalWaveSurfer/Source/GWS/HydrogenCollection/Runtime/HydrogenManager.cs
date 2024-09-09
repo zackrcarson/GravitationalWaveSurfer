@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-using GWS.HydrogenCollectionUI;
-using GWS.HydrogenCollectionUI.Runtime;
 using UnityEngine.UI;
 using TMPro;
 

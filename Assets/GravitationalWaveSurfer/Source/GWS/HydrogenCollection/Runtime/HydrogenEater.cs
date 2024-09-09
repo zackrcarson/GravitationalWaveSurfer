@@ -12,6 +12,9 @@ namespace GWS.HydrogenCollection.Runtime
 
         [SerializeField]
         private ParticleInventory particleInventory;
+
+        [SerializeField] 
+        private ParticleInventoryEventChannel particleInventoryEventChannel;
         
         [SerializeField]
         private AudioSource constantAudioSource;
