@@ -11,6 +11,7 @@ namespace GWS.HydrogenCollection.Runtime
         [SerializeField] 
         private ParticleInventoryEventChannel particleInventoryEventChannel;
 
+        [SerializeField] 
         private ParticleInventory particleInventory;
         
         [SerializeField]

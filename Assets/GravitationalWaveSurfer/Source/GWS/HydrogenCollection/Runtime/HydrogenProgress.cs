@@ -34,7 +34,6 @@ namespace GWS.HydrogenCollection.Runtime
         private void Awake()
         {
             if (Instance == null) Instance = this;
-            else Destroy(gameObject);    
         }
 
         private void OnEnable()

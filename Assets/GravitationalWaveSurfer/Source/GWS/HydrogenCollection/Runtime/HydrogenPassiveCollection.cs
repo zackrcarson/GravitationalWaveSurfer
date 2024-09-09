@@ -39,6 +39,7 @@ namespace GWS.HydrogenCollection.Runtime
 
         private void CollectPassiveHydrogen()
         {
+            Debug.Log("passive collection called");
             HydrogenManager.Instance.AddHydrogen(passiveCollection);
         }
 
