@@ -41,7 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
+    <Analyzer Include="C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
@@ -391,82 +391,82 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.System.Text.Encodings.Web">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Text.Encodings.Web.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collections@1.4.0\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collections@1.4.0\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner.Compiler">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.ext.nunit@2.0.5\net40\unity-custom\nunit.framework.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.ext.nunit@2.0.5\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection.Metadata">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Reflection.Metadata.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Reflection.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditorInternals">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.solidalloy.util@1.40.0\UnityEditorInternals.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.solidalloy.util@1.40.0\UnityEditorInternals.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Immutable">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Collections.Immutable.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Ignore">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.eflatun.scenereference@4.1.1\ThirdParty\Ignore\Ignore.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.eflatun.scenereference@4.1.1\ThirdParty\Ignore\Ignore.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\YarnSpinner.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\YarnSpinner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.collab-proxy@2.3.1\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.Microsoft.Win32.SystemEvents">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Win32.SystemEvents.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Win32.SystemEvents.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.System.Drawing.Common">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Drawing.Common.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.System.IO.Packaging">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.IO.Packaging.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.IO.Packaging.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.System.Threading.Tasks.Extensions">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.Microsoft.Extensions.FileSystemGlobbing">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
     </Reference>
     <Reference Include="Yarn.System.Text.Json">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Text.Json.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Runtime\DLLs\Yarn.System.Text.Json.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis.CSharp">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\dev.yarnspinner.unity@2.4.2\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngineInternals">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\PackageCache\com.solidalloy.util@1.40.0\UnityEngineInternals.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\PackageCache\com.solidalloy.util@1.40.0\UnityEngineInternals.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -844,196 +844,196 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinnerTests.CommandsInAnAssemblyDefinition">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinnerTests.CommandsInAnAssemblyDefinition.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinnerTests.CommandsInAnAssemblyDefinition.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner.Unity.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinner.Unity.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinner.Unity.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="MackySoft.SerializeReferenceExtensions.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\MackySoft.SerializeReferenceExtensions.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\MackySoft.SerializeReferenceExtensions.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cinemachine.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner.Unity">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinner.Unity.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\YarnSpinner.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Cinemachine">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="PPv2URPConverters">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
     </Reference>
     <Reference Include="SolidUtilities.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\SolidUtilities.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\SolidUtilities.Editor.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLiteEditor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLiteEditor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLiteEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
     </Reference>
     <Reference Include="TypeReferences">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\TypeReferences.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\TypeReferences.dll</HintPath>
     </Reference>
     <Reference Include="Mushakushi.YarnSpinnerUtility">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Mushakushi.YarnSpinnerUtility.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Mushakushi.YarnSpinnerUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Splines.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Splines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Eflatun.SceneReference.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Eflatun.SceneReference.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Eflatun.SceneReference.Editor.dll</HintPath>
     </Reference>
     <Reference Include="RotaryHeart.SerializableDictionaryLite">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLite.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\RotaryHeart.SerializableDictionaryLite.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Framework.UI.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Framework.UI.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Framework.UI.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Updater">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Eflatun.SceneReference">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Eflatun.SceneReference.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Eflatun.SceneReference.dll</HintPath>
     </Reference>
     <Reference Include="SolidUtilities">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\SolidUtilities.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\SolidUtilities.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Mushakushi.UIAddons.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Mushakushi.UIAddons.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Mushakushi.UIAddons.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="UnityDropdown.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityDropdown.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\UnityDropdown.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="MackySoft.SerializeReferenceExtensions">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\MackySoft.SerializeReferenceExtensions.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\MackySoft.SerializeReferenceExtensions.dll</HintPath>
     </Reference>
     <Reference Include="TypeReferences.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\TypeReferences.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\TypeReferences.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Coffee.SoftMaskForUGUI">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Coffee.SoftMaskForUGUI.Editor">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.Editor.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Coffee.SoftMaskForUGUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
-      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Develoment\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+      <HintPath>C:\Users\musha_nerg6xb\OneDrive\Documents\Game Development\Unity\GravitationalWaveSurfer\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

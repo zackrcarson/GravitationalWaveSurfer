@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Threading;
 using TMPro;
 using UnityEngine;
 
@@ -12,16 +12,17 @@ namespace GWS.UIEffects.Runtime
         /// <summary>
         /// Coroutine that gradually fades in the text of a <see cref="TextMeshProUGUI"/> element character by adjusting its vertices' alpha values.
         /// </summary>
-        /// <param name="textMeshProUGUI">The TextMeshProUGUI element whose text will be faded in. </param>
+        /// <param name="text">The TextMeshProUGUI element whose text will be faded in. </param>
         /// <param name="spread">Controls how many characters can be faded in at the same time. </param>
         /// <param name="speed">The speed at which each character fades in. </param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         // modified from: https://discussions.unity.com/t/have-words-fade-in-one-by-one/697252/7
-        public static IEnumerator FadeInText(TextMeshProUGUI textMeshProUGUI, float spread, float speed)
+        public static async Awaitable FadeInTextAsync(TMP_Text text, float spread, float speed, CancellationToken cancellationToken)
         {
-            textMeshProUGUI.color = new Color(textMeshProUGUI.color.r, textMeshProUGUI.color.g, textMeshProUGUI.color.b, 0);
-            textMeshProUGUI.ForceMeshUpdate();
+            text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
+            text.ForceMeshUpdate();
 
-            var textInfo = textMeshProUGUI.textInfo;
+            var textInfo = text.textInfo;
             var currentCharacter = 0;
             var startingCharacterRange = currentCharacter;
             var characterCount = textInfo.characterCount;
@@ -44,9 +45,9 @@ namespace GWS.UIEffects.Runtime
                     if (alpha == 255) startingCharacterRange++;
                 }
 
-                textMeshProUGUI.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
+                text.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
                 if (currentCharacter < characterCount - 1) currentCharacter++;
-                yield return new WaitForSeconds(0.25f - speed * 0.01f);
+                await Awaitable.WaitForSecondsAsync(0.25f - speed * 0.01f, cancellationToken);
             }
         }
     }

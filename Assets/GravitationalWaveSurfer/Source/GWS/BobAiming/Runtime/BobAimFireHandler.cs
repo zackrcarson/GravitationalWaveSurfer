@@ -37,7 +37,7 @@ namespace GWS.BobAiming.Runtime
         [SerializeField] 
         private float force;
 
-        private CancellationTokenSource fireCancellationToken; 
+        private CancellationTokenSource fireCancellationToken = new();
 
         private void OnEnable()
         {
@@ -51,8 +51,8 @@ namespace GWS.BobAiming.Runtime
 
         private void Fire()
         {
-            fireCancellationToken.Dispose();
             fireCancellationToken.Cancel();
+            fireCancellationToken.Dispose();
             fireCancellationToken = new CancellationTokenSource();
             
             var bobPosition = bobJoint.transform.position;
