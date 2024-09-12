@@ -44,11 +44,11 @@
       "hash": "4e3995fc97f9392319976c11ec8100fcaeb82ee8"
     },
     "com.mushakushi.yarnspinnerutility": {
-      "version": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/Mushakushi.YarnSpinnerUtility",
+      "version": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/YarnSpinnerUtility",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "31cee414962c5c5d9b55d833eade1be0666b69ec"
+      "hash": "e25666f2ac843409f9c08699427ace2d853c6cbd"
     },
     "com.rotaryheart.serializabledictionarylite": {
       "version": "2.6.11",
@@ -132,8 +132,8 @@
       "source": "registry",
       "dependencies": {
         "com.unity.burst": "1.6.6",
-        "com.unity.nuget.mono-cecil": "1.11.4",
-        "com.unity.test-framework": "1.1.31"
+        "com.unity.test-framework": "1.1.31",
+        "com.unity.nuget.mono-cecil": "1.11.4"
       },
       "url": "https://packages.unity.com"
     },
@@ -254,9 +254,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.settings-manager": "1.0.3",
+        "com.unity.ugui": "1.0.0",
         "com.unity.mathematics": "1.2.1",
-        "com.unity.ugui": "1.0.0"
+        "com.unity.settings-manager": "1.0.3"
       },
       "url": "https://packages.unity.com"
     },
@@ -276,9 +276,9 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {
+        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.director": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
       },
       "url": "https://packages.unity.com"

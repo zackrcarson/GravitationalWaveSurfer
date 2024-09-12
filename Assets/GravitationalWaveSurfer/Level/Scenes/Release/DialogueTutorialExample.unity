@@ -889,8 +889,8 @@ GameObject:
   - component: {fileID: 1370956107}
   - component: {fileID: 1370956111}
   - component: {fileID: 1370956110}
-  - component: {fileID: 1370956108}
   - component: {fileID: 1370956112}
+  - component: {fileID: 1370956113}
   m_Layer: 0
   m_Name: Yarn Controller
   m_TagString: Untagged
@@ -913,20 +913,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370956108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370956106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a04b1a4d08b4569b93da71ba23b4090, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueObserver: {fileID: 11400000, guid: 03bcdd9ef76cfd44d9ad8d4e4d0c50e7, type: 2}
-  waitTime: 0.5
 --- !u!114 &1370956110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,8 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 672ca1d158c04581b60f964814799a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnCommandController: {fileID: 1370956111}
-  dialogueObserver: {fileID: 11400000, guid: 03bcdd9ef76cfd44d9ad8d4e4d0c50e7, type: 2}
+  yarnCommandDispatcher: {fileID: 1370956111}
   inputActionAsset: {fileID: -944628639613478452, guid: 714e47455ead16f489233646057084c9, type: 3}
 --- !u!114 &1370956111
 MonoBehaviour:
@@ -954,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940437cd79b64035af4b305bed087334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObserver: {fileID: 11400000, guid: 03bcdd9ef76cfd44d9ad8d4e4d0c50e7, type: 2}
+  dialogueParser: {fileID: 2103219942}
 --- !u!114 &1370956112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,15 +952,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8515a69dc549fe96d50190846ded25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObserver: {fileID: 11400000, guid: 03bcdd9ef76cfd44d9ad8d4e4d0c50e7, type: 2}
-  layoutElements:
-  - rid: -2
-  - rid: -2
+  dialogueParser: {fileID: 2103219942}
+  views:
+  - rid: 8776188831341740033
+  - rid: 8776188831341740034
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 8776188831341740033
+      type: {class: FadeInCanvasView, ns: YarnSpinnerUtility.Samples.Demo.Source, asm: Assembly-CSharp}
+      data:
+        canvasGroup: {fileID: 341499020}
+        fadeDuration: 0.25
+    - rid: 8776188831341740034
+      type: {class: LineViewWithoutCharacterName, ns: YarnSpinnerUtility.Samples.Demo.Source, asm: Assembly-CSharp}
+      data:
+        text: {fileID: 1756051450}
+        fadeSpread: 3
+        fadeSpeed: 20
+--- !u!114 &1370956113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370956106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4393f17f70c43f3838f3dc8b2033e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueParser: {fileID: 2103219942}
+  lineViewController: {fileID: 1370956112}
+  waitTime: 0.5
 --- !u!1001 &1646389192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,7 +1370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7d1fc1f3ac43e580c898504998301a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObserver: {fileID: 11400000, guid: 03bcdd9ef76cfd44d9ad8d4e4d0c50e7, type: 2}
   yarnProject: {fileID: 7545569452688597077, guid: 471aa27aa80d56046b9960abb1f05b84, type: 3}
   variableStorageBehaviour: {fileID: 2103219945}
   lineProviderBehaviour: {fileID: 2103219944}

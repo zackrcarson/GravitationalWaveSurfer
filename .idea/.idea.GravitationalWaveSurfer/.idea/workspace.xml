@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca704249-99a3-4ea7-a115-73b9b652e441" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GravitationalWaveSurfer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimFireHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/BobAiming/Runtime/BobAimFireHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/ParticleSystem/Runtime/ParticlePoolSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/ParticleSystem/Runtime/ParticlePoolSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GravitationalWaveSurfer.sln" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.eflatun.scenereference/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +20,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/GravitationalWaveSurfer/Source/GWS/Aiming/Runtime/CinemachineCameraToggler.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.5.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Editor/SerializableUQuery/NameClassSelectorAttributeDrawer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/ExtensionFramework/IMenuExtension.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/ExtensionFramework/MenuController.cs" root0="SKIP_HIGHLIGHTING" />
@@ -32,6 +27,9 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/Extensions/InputIconExtension/InputIconDisplayConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/Extensions/InputIconExtension/InputIconExtension.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.menuframework@4e3995fc97/Runtime/SerializableUQuery/NameClassSelectorAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.yarnspinnerutility@31cee41496/Runtime/DialogueObserver.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.yarnspinnerutility@31cee41496/Runtime/Output/ILayoutElementAsync.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.mushakushi.yarnspinnerutility@31cee41496/Runtime/Output/LineOutputController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@3.0.31/Rider/Editor/RiderScriptEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/dev.yarnspinner.unity@2.4.2/Runtime/DialogueRunner.cs" root0="SKIP_HIGHLIGHTING" />
@@ -50,6 +48,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/74/7a20e7c4/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/86/c7308138/LayerMask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f7237cf7abef49bfbb552d7eb076e422174200/ee/2626dfce/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9384495d2a482ac7341d67ca84e16d267d16c62458a9d67a92b119199a9/System.Threading.Tasks.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -182,7 +181,15 @@
       <workItem from="1724893655984" duration="596000" />
       <workItem from="1724943795693" duration="1086000" />
       <workItem from="1725310270826" duration="2402000" />
-      <workItem from="1725386407860" duration="1172000" />
+      <workItem from="1725386407860" duration="4861000" />
+      <workItem from="1725726422561" duration="2077000" />
+      <workItem from="1725994084817" duration="901000" />
+      <workItem from="1726084082096" duration="918000" />
+      <workItem from="1726085333053" duration="5000" />
+      <workItem from="1726085410402" duration="176000" />
+      <workItem from="1726085606486" duration="460000" />
+      <workItem from="1726086391945" duration="13000" />
+      <workItem from="1726087094150" duration="1197000" />
     </task>
     <servers />
   </component>

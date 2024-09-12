@@ -5,7 +5,7 @@
     "com.jetbrains.riderflow": "2023.1.0-25",
     "com.mackysoft.serializereference-extensions": "1.4.0",
     "com.mushakushi.menuframework": "https://github.com/mushakushi/ui-toolkit-menu-framework.git?path=Assets/Mushakushi.MenuFramework",
-    "com.mushakushi.yarnspinnerutility": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/Mushakushi.YarnSpinnerUtility",
+    "com.mushakushi.yarnspinnerutility": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/YarnSpinnerUtility",
     "com.rotaryheart.serializabledictionarylite": "2.6.11",
     "com.solidalloy.type-references": "2.16.0",
     "com.unity.2d.sprite": "1.0.0",
