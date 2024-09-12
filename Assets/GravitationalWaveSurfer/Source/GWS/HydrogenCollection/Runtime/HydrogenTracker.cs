@@ -110,6 +110,7 @@ namespace GWS.HydrogenCollection.Runtime
 
             Debug.Log($"Outcome: {outcome}, Score: {score}");
             UnlockManager.Instance.UnlockOutcome(outcome);
+            StartCoroutine(TransitionToCutscene());
         }
 
         private IEnumerator TransitionToCutscene()
