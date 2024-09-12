@@ -12,9 +12,13 @@ namespace GWS.Timing.Runtime
         [SerializeField]
         private TMP_Text text;
 
+        [SerializeField]
+        private TMP_Text endGameText;
+
+        [SerializeField]
+        private float elapsedTime;
+
         public static PhaseOneTimer Instance { get; private set; }
-        public float phaseOneTotalTime = 600f;
-        private float elapsedTime = 600f;
 
         /// <summary>
         /// Emitted when timer finishes.
@@ -42,6 +46,7 @@ namespace GWS.Timing.Runtime
             {
                 done = true;
                 TimeUp?.Invoke();
+                endGameText.gameObject.SetActive(true);
             }
 
             int minutes = Mathf.FloorToInt(elapsedTime / 60);
