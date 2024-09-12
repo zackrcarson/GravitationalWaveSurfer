@@ -1049,10 +1049,6 @@
       <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
       <Name>GWS.CommandPattern</Name>
     </ProjectReference>
-    <ProjectReference Include="GWS.HydrogenCollectionUI.csproj">
-      <Project>{45348f55-0df6-e583-3c71-38a69bff2fb4}</Project>
-      <Name>GWS.HydrogenCollectionUI</Name>
-    </ProjectReference>
     <ProjectReference Include="GWS.HydrogenCollection.csproj">
       <Project>{024e710b-90ce-b04e-fe2a-9547586c4528}</Project>
       <Name>GWS.HydrogenCollection</Name>

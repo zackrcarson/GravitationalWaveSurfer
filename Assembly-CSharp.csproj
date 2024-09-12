@@ -49,6 +49,8 @@
   <ItemGroup>
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\Script\csParticleEffectPackLightControl.cs" />
     <Compile Include="Assets\GravitationalWaveSurferOld\Particle Effects\48 Particle Effect Pack\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\BlackHoleManager.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\POI_UI.cs" />
     <Compile Include="Assets\Vefects\Trails VFX URP\Scripts\Demo_FreeCam.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleData.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWManager.cs" />
@@ -60,11 +62,13 @@
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\EnableGroup\Runtime\EnableGroup.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\NoiseGenerator.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\EventSystem\Runtime\RaisableEvent.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\QuizQuestions\QuizQuestionDatabase.cs" />
     <Compile Include="Assets\Samples\Yarn Spinner Utility\0.0.0\Demo\Source\DialogueAdvanceManual.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\EnableGroup\Runtime\EnableGroupObserver.cs" />
     <Compile Include="Assets\Samples\Yarn Spinner Utility\0.0.0\Demo\Source\LineViewCharacterName.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\GWData.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\Chunk.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\GameStage\Runtime\GameStageManager.cs" />
     <Compile Include="Assets\Samples\Yarn Spinner Utility\0.0.0\Demo\Source\ExampleCommandHandler.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ChunkManager.cs" />
     <Compile Include="Assets\Samples\Yarn Spinner Utility\0.0.0\Demo\Source\LineViewWithoutCharacterName.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Assets\Samples\Yarn Spinner Utility\0.0.0\Demo\Source\OptionView.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\ParticleSpawner.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\DialogueUI\Runtime\YarnInputSystemCommands.cs" />
+    <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\QuizQuestions\QuizQuestion.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\MainMenuUI\Runtime\MainMenu.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\PlayerChunkLoader.cs" />
     <Compile Include="Assets\GravitationalWaveSurfer\Source\GWS\Environment\Runtime\POIManager.cs" />
@@ -1060,10 +1065,6 @@
     <ProjectReference Include="GWS.CommandPattern.csproj">
       <Project>{7f705f0f-3759-40b6-9d9d-8273f46109e7}</Project>
       <Name>GWS.CommandPattern</Name>
-    </ProjectReference>
-    <ProjectReference Include="GWS.HydrogenCollectionUI.csproj">
-      <Project>{45348f55-0df6-e583-3c71-38a69bff2fb4}</Project>
-      <Name>GWS.HydrogenCollectionUI</Name>
     </ProjectReference>
     <ProjectReference Include="GWS.HydrogenCollection.csproj">
       <Project>{024e710b-90ce-b04e-fe2a-9547586c4528}</Project>
