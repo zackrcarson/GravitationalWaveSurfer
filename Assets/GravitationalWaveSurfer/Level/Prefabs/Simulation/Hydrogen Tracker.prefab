@@ -46,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  blackHoleScene:
+    asset: {fileID: 102900000, guid: b05aa6b6da3411946b7b4149061a2dcf, type: 3}
+    guid: b05aa6b6da3411946b7b4149061a2dcf
+  neutronStarScene:
+    asset: {fileID: 102900000, guid: 72f81ee301025ca4190ddcdad9274bd9, type: 3}
+    guid: 72f81ee301025ca4190ddcdad9274bd9
+  whiteDwarfScene:
+    asset: {fileID: 102900000, guid: 667a95c4254933e4792b8497ead39001, type: 3}
+    guid: 667a95c4254933e4792b8497ead39001
+  nothingHappensScene:
+    asset: {fileID: 102900000, guid: 95a200b6df5c5134e99c92929ea04a02, type: 3}
+    guid: 95a200b6df5c5134e99c92929ea04a02
 --- !u!114 &8298296834042156485
 MonoBehaviour:
   m_ObjectHideFlags: 0

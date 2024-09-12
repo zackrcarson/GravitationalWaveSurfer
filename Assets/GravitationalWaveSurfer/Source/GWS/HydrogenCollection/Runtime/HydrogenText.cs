@@ -41,6 +41,7 @@ namespace GWS.HydrogenCollection.Runtime
         /// <param name="hydrogen">Hydrogen amount to be displayed.</param>
         private void UpdateText(double hydrogen)
         {
+            if (HydrogenManager.Instance.CurrentProgressBarText == null) return;
             if (hydrogen < 100000)
             {
                 HydrogenManager.Instance.CurrentProgressBarText.text = $"{hydrogen}";

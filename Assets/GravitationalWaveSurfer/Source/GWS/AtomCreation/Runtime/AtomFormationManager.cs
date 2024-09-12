@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Codice.ThemeImages;
 using GWS.Gameplay;
 using GWS.UI.Runtime;
 using TMPro;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -32,11 +34,12 @@ namespace GWS.AtomCreation.Runtime
         [SerializeField] private AudioSource constantAudioSource;
         [SerializeField] private AudioSource pitchChangingAudioSource;
 
-        private const int NumRandomElements = 2;
+        private const int NumRandomElements = 1;
         private int currElementIndex = 0;
         private List<AtomInfo> elementsToForm;
 
         private bool canInteract = true;
+        public static string rewardMessage;
 
         public static Action OnComplete;
 
@@ -44,19 +47,21 @@ namespace GWS.AtomCreation.Runtime
         {
             CreationManagement.OnParticlesChanged += HandleParticleChange;
             CreationManagement.OnWarningRaised += HandleWarning;
+            AtomRewardManager.OnCreateRewardMessage += HandleRewardMessage;
         }
 
         private void OnDisable()
         {
             CreationManagement.OnParticlesChanged -= HandleParticleChange;
             CreationManagement.OnWarningRaised -= HandleWarning;
+            AtomRewardManager.OnCreateRewardMessage -= HandleRewardMessage;
         }
 
         private void Start()
         {
             InitializeElementSequence();
             SetCurrentElement(elementsToForm[currElementIndex]);
-            finishMessage.text = "";
+            finishMessage.gameObject.SetActive(false);
         }
 
         private void InitializeElementSequence()
@@ -97,20 +102,31 @@ namespace GWS.AtomCreation.Runtime
         private void CompletedAllElements()
         {
             //Debug.Log("All elements completed!");
-            if (formationIndex.CurrentAtomIndex < AtomInfo.Order.Length)
+            EmitComplete();
+            string element;
+
+            if (formationIndex.CurrentAtomIndex < AtomInfo.Order.Length - 1)
             {
                 formationIndex.CurrentAtomIndex++;
+                element = $"<color=#FFBAB5>{AtomInfo.Order[formationIndex.CurrentAtomIndex].FullName}</color>";
             }
-            finishMessage.text = $"Good job!\r\n\r\nThe next element in order is:\r\n\r\n<color=#FFBAB5>{AtomInfo.Order[formationIndex.CurrentAtomIndex].FullName}</color>\r\n\r\nNow returning...";
+            else
+            {
+                element = $"<color=#FFBAB5>Iron again... Good job!</color>";
+            }
+            finishMessage.text = $"Good job!" +
+                $"\r\n\r\nThe next element in order is:" +
+                $"\r\n\r\n{element}" +
+                $"\r\n\r\n{rewardMessage}" +
+                $"\r\n\r\nReturn with <color=#FFBAB5>[G]</color>";
+            finishMessage.gameObject.SetActive(true);
             SetNumElementsLeftText();
-            StartCoroutine(Wait());
             canInteract = false;
         }
 
-        private IEnumerator Wait()
+        private void HandleRewardMessage(string message)
         {
-            yield return new WaitForSeconds(2f);
-            EmitComplete();
+            rewardMessage = message;
         }
 
         private void EmitComplete()

@@ -29,5 +29,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GravitationalWaveSurfer/Level/Scenes/Release/FinalBuild.unity
     guid: 93b5cd94190a71c4ca8b7e6237400af2
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Tests/SupernovaAnimation/NeutronStar.unity
+    guid: 72f81ee301025ca4190ddcdad9274bd9
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Tests/SupernovaAnimation/BlackHole.unity
+    guid: b05aa6b6da3411946b7b4149061a2dcf
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Tests/SupernovaAnimation/WhiteDwarf.unity
+    guid: 667a95c4254933e4792b8497ead39001
+  - enabled: 1
+    path: Assets/GravitationalWaveSurfer/Level/Scenes/Tests/SupernovaAnimation/NothingHappens.unity
+    guid: 95a200b6df5c5134e99c92929ea04a02
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
