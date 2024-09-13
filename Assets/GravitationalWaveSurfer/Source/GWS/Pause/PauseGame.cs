@@ -91,7 +91,7 @@ namespace GWS.UI.Runtime
         private IEnumerator StopGameCoroutine()
         {
             pauseMenu.SetActive(true);
-            statsMenu.SetActive(false);
+            //statsMenu.SetActive(false);
             currentTimeScale = Time.timeScale;
             TimeSpeedManager.Scale = 0f;
             isPaused = true;
@@ -101,7 +101,7 @@ namespace GWS.UI.Runtime
             yield return new WaitForSecondsRealtime(pauseTime);
 
             pauseMenu.SetActive(true);
-            statsMenu.SetActive(false);
+            //statsMenu.SetActive(false);
         }
 
         public void ResumeGame()
@@ -118,7 +118,7 @@ namespace GWS.UI.Runtime
             pauseMenu.SetActive(false);
             if (isInMainScene)
             {
-                statsMenu.SetActive(true);
+                //statsMenu.SetActive(true);
             }
             TimeSpeedManager.Scale = currentTimeScale;
             isPaused = false;

@@ -2678,7 +2678,6 @@ MonoBehaviour:
   chunkSize: 200
   renderDistance: 2
   chunkDeleteDistance: 4
-  initialChunkRadius: 2
   initialPosition: {x: 0, y: 0, z: 0}
   minParticlePercentage: 0.5
   POIProbability: 0.05
@@ -2686,6 +2685,10 @@ MonoBehaviour:
   blackHole: {fileID: 0}
   POIList: []
   POILayer: 0
+  minOneTimeValue: 100
+  maxOneTimeValue: 1000
+  minPassiveValue: 1
+  maxPassiveValue: 5
   visualizeChunks: 0
   chunkBorderColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   borderWidth: 0.1
@@ -2961,6 +2964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13f22db5b1456040b7c7d52730cc17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
   text: {fileID: 1555864079}
 --- !u!114 &2009852605
@@ -2976,6 +2980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleInventory: {fileID: 11400000, guid: 0d9a05a63ae49f24aa445a53f514aac6, type: 2}
+  particleInventoryEventChannel: {fileID: 11400000, guid: 2de798add0cb76343b983374752dcda0, type: 2}
   hydrogenSlider: {fileID: 1205819614}
   whiteDwarfTick: {fileID: 1071554904}
   neutronStarTick: {fileID: 1999484473}
