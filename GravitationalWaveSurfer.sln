@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Aiming", "GWS.Aiming.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.AimingUI", "GWS.AimingUI.csproj", "{0c1f3a96-1f06-1506-7d94-797e7843a419}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GameStageManager", "GWS.GameStageManager.csproj", "{14dcba65-6bb0-5829-3d79-872c5bcd17f2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.GeneralRelativity", "GWS.GeneralRelativity.csproj", "{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWS.Character.Runtime", "GWS.Character.Runtime.csproj", "{37d84d6b-891d-79fe-6205-f4f0c79ae309}"
@@ -84,6 +86,8 @@ Global
 		{f30b5379-fb8f-70f2-8fdf-fc980940707b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0c1f3a96-1f06-1506-7d94-797e7843a419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0c1f3a96-1f06-1506-7d94-797e7843a419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14dcba65-6bb0-5829-3d79-872c5bcd17f2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14dcba65-6bb0-5829-3d79-872c5bcd17f2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{f03b121b-b4d8-4af4-eaa4-32e1610fcd9a}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37d84d6b-891d-79fe-6205-f4f0c79ae309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

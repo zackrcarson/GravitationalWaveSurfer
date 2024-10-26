@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,12 +16,14 @@ public class CreateGridWindow : EditorWindow
     GameObject gridMarkerParent = null;
     GameObject mainCanvas = null;
 
+
     [MenuItem("Window/Create Grid Window")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(CreateGridWindow));
     }
 
+    
     void OnGUI()
     {
         GUILayout.Label("Grid Settings", EditorStyles.boldLabel);
@@ -97,3 +100,4 @@ public class CreateGridWindow : EditorWindow
         }
     }
 }
+#endif

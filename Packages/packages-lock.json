@@ -33,16 +33,6 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.mushakushi.menuframework": {
-      "version": "https://github.com/mushakushi/ui-toolkit-menu-framework.git?path=Assets/Mushakushi.MenuFramework",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.ui": "1.0.0",
-        "com.unity.inputsystem": "1.7.0"
-      },
-      "hash": "4e3995fc97f9392319976c11ec8100fcaeb82ee8"
-    },
     "com.mushakushi.yarnspinnerutility": {
       "version": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/YarnSpinnerUtility",
       "depth": 0,
@@ -53,34 +43,6 @@
     "com.rotaryheart.serializabledictionarylite": {
       "version": "2.6.11",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "com.solidalloy.type-references": {
-      "version": "2.16.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.solidalloy.util": "1.40.0",
-        "com.unity.settings-manager": "1.0.3",
-        "com.solidalloy.unity-dropdown": "1.2.0"
-      },
-      "url": "https://package.openupm.com"
-    },
-    "com.solidalloy.unity-dropdown": {
-      "version": "1.2.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.solidalloy.util": "1.40.0",
-        "org.nuget.system.memory": "4.5.4"
-      },
-      "url": "https://package.openupm.com"
-    },
-    "com.solidalloy.util": {
-      "version": "1.40.0",
-      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
@@ -292,47 +254,9 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "com.unity.ui": {
-      "version": "2.0.0",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {}
-    },
     "dev.yarnspinner.unity": {
       "version": "2.4.2",
       "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "org.nuget.system.buffers": {
-      "version": "4.5.1",
-      "depth": 3,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "org.nuget.system.memory": {
-      "version": "4.5.4",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {
-        "org.nuget.system.buffers": "4.5.1",
-        "org.nuget.system.numerics.vectors": "4.4.0",
-        "org.nuget.system.runtime.compilerservices.unsafe": "4.5.3"
-      },
-      "url": "https://package.openupm.com"
-    },
-    "org.nuget.system.numerics.vectors": {
-      "version": "4.4.0",
-      "depth": 3,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "org.nuget.system.runtime.compilerservices.unsafe": {
-      "version": "4.5.3",
-      "depth": 3,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"

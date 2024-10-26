@@ -1,11 +1,11 @@
-using UnityEngine;
-using System.Collections.Generic;
-using GWS.UI.Runtime;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace GWS.Gameplay
+namespace GWS.UI.Runtime
 {
     public class UnlockManager : MonoBehaviour
     {
@@ -35,10 +35,16 @@ namespace GWS.Gameplay
                 Destroy(gameObject);
             }
         }
-
+        
+#if UNITY_EDITOR        
         [ContextMenu("Add Atom Prefabs")]
         public void AddAtomPrefabs()
         {
+            BuildPipeline.BuildAssetBundles("Assets/MyAssetBuilds", 
+                BuildAssetBundleOptions.UncompressedAssetBundle | 
+                BuildAssetBundleOptions.DisableLoadAssetByFileName | 
+                BuildAssetBundleOptions.DisableLoadAssetByFileNameWithExtension, 
+                EditorUserBuildSettings.activeBuildTarget);
             const string FolderPath = "Assets/GravitationalWaveSurfer/ScriptableObjects/Unlocks/Elements/Atoms";
             string[] guids = AssetDatabase.FindAssets("t:AtomUnlock", new[] { FolderPath });
 
@@ -64,20 +70,21 @@ namespace GWS.Gameplay
             }
 
             // This saves the changes to the scene.
-            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene());
+            UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
-
+#endif
+        
         public void UnlockOutcome(Outcome outcome)
         {
-            if (!currentUnlocks.Contains(outcome))
+            if (currentUnlocks.Add(outcome))
             {
-                currentUnlocks.Add(outcome);
                 SaveUnlocks();
                 LoadUnlocks();
                 OnUnlock?.Invoke();
                 //print(PlayerPrefs.GetString(UNLOCKED_OUTCOMES_STRING, ""));
             }
         }
+
 
         public bool IsOutcomeUnlocked(Outcome outcome)
         {

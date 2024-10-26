@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using GWS.UI.Runtime;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace GWS.AtomCreation.Runtime
     /// </summary>
     public class AtomScriptableObjectsGenerator : MonoBehaviour
     {
+
         [MenuItem("Tools/Generate Atom Unlocks")]
         public static void GenerateAtomUnlocks()
         {
@@ -38,3 +40,4 @@ namespace GWS.AtomCreation.Runtime
     }
 
 }
+#endif

@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using GWS.UI.Runtime;
@@ -66,4 +67,4 @@ namespace GWS.AtomCreation.Runtime
         }
     }
 }
-
+#endif
