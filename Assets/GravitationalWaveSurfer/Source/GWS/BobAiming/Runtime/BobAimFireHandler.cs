@@ -81,8 +81,11 @@ namespace GWS.BobAiming.Runtime
 
         private async void DelayReactivateSpring(CancellationToken cancellationToken)
         {
-            //throws error
-            await Awaitable.WaitForSecondsAsync(springReactivationDelay, cancellationToken);
+            try
+            {
+                await Awaitable.WaitForSecondsAsync(springReactivationDelay, cancellationToken);
+            }
+            catch (System.OperationCanceledException) { /* ignored */ }
             
             bobJoint.connectedBody = connectedBody;
             SetXYZMotion(bobJoint, ConfigurableJointMotion.Limited);

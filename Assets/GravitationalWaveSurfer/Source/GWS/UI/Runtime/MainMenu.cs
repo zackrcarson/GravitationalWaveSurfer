@@ -51,6 +51,11 @@ namespace GWS.UI.Runtime
             SceneManager.LoadScene("FinalBuild");
         }
 
+        public void PlayTutorial()
+        {
+            SceneManager.LoadScene("DialogueTutorialExample");
+        }
+
         public void QuitGame()
         {
             Debug.Log("QUIT");

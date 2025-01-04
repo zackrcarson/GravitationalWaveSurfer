@@ -113,7 +113,7 @@ MonoBehaviour:
   aimData: {fileID: 11400000, guid: f4713f31f58865c45aaa9c48486a3c55, type: 2}
   capsuleDepth: 0
   capsuleRadius: 20
-  capsuleHeight: 1000
+  capsuleHeight: 250
   includeLayerMask:
     serializedVersion: 2
     m_Bits: 64

@@ -25,6 +25,7 @@ namespace GWS.GeneralRelativitySimulation.Runtime
 
         private void FixedUpdate()
         {
+            if (simulatedObjects.objects == null) return; 
             var totalForces = GetTotalForces(simulatedObject, simulatedObjects.objects); 
             simulatedObject.AddForce(totalForces * forceMultiplier);
         }

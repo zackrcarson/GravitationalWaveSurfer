@@ -3,6 +3,7 @@ using GWS.GeneralRelativitySimulation.Runtime;
 using GWS.SceneManagement;
 using GWS.SceneManagement.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GWS.UI.Runtime
 {
@@ -156,6 +157,12 @@ namespace GWS.UI.Runtime
             yield return new WaitForSecondsRealtime(pauseTime);
 
             glossaryMenu.SetActive(false);
+        }
+        
+        
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadScene("BaseMainMenu");
         }
     }
 }
