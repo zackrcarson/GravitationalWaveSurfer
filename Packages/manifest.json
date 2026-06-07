@@ -2,7 +2,6 @@
   "dependencies": {
     "com.coffee.softmask-for-ugui": "2.2.2",
     "com.eflatun.scenereference": "4.1.1",
-    "com.jetbrains.riderflow": "2023.1.0-25",
     "com.mackysoft.serializereference-extensions": "1.4.0",
     "com.mushakushi.yarnspinnerutility": "https://github.com/mushakushi/yarn-spinner-utility.git?path=Assets/YarnSpinnerUtility",
     "com.rotaryheart.serializabledictionarylite": "2.6.11",
@@ -10,7 +9,7 @@
     "com.unity.ai.navigation": "2.0.0",
     "com.unity.cinemachine": "3.1.1",
     "com.unity.collab-proxy": "2.3.1",
-    "com.unity.ide.rider": "3.0.31",
+    "com.unity.feature.development": "1.0.2",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.inputsystem": "1.7.0",
     "com.unity.render-pipelines.universal": "16.0.6",
@@ -73,13 +72,6 @@
         "org.nuget.system.memory",
         "org.nuget.system.numerics.vectors",
         "org.nuget.system.runtime.compilerservices.unsafe"
-      ]
-    },
-    {
-      "name": "JetBrains",
-      "url": "https://npm.pkg.jetbrains.space/public/p/jetbrains-gamedev/jetbrains-gamedev/",
-      "scopes": [
-        "com.jetbrains"
       ]
     }
   ]
