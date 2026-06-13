@@ -26,10 +26,14 @@ namespace GWS.GeneralRelativitySimulation.Runtime
             Scale = 1f;
         }
 
+        private float appliedScale = -1f;
+
         private void Update()
         {
+            if (Mathf.Approximately(scale, appliedScale)) return;
+            appliedScale = scale;
             Time.timeScale = scale;
-            Time.fixedDeltaTime = fixedDeltaTime * Time.timeScale;
+            Time.fixedDeltaTime = fixedDeltaTime * scale;
         }
     }
 }

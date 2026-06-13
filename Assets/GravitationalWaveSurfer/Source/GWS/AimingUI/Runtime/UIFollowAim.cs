@@ -19,7 +19,8 @@ namespace GWS.AimingUI.Runtime
 
         private void LateUpdate()
         {
-            rectTransform.position = Vector3.Lerp(rectTransform.position, aimData.position, interpolation);
+            var t = 1f - Mathf.Pow(1f - interpolation, Time.deltaTime * 60f);
+            rectTransform.position = Vector3.Lerp(rectTransform.position, aimData.position, t);
         }
     }
 }

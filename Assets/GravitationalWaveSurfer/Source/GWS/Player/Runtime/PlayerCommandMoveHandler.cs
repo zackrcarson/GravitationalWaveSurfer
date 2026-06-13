@@ -41,6 +41,9 @@ namespace GWS.Player.Runtime
         
         private Vector3 direction;
 
+        private bool jumpPressed;
+        private bool descendPressed;
+
         public static bool canMove = true;
 
         private void OnEnable()
@@ -70,6 +73,13 @@ namespace GWS.Player.Runtime
             currentReferenceFrame = referenceFrame.rotation;
         }
 
+        // TODO - move to new input system
+        private void Update()
+        {
+            jumpPressed = UnityEngine.Input.GetKey(KeyCode.Space);
+            descendPressed = UnityEngine.Input.GetKey(KeyCode.Q);
+        }
+
         private void FixedUpdate()
         {
             if (!canMove) return;
@@ -78,12 +88,11 @@ namespace GWS.Player.Runtime
             var rotation = Quaternion.Euler(0, currentReferenceFrame.eulerAngles.y, 0);
             CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, direction * speed, rotation, friction));
 
-            // TODO - move to new input system
-            if (UnityEngine.Input.GetKey(KeyCode.Space))
+            if (jumpPressed)
             {
                 CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, new Vector3(0, 1, 0), rotation, friction));
             }
-            else if (UnityEngine.Input.GetKey(KeyCode.Q))
+            else if (descendPressed)
             {
                 CommandInvoker.Execute(new RigidbodyCommandMove(rigidbody, new Vector3(0, -1, 0), rotation, friction));
             }

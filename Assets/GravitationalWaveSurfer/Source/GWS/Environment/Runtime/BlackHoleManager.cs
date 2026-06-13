@@ -30,9 +30,9 @@ namespace GWS.WorldGen
             if (playerRigidbody == null) Debug.LogWarning("BlackHoleManager: Player object doesn't have a rigidbody!!!");
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            CheckBlackHoleInVicinity();    
+            CheckBlackHoleInVicinity();
         }
 
         private void CheckBlackHoleInVicinity()

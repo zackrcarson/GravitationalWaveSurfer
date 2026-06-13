@@ -38,7 +38,7 @@ namespace GWS.HydrogenCollection.Runtime
         {
             foreach (var obj in attractedObjects.Where(obj => obj != null))
             {
-                obj.position = Vector3.MoveTowards(obj.position, transform.position, 0.09f);
+                obj.position = Vector3.MoveTowards(obj.position, transform.position, 0.09f * Time.fixedDeltaTime * 50f);
                 if (obj.TryGetComponent<JitterEffect>(out var jitterEffect))
                 {
                     jitterEffect.targetPosition = transform.position;
