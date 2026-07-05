@@ -171,7 +171,11 @@ public class GWManager : MonoBehaviour
 
     public void InitializeChunk(Chunk chunk)
     {
-        if (!IsWaveActive || initializedChunks.Contains(chunk)) return;
+        // IsFullyPopulated: don't lock this chunk in as "initialized" while ChunkManager is still
+        // spawning its particles in batches - it would only see the handful spawned so far and the
+        // rest would never get GW polarization applied. UpdateGravitationalWave() retries every
+        // frame, so this chunk gets picked up again once ChunkManager finishes populating it.
+        if (!IsWaveActive || initializedChunks.Contains(chunk) || !chunk.IsFullyPopulated) return;
 
         foreach (Transform particle in chunk.ChunkObject.transform)
         {

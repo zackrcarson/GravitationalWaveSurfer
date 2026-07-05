@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -48,12 +49,28 @@ namespace GWS.WorldGen
         public float borderWidth = 0.1f;
         // ------------------------------------
 
-        private void Awake() 
+        [Space(6)]
+        [Header("Particle spawn batching")]
+        [Tooltip("Max number of particle GameObjects spawned per frame. Keeps a burst of newly " +
+                 "generated chunks from instantiating thousands of objects in a single frame.")]
+        public int particleSpawnBudgetPerFrame = 200;
+
+        // pooled particles, reused instead of Destroy()/Instantiate() on every chunk load/unload
+        private readonly Stack<GameObject> particlePool = new Stack<GameObject>();
+        private readonly Queue<(Chunk chunk, Vector3 position)> pendingParticleSpawns = new Queue<(Chunk, Vector3)>();
+        private readonly Dictionary<Chunk, int> pendingParticleCountForChunk = new Dictionary<Chunk, int>();
+        private Coroutine particleSpawnCoroutine;
+        private Transform particlePoolHolder;
+
+        private void Awake()
         {
             if (Instance == null)
             {
                 Instance = this;
                 // DontDestroyOnLoad(gameObject);
+
+                particlePoolHolder = new GameObject("ParticlePool (pooled, inactive)").transform;
+                particlePoolHolder.SetParent(transform);
             }
             else { Destroy(gameObject); }
 
@@ -81,7 +98,7 @@ namespace GWS.WorldGen
                         Vector3Int chunkPos = centerChunkPos + new Vector3Int(x, y, z);
                         if (!chunks.ContainsKey(chunkPos))
                         {
-                            GenerateChunk(chunkPos, true);
+                            GenerateChunk(chunkPos);
                         }
                     }
                 }
@@ -175,10 +192,32 @@ namespace GWS.WorldGen
             // remove chunks too far
             foreach (var chunkPos in chunksToRemove)
             {
-                Destroy(chunks[chunkPos].ChunkObject);
+                ReclaimChunk(chunks[chunkPos]);
                 chunks.Remove(chunkPos);
                 // Debug.Log("Removing chunk!");
             }
+        }
+
+        /// <summary>
+        /// Returns a chunk's particles to <see cref="particlePool"/> instead of letting them be
+        /// destroyed with the chunk, so revisiting the area later reuses them instead of paying
+        /// for a fresh Instantiate() burst.
+        /// </summary>
+        /// <param name="chunk">Chunk about to be removed.</param>
+        private void ReclaimChunk(Chunk chunk)
+        {
+            if (!chunk.HasPOI && !chunk.HasBlackHole)
+            {
+                foreach (var particle in chunk.Objects)
+                {
+                    if (particle == null) continue;
+                    particle.SetActive(false);
+                    particle.transform.SetParent(particlePoolHolder);
+                    particlePool.Push(particle);
+                }
+            }
+
+            Destroy(chunk.ChunkObject);
         }
 
         /// <summary>
@@ -189,7 +228,7 @@ namespace GWS.WorldGen
         /// - (debug) chunk border visualization
         /// </summary>
         /// <param name="chunkPos">chunk coordinate of new chunk</param>
-        private void GenerateChunk(Vector3Int chunkPos, bool awake=false)
+        private void GenerateChunk(Vector3Int chunkPos)
         {
             if (!GWManager.Instance) return; 
                 
@@ -218,14 +257,9 @@ namespace GWS.WorldGen
             {
                 // generate coordinates for particles first
                 List<Vector3> particlesPos = ParticleSpawner.Instance.GenerateParticlesForChunk(chunkPos, chunkSize, density);
-                // actually instantiating them in Unity
+                // actually instantiating them in Unity, spread across frames (see ProcessParticleSpawnQueue).
+                // GWManager picks up newly-populated chunks itself once Chunk.IsFullyPopulated is true.
                 InstantiateParticles(newChunk, particlesPos);
-
-                // initialize particles if GW active
-                if (!awake && GWManager.Instance.IsWaveActive)
-                {
-                    GWManager.Instance.InitializeChunk(newChunk);
-                }
             }
             else if (POI < POIProbability)
             {
@@ -294,22 +328,89 @@ namespace GWS.WorldGen
         }
 
         /// <summary>
-        /// Actual instantiation of GameObjects within a chunk
+        /// Queues a chunk's particles for instantiation, spread across frames by
+        /// <see cref="ProcessParticleSpawnQueue"/> instead of instantiating them all at once.
         /// </summary>
         /// <param name="chunk">Chunk object</param>
         /// <param name="particlesPos">list of Vector3 positions</param>
         private void InstantiateParticles(Chunk chunk, List<Vector3> particlesPos)
         {
-            List<GameObject> objects = new List<GameObject>();
+            if (particlesPos.Count == 0)
+            {
+                chunk.SetFullyPopulated(true);
+                return;
+            }
+
+            chunk.SetFullyPopulated(false);
+            pendingParticleCountForChunk[chunk] = particlesPos.Count;
 
             foreach (var particlePos in particlesPos)
             {
-                GameObject particle = Instantiate(ParticleSpawner.Instance.particlePrefab, particlePos, 
-                                                  Quaternion.identity, chunk.ChunkObject.transform);
-                objects.Add(particle);
+                pendingParticleSpawns.Enqueue((chunk, particlePos));
             }
 
-            chunk.SetObjects(objects);
+            if (particleSpawnCoroutine == null)
+            {
+                particleSpawnCoroutine = StartCoroutine(ProcessParticleSpawnQueue());
+            }
+        }
+
+        /// <summary>
+        /// Spawns queued particles a limited number at a time (<see cref="particleSpawnBudgetPerFrame"/>)
+        /// so that a burst of newly generated chunks doesn't instantiate thousands of GameObjects
+        /// within a single frame.
+        /// </summary>
+        private IEnumerator ProcessParticleSpawnQueue()
+        {
+            while (pendingParticleSpawns.Count > 0)
+            {
+                for (int i = 0; i < particleSpawnBudgetPerFrame && pendingParticleSpawns.Count > 0; i++)
+                {
+                    var (chunk, position) = pendingParticleSpawns.Dequeue();
+                    SpawnQueuedParticle(chunk, position);
+                }
+
+                yield return null;
+            }
+
+            particleSpawnCoroutine = null;
+        }
+
+        /// <summary>
+        /// Rents (or instantiates) a single particle for a chunk and, once that chunk's whole
+        /// batch has spawned, marks it fully populated.
+        /// </summary>
+        private void SpawnQueuedParticle(Chunk chunk, Vector3 position)
+        {
+            // chunk may have been reclaimed/destroyed before its particles reached the front of the queue
+            if (chunk.ChunkObject != null)
+            {
+                GameObject particle = RentParticle();
+                particle.transform.SetPositionAndRotation(position, Quaternion.identity);
+                particle.transform.SetParent(chunk.ChunkObject.transform);
+                particle.SetActive(true);
+                chunk.AddObject(particle);
+            }
+
+            if (--pendingParticleCountForChunk[chunk] <= 0)
+            {
+                pendingParticleCountForChunk.Remove(chunk);
+                chunk.SetFullyPopulated(true);
+            }
+        }
+
+        /// <summary>
+        /// Returns a pooled particle if one is available, otherwise instantiates a new one.
+        /// </summary>
+        private GameObject RentParticle()
+        {
+            while (particlePool.Count > 0)
+            {
+                GameObject pooled = particlePool.Pop();
+                if (pooled != null) return pooled;
+            }
+
+            return Instantiate(ParticleSpawner.Instance.particlePrefab);
         }
 
         /// <summary>

@@ -20,6 +20,12 @@ namespace GWS.WorldGen
         public bool IsActive { get; private set; }
         public bool HasPOI { get; private set; } = false;
         public bool HasBlackHole { get; private set; } = false;
+        /// <summary>
+        /// False while this chunk's particles are still being spawned in batches
+        /// (see ChunkManager.ProcessParticleSpawnQueue). Systems that need to see every
+        /// particle in a chunk (e.g. GWManager) should wait for this to be true.
+        /// </summary>
+        public bool IsFullyPopulated { get; private set; } = true;
         public List<GameObject> Objects { get; private set; }
 
         public Chunk (Vector3Int position, GameObject chunkParent)
@@ -35,6 +41,16 @@ namespace GWS.WorldGen
         public void SetObjects(List<GameObject> objects)
         {
             Objects = objects;
+        }
+
+        public void AddObject(GameObject obj)
+        {
+            Objects.Add(obj);
+        }
+
+        public void SetFullyPopulated(bool value)
+        {
+            IsFullyPopulated = value;
         }
 
         public void SetActive(bool active)
